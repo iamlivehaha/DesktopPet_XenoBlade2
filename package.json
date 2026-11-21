@@ -12,9 +12,12 @@
     "preview": "electron . --preview",
     "self-test": "electron . --self-test",
     "verify-startup": "electron . --verify-startup",
-    "voice": "electron . --voice"
+    "voice": "electron . --voice",
+    "dist": "node build-exe.cjs",
+    "check": "electron . --self-test"
   },
   "devDependencies": {
+    "@electron/packager": "18.3.6",
     "electron": "39.8.10"
   }
 }
