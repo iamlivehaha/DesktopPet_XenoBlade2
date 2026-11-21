@@ -673,8 +673,8 @@
         190,
         115
       ],
-      "releaseTimeScale": 1.5,
-      "landingEaseMs": 460
+      "releaseTimeScale": 1,
+      "landingEaseMs": 360
     },
     "run": {
       "label": "全屏漫游／小跑",
