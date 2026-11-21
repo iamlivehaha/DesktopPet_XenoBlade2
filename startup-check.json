@@ -1,0 +1,26 @@
+{
+  "packaged": false,
+  "appPath": "G:\\MythraDesktopPet-0.2.6-preview-share\\MythraDesktopPet-source",
+  "pid": 17464,
+  "mode": "desktop-only",
+  "petWindows": 1,
+  "previewWindows": 0,
+  "gotSingleInstanceLock": null,
+  "decodedImages": 126,
+  "actions": [
+    "idle",
+    "headpat",
+    "cheer",
+    "lookAround",
+    "stretch",
+    "drag",
+    "run",
+    "sofa",
+    "book",
+    "tea"
+  ],
+  "floating": true,
+  "initialAction": "idle",
+  "originalReferenceImages": 0,
+  "assetPathsRelative": true
+}

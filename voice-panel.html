@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+ <meta charset="utf-8">
+ <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' file: data: blob:; media-src 'self' blob:">
+ <meta name="viewport" content="width=device-width,initial-scale=1">
+ <title>光桌宠 · 语音对话</title>
+ <link rel="stylesheet" href="voice-panel.css">
+ <script defer src="voice-panel.js"></script>
+</head>
+<body>
+ <header>
+  <div class="portrait"><img src="assets/mythra/headpat-C1.png" alt=""></div>
+  <div class="heading"><span class="kicker">MYTHRA · VOICE</span><h1>和光说话</h1></div>
+  <button class="close" id="close" aria-label="关闭语音面板">×</button>
+ </header>
+
+ <div id="banner" class="banner" hidden></div>
+
+ <main id="log" aria-live="polite">
+  <div class="welcome"><strong>光</strong> 你好呀，点语音按钮说话，或直接打字指挥我。</div>
+  <div class="suggest" id="suggest"></div>
+ </main>
+
+ <footer>
+  <div class="status" id="status">准备就绪</div>
+  <div class="composer">
+   <button id="mic" class="mic" aria-label="按住说话" title="点击开始/停止语音识别">🎤</button>
+   <input id="input" type="text" placeholder="说点什么，或输入指令…" autocomplete="off">
+   <button id="send" class="send" aria-label="发送">➤</button>
+  </div>
+  <div class="tools">
+   <button id="settings-toggle" class="link">语音设置</button>
+   <span class="hint">Ctrl+Enter 发送 · Esc 关闭</span>
+  </div>
+ </footer>
+
+ <div id="settings-modal" class="modal" hidden>
+  <div class="modal-backdrop" id="modal-backdrop"></div>
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="settings-title">
+   <div class="modal-head">
+    <h2 id="settings-title">语音设置</h2>
+    <button id="cfg-close" class="close" aria-label="关闭设置">×</button>
+   </div>
+   <div class="modal-body">
+    <div class="field-label">人格副本</div>
+    <div class="personas">
+     <button id="persona-mythra" class="persona" data-persona="mythra"><b>光</b><small>活泼开朗 · 元气俏皮</small></button>
+     <button id="persona-pyra" class="persona" data-persona="pyra"><b>焰</b><small>温柔沉稳 · 体贴可靠</small></button>
+    </div>
+    <div class="presets">
+     <span class="preset-label">快速预设</span>
+     <button id="preset-ark" class="preset">火山引擎方舟</button>
+     <button id="preset-openai" class="preset">OpenAI</button>
+    </div>
+    <label>API 地址 <input id="cfg-baseURL" type="text" placeholder="https://ark.cn-beijing.volces.com/api/plan/v3"></label>
+    <label>模型 / 端点 ID <input id="cfg-model" type="text" placeholder="ark-code-latest 或 ep-xxxxxxxx"></label>
+    <label>API Key <input id="cfg-apiKey" type="password" placeholder="ark-… 或 sk-…"></label>
+    <label>语音识别
+     <select id="cfg-stt">
+      <option value="browser">浏览器语音识别（免费）</option>
+      <option value="whisper">Whisper 云转写（需 API）</option>
+     </select>
+    </label>
+    <label>语音 <input id="cfg-voice" type="text" placeholder="zh-CN"></label>
+    <label class="inline"><input id="cfg-ttsEnabled" type="checkbox" checked> 朗读回复（语音合成）</label>
+    <label>语速 <input id="cfg-ttsRate" type="number" min="0.5" max="2" step="0.1" value="1"></label>
+
+    <div class="field-label search-head">联网搜索 <small>用于查询实时信息</small></div>
+    <label>搜索服务
+     <select id="cfg-searchProvider">
+      <option value="none">不启用</option>
+      <option value="tavily">Tavily</option>
+      <option value="serper">Serper (Google)</option>
+     </select>
+    </label>
+    <div class="search-row">
+     <input id="cfg-tavilyKey" type="password" placeholder="Tavily API Key (tvly-…)">
+     <button id="test-tavily" class="mini-btn" title="测试 Tavily 连通">测试</button>
+    </div>
+    <div class="search-row">
+     <input id="cfg-serperKey" type="password" placeholder="Serper API Key">
+     <button id="test-serper" class="mini-btn" title="测试 Serper 连通">测试</button>
+    </div>
+   </div>
+   <div class="modal-foot">
+    <button id="cfg-test" class="test-btn">测试连通</button>
+    <button id="cfg-save" class="primary">保存设置</button>
+    <span id="cfg-feedback" role="status"></span>
+   </div>
+  </div>
+ </div>
+</body>
+</html>

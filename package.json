@@ -1,0 +1,20 @@
+{
+  "name": "mythra-desktop-pet-preview",
+  "version": "0.2.6",
+  "private": true,
+  "main": "lab-main.cjs",
+  "description": "Standalone Mythra desktop pet - motion redesign preview",
+  "author": "Local desktop pet project",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "electron .",
+    "start:desktop": "electron . --desktop",
+    "preview": "electron . --preview",
+    "self-test": "electron . --self-test",
+    "verify-startup": "electron . --verify-startup",
+    "voice": "electron . --voice"
+  },
+  "devDependencies": {
+    "electron": "39.8.10"
+  }
+}

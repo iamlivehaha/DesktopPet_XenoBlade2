@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+ <meta charset="utf-8">
+ <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'">
+ <meta name="viewport" content="width=device-width,initial-scale=1">
+ <title>光桌宠 · 快捷设置</title>
+ <link rel="stylesheet" href="settings-panel.css">
+ <script defer src="settings-panel.js"></script>
+</head>
+<body>
+ <header>
+  <div class="portrait"><img id="portrait-img" src="assets/mythra/headpat-C1.png" alt=""></div>
+  <div><span class="kicker" id="persona-kicker">MYTHRA</span><h1 id="persona-title">光 · 快捷设置</h1></div>
+  <button class="close" id="close" aria-label="关闭设置">×</button>
+ </header>
+ <main>
+  <div class="section-label">桌面行为</div>
+  <button id="autoIdle" class="setting" role="switch" aria-checked="false" aria-labelledby="idle-title" disabled>
+   <span><strong id="idle-title">随机待机</strong><small>依次随机表演待机动作</small></span>
+   <span class="chip"><span class="mark" aria-hidden="true">−</span><span class="value">读取中</span></span>
+  </button>
+  <button id="roam" class="setting" role="switch" aria-checked="false" aria-labelledby="roam-title" disabled>
+   <span><strong id="roam-title">全屏随机漫游</strong><small>在当前屏幕范围内小跑</small></span>
+   <span class="chip"><span class="mark" aria-hidden="true">−</span><span class="value">读取中</span></span>
+  </button>
+  <div class="section-label">人物形态</div>
+  <div class="persona-switch">
+   <button id="persona-mythra" class="persona-btn" data-persona="mythra"><b>光</b><small>金发 · 绿色系</small></button>
+   <button id="persona-pyra" class="persona-btn" data-persona="pyra"><b>焰</b><small>红发 · 暖色系</small></button>
+  </div>
+  <p id="feedback" role="status" aria-live="polite">点击切换；开启状态会显示 ✓。</p>
+ </main>
+ <footer>
+  <button class="voice" id="voice">语音对话 <span aria-hidden="true">🎤</span></button>
+  <button class="preview" id="preview">打开动作预览 <span aria-hidden="true">↗</span></button>
+  <button class="exit" id="quit">退出桌宠</button>
+ </footer>
+</body>
+</html>

@@ -1,0 +1,3796 @@
+{
+  "schema": 2,
+  "status": "v0.2.6-inbetweens-and-shuffled-idle",
+  "canvas": [
+    500,
+    500
+  ],
+  "root": [
+    250,
+    480
+  ],
+  "artMethod": "built-in image_gen; no procedural drawing/inbetween synthesis",
+  "actions": {
+    "idle": {
+      "label": "呼吸／重心小动作",
+      "nativeSingle": true,
+      "sourceRoot": "vpet-core://local/mod/0000_core/pet/vup\\Default\\Nomal\\1",
+      "start": {
+        "from": "neutral",
+        "to": "neutral",
+        "frames": [
+          {
+            "asset": "assets/mythra/headpat-C1.png",
+            "ms": 125
+          }
+        ]
+      },
+      "loop": {
+        "from": "neutral",
+        "to": "neutral",
+        "frames": [
+          {
+            "asset": "assets/mythra/idle-breath-0.png",
+            "ms": 250,
+            "nativeIndex": 0
+          },
+          {
+            "asset": "assets/mythra/idle-breath-1.png",
+            "ms": 125,
+            "nativeIndex": 1
+          },
+          {
+            "asset": "assets/mythra/idle-breath-2.png",
+            "ms": 125,
+            "nativeIndex": 2
+          },
+          {
+            "asset": "assets/mythra/idle-breath-3.png",
+            "ms": 375,
+            "nativeIndex": 3
+          },
+          {
+            "asset": "assets/mythra/idle-breath-4.png",
+            "ms": 125,
+            "nativeIndex": 4
+          },
+          {
+            "asset": "assets/mythra/idle-breath-5.png",
+            "ms": 250,
+            "nativeIndex": 5
+          },
+          {
+            "asset": "assets/mythra/idle-breath-1.png",
+            "ms": 125,
+            "nativeIndex": 6
+          },
+          {
+            "asset": "assets/mythra/idle-breath-0.png",
+            "ms": 125,
+            "nativeIndex": 7
+          }
+        ]
+      },
+      "end": {
+        "from": "neutral",
+        "to": "neutral",
+        "frames": [
+          {
+            "asset": "assets/mythra/headpat-C1.png",
+            "ms": 125
+          }
+        ]
+      }
+    },
+    "headpat": {
+      "label": "摸头反应",
+      "nativeSequence": true,
+      "sourceRoot": "vpet-core://local/mod/0000_core/pet/vup\\Touch_Head",
+      "start": {
+        "from": "neutral",
+        "to": "headpat",
+        "frames": [
+          {
+            "asset": "assets/mythra/headpat-A0.png",
+            "ms": 250,
+            "nativeIndex": 0
+          },
+          {
+            "asset": "assets/mythra/headpat-A1.png",
+            "ms": 125,
+            "nativeIndex": 1
+          }
+        ]
+      },
+      "loop": {
+        "from": "headpat",
+        "to": "headpat",
+        "frames": [
+          {
+            "asset": "assets/mythra/headpat-B0.png",
+            "ms": 125,
+            "nativeIndex": 2
+          },
+          {
+            "asset": "assets/mythra/headpat-B1.png",
+            "ms": 125,
+            "nativeIndex": 3
+          },
+          {
+            "asset": "assets/mythra/headpat-B2.png",
+            "ms": 125,
+            "nativeIndex": 4
+          },
+          {
+            "asset": "assets/mythra/headpat-B0.png",
+            "ms": 125,
+            "nativeIndex": 5
+          },
+          {
+            "asset": "assets/mythra/headpat-B4.png",
+            "ms": 125,
+            "nativeIndex": 6
+          },
+          {
+            "asset": "assets/mythra/headpat-B2.png",
+            "ms": 250,
+            "nativeIndex": 7
+          },
+          {
+            "asset": "assets/mythra/headpat-B0.png",
+            "ms": 125,
+            "nativeIndex": 8
+          },
+          {
+            "asset": "assets/mythra/headpat-B7.png",
+            "ms": 125,
+            "nativeIndex": 9
+          },
+          {
+            "asset": "assets/mythra/headpat-B2.png",
+            "ms": 125,
+            "nativeIndex": 10
+          },
+          {
+            "asset": "assets/mythra/headpat-B9.png",
+            "ms": 125,
+            "nativeIndex": 11
+          },
+          {
+            "asset": "assets/mythra/headpat-B0.png",
+            "ms": 125,
+            "nativeIndex": 12
+          }
+        ]
+      },
+      "end": {
+        "from": "headpat",
+        "to": "neutral",
+        "frames": [
+          {
+            "asset": "assets/mythra/headpat-C0.png",
+            "ms": 125,
+            "nativeIndex": 13
+          },
+          {
+            "asset": "assets/mythra/headpat-C1.png",
+            "ms": 250,
+            "nativeIndex": 14
+          }
+        ]
+      },
+      "exitAtAssets": [
+        "assets/mythra/headpat-B0.png"
+      ]
+    },
+    "cheer": {
+      "label": "开心招呼",
+      "artSource": "actual-inbetween-drawings-0.2.6",
+      "customAdapter": true,
+      "start": {
+        "from": "neutral",
+        "to": "cheer",
+        "frames": [
+          {
+            "asset": "assets/mythra/new-cheer-0.png",
+            "ms": 160
+          },
+          {
+            "asset": "assets/mythra/smooth-idle-cheer-0.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/new-cheer-1.png",
+            "ms": 140
+          }
+        ]
+      },
+      "loop": {
+        "from": "cheer",
+        "to": "cheer",
+        "frames": [
+          {
+            "asset": "assets/mythra/smooth-idle-cheer-1.png",
+            "ms": 150
+          },
+          {
+            "asset": "assets/mythra/new-cheer-2.png",
+            "ms": 270
+          },
+          {
+            "asset": "assets/mythra/smooth-idle-cheer-2.png",
+            "ms": 160
+          },
+          {
+            "asset": "assets/mythra/new-cheer-3.png",
+            "ms": 220
+          },
+          {
+            "asset": "assets/mythra/smooth-idle-cheer-1.png",
+            "ms": 150
+          },
+          {
+            "asset": "assets/mythra/new-cheer-2.png",
+            "ms": 230
+          },
+          {
+            "asset": "assets/mythra/smooth-idle-cheer-2.png",
+            "ms": 155
+          },
+          {
+            "asset": "assets/mythra/new-cheer-3.png",
+            "ms": 230
+          },
+          {
+            "asset": "assets/mythra/smooth-idle-cheer-1.png",
+            "ms": 150
+          },
+          {
+            "asset": "assets/mythra/new-cheer-2.png",
+            "ms": 270
+          }
+        ]
+      },
+      "end": {
+        "from": "cheer",
+        "to": "neutral",
+        "frames": [
+          {
+            "asset": "assets/mythra/smooth-idle-cheer-3.png",
+            "ms": 150
+          },
+          {
+            "asset": "assets/mythra/new-cheer-4.png",
+            "ms": 170
+          },
+          {
+            "asset": "assets/mythra/new-cheer-5.png",
+            "ms": 190
+          },
+          {
+            "asset": "assets/mythra/headpat-C1.png",
+            "ms": 125
+          }
+        ]
+      },
+      "exitAtAssets": [
+        "assets/mythra/new-cheer-2.png",
+        "assets/mythra/new-cheer-3.png"
+      ]
+    },
+    "lookAround": {
+      "label": "四处张望／理头发",
+      "artSource": "actual-inbetween-drawings-0.2.6",
+      "customAdapter": true,
+      "start": {
+        "from": "neutral",
+        "to": "lookAround",
+        "frames": [
+          {
+            "asset": "assets/mythra/new-lookAround-0.png",
+            "ms": 185
+          },
+          {
+            "asset": "assets/mythra/smooth-idle-lookAround-0.png",
+            "ms": 145
+          },
+          {
+            "asset": "assets/mythra/new-lookAround-1.png",
+            "ms": 155
+          },
+          {
+            "asset": "assets/mythra/smooth-idle-lookAround-1.png",
+            "ms": 145
+          }
+        ]
+      },
+      "loop": {
+        "from": "lookAround",
+        "to": "lookAround",
+        "frames": [
+          {
+            "asset": "assets/mythra/new-lookAround-2.png",
+            "ms": 350
+          },
+          {
+            "asset": "assets/mythra/new-lookAround-3.png",
+            "ms": 430
+          },
+          {
+            "asset": "assets/mythra/smooth-idle-lookAround-2.png",
+            "ms": 250
+          },
+          {
+            "asset": "assets/mythra/new-lookAround-2.png",
+            "ms": 480
+          },
+          {
+            "asset": "assets/mythra/new-lookAround-3.png",
+            "ms": 500
+          },
+          {
+            "asset": "assets/mythra/smooth-idle-lookAround-2.png",
+            "ms": 240
+          }
+        ]
+      },
+      "end": {
+        "from": "lookAround",
+        "to": "neutral",
+        "frames": [
+          {
+            "asset": "assets/mythra/smooth-idle-lookAround-3.png",
+            "ms": 165
+          },
+          {
+            "asset": "assets/mythra/new-lookAround-4.png",
+            "ms": 155
+          },
+          {
+            "asset": "assets/mythra/new-lookAround-5.png",
+            "ms": 205
+          },
+          {
+            "asset": "assets/mythra/headpat-C1.png",
+            "ms": 125
+          }
+        ]
+      },
+      "exitAtAssets": [
+        "assets/mythra/new-lookAround-2.png",
+        "assets/mythra/new-lookAround-3.png",
+        "assets/mythra/smooth-idle-lookAround-2.png"
+      ]
+    },
+    "stretch": {
+      "label": "伸懒腰",
+      "artSource": "actual-inbetween-drawings-0.2.6",
+      "customAdapter": true,
+      "start": {
+        "from": "neutral",
+        "to": "stretch",
+        "frames": [
+          {
+            "asset": "assets/mythra/new-stretch-0.png",
+            "ms": 145
+          },
+          {
+            "asset": "assets/mythra/smooth-idle-stretch-0.png",
+            "ms": 150
+          },
+          {
+            "asset": "assets/mythra/new-stretch-1.png",
+            "ms": 160
+          },
+          {
+            "asset": "assets/mythra/smooth-idle-stretch-1.png",
+            "ms": 170
+          }
+        ]
+      },
+      "loop": {
+        "from": "stretch",
+        "to": "stretch",
+        "frames": [
+          {
+            "asset": "assets/mythra/new-stretch-2.png",
+            "ms": 320
+          },
+          {
+            "asset": "assets/mythra/smooth-idle-stretch-2.png",
+            "ms": 480
+          },
+          {
+            "asset": "assets/mythra/new-stretch-3.png",
+            "ms": 460
+          },
+          {
+            "asset": "assets/mythra/smooth-idle-stretch-2.png",
+            "ms": 480
+          },
+          {
+            "asset": "assets/mythra/new-stretch-3.png",
+            "ms": 420
+          }
+        ]
+      },
+      "end": {
+        "from": "stretch",
+        "to": "neutral",
+        "frames": [
+          {
+            "asset": "assets/mythra/smooth-idle-stretch-3.png",
+            "ms": 165
+          },
+          {
+            "asset": "assets/mythra/new-stretch-4.png",
+            "ms": 160
+          },
+          {
+            "asset": "assets/mythra/new-stretch-5.png",
+            "ms": 200
+          },
+          {
+            "asset": "assets/mythra/headpat-C1.png",
+            "ms": 125
+          }
+        ]
+      },
+      "exitAtAssets": [
+        "assets/mythra/smooth-idle-stretch-2.png",
+        "assets/mythra/new-stretch-3.png"
+      ]
+    },
+    "drag": {
+      "label": "提起／悬空／放下",
+      "kind": "drag",
+      "nativeDrag": true,
+      "sourceRoot": "vpet-core://local/mod/0000_core/pet/vup\\Raise",
+      "dynamic": {
+        "frames": [
+          {
+            "asset": "assets/mythra/drag-00.png",
+            "ms": 500,
+            "nativeIndex": 0
+          },
+          {
+            "asset": "assets/mythra/drag-01.png",
+            "ms": 125,
+            "nativeIndex": 1
+          },
+          {
+            "asset": "assets/mythra/drag-02.png",
+            "ms": 125,
+            "nativeIndex": 2
+          },
+          {
+            "asset": "assets/mythra/drag-03.png",
+            "ms": 125,
+            "nativeIndex": 3
+          },
+          {
+            "asset": "assets/mythra/drag-04.png",
+            "ms": 125,
+            "nativeIndex": 4
+          },
+          {
+            "asset": "assets/mythra/drag-05.png",
+            "ms": 125,
+            "nativeIndex": 5
+          },
+          {
+            "asset": "assets/mythra/drag-06.png",
+            "ms": 125,
+            "nativeIndex": 6
+          },
+          {
+            "asset": "assets/mythra/drag-00.png",
+            "ms": 375,
+            "nativeIndex": 7
+          }
+        ]
+      },
+      "start": {
+        "from": "suspended-moving",
+        "to": "suspended-static",
+        "frames": [
+          {
+            "asset": "assets/mythra/drag-07.png",
+            "ms": 125,
+            "nativeIndex": 8
+          },
+          {
+            "asset": "assets/mythra/drag-08.png",
+            "ms": 125,
+            "nativeIndex": 9
+          },
+          {
+            "asset": "assets/mythra/drag-09.png",
+            "ms": 125,
+            "nativeIndex": 10
+          },
+          {
+            "asset": "assets/mythra/drag-08.png",
+            "ms": 125,
+            "nativeIndex": 11
+          },
+          {
+            "asset": "assets/mythra/drag-10.png",
+            "ms": 125,
+            "nativeIndex": 12
+          },
+          {
+            "asset": "assets/mythra/drag-08.png",
+            "ms": 625,
+            "nativeIndex": 13
+          }
+        ]
+      },
+      "loop": {
+        "from": "suspended-static",
+        "to": "suspended-static",
+        "frames": [
+          {
+            "asset": "assets/mythra/drag-08.png",
+            "ms": 125,
+            "nativeIndex": 14
+          },
+          {
+            "asset": "assets/mythra/drag-11.png",
+            "ms": 125,
+            "nativeIndex": 15
+          },
+          {
+            "asset": "assets/mythra/drag-12.png",
+            "ms": 500,
+            "nativeIndex": 16
+          },
+          {
+            "asset": "assets/mythra/drag-11.png",
+            "ms": 125,
+            "nativeIndex": 17
+          },
+          {
+            "asset": "assets/mythra/drag-13.png",
+            "ms": 875,
+            "nativeIndex": 18
+          }
+        ]
+      },
+      "end": {
+        "from": "suspended-static",
+        "to": "neutral",
+        "frames": [
+          {
+            "asset": "assets/mythra/drag-14.png",
+            "ms": 125,
+            "nativeIndex": 19
+          },
+          {
+            "asset": "assets/mythra/drag-15.png",
+            "ms": 125,
+            "nativeIndex": 20
+          },
+          {
+            "asset": "assets/mythra/drag-16.png",
+            "ms": 125,
+            "nativeIndex": 21
+          },
+          {
+            "asset": "assets/mythra/drag-17.png",
+            "ms": 125,
+            "nativeIndex": 22
+          },
+          {
+            "asset": "assets/mythra/drag-18.png",
+            "ms": 125,
+            "nativeIndex": 23
+          },
+          {
+            "asset": "assets/mythra/drag-19.png",
+            "ms": 125,
+            "nativeIndex": 24
+          },
+          {
+            "asset": "assets/mythra/drag-20.png",
+            "ms": 125,
+            "nativeIndex": 25
+          },
+          {
+            "asset": "assets/mythra/drag-21.png",
+            "ms": 125,
+            "nativeIndex": 26
+          },
+          {
+            "asset": "assets/mythra/drag-22.png",
+            "ms": 125,
+            "nativeIndex": 27
+          },
+          {
+            "asset": "assets/mythra/drag-23.png",
+            "ms": 125,
+            "nativeIndex": 28
+          },
+          {
+            "asset": "assets/mythra/drag-24.png",
+            "ms": 125,
+            "nativeIndex": 29
+          },
+          {
+            "asset": "assets/mythra/drag-25.png",
+            "ms": 125,
+            "nativeIndex": 30
+          },
+          {
+            "asset": "assets/mythra/drag-22.png",
+            "ms": 500,
+            "nativeIndex": 31
+          },
+          {
+            "asset": "assets/mythra/drag-26.png",
+            "ms": 125,
+            "nativeIndex": 32
+          },
+          {
+            "asset": "assets/mythra/drag-27.png",
+            "ms": 125,
+            "nativeIndex": 33
+          },
+          {
+            "asset": "assets/mythra/drag-28.png",
+            "ms": 125,
+            "nativeIndex": 34
+          },
+          {
+            "asset": "assets/mythra/drag-29.png",
+            "ms": 125,
+            "nativeIndex": 35
+          },
+          {
+            "asset": "assets/mythra/drag-30.png",
+            "ms": 125,
+            "nativeIndex": 36
+          },
+          {
+            "asset": "assets/mythra/drag-31.png",
+            "ms": 125,
+            "nativeIndex": 37
+          },
+          {
+            "asset": "assets/mythra/drag-32.png",
+            "ms": 125,
+            "nativeIndex": 38
+          },
+          {
+            "asset": "assets/mythra/drag-33.png",
+            "ms": 125,
+            "nativeIndex": 39
+          }
+        ]
+      },
+      "settleAfterDynamicCycles": 3,
+      "grabAnchor": [
+        190,
+        115
+      ],
+      "releaseTimeScale": 1.5,
+      "landingEaseMs": 460
+    },
+    "run": {
+      "label": "全屏漫游／小跑",
+      "artSource": "redrawn-from-approved-model",
+      "customAdapter": true,
+      "start": {
+        "from": "neutral",
+        "to": "run",
+        "frames": [
+          {
+            "asset": "assets/mythra/new-runBridge-0.png",
+            "ms": 120
+          },
+          {
+            "asset": "assets/mythra/new-runBridge-1.png",
+            "ms": 120
+          },
+          {
+            "asset": "assets/mythra/new-runBridge-2.png",
+            "ms": 120
+          }
+        ]
+      },
+      "loop": {
+        "from": "run",
+        "to": "run",
+        "frames": [
+          {
+            "asset": "assets/mythra/new-run-0.png",
+            "ms": 105
+          },
+          {
+            "asset": "assets/mythra/new-run-1.png",
+            "ms": 105
+          },
+          {
+            "asset": "assets/mythra/new-run-2.png",
+            "ms": 105
+          },
+          {
+            "asset": "assets/mythra/new-run-3.png",
+            "ms": 105
+          },
+          {
+            "asset": "assets/mythra/new-run-4.png",
+            "ms": 105
+          },
+          {
+            "asset": "assets/mythra/new-run-5.png",
+            "ms": 105
+          }
+        ]
+      },
+      "end": {
+        "from": "run",
+        "to": "neutral",
+        "frames": [
+          {
+            "asset": "assets/mythra/new-runBridge-3.png",
+            "ms": 125
+          },
+          {
+            "asset": "assets/mythra/new-runBridge-4.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/new-runBridge-5.png",
+            "ms": 140
+          },
+          {
+            "asset": "assets/mythra/headpat-C1.png",
+            "ms": 110
+          }
+        ]
+      },
+      "exitAtAssets": [
+        "assets/mythra/new-run-0.png",
+        "assets/mythra/new-run-3.png"
+      ]
+    },
+    "sofa": {
+      "label": "搬出沙发／躺着玩 Switch",
+      "artSource": "actual-inbetween-drawings-0.2.6",
+      "exitAtAssets": [
+        "assets/mythra/idle-sofa-3.png",
+        "assets/mythra/smooth-idle-sofa-3.png",
+        "assets/mythra/smooth-idle-sofa-1.png"
+      ],
+      "start": {
+        "from": "neutral",
+        "to": "sofa",
+        "frames": [
+          {
+            "asset": "assets/mythra/idle-sofa-0.png",
+            "ms": 340
+          },
+          {
+            "asset": "assets/mythra/idle-sofa-1.png",
+            "ms": 300
+          },
+          {
+            "asset": "assets/mythra/idle-sofaBridge-0.png",
+            "ms": 180
+          },
+          {
+            "asset": "assets/mythra/idle-sofa-2.png",
+            "ms": 260
+          },
+          {
+            "asset": "assets/mythra/idle-sofaBridge-1.png",
+            "ms": 205
+          }
+        ]
+      },
+      "loop": {
+        "from": "sofa",
+        "to": "sofa",
+        "frames": [
+          {
+            "asset": "assets/mythra/idle-sofa-3.png",
+            "ms": 490
+          },
+          {
+            "asset": "assets/mythra/smooth-idle-sofa-0.png",
+            "ms": 380
+          },
+          {
+            "asset": "assets/mythra/smooth-idle-sofa-1.png",
+            "ms": 430
+          },
+          {
+            "asset": "assets/mythra/idle-sofa-3.png",
+            "ms": 490
+          },
+          {
+            "asset": "assets/mythra/smooth-idle-sofa-2.png",
+            "ms": 140
+          },
+          {
+            "asset": "assets/mythra/smooth-idle-sofa-1.png",
+            "ms": 390
+          },
+          {
+            "asset": "assets/mythra/smooth-idle-sofa-0.png",
+            "ms": 410
+          },
+          {
+            "asset": "assets/mythra/smooth-idle-sofa-3.png",
+            "ms": 470
+          },
+          {
+            "asset": "assets/mythra/idle-sofa-4.png",
+            "ms": 245
+          },
+          {
+            "asset": "assets/mythra/smooth-idle-sofa-3.png",
+            "ms": 410
+          },
+          {
+            "asset": "assets/mythra/smooth-idle-sofa-1.png",
+            "ms": 420
+          },
+          {
+            "asset": "assets/mythra/idle-sofa-3.png",
+            "ms": 525
+          },
+          {
+            "asset": "assets/mythra/smooth-idle-sofa-2.png",
+            "ms": 160
+          },
+          {
+            "asset": "assets/mythra/idle-sofa-3.png",
+            "ms": 450
+          }
+        ]
+      },
+      "end": {
+        "from": "sofa",
+        "to": "neutral",
+        "frames": [
+          {
+            "asset": "assets/mythra/idle-sofaBridge-2.png",
+            "ms": 210
+          },
+          {
+            "asset": "assets/mythra/idle-sofa-5.png",
+            "ms": 300
+          },
+          {
+            "asset": "assets/mythra/idle-sofaBridge-3.png",
+            "ms": 220
+          },
+          {
+            "asset": "assets/mythra/idle-sofa-1.png",
+            "ms": 260
+          },
+          {
+            "asset": "assets/mythra/idle-sofa-0.png",
+            "ms": 300
+          },
+          {
+            "asset": "assets/mythra/headpat-C1.png",
+            "ms": 125
+          }
+        ]
+      }
+    },
+    "book": {
+      "label": "翻书／看看读到了什么",
+      "artSource": "actual-inbetween-drawings-0.2.6",
+      "exitAtAssets": [
+        "assets/mythra/idle-book-2.png",
+        "assets/mythra/idle-book-4.png"
+      ],
+      "start": {
+        "from": "neutral",
+        "to": "book",
+        "frames": [
+          {
+            "asset": "assets/mythra/idle-book-0.png",
+            "ms": 235
+          },
+          {
+            "asset": "assets/mythra/smooth-idle-book-0.png",
+            "ms": 190
+          },
+          {
+            "asset": "assets/mythra/idle-book-1.png",
+            "ms": 250
+          }
+        ]
+      },
+      "loop": {
+        "from": "book",
+        "to": "book",
+        "frames": [
+          {
+            "asset": "assets/mythra/idle-book-2.png",
+            "ms": 535
+          },
+          {
+            "asset": "assets/mythra/smooth-idle-book-1.png",
+            "ms": 205
+          },
+          {
+            "asset": "assets/mythra/idle-book-3.png",
+            "ms": 235
+          },
+          {
+            "asset": "assets/mythra/smooth-idle-book-2.png",
+            "ms": 240
+          },
+          {
+            "asset": "assets/mythra/idle-book-4.png",
+            "ms": 470
+          },
+          {
+            "asset": "assets/mythra/idle-book-2.png",
+            "ms": 560
+          },
+          {
+            "asset": "assets/mythra/smooth-idle-book-1.png",
+            "ms": 215
+          },
+          {
+            "asset": "assets/mythra/idle-book-3.png",
+            "ms": 210
+          },
+          {
+            "asset": "assets/mythra/smooth-idle-book-2.png",
+            "ms": 210
+          },
+          {
+            "asset": "assets/mythra/idle-book-4.png",
+            "ms": 520
+          }
+        ]
+      },
+      "end": {
+        "from": "book",
+        "to": "neutral",
+        "frames": [
+          {
+            "asset": "assets/mythra/smooth-idle-book-3.png",
+            "ms": 200
+          },
+          {
+            "asset": "assets/mythra/idle-book-5.png",
+            "ms": 280
+          },
+          {
+            "asset": "assets/mythra/headpat-C1.png",
+            "ms": 125
+          }
+        ]
+      }
+    },
+    "tea": {
+      "label": "捧杯／喝热饮",
+      "artSource": "actual-inbetween-drawings-0.2.6",
+      "exitAtAssets": [
+        "assets/mythra/smooth-idle-tea-2.png",
+        "assets/mythra/idle-tea-3.png"
+      ],
+      "start": {
+        "from": "neutral",
+        "to": "tea",
+        "frames": [
+          {
+            "asset": "assets/mythra/idle-tea-0.png",
+            "ms": 240
+          },
+          {
+            "asset": "assets/mythra/idle-tea-1.png",
+            "ms": 235
+          },
+          {
+            "asset": "assets/mythra/smooth-idle-tea-0.png",
+            "ms": 195
+          },
+          {
+            "asset": "assets/mythra/smooth-idle-tea-1.png",
+            "ms": 175
+          }
+        ]
+      },
+      "loop": {
+        "from": "tea",
+        "to": "tea",
+        "frames": [
+          {
+            "asset": "assets/mythra/idle-tea-2.png",
+            "ms": 400
+          },
+          {
+            "asset": "assets/mythra/idle-tea-3.png",
+            "ms": 460
+          },
+          {
+            "asset": "assets/mythra/smooth-idle-tea-2.png",
+            "ms": 300
+          },
+          {
+            "asset": "assets/mythra/smooth-idle-tea-1.png",
+            "ms": 240
+          },
+          {
+            "asset": "assets/mythra/idle-tea-2.png",
+            "ms": 450
+          },
+          {
+            "asset": "assets/mythra/idle-tea-3.png",
+            "ms": 480
+          },
+          {
+            "asset": "assets/mythra/smooth-idle-tea-2.png",
+            "ms": 340
+          }
+        ]
+      },
+      "end": {
+        "from": "tea",
+        "to": "neutral",
+        "frames": [
+          {
+            "asset": "assets/mythra/idle-tea-4.png",
+            "ms": 265
+          },
+          {
+            "asset": "assets/mythra/smooth-idle-tea-3.png",
+            "ms": 190
+          },
+          {
+            "asset": "assets/mythra/idle-tea-5.png",
+            "ms": 250
+          },
+          {
+            "asset": "assets/mythra/headpat-C1.png",
+            "ms": 125
+          }
+        ]
+      }
+    }
+  },
+  "assets": [
+    {
+      "name": "headpat-A0",
+      "file": "assets/mythra/headpat-A0.png",
+      "sha256": "276d80648e7003b5422e9a9b63a0a9050d9b36b20054e5734c540b95d4f44800",
+      "sheetSHA256": "5ef4a52f89d93986ddffc19cff5edcbb632ad83744e9148c50637ddb695fd696",
+      "componentBounds": [
+        87,
+        8,
+        323,
+        464
+      ],
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "rootOffset": 0,
+      "realDrawing": true
+    },
+    {
+      "name": "headpat-A1",
+      "file": "assets/mythra/headpat-A1.png",
+      "sha256": "b8d9f67a0021262c425c90444005c2d9ae56972ad77fc96019b8ed930da70775",
+      "sheetSHA256": "5ef4a52f89d93986ddffc19cff5edcbb632ad83744e9148c50637ddb695fd696",
+      "componentBounds": [
+        574,
+        6,
+        324,
+        467
+      ],
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "rootOffset": 20,
+      "realDrawing": true
+    },
+    {
+      "name": "headpat-B0",
+      "file": "assets/mythra/headpat-B0.png",
+      "sha256": "b589ead8fcf6fd00bab008bf15398a94bf5fe814f2029155d57c7afa17a27a8b",
+      "sheetSHA256": "5ef4a52f89d93986ddffc19cff5edcbb632ad83744e9148c50637ddb695fd696",
+      "componentBounds": [
+        1023,
+        8,
+        328,
+        464
+      ],
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "rootOffset": 0,
+      "realDrawing": true
+    },
+    {
+      "name": "headpat-B1",
+      "file": "assets/mythra/headpat-B1.png",
+      "sha256": "857287d3d66528db8df2c0d3e236df56503367c07f04cce841ed8043fd4fc235",
+      "sheetSHA256": "5ef4a52f89d93986ddffc19cff5edcbb632ad83744e9148c50637ddb695fd696",
+      "componentBounds": [
+        82,
+        514,
+        332,
+        471
+      ],
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "rootOffset": 0,
+      "realDrawing": true
+    },
+    {
+      "name": "headpat-B2",
+      "file": "assets/mythra/headpat-B2.png",
+      "sha256": "453f6e48ef5830672ed2b70cbe8632c1d642ff61fe9c4e0a12b6f4479733d27f",
+      "sheetSHA256": "5ef4a52f89d93986ddffc19cff5edcbb632ad83744e9148c50637ddb695fd696",
+      "componentBounds": [
+        571,
+        514,
+        334,
+        471
+      ],
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "rootOffset": 0,
+      "realDrawing": true
+    },
+    {
+      "name": "headpat-B4",
+      "file": "assets/mythra/headpat-B4.png",
+      "sha256": "66d815e381811e9407a5f376d274be472f0155267aba40f457a40dd3447b740c",
+      "sheetSHA256": "41a2815ddbe8362d7166976464b9c7b19a388828aeb9d14215b26b14b8f13588",
+      "componentBounds": [
+        97,
+        3,
+        332,
+        470
+      ],
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "rootOffset": 0,
+      "realDrawing": true
+    },
+    {
+      "name": "headpat-B7",
+      "file": "assets/mythra/headpat-B7.png",
+      "sha256": "208ba8202cdeb805d5d2994dd9924455f59583fec6e977b729d568abe36a47ca",
+      "sheetSHA256": "41a2815ddbe8362d7166976464b9c7b19a388828aeb9d14215b26b14b8f13588",
+      "componentBounds": [
+        596,
+        10,
+        320,
+        463
+      ],
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "rootOffset": 0,
+      "realDrawing": true
+    },
+    {
+      "name": "headpat-B9",
+      "file": "assets/mythra/headpat-B9.png",
+      "sha256": "10cd050882492455af7849cd3e9833e5465f7acca4623b82514a32f3106507f0",
+      "sheetSHA256": "41a2815ddbe8362d7166976464b9c7b19a388828aeb9d14215b26b14b8f13588",
+      "componentBounds": [
+        1102,
+        4,
+        328,
+        469
+      ],
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "rootOffset": 0,
+      "realDrawing": true
+    },
+    {
+      "name": "headpat-C0",
+      "file": "assets/mythra/headpat-C0.png",
+      "sha256": "5e03f84bc1b1f877ffdd386734cd20b8c3bc06a8734d813f1265be5b9a1613e9",
+      "sheetSHA256": "41a2815ddbe8362d7166976464b9c7b19a388828aeb9d14215b26b14b8f13588",
+      "componentBounds": [
+        91,
+        521,
+        343,
+        470
+      ],
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "rootOffset": 0,
+      "realDrawing": true
+    },
+    {
+      "name": "headpat-C1",
+      "file": "assets/mythra/headpat-C1.png",
+      "sha256": "562f5f5161d01b6fea4f4c101cc3174448de33330ccbc6ffb0dc801f3f84598f",
+      "sheetSHA256": "41a2815ddbe8362d7166976464b9c7b19a388828aeb9d14215b26b14b8f13588",
+      "componentBounds": [
+        599,
+        521,
+        322,
+        470
+      ],
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "rootOffset": 0,
+      "realDrawing": true
+    },
+    {
+      "name": "idle-breath-0",
+      "file": "assets/mythra/idle-breath-0.png",
+      "sha256": "676857a917cb9c12196d6837d4fc3d6e77568f2865dab474750b781700e601e3",
+      "sheetSHA256": "f1e75d8ea5a6a2ee005a001042f3ce6f5fc522aa4f30d74dd3cc88e4f119a126",
+      "componentBounds": [
+        94,
+        13,
+        305,
+        456
+      ],
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "anchorMode": "ground",
+      "crownPoint": [
+        248.35,
+        75.18
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-breath-1",
+      "file": "assets/mythra/idle-breath-1.png",
+      "sha256": "9fe7cd05f32d479b5d1f3127901e5453f6220c3afd117668559ba60f337b3ff8",
+      "sheetSHA256": "f1e75d8ea5a6a2ee005a001042f3ce6f5fc522aa4f30d74dd3cc88e4f119a126",
+      "componentBounds": [
+        607,
+        13,
+        303,
+        456
+      ],
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "anchorMode": "ground",
+      "crownPoint": [
+        247.92,
+        74.38
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-breath-2",
+      "file": "assets/mythra/idle-breath-2.png",
+      "sha256": "66759f816ff2a2b40fffbea9d302b65ad48d7125d5295bd5aa8a0f597e20a713",
+      "sheetSHA256": "f1e75d8ea5a6a2ee005a001042f3ce6f5fc522aa4f30d74dd3cc88e4f119a126",
+      "componentBounds": [
+        1115,
+        10,
+        313,
+        459
+      ],
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "anchorMode": "ground",
+      "crownPoint": [
+        249.71,
+        72.51
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-breath-3",
+      "file": "assets/mythra/idle-breath-3.png",
+      "sha256": "375bb857a46acdbc05b6b4d0e15d0221718217c82a57525c58af567e10087cb0",
+      "sheetSHA256": "f1e75d8ea5a6a2ee005a001042f3ce6f5fc522aa4f30d74dd3cc88e4f119a126",
+      "componentBounds": [
+        92,
+        524,
+        309,
+        457
+      ],
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "anchorMode": "ground",
+      "crownPoint": [
+        248.02,
+        74.37
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-breath-4",
+      "file": "assets/mythra/idle-breath-4.png",
+      "sha256": "edb8d61b395ea42e3e79e908cfff45aa9d0738d8558a8bf48ebff246abba8f92",
+      "sheetSHA256": "f1e75d8ea5a6a2ee005a001042f3ce6f5fc522aa4f30d74dd3cc88e4f119a126",
+      "componentBounds": [
+        607,
+        527,
+        305,
+        454
+      ],
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "anchorMode": "ground",
+      "crownPoint": [
+        248.37,
+        76.12
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-breath-5",
+      "file": "assets/mythra/idle-breath-5.png",
+      "sha256": "efe80c512b99c4f285300e3c8d6d61fd0e85061d1c5e269148c39900f220b554",
+      "sheetSHA256": "f1e75d8ea5a6a2ee005a001042f3ce6f5fc522aa4f30d74dd3cc88e4f119a126",
+      "componentBounds": [
+        1121,
+        526,
+        301,
+        455
+      ],
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "anchorMode": "ground",
+      "crownPoint": [
+        248.63,
+        76.39
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "drag-00",
+      "file": "assets/mythra/drag-00.png",
+      "sha256": "26ee482439752907ea778aa611b6e676d872ddba0247d773b1ff282f0a251ba0",
+      "sheetSHA256": "0e67c84410309c6075807ee03190ecddcfce6f48617f8f7caab0c39f999efdd3",
+      "componentBounds": [
+        77,
+        101,
+        386,
+        321
+      ],
+      "registeredRoot": [
+        190,
+        115
+      ],
+      "anchorMode": "crown",
+      "crownPoint": [
+        189.72,
+        114.75
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "drag-01",
+      "file": "assets/mythra/drag-01.png",
+      "sha256": "4fcd889f46ca9848bad6dc00999b09bc77d8d8a655ca8a752956553807916f12",
+      "sheetSHA256": "0e67c84410309c6075807ee03190ecddcfce6f48617f8f7caab0c39f999efdd3",
+      "componentBounds": [
+        573,
+        107,
+        389,
+        316
+      ],
+      "registeredRoot": [
+        190,
+        115
+      ],
+      "anchorMode": "crown",
+      "crownPoint": [
+        190.36,
+        115.09
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "drag-02",
+      "file": "assets/mythra/drag-02.png",
+      "sha256": "93636ca8802c8dd3d468c8142c1edb98208fcaa4de568b9acac5c2c723f75c28",
+      "sheetSHA256": "0e67c84410309c6075807ee03190ecddcfce6f48617f8f7caab0c39f999efdd3",
+      "componentBounds": [
+        1071,
+        112,
+        388,
+        317
+      ],
+      "registeredRoot": [
+        190,
+        115
+      ],
+      "anchorMode": "crown",
+      "crownPoint": [
+        190.5,
+        115.35
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "drag-03",
+      "file": "assets/mythra/drag-03.png",
+      "sha256": "5b2da4e9eb16392ebe022929bde7853d08a6e0b6cd1f77cfd070a6928d14f959",
+      "sheetSHA256": "0e67c84410309c6075807ee03190ecddcfce6f48617f8f7caab0c39f999efdd3",
+      "componentBounds": [
+        88,
+        626,
+        369,
+        315
+      ],
+      "registeredRoot": [
+        190,
+        115
+      ],
+      "anchorMode": "crown",
+      "crownPoint": [
+        190.09,
+        114.74
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "drag-04",
+      "file": "assets/mythra/drag-04.png",
+      "sha256": "a653c4ee0538541a91c27d362e95c998c99f84e8d6d51071229c33d27bce81a9",
+      "sheetSHA256": "0e67c84410309c6075807ee03190ecddcfce6f48617f8f7caab0c39f999efdd3",
+      "componentBounds": [
+        589,
+        632,
+        364,
+        311
+      ],
+      "registeredRoot": [
+        190,
+        115
+      ],
+      "anchorMode": "crown",
+      "crownPoint": [
+        190.22,
+        115.28
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "drag-05",
+      "file": "assets/mythra/drag-05.png",
+      "sha256": "3baa1a340866c7c366998ebbd1814d46264ea0bf4d8b1e9932b28dc994a582f0",
+      "sheetSHA256": "0e67c84410309c6075807ee03190ecddcfce6f48617f8f7caab0c39f999efdd3",
+      "componentBounds": [
+        1084,
+        629,
+        380,
+        314
+      ],
+      "registeredRoot": [
+        190,
+        115
+      ],
+      "anchorMode": "crown",
+      "crownPoint": [
+        189.92,
+        114.7
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "drag-06",
+      "file": "assets/mythra/drag-06.png",
+      "sha256": "c9c59af11810e9db2a3a5074d8fdca55f036b10bc0b9b635ad3b8ed774a2581e",
+      "sheetSHA256": "eae9c4cf087ed56331fd7bb054c42a74981bd0b7d41bc704877d7f339a3cc7c1",
+      "componentBounds": [
+        81,
+        86,
+        372,
+        322
+      ],
+      "registeredRoot": [
+        190,
+        115
+      ],
+      "anchorMode": "crown",
+      "crownPoint": [
+        189.53,
+        115.15
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "drag-07",
+      "file": "assets/mythra/drag-07.png",
+      "sha256": "6063ffb606043831a0601af9db96b4686008bcb281d1ce2dfe4d7c03ed04904f",
+      "sheetSHA256": "eae9c4cf087ed56331fd7bb054c42a74981bd0b7d41bc704877d7f339a3cc7c1",
+      "componentBounds": [
+        604,
+        81,
+        343,
+        329
+      ],
+      "registeredRoot": [
+        190,
+        115
+      ],
+      "anchorMode": "crown",
+      "crownPoint": [
+        189.84,
+        114.73
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "drag-08",
+      "file": "assets/mythra/drag-08.png",
+      "sha256": "3599f1cc354a632d088e40d12146f124b64d002cb41d130c7b2f57cd787bcac9",
+      "sheetSHA256": "eae9c4cf087ed56331fd7bb054c42a74981bd0b7d41bc704877d7f339a3cc7c1",
+      "componentBounds": [
+        1126,
+        77,
+        318,
+        345
+      ],
+      "registeredRoot": [
+        190,
+        115
+      ],
+      "anchorMode": "crown",
+      "crownPoint": [
+        190.01,
+        114.99
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "drag-09",
+      "file": "assets/mythra/drag-09.png",
+      "sha256": "204bbe895cd7158f00632a50eb3b26b46a197c77a73e24f0b87184e0b26b0593",
+      "sheetSHA256": "eae9c4cf087ed56331fd7bb054c42a74981bd0b7d41bc704877d7f339a3cc7c1",
+      "componentBounds": [
+        106,
+        590,
+        305,
+        356
+      ],
+      "registeredRoot": [
+        190,
+        115
+      ],
+      "anchorMode": "crown",
+      "crownPoint": [
+        189.79,
+        114.6
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "drag-10",
+      "file": "assets/mythra/drag-10.png",
+      "sha256": "36b9c5b1ca74448b48161b04a62ad40f0e7cab59809019f5d9a59e018db00f73",
+      "sheetSHA256": "eae9c4cf087ed56331fd7bb054c42a74981bd0b7d41bc704877d7f339a3cc7c1",
+      "componentBounds": [
+        621,
+        592,
+        299,
+        354
+      ],
+      "registeredRoot": [
+        190,
+        115
+      ],
+      "anchorMode": "crown",
+      "crownPoint": [
+        190.42,
+        115.33
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "drag-11",
+      "file": "assets/mythra/drag-11.png",
+      "sha256": "da1cb4580dfc5067686ef05863b0b8df6d517738b6278297fa286d533d4f0c42",
+      "sheetSHA256": "eae9c4cf087ed56331fd7bb054c42a74981bd0b7d41bc704877d7f339a3cc7c1",
+      "componentBounds": [
+        1138,
+        593,
+        291,
+        358
+      ],
+      "registeredRoot": [
+        190,
+        115
+      ],
+      "anchorMode": "crown",
+      "crownPoint": [
+        190.41,
+        114.56
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "drag-12",
+      "file": "assets/mythra/drag-12.png",
+      "sha256": "338e01faedd2afba1d5d3c913b88f1c100710f25d484157daab9daf812350b61",
+      "sheetSHA256": "38ba34f68ff5f77c68748a5fe27cf49ee267afd8f2f7bd70e45b0e4fcd698ffc",
+      "componentBounds": [
+        115,
+        106,
+        292,
+        321
+      ],
+      "registeredRoot": [
+        190,
+        115
+      ],
+      "anchorMode": "crown",
+      "crownPoint": [
+        190.29,
+        114.58
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "drag-13",
+      "file": "assets/mythra/drag-13.png",
+      "sha256": "6f16de42fda24b0d7f28ec24b889dd2b7bb15a8082e020bbfc421c47fdbb2a2c",
+      "sheetSHA256": "38ba34f68ff5f77c68748a5fe27cf49ee267afd8f2f7bd70e45b0e4fcd698ffc",
+      "componentBounds": [
+        627,
+        106,
+        292,
+        321
+      ],
+      "registeredRoot": [
+        190,
+        115
+      ],
+      "anchorMode": "crown",
+      "crownPoint": [
+        189.57,
+        114.79
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "drag-14",
+      "file": "assets/mythra/drag-14.png",
+      "sha256": "51579d4c175edf92d97a82a0d1fc43f1ad4a27054326aa4cf8221085c00002a9",
+      "sheetSHA256": "38ba34f68ff5f77c68748a5fe27cf49ee267afd8f2f7bd70e45b0e4fcd698ffc",
+      "componentBounds": [
+        1066,
+        260,
+        399,
+        206
+      ],
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "anchorMode": "ground",
+      "crownPoint": [
+        157.65,
+        330.73
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "drag-15",
+      "file": "assets/mythra/drag-15.png",
+      "sha256": "2e7e2f66869026a47d2aa4a76f494ef031ad8d8e2c262486ad5ef5e2fc881290",
+      "sheetSHA256": "38ba34f68ff5f77c68748a5fe27cf49ee267afd8f2f7bd70e45b0e4fcd698ffc",
+      "componentBounds": [
+        39,
+        767,
+        431,
+        189
+      ],
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "anchorMode": "ground",
+      "crownPoint": [
+        128.84,
+        347.45
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "drag-16",
+      "file": "assets/mythra/drag-16.png",
+      "sha256": "40f7a773a5dcb8cb6b3936d7934c2854b62f5e7d46b581028c4cdc662d607bb4",
+      "sheetSHA256": "38ba34f68ff5f77c68748a5fe27cf49ee267afd8f2f7bd70e45b0e4fcd698ffc",
+      "componentBounds": [
+        546,
+        765,
+        415,
+        189
+      ],
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "anchorMode": "ground",
+      "crownPoint": [
+        144.09,
+        346.11
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "drag-17",
+      "file": "assets/mythra/drag-17.png",
+      "sha256": "f0294d0193200b377b2c5d1e58e59700ba9d342169ba94aedd0517dfcab6fef2",
+      "sheetSHA256": "38ba34f68ff5f77c68748a5fe27cf49ee267afd8f2f7bd70e45b0e4fcd698ffc",
+      "componentBounds": [
+        1080,
+        690,
+        408,
+        266
+      ],
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "anchorMode": "ground",
+      "crownPoint": [
+        110.75,
+        267.95
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "drag-18",
+      "file": "assets/mythra/drag-18.png",
+      "sha256": "cf7bb871e0a936cc01afa49d3a0f7e8a063665595485b36bf1399d186f0423ff",
+      "sheetSHA256": "d8b354c25c49a35ac256b12b15fa6daa90cd6e7dfda048ea445926f6cc2a14ca",
+      "componentBounds": [
+        48,
+        193,
+        407,
+        235
+      ],
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "anchorMode": "ground",
+      "crownPoint": [
+        147.85,
+        295.27
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "drag-19",
+      "file": "assets/mythra/drag-19.png",
+      "sha256": "7e0e2b989b3222c928d62bd60651f75180eee985686a62d25eab69b71c8cc02a",
+      "sheetSHA256": "d8b354c25c49a35ac256b12b15fa6daa90cd6e7dfda048ea445926f6cc2a14ca",
+      "componentBounds": [
+        562,
+        167,
+        411,
+        268
+      ],
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "anchorMode": "ground",
+      "crownPoint": [
+        121.76,
+        261.56
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "drag-20",
+      "file": "assets/mythra/drag-20.png",
+      "sha256": "9e019340146b426bf9da3c8354ee503a755f3b2f11987f383e26550c6f9c9a5e",
+      "sheetSHA256": "d8b354c25c49a35ac256b12b15fa6daa90cd6e7dfda048ea445926f6cc2a14ca",
+      "componentBounds": [
+        1053,
+        214,
+        432,
+        213
+      ],
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "anchorMode": "ground",
+      "crownPoint": [
+        144.12,
+        318.68
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "drag-21",
+      "file": "assets/mythra/drag-21.png",
+      "sha256": "4b1e338889edbf073f94c500240d727a0c9dff7bc23ff29de3d03feb28968d63",
+      "sheetSHA256": "d8b354c25c49a35ac256b12b15fa6daa90cd6e7dfda048ea445926f6cc2a14ca",
+      "componentBounds": [
+        73,
+        624,
+        375,
+        316
+      ],
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "anchorMode": "ground",
+      "crownPoint": [
+        126.93,
+        211.26
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "drag-22",
+      "file": "assets/mythra/drag-22.png",
+      "sha256": "a086a5b9d3ffac58e26312f329ead85c1e6ee4d43bfcde5081c0da7475880598",
+      "sheetSHA256": "d8b354c25c49a35ac256b12b15fa6daa90cd6e7dfda048ea445926f6cc2a14ca",
+      "componentBounds": [
+        547,
+        736,
+        424,
+        206
+      ],
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "anchorMode": "ground",
+      "crownPoint": [
+        133.54,
+        330.34
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "drag-23",
+      "file": "assets/mythra/drag-23.png",
+      "sha256": "8995760af63021775f8a481acd262e91e52f82682ff6973e740ea33336e2bf60",
+      "sheetSHA256": "d8b354c25c49a35ac256b12b15fa6daa90cd6e7dfda048ea445926f6cc2a14ca",
+      "componentBounds": [
+        1095,
+        625,
+        375,
+        315
+      ],
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "anchorMode": "ground",
+      "crownPoint": [
+        123.52,
+        215.14
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "drag-24",
+      "file": "assets/mythra/drag-24.png",
+      "sha256": "8ae705a4548c7eadfe5aa53c5a4da4526304c27fa4eab0b6e503bf6eb199e5a7",
+      "sheetSHA256": "f50a44c172a950951f393167b03989167cd314c8e0a8f9201d2dccad3fad5680",
+      "componentBounds": [
+        47,
+        231,
+        416,
+        200
+      ],
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "anchorMode": "ground",
+      "crownPoint": [
+        132.51,
+        337.82
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "drag-25",
+      "file": "assets/mythra/drag-25.png",
+      "sha256": "bd58fd1ccddcd46ce5a0ff82eef887bfab3021747f1bebfab931a8a6da070b17",
+      "sheetSHA256": "f50a44c172a950951f393167b03989167cd314c8e0a8f9201d2dccad3fad5680",
+      "componentBounds": [
+        592,
+        114,
+        351,
+        314
+      ],
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "anchorMode": "ground",
+      "crownPoint": [
+        149.39,
+        213.75
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "drag-26",
+      "file": "assets/mythra/drag-26.png",
+      "sha256": "dc82c3f0c96b78eceeb67b83e444f907ff6066c1c9e1c3534a866a968703318a",
+      "sheetSHA256": "f50a44c172a950951f393167b03989167cd314c8e0a8f9201d2dccad3fad5680",
+      "componentBounds": [
+        1134,
+        71,
+        315,
+        364
+      ],
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "anchorMode": "ground",
+      "crownPoint": [
+        121.26,
+        175.87
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "drag-27",
+      "file": "assets/mythra/drag-27.png",
+      "sha256": "73c91080a65694cb1af72a97d1eeeb0d4f17c31e50ca8860b23dc20b76ddfe6d",
+      "sheetSHA256": "f50a44c172a950951f393167b03989167cd314c8e0a8f9201d2dccad3fad5680",
+      "componentBounds": [
+        134,
+        563,
+        284,
+        415
+      ],
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "anchorMode": "ground",
+      "crownPoint": [
+        204.47,
+        110.33
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "drag-28",
+      "file": "assets/mythra/drag-28.png",
+      "sha256": "866957b7080893da4ba12b46fe65a57246bb055a7c64cc26dc64f460999cf28f",
+      "sheetSHA256": "f50a44c172a950951f393167b03989167cd314c8e0a8f9201d2dccad3fad5680",
+      "componentBounds": [
+        642,
+        556,
+        311,
+        426
+      ],
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "anchorMode": "ground",
+      "crownPoint": [
+        145.74,
+        111.19
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "drag-29",
+      "file": "assets/mythra/drag-29.png",
+      "sha256": "7b38f27f5514fb8d012f07ee6dc9c3767103c6c440b480cf4fd33e77bac1ced7",
+      "sheetSHA256": "f50a44c172a950951f393167b03989167cd314c8e0a8f9201d2dccad3fad5680",
+      "componentBounds": [
+        1111,
+        556,
+        311,
+        427
+      ],
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "anchorMode": "ground",
+      "crownPoint": [
+        138.84,
+        98.25
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "drag-30",
+      "file": "assets/mythra/drag-30.png",
+      "sha256": "3b548f69320ed1c2a662641b178db73ce7616a2d0293a0d901c93102cbf87a8f",
+      "sheetSHA256": "10d7fe187ed7be4fda5c2dae8d8e97c7f6543778647251869d0852a01afa6e38",
+      "componentBounds": [
+        89,
+        23,
+        285,
+        445
+      ],
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "anchorMode": "ground",
+      "crownPoint": [
+        230.36,
+        201.56
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "drag-31",
+      "file": "assets/mythra/drag-31.png",
+      "sha256": "73d60aef0c401074c71029d25cb0cd74da7400550eaae85d8133f0c6bb88f50f",
+      "sheetSHA256": "10d7fe187ed7be4fda5c2dae8d8e97c7f6543778647251869d0852a01afa6e38",
+      "componentBounds": [
+        624,
+        14,
+        298,
+        457
+      ],
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "anchorMode": "ground",
+      "crownPoint": [
+        239.06,
+        72.3
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "drag-32",
+      "file": "assets/mythra/drag-32.png",
+      "sha256": "da198c7e63671680e5785779cc9d9ea0f72ca7bee9fcbc425feae53075a79480",
+      "sheetSHA256": "10d7fe187ed7be4fda5c2dae8d8e97c7f6543778647251869d0852a01afa6e38",
+      "componentBounds": [
+        1133,
+        16,
+        290,
+        454
+      ],
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "anchorMode": "ground",
+      "crownPoint": [
+        244.2,
+        74.53
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "drag-33",
+      "file": "assets/mythra/drag-33.png",
+      "sha256": "10631b0749054a0d31c44bb32b34f1716853656b38bb43f46317a0832c0d8501",
+      "sheetSHA256": "10d7fe187ed7be4fda5c2dae8d8e97c7f6543778647251869d0852a01afa6e38",
+      "componentBounds": [
+        106,
+        529,
+        297,
+        456
+      ],
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "anchorMode": "ground",
+      "crownPoint": [
+        245.84,
+        70.69
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-cheer-0",
+      "file": "assets/mythra/new-cheer-0.png",
+      "sha256": "4befe816d3b4286823f869395d54d74011572e11eb537b78e4ffa1f150b95f5c",
+      "sheetSHA256": "786656c1c705faa2b147f3e4931adb380adb526ef58565d06e52c2d96d37150a",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-cheer-1",
+      "file": "assets/mythra/new-cheer-1.png",
+      "sha256": "3e6c030fb89ec0449c8780c69170be99f2afd71d5a9e8a3fb19e3e2ca3363346",
+      "sheetSHA256": "786656c1c705faa2b147f3e4931adb380adb526ef58565d06e52c2d96d37150a",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-cheer-2",
+      "file": "assets/mythra/new-cheer-2.png",
+      "sha256": "64f4b9db727e3791c453794dd13592331d36414c127c4aee77aee46d1033e907",
+      "sheetSHA256": "786656c1c705faa2b147f3e4931adb380adb526ef58565d06e52c2d96d37150a",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-cheer-3",
+      "file": "assets/mythra/new-cheer-3.png",
+      "sha256": "2b6168ffd3970d5c02e63f119a2958fad9c5a90c743fe45815d2e4bf3b41cf21",
+      "sheetSHA256": "786656c1c705faa2b147f3e4931adb380adb526ef58565d06e52c2d96d37150a",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-cheer-4",
+      "file": "assets/mythra/new-cheer-4.png",
+      "sha256": "395acb5258bcd884ec6c30f7e3be755dcd78bd15cfe98780550cf781129089b9",
+      "sheetSHA256": "786656c1c705faa2b147f3e4931adb380adb526ef58565d06e52c2d96d37150a",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-cheer-5",
+      "file": "assets/mythra/new-cheer-5.png",
+      "sha256": "548bd0275b502a63e226651df554f192863cd3956f752965d39caf96f2f87dab",
+      "sheetSHA256": "786656c1c705faa2b147f3e4931adb380adb526ef58565d06e52c2d96d37150a",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-lookAround-0",
+      "file": "assets/mythra/new-lookAround-0.png",
+      "sha256": "5ba35445a6d34fa72a593eda387c516dcf9ec7d44d6d9ef48ba404e34c86d593",
+      "sheetSHA256": "3364c14a2aaff28f20c3f8a74c9472570e12ae4b1775acd6247912c930f6f14f",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-lookAround-1",
+      "file": "assets/mythra/new-lookAround-1.png",
+      "sha256": "5243a34a9cf543622af99490b932cac1d0daa2086ca0d5a58fc9a23341d8d917",
+      "sheetSHA256": "3364c14a2aaff28f20c3f8a74c9472570e12ae4b1775acd6247912c930f6f14f",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-lookAround-2",
+      "file": "assets/mythra/new-lookAround-2.png",
+      "sha256": "4b4aa92f0264fa5785ef6d2ca7878604ed75e7b5404e6a203afe143c139ab57e",
+      "sheetSHA256": "3364c14a2aaff28f20c3f8a74c9472570e12ae4b1775acd6247912c930f6f14f",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-lookAround-3",
+      "file": "assets/mythra/new-lookAround-3.png",
+      "sha256": "45a3cbf878653c69ea09207168bfeefa3f09c1554bdee560202ee2a8d2b707e0",
+      "sheetSHA256": "3364c14a2aaff28f20c3f8a74c9472570e12ae4b1775acd6247912c930f6f14f",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-lookAround-4",
+      "file": "assets/mythra/new-lookAround-4.png",
+      "sha256": "f2fcbdc939626258e2e60082bcd1ba648e2517db91c4144308f268f52b83d2a5",
+      "sheetSHA256": "3364c14a2aaff28f20c3f8a74c9472570e12ae4b1775acd6247912c930f6f14f",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-lookAround-5",
+      "file": "assets/mythra/new-lookAround-5.png",
+      "sha256": "42444d3c1e0d3141966de68f4033029fe9489bc3ff5cc68b694d32bf8d3ecb90",
+      "sheetSHA256": "3364c14a2aaff28f20c3f8a74c9472570e12ae4b1775acd6247912c930f6f14f",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-stretch-0",
+      "file": "assets/mythra/new-stretch-0.png",
+      "sha256": "096368aa9588ba7afa2a797c8dc65c7ae836aaca10e1ef11aee83b4ac0717c89",
+      "sheetSHA256": "44cb13e1e50c1c70e6de9118b5b9bf06e7071339a2d2c2e95749fc2c4ee27c54",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-stretch-1",
+      "file": "assets/mythra/new-stretch-1.png",
+      "sha256": "e95440c9f2947776a5c8aff028c3337edb5a07aed477aadf70d0a0529c44a37d",
+      "sheetSHA256": "44cb13e1e50c1c70e6de9118b5b9bf06e7071339a2d2c2e95749fc2c4ee27c54",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-stretch-2",
+      "file": "assets/mythra/new-stretch-2.png",
+      "sha256": "7f10971f2d68382aa14e60041cefc963ad1d4d0a74eccb8c2ea395b4e76af6a1",
+      "sheetSHA256": "44cb13e1e50c1c70e6de9118b5b9bf06e7071339a2d2c2e95749fc2c4ee27c54",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-stretch-3",
+      "file": "assets/mythra/new-stretch-3.png",
+      "sha256": "bb4c0317f6ce9c3d4838bff09f822fb1329b25b87a1b69cbf61602fb869b2b2c",
+      "sheetSHA256": "44cb13e1e50c1c70e6de9118b5b9bf06e7071339a2d2c2e95749fc2c4ee27c54",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-stretch-4",
+      "file": "assets/mythra/new-stretch-4.png",
+      "sha256": "83d956497aaa36174c16acf3de85b0a5ab66b845301ca48a4efc8775361899d4",
+      "sheetSHA256": "44cb13e1e50c1c70e6de9118b5b9bf06e7071339a2d2c2e95749fc2c4ee27c54",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-stretch-5",
+      "file": "assets/mythra/new-stretch-5.png",
+      "sha256": "53538452adad7d6260a34a6d315845f23cea2192395f8c41073c1af0625b7201",
+      "sheetSHA256": "44cb13e1e50c1c70e6de9118b5b9bf06e7071339a2d2c2e95749fc2c4ee27c54",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-run-0",
+      "file": "assets/mythra/new-run-0.png",
+      "sha256": "0abd1a2b2628e51f965f72bc7926b74528e0d358fd814c43878a26b5275c0636",
+      "sheetSHA256": "2014882b3d4756193b00992f5709fbc4ac6dbf623c5b2e99b169b3a73c4b4126",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-run-1",
+      "file": "assets/mythra/new-run-1.png",
+      "sha256": "de90add378fe37e482c93de947f5b73a82fcc5d0c8519e032ca30ffc33dbd552",
+      "sheetSHA256": "2014882b3d4756193b00992f5709fbc4ac6dbf623c5b2e99b169b3a73c4b4126",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-run-2",
+      "file": "assets/mythra/new-run-2.png",
+      "sha256": "db90128b77d794dc1c9c7c67128984958e0eb28e06c1b6804671a08dd1b81921",
+      "sheetSHA256": "2014882b3d4756193b00992f5709fbc4ac6dbf623c5b2e99b169b3a73c4b4126",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-run-3",
+      "file": "assets/mythra/new-run-3.png",
+      "sha256": "8e01082f8ef94ac5c2d2f651373fc5af1fd0a1b42d427ebeafa1822781b35b04",
+      "sheetSHA256": "2014882b3d4756193b00992f5709fbc4ac6dbf623c5b2e99b169b3a73c4b4126",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-run-4",
+      "file": "assets/mythra/new-run-4.png",
+      "sha256": "bd7612865fa12694899eb4d1cb4f96abe2a73a697d4c6d9eb392e01d93a7f85d",
+      "sheetSHA256": "2014882b3d4756193b00992f5709fbc4ac6dbf623c5b2e99b169b3a73c4b4126",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-run-5",
+      "file": "assets/mythra/new-run-5.png",
+      "sha256": "8e985ca8654224d4aff3eae7532486e2d0dd040b3c0c3ce0ff577e07863af7dc",
+      "sheetSHA256": "2014882b3d4756193b00992f5709fbc4ac6dbf623c5b2e99b169b3a73c4b4126",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-runBridge-0",
+      "file": "assets/mythra/new-runBridge-0.png",
+      "sha256": "0b7273132a4ee2190a1bfb0a5fbfd785a72b9d34f7c3dfe624e965062f66016b",
+      "sheetSHA256": "13b395d1352f9c2011e01672ef3f7ab280232191b3c227765bd28fa9ed05bee6",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-runBridge-1",
+      "file": "assets/mythra/new-runBridge-1.png",
+      "sha256": "92213deb1ba0c5f87fb4e25836805b3c5c1e79ec2359994b469845823fc7f7d0",
+      "sheetSHA256": "13b395d1352f9c2011e01672ef3f7ab280232191b3c227765bd28fa9ed05bee6",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-runBridge-2",
+      "file": "assets/mythra/new-runBridge-2.png",
+      "sha256": "0168dea13307fb3a86c025439f84ef07280095a66102653248a5d5cb5c50f244",
+      "sheetSHA256": "13b395d1352f9c2011e01672ef3f7ab280232191b3c227765bd28fa9ed05bee6",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-runBridge-3",
+      "file": "assets/mythra/new-runBridge-3.png",
+      "sha256": "6180f6981cda3e8b3e00e34814f95cf38ce4d0ad72b5ca62d767b5086a2d9022",
+      "sheetSHA256": "13b395d1352f9c2011e01672ef3f7ab280232191b3c227765bd28fa9ed05bee6",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-runBridge-4",
+      "file": "assets/mythra/new-runBridge-4.png",
+      "sha256": "9ab90c349d8496d382ad88346df6a7087f0a22e4a401b21fea34a57e151b4cdb",
+      "sheetSHA256": "13b395d1352f9c2011e01672ef3f7ab280232191b3c227765bd28fa9ed05bee6",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-runBridge-5",
+      "file": "assets/mythra/new-runBridge-5.png",
+      "sha256": "43625258fa46fa9a5a13d9c4ee41d82681b701bc609c4eb3d547772498d063e4",
+      "sheetSHA256": "13b395d1352f9c2011e01672ef3f7ab280232191b3c227765bd28fa9ed05bee6",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-sofa-0",
+      "file": "assets/mythra/idle-sofa-0.png",
+      "sha256": "d5a5704ae46806e081df0bcf21b654e1a6560a0d49f7a2ca9d95fed6bee554a3",
+      "sheetSHA256": "b4eeb1ed114a39482f2374f8388225e33ad38263ede6c800b260782341d0843c",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-sofa-1",
+      "file": "assets/mythra/idle-sofa-1.png",
+      "sha256": "404c5126d4aacd93695c0e182491fb53deeb9138f14e777745a2f9870d31cd61",
+      "sheetSHA256": "b4eeb1ed114a39482f2374f8388225e33ad38263ede6c800b260782341d0843c",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-sofa-2",
+      "file": "assets/mythra/idle-sofa-2.png",
+      "sha256": "9eca37026b448bb10328e8a1a75704cd82bc5a5683082b69b8c0aebb47999cae",
+      "sheetSHA256": "b4eeb1ed114a39482f2374f8388225e33ad38263ede6c800b260782341d0843c",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-sofa-3",
+      "file": "assets/mythra/idle-sofa-3.png",
+      "sha256": "a599b817d7987aac3caefbe4e323ec80698a81497b13b40a7779a415e1eab218",
+      "sheetSHA256": "b4eeb1ed114a39482f2374f8388225e33ad38263ede6c800b260782341d0843c",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-sofa-4",
+      "file": "assets/mythra/idle-sofa-4.png",
+      "sha256": "51685454f428dd991571af0ab3aee538318dd07ff3278f9d417bf55caf20706e",
+      "sheetSHA256": "b4eeb1ed114a39482f2374f8388225e33ad38263ede6c800b260782341d0843c",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-sofa-5",
+      "file": "assets/mythra/idle-sofa-5.png",
+      "sha256": "c3b11ba3a75f255f2156790b82ffeda38be1e2eea20f788b981edeb53e9bff50",
+      "sheetSHA256": "b4eeb1ed114a39482f2374f8388225e33ad38263ede6c800b260782341d0843c",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-book-0",
+      "file": "assets/mythra/idle-book-0.png",
+      "sha256": "3849a795d507eb9d02b24f40f685c60bb24fcab3d541e0daba54e7d49666478a",
+      "sheetSHA256": "383575d9621078c2ac7e3d17d226b82292f474f5871f794e9f28251b1ed22d62",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-book-1",
+      "file": "assets/mythra/idle-book-1.png",
+      "sha256": "6cd886505ffe0a54b3d9e6eb3fa52f01f5afb29107221898a3069e5eeee10554",
+      "sheetSHA256": "383575d9621078c2ac7e3d17d226b82292f474f5871f794e9f28251b1ed22d62",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-book-2",
+      "file": "assets/mythra/idle-book-2.png",
+      "sha256": "58304c906c2c45c810714b9bdce18917f00b29bc76f587664950372d7ffb2edc",
+      "sheetSHA256": "383575d9621078c2ac7e3d17d226b82292f474f5871f794e9f28251b1ed22d62",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-book-3",
+      "file": "assets/mythra/idle-book-3.png",
+      "sha256": "343e965dd3e44bae44116b519a8b270dd20c2f51aad6a3f526faf999dc46470e",
+      "sheetSHA256": "383575d9621078c2ac7e3d17d226b82292f474f5871f794e9f28251b1ed22d62",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-book-4",
+      "file": "assets/mythra/idle-book-4.png",
+      "sha256": "0c56b548ed30695ed111da0338792e701ff5f4ab129c133c806498b74a9eb619",
+      "sheetSHA256": "383575d9621078c2ac7e3d17d226b82292f474f5871f794e9f28251b1ed22d62",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-book-5",
+      "file": "assets/mythra/idle-book-5.png",
+      "sha256": "688cc8f409beaa710602797c6fc772ed9ff097af5522274250d682996a57cc0c",
+      "sheetSHA256": "383575d9621078c2ac7e3d17d226b82292f474f5871f794e9f28251b1ed22d62",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-tea-0",
+      "file": "assets/mythra/idle-tea-0.png",
+      "sha256": "d5f920cb893c67f3411c44623a8fbe961ea4c019979264bdde59f79475284599",
+      "sheetSHA256": "3f6896f686cd550655d685c5a3b5172221539a91cab873c10e6879f197270e50",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-tea-1",
+      "file": "assets/mythra/idle-tea-1.png",
+      "sha256": "2b377bdbdf54efb5cc51afadcea4f5a1464cb5d828a16b054d67a7c024598d3c",
+      "sheetSHA256": "3f6896f686cd550655d685c5a3b5172221539a91cab873c10e6879f197270e50",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-tea-2",
+      "file": "assets/mythra/idle-tea-2.png",
+      "sha256": "228685b418fd212de1d1f45e5d37999c3d4dc211b67986c827cb38aa38c199c7",
+      "sheetSHA256": "3f6896f686cd550655d685c5a3b5172221539a91cab873c10e6879f197270e50",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-tea-3",
+      "file": "assets/mythra/idle-tea-3.png",
+      "sha256": "e2483c95c05750570e573f492777672a8274e4870de0bd789ee3b2bce1dcc91e",
+      "sheetSHA256": "3f6896f686cd550655d685c5a3b5172221539a91cab873c10e6879f197270e50",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-tea-4",
+      "file": "assets/mythra/idle-tea-4.png",
+      "sha256": "61beda34766ffc657dd425b0f5ba490d18fb58a8321131f1593993a8f6a983bf",
+      "sheetSHA256": "3f6896f686cd550655d685c5a3b5172221539a91cab873c10e6879f197270e50",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-tea-5",
+      "file": "assets/mythra/idle-tea-5.png",
+      "sha256": "42b21e22f380a16c846dfd0e970231940a9dec66008d71e7a5c91cb715ad3cc6",
+      "sheetSHA256": "3f6896f686cd550655d685c5a3b5172221539a91cab873c10e6879f197270e50",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-sofaBridge-0",
+      "file": "assets/mythra/idle-sofaBridge-0.png",
+      "sha256": "6b6d5fcd5092a20cd8bf7a6b8b2337928e7d52b86ecfd5a6e730600748239d01",
+      "sheetSHA256": "ae40bd47a22baf2ba662d086333a203df384acb5edceb78e07d26b974be389c2",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-sofaBridge-1",
+      "file": "assets/mythra/idle-sofaBridge-1.png",
+      "sha256": "86199cc1ed16b29d1876f09bc66c6092f4e4ec6a7b1d5558b5e83847c36ad931",
+      "sheetSHA256": "ae40bd47a22baf2ba662d086333a203df384acb5edceb78e07d26b974be389c2",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-sofaBridge-2",
+      "file": "assets/mythra/idle-sofaBridge-2.png",
+      "sha256": "1a1e06307567574a6003e17ed2ae63f336a1cbf97fe81739fea926b189250434",
+      "sheetSHA256": "ae40bd47a22baf2ba662d086333a203df384acb5edceb78e07d26b974be389c2",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-sofaBridge-3",
+      "file": "assets/mythra/idle-sofaBridge-3.png",
+      "sha256": "e6da0435ddce9f2e42a3f15c71bd0e8c6627602ae99cc66f085ba528b5be0cd5",
+      "sheetSHA256": "ae40bd47a22baf2ba662d086333a203df384acb5edceb78e07d26b974be389c2",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "smooth-idle-cheer-0",
+      "file": "assets/mythra/smooth-idle-cheer-0.png",
+      "sha256": "34c44bd4cce35c24da20f320e2b14f44eee13fd2ec86dc1b4aa32229280dfead",
+      "sheetSHA256": "0a5de4d76d04a90d748612ee1bfebe1dd81afa07ad2ec51755932a4114162f91",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "smooth-idle-cheer-1",
+      "file": "assets/mythra/smooth-idle-cheer-1.png",
+      "sha256": "336137835adaf25700ad80c0652f3081500b0f55585ab36a94e0cc79bccfeacc",
+      "sheetSHA256": "0a5de4d76d04a90d748612ee1bfebe1dd81afa07ad2ec51755932a4114162f91",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "smooth-idle-cheer-2",
+      "file": "assets/mythra/smooth-idle-cheer-2.png",
+      "sha256": "ac143dcd3af59660f33ae91b8baa8a2669f849be0edd0d209c9510b03ebf8c6b",
+      "sheetSHA256": "0a5de4d76d04a90d748612ee1bfebe1dd81afa07ad2ec51755932a4114162f91",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "smooth-idle-cheer-3",
+      "file": "assets/mythra/smooth-idle-cheer-3.png",
+      "sha256": "eaeb8522237207f9bf82104150599a2211cdb1f8ba77307750e1711e2ea70959",
+      "sheetSHA256": "0a5de4d76d04a90d748612ee1bfebe1dd81afa07ad2ec51755932a4114162f91",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "smooth-idle-lookAround-0",
+      "file": "assets/mythra/smooth-idle-lookAround-0.png",
+      "sha256": "72c51af77545028ad219bb83d5ca18a873c5d9e0e1fa990130b2ec1aee898911",
+      "sheetSHA256": "1d45f8e61edb495be526e186da76164090f0d43b221f6e99649f1282321c03da",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "smooth-idle-lookAround-1",
+      "file": "assets/mythra/smooth-idle-lookAround-1.png",
+      "sha256": "df6a550d7a690423400db04e1e42f858ff97c8830b2ebeb750b75620f863b658",
+      "sheetSHA256": "1d45f8e61edb495be526e186da76164090f0d43b221f6e99649f1282321c03da",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "smooth-idle-lookAround-2",
+      "file": "assets/mythra/smooth-idle-lookAround-2.png",
+      "sha256": "1680af340147a9e921546ae636bfeac05080d5dd6625c98fa470ee61ed0736a4",
+      "sheetSHA256": "1d45f8e61edb495be526e186da76164090f0d43b221f6e99649f1282321c03da",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "smooth-idle-lookAround-3",
+      "file": "assets/mythra/smooth-idle-lookAround-3.png",
+      "sha256": "b4b42bc2ef88b0cffb95fbabccbeb2ee71f6e654f4cdee0f2155547c9ff99262",
+      "sheetSHA256": "1d45f8e61edb495be526e186da76164090f0d43b221f6e99649f1282321c03da",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "smooth-idle-stretch-0",
+      "file": "assets/mythra/smooth-idle-stretch-0.png",
+      "sha256": "6256e6e5d172b7fd998d9563595f4e8917f3546f815151a4e49274d8680bfa64",
+      "sheetSHA256": "754613467e58129eb8746a8527d36d919398045e23e7a8bd69d45f1bac42632f",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "smooth-idle-stretch-1",
+      "file": "assets/mythra/smooth-idle-stretch-1.png",
+      "sha256": "9286635c007dbf72172082a40c018c8d3f01b115ee5c04651770d8774150396b",
+      "sheetSHA256": "754613467e58129eb8746a8527d36d919398045e23e7a8bd69d45f1bac42632f",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "smooth-idle-stretch-2",
+      "file": "assets/mythra/smooth-idle-stretch-2.png",
+      "sha256": "1a0cef5ebd4d35c2bf5ea7be9eb7349442a8b8cf1c0bf94084cbe53e0d6975dd",
+      "sheetSHA256": "754613467e58129eb8746a8527d36d919398045e23e7a8bd69d45f1bac42632f",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "smooth-idle-stretch-3",
+      "file": "assets/mythra/smooth-idle-stretch-3.png",
+      "sha256": "f0e1a1bcd0f40175482b171e753841536c636b6e17eea4d3a7a300d5421677ae",
+      "sheetSHA256": "754613467e58129eb8746a8527d36d919398045e23e7a8bd69d45f1bac42632f",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "smooth-idle-sofa-0",
+      "file": "assets/mythra/smooth-idle-sofa-0.png",
+      "sha256": "c93a00da7aa5ec6a2ee979eb25e309b912a22ffbaef73ebfcf0751fa5171474e",
+      "sheetSHA256": "af4532d3b94d16e8ae10b55b232b7fb12c619b22d7505f99381de3a24162656d",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "smooth-idle-sofa-1",
+      "file": "assets/mythra/smooth-idle-sofa-1.png",
+      "sha256": "b4018b2a16f17dfe1abf67c93445d056a9a06621b7c3b5f447f6477515870c16",
+      "sheetSHA256": "af4532d3b94d16e8ae10b55b232b7fb12c619b22d7505f99381de3a24162656d",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "smooth-idle-sofa-2",
+      "file": "assets/mythra/smooth-idle-sofa-2.png",
+      "sha256": "2a055897ed652b1e1a89716f0050b12aa7273bfd18c649826e0da3dc9e87daf7",
+      "sheetSHA256": "af4532d3b94d16e8ae10b55b232b7fb12c619b22d7505f99381de3a24162656d",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "smooth-idle-sofa-3",
+      "file": "assets/mythra/smooth-idle-sofa-3.png",
+      "sha256": "fdf9b2c175d1fc119d5d766d130f1e9a68a51b94274acde646e9947d9aa4da85",
+      "sheetSHA256": "af4532d3b94d16e8ae10b55b232b7fb12c619b22d7505f99381de3a24162656d",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "smooth-idle-book-0",
+      "file": "assets/mythra/smooth-idle-book-0.png",
+      "sha256": "618d83eb5e45259ca8f4b39032a07cdeead7418422a728a0f22d19ae8f629719",
+      "sheetSHA256": "618388e290a8bfd9ba1152b891d618a5be7f56248e932c96a9dd4a3fe8c77876",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "smooth-idle-book-1",
+      "file": "assets/mythra/smooth-idle-book-1.png",
+      "sha256": "9cd58162bb03fe8805297979c11ec33276dc1424cb43a2dc6492c9aa64561d35",
+      "sheetSHA256": "618388e290a8bfd9ba1152b891d618a5be7f56248e932c96a9dd4a3fe8c77876",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "smooth-idle-book-2",
+      "file": "assets/mythra/smooth-idle-book-2.png",
+      "sha256": "5a53ecaa4b2d600232ee2635048acb1374ca8aeb5c227a1aeeee5f769e07d358",
+      "sheetSHA256": "618388e290a8bfd9ba1152b891d618a5be7f56248e932c96a9dd4a3fe8c77876",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "smooth-idle-book-3",
+      "file": "assets/mythra/smooth-idle-book-3.png",
+      "sha256": "227a9a9d740a610aba77e83b2fc0f1cf896f25034298ad737ad6e1d1fc5a4b15",
+      "sheetSHA256": "618388e290a8bfd9ba1152b891d618a5be7f56248e932c96a9dd4a3fe8c77876",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "smooth-idle-tea-0",
+      "file": "assets/mythra/smooth-idle-tea-0.png",
+      "sha256": "62c87ecbd5b4a100f8f30d3506e1c73c26ba4fb8261555329dd08832aebf670b",
+      "sheetSHA256": "e78b419b33bb2f65f1d4aeb22bac33e10a95ce81bc89e7266b016b035f28cfaa",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "smooth-idle-tea-1",
+      "file": "assets/mythra/smooth-idle-tea-1.png",
+      "sha256": "4d61ec0747fe6106810a44244afa324597f942fae5677965a62f01a77431cd7b",
+      "sheetSHA256": "e78b419b33bb2f65f1d4aeb22bac33e10a95ce81bc89e7266b016b035f28cfaa",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "smooth-idle-tea-2",
+      "file": "assets/mythra/smooth-idle-tea-2.png",
+      "sha256": "3d492b539bc9b8aa6a450cf9e9aaf9588be5a862a3640ed119d0f72292b327b7",
+      "sheetSHA256": "e78b419b33bb2f65f1d4aeb22bac33e10a95ce81bc89e7266b016b035f28cfaa",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "smooth-idle-tea-3",
+      "file": "assets/mythra/smooth-idle-tea-3.png",
+      "sha256": "d61519c1facf535e3dcf99662928e0d08c09f4f3fc174eef6539796ba6f77b23",
+      "sheetSHA256": "e78b419b33bb2f65f1d4aeb22bac33e10a95ce81bc89e7266b016b035f28cfaa",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    }
+  ],
+  "nativeTimeline": [
+    {
+      "phase": "A",
+      "source": "vpet-core://local/mod/0000_core/pet/vup\\Touch_Head\\A_Nomal\\摸头_0_250.png",
+      "ms": 250,
+      "sha256": "833238f4fc50d5237695ade9971ef371e2216c6a210927f9b0aad436f75e5082",
+      "nativeIndex": 0,
+      "asset": "assets/mythra/headpat-A0.png"
+    },
+    {
+      "phase": "A",
+      "source": "vpet-core://local/mod/0000_core/pet/vup\\Touch_Head\\A_Nomal\\摸头_1_125.png",
+      "ms": 125,
+      "sha256": "e7bde4871e0b7ce409bdd807bedfad18a150f3256376358cbf58a039ee50e6cb",
+      "nativeIndex": 1,
+      "asset": "assets/mythra/headpat-A1.png"
+    },
+    {
+      "phase": "B",
+      "source": "vpet-core://local/mod/0000_core/pet/vup\\Touch_Head\\B_Nomal\\摸头_000_125.png",
+      "ms": 125,
+      "sha256": "c8e1c2a4579c9f3751de6ed45816f88e155afcdf4e0dfb0c9bd89de8c13b83cb",
+      "nativeIndex": 2,
+      "asset": "assets/mythra/headpat-B0.png"
+    },
+    {
+      "phase": "B",
+      "source": "vpet-core://local/mod/0000_core/pet/vup\\Touch_Head\\B_Nomal\\摸头_001_125.png",
+      "ms": 125,
+      "sha256": "0db61f48264de432075073c9aef90d586749c6eef75c8681c29cdf6163c0e681",
+      "nativeIndex": 3,
+      "asset": "assets/mythra/headpat-B1.png"
+    },
+    {
+      "phase": "B",
+      "source": "vpet-core://local/mod/0000_core/pet/vup\\Touch_Head\\B_Nomal\\摸头_002_125.png",
+      "ms": 125,
+      "sha256": "9b2b760e7921afe88a43c3741dd16a0a865858b3683262a0b145f4ff61e37448",
+      "nativeIndex": 4,
+      "asset": "assets/mythra/headpat-B2.png"
+    },
+    {
+      "phase": "B",
+      "source": "vpet-core://local/mod/0000_core/pet/vup\\Touch_Head\\B_Nomal\\摸头_003_125.png",
+      "ms": 125,
+      "sha256": "c8e1c2a4579c9f3751de6ed45816f88e155afcdf4e0dfb0c9bd89de8c13b83cb",
+      "nativeIndex": 5,
+      "asset": "assets/mythra/headpat-B0.png"
+    },
+    {
+      "phase": "B",
+      "source": "vpet-core://local/mod/0000_core/pet/vup\\Touch_Head\\B_Nomal\\摸头_004_125.png",
+      "ms": 125,
+      "sha256": "cd4e6a679fa9958e98476d26f035d4104032cb52fde36bc182206db757191837",
+      "nativeIndex": 6,
+      "asset": "assets/mythra/headpat-B4.png"
+    },
+    {
+      "phase": "B",
+      "source": "vpet-core://local/mod/0000_core/pet/vup\\Touch_Head\\B_Nomal\\摸头_005_250.png",
+      "ms": 250,
+      "sha256": "9b2b760e7921afe88a43c3741dd16a0a865858b3683262a0b145f4ff61e37448",
+      "nativeIndex": 7,
+      "asset": "assets/mythra/headpat-B2.png"
+    },
+    {
+      "phase": "B",
+      "source": "vpet-core://local/mod/0000_core/pet/vup\\Touch_Head\\B_Nomal\\摸头_006_125.png",
+      "ms": 125,
+      "sha256": "c8e1c2a4579c9f3751de6ed45816f88e155afcdf4e0dfb0c9bd89de8c13b83cb",
+      "nativeIndex": 8,
+      "asset": "assets/mythra/headpat-B0.png"
+    },
+    {
+      "phase": "B",
+      "source": "vpet-core://local/mod/0000_core/pet/vup\\Touch_Head\\B_Nomal\\摸头_007_125.png",
+      "ms": 125,
+      "sha256": "d1a6dac54f4b23a75ecdac3e4c5b88697e811b8b21167c1ba8fc0d8d868f3391",
+      "nativeIndex": 9,
+      "asset": "assets/mythra/headpat-B7.png"
+    },
+    {
+      "phase": "B",
+      "source": "vpet-core://local/mod/0000_core/pet/vup\\Touch_Head\\B_Nomal\\摸头_008_125.png",
+      "ms": 125,
+      "sha256": "9b2b760e7921afe88a43c3741dd16a0a865858b3683262a0b145f4ff61e37448",
+      "nativeIndex": 10,
+      "asset": "assets/mythra/headpat-B2.png"
+    },
+    {
+      "phase": "B",
+      "source": "vpet-core://local/mod/0000_core/pet/vup\\Touch_Head\\B_Nomal\\摸头_009_125.png",
+      "ms": 125,
+      "sha256": "6b556144efdda1c53483fee60b9c91ab34767ef521ffdff32c4acd0846732ef1",
+      "nativeIndex": 11,
+      "asset": "assets/mythra/headpat-B9.png"
+    },
+    {
+      "phase": "B",
+      "source": "vpet-core://local/mod/0000_core/pet/vup\\Touch_Head\\B_Nomal\\摸头_010_125.png",
+      "ms": 125,
+      "sha256": "c8e1c2a4579c9f3751de6ed45816f88e155afcdf4e0dfb0c9bd89de8c13b83cb",
+      "nativeIndex": 12,
+      "asset": "assets/mythra/headpat-B0.png"
+    },
+    {
+      "phase": "C",
+      "source": "vpet-core://local/mod/0000_core/pet/vup\\Touch_Head\\C_Nomal\\摸头_0_125.png",
+      "ms": 125,
+      "sha256": "35627647624647ceb2117de55305f1af4755baea8daf6f2f80a907c346b5b591",
+      "nativeIndex": 13,
+      "asset": "assets/mythra/headpat-C0.png"
+    },
+    {
+      "phase": "C",
+      "source": "vpet-core://local/mod/0000_core/pet/vup\\Touch_Head\\C_Nomal\\摸头_1_250.png",
+      "ms": 250,
+      "sha256": "3dec3de337295e670e55e32901894bb11a95c0a53e0ea1a3c3d5ca4b57c6c9d9",
+      "nativeIndex": 14,
+      "asset": "assets/mythra/headpat-C1.png"
+    }
+  ],
+  "pending": [
+    "crawl transitions",
+    "other Core categories",
+    "Pyra retargeting"
+  ],
+  "neutralAsset": "assets/mythra/headpat-C1.png",
+  "nativeTimelines": {
+    "headpat": [
+      {
+        "phase": "A",
+        "source": "vpet-core://local/mod/0000_core/pet/vup\\Touch_Head\\A_Nomal\\摸头_0_250.png",
+        "ms": 250,
+        "sha256": "833238f4fc50d5237695ade9971ef371e2216c6a210927f9b0aad436f75e5082",
+        "nativeIndex": 0,
+        "asset": "assets/mythra/headpat-A0.png"
+      },
+      {
+        "phase": "A",
+        "source": "vpet-core://local/mod/0000_core/pet/vup\\Touch_Head\\A_Nomal\\摸头_1_125.png",
+        "ms": 125,
+        "sha256": "e7bde4871e0b7ce409bdd807bedfad18a150f3256376358cbf58a039ee50e6cb",
+        "nativeIndex": 1,
+        "asset": "assets/mythra/headpat-A1.png"
+      },
+      {
+        "phase": "B",
+        "source": "vpet-core://local/mod/0000_core/pet/vup\\Touch_Head\\B_Nomal\\摸头_000_125.png",
+        "ms": 125,
+        "sha256": "c8e1c2a4579c9f3751de6ed45816f88e155afcdf4e0dfb0c9bd89de8c13b83cb",
+        "nativeIndex": 2,
+        "asset": "assets/mythra/headpat-B0.png"
+      },
+      {
+        "phase": "B",
+        "source": "vpet-core://local/mod/0000_core/pet/vup\\Touch_Head\\B_Nomal\\摸头_001_125.png",
+        "ms": 125,
+        "sha256": "0db61f48264de432075073c9aef90d586749c6eef75c8681c29cdf6163c0e681",
+        "nativeIndex": 3,
+        "asset": "assets/mythra/headpat-B1.png"
+      },
+      {
+        "phase": "B",
+        "source": "vpet-core://local/mod/0000_core/pet/vup\\Touch_Head\\B_Nomal\\摸头_002_125.png",
+        "ms": 125,
+        "sha256": "9b2b760e7921afe88a43c3741dd16a0a865858b3683262a0b145f4ff61e37448",
+        "nativeIndex": 4,
+        "asset": "assets/mythra/headpat-B2.png"
+      },
+      {
+        "phase": "B",
+        "source": "vpet-core://local/mod/0000_core/pet/vup\\Touch_Head\\B_Nomal\\摸头_003_125.png",
+        "ms": 125,
+        "sha256": "c8e1c2a4579c9f3751de6ed45816f88e155afcdf4e0dfb0c9bd89de8c13b83cb",
+        "nativeIndex": 5,
+        "asset": "assets/mythra/headpat-B0.png"
+      },
+      {
+        "phase": "B",
+        "source": "vpet-core://local/mod/0000_core/pet/vup\\Touch_Head\\B_Nomal\\摸头_004_125.png",
+        "ms": 125,
+        "sha256": "cd4e6a679fa9958e98476d26f035d4104032cb52fde36bc182206db757191837",
+        "nativeIndex": 6,
+        "asset": "assets/mythra/headpat-B4.png"
+      },
+      {
+        "phase": "B",
+        "source": "vpet-core://local/mod/0000_core/pet/vup\\Touch_Head\\B_Nomal\\摸头_005_250.png",
+        "ms": 250,
+        "sha256": "9b2b760e7921afe88a43c3741dd16a0a865858b3683262a0b145f4ff61e37448",
+        "nativeIndex": 7,
+        "asset": "assets/mythra/headpat-B2.png"
+      },
+      {
+        "phase": "B",
+        "source": "vpet-core://local/mod/0000_core/pet/vup\\Touch_Head\\B_Nomal\\摸头_006_125.png",
+        "ms": 125,
+        "sha256": "c8e1c2a4579c9f3751de6ed45816f88e155afcdf4e0dfb0c9bd89de8c13b83cb",
+        "nativeIndex": 8,
+        "asset": "assets/mythra/headpat-B0.png"
+      },
+      {
+        "phase": "B",
+        "source": "vpet-core://local/mod/0000_core/pet/vup\\Touch_Head\\B_Nomal\\摸头_007_125.png",
+        "ms": 125,
+        "sha256": "d1a6dac54f4b23a75ecdac3e4c5b88697e811b8b21167c1ba8fc0d8d868f3391",
+        "nativeIndex": 9,
+        "asset": "assets/mythra/headpat-B7.png"
+      },
+      {
+        "phase": "B",
+        "source": "vpet-core://local/mod/0000_core/pet/vup\\Touch_Head\\B_Nomal\\摸头_008_125.png",
+        "ms": 125,
+        "sha256": "9b2b760e7921afe88a43c3741dd16a0a865858b3683262a0b145f4ff61e37448",
+        "nativeIndex": 10,
+        "asset": "assets/mythra/headpat-B2.png"
+      },
+      {
+        "phase": "B",
+        "source": "vpet-core://local/mod/0000_core/pet/vup\\Touch_Head\\B_Nomal\\摸头_009_125.png",
+        "ms": 125,
+        "sha256": "6b556144efdda1c53483fee60b9c91ab34767ef521ffdff32c4acd0846732ef1",
+        "nativeIndex": 11,
+        "asset": "assets/mythra/headpat-B9.png"
+      },
+      {
+        "phase": "B",
+        "source": "vpet-core://local/mod/0000_core/pet/vup\\Touch_Head\\B_Nomal\\摸头_010_125.png",
+        "ms": 125,
+        "sha256": "c8e1c2a4579c9f3751de6ed45816f88e155afcdf4e0dfb0c9bd89de8c13b83cb",
+        "nativeIndex": 12,
+        "asset": "assets/mythra/headpat-B0.png"
+      },
+      {
+        "phase": "C",
+        "source": "vpet-core://local/mod/0000_core/pet/vup\\Touch_Head\\C_Nomal\\摸头_0_125.png",
+        "ms": 125,
+        "sha256": "35627647624647ceb2117de55305f1af4755baea8daf6f2f80a907c346b5b591",
+        "nativeIndex": 13,
+        "asset": "assets/mythra/headpat-C0.png"
+      },
+      {
+        "phase": "C",
+        "source": "vpet-core://local/mod/0000_core/pet/vup\\Touch_Head\\C_Nomal\\摸头_1_250.png",
+        "ms": 250,
+        "sha256": "3dec3de337295e670e55e32901894bb11a95c0a53e0ea1a3c3d5ca4b57c6c9d9",
+        "nativeIndex": 14,
+        "asset": "assets/mythra/headpat-C1.png"
+      }
+    ],
+    "idle": [
+      {
+        "source": "vpet-core://local/mod/0000_core/pet/vup\\Default\\Nomal\\1\\_000_250.png",
+        "sha256": "e05ce6f085ed5cf09bf8a08071264a89bd9deebe0afa9ffa8bc7727f96b84fb9",
+        "phase": "S",
+        "ms": 250,
+        "uniqueIndex": 0,
+        "nativeIndex": 0,
+        "asset": "assets/mythra/idle-breath-0.png"
+      },
+      {
+        "source": "vpet-core://local/mod/0000_core/pet/vup\\Default\\Nomal\\1\\_001_125.png",
+        "sha256": "5a28990a4880513d88dfe6757c63b695f3056978bd2a34845547a7826a50b2ea",
+        "phase": "S",
+        "ms": 125,
+        "uniqueIndex": 1,
+        "nativeIndex": 1,
+        "asset": "assets/mythra/idle-breath-1.png"
+      },
+      {
+        "source": "vpet-core://local/mod/0000_core/pet/vup\\Default\\Nomal\\1\\_002_125.png",
+        "sha256": "02ebba4270211fdb4b8a5a65ec6022a56d6297854869656926dc00120a30349b",
+        "phase": "S",
+        "ms": 125,
+        "uniqueIndex": 2,
+        "nativeIndex": 2,
+        "asset": "assets/mythra/idle-breath-2.png"
+      },
+      {
+        "source": "vpet-core://local/mod/0000_core/pet/vup\\Default\\Nomal\\1\\_003_375.png",
+        "sha256": "7415ee79b635deb83cdc62444eb2fdc82fda253405fb5223e508650adf89d0d3",
+        "phase": "S",
+        "ms": 375,
+        "uniqueIndex": 3,
+        "nativeIndex": 3,
+        "asset": "assets/mythra/idle-breath-3.png"
+      },
+      {
+        "source": "vpet-core://local/mod/0000_core/pet/vup\\Default\\Nomal\\1\\_004_125.png",
+        "sha256": "22328629082da59559e70813450ea35e3e2eaf307106a21131bd88bab29c796e",
+        "phase": "S",
+        "ms": 125,
+        "uniqueIndex": 4,
+        "nativeIndex": 4,
+        "asset": "assets/mythra/idle-breath-4.png"
+      },
+      {
+        "source": "vpet-core://local/mod/0000_core/pet/vup\\Default\\Nomal\\1\\_005_250.png",
+        "sha256": "e9737e64dc3f2aca63853291e9a070e47e375a260b12318e38109c30089d9c30",
+        "phase": "S",
+        "ms": 250,
+        "uniqueIndex": 5,
+        "nativeIndex": 5,
+        "asset": "assets/mythra/idle-breath-5.png"
+      },
+      {
+        "source": "vpet-core://local/mod/0000_core/pet/vup\\Default\\Nomal\\1\\_006_125.png",
+        "sha256": "5a28990a4880513d88dfe6757c63b695f3056978bd2a34845547a7826a50b2ea",
+        "phase": "S",
+        "ms": 125,
+        "uniqueIndex": 1,
+        "nativeIndex": 6,
+        "asset": "assets/mythra/idle-breath-1.png"
+      },
+      {
+        "source": "vpet-core://local/mod/0000_core/pet/vup\\Default\\Nomal\\1\\_007_125.png",
+        "sha256": "e05ce6f085ed5cf09bf8a08071264a89bd9deebe0afa9ffa8bc7727f96b84fb9",
+        "phase": "S",
+        "ms": 125,
+        "uniqueIndex": 0,
+        "nativeIndex": 7,
+        "asset": "assets/mythra/idle-breath-0.png"
+      }
+    ],
+    "drag": [
+      {
+        "source": "vpet-core://local/mod/0000_core/pet/vup\\Raise\\Raised_Dynamic\\Nomal\\1\\摇晃_000_500.png",
+        "sha256": "a521b843e09fe3215dc4d5fa1dee02399b06b8fea9f097ee6a3087db6c6b5ffd",
+        "phase": "D",
+        "ms": 500,
+        "uniqueIndex": 0,
+        "nativeIndex": 0,
+        "asset": "assets/mythra/drag-00.png"
+      },
+      {
+        "source": "vpet-core://local/mod/0000_core/pet/vup\\Raise\\Raised_Dynamic\\Nomal\\1\\摇晃_001_125.png",
+        "sha256": "9cf148603de124b41e4b892fb26bf471a3dda047c54e48c34fc6dda7414a8c1e",
+        "phase": "D",
+        "ms": 125,
+        "uniqueIndex": 1,
+        "nativeIndex": 1,
+        "asset": "assets/mythra/drag-01.png"
+      },
+      {
+        "source": "vpet-core://local/mod/0000_core/pet/vup\\Raise\\Raised_Dynamic\\Nomal\\1\\摇晃_002_125.png",
+        "sha256": "a26680283cacf84b68245d6a8af9c42b87125a20e6f45cfa46a9b8d2feb78517",
+        "phase": "D",
+        "ms": 125,
+        "uniqueIndex": 2,
+        "nativeIndex": 2,
+        "asset": "assets/mythra/drag-02.png"
+      },
+      {
+        "source": "vpet-core://local/mod/0000_core/pet/vup\\Raise\\Raised_Dynamic\\Nomal\\1\\摇晃_003_125.png",
+        "sha256": "998b3102924eb66cf67884e95f839836c2ef52c79fd2accf0e97fe665a8d70fa",
+        "phase": "D",
+        "ms": 125,
+        "uniqueIndex": 3,
+        "nativeIndex": 3,
+        "asset": "assets/mythra/drag-03.png"
+      },
+      {
+        "source": "vpet-core://local/mod/0000_core/pet/vup\\Raise\\Raised_Dynamic\\Nomal\\1\\摇晃_004_125.png",
+        "sha256": "4bf57a84be2622972785baf5b3e63ac2f15053d398b04066ef362477d073142e",
+        "phase": "D",
+        "ms": 125,
+        "uniqueIndex": 4,
+        "nativeIndex": 4,
+        "asset": "assets/mythra/drag-04.png"
+      },
+      {
+        "source": "vpet-core://local/mod/0000_core/pet/vup\\Raise\\Raised_Dynamic\\Nomal\\1\\摇晃_005_125.png",
+        "sha256": "69d7cf8dd322e0d05cbe75a0804aece20c523f62a24ca854f28d78a50948adc1",
+        "phase": "D",
+        "ms": 125,
+        "uniqueIndex": 5,
+        "nativeIndex": 5,
+        "asset": "assets/mythra/drag-05.png"
+      },
+      {
+        "source": "vpet-core://local/mod/0000_core/pet/vup\\Raise\\Raised_Dynamic\\Nomal\\1\\摇晃_006_125.png",
+        "sha256": "82544ff3b054c0c58b1ddf8568e0ac76a8c998e769d0ac26e287968120d60318",
+        "phase": "D",
+        "ms": 125,
+        "uniqueIndex": 6,
+        "nativeIndex": 6,
+        "asset": "assets/mythra/drag-06.png"
+      },
+      {
+        "source": "vpet-core://local/mod/0000_core/pet/vup\\Raise\\Raised_Dynamic\\Nomal\\1\\摇晃_007_375.png",
+        "sha256": "a521b843e09fe3215dc4d5fa1dee02399b06b8fea9f097ee6a3087db6c6b5ffd",
+        "phase": "D",
+        "ms": 375,
+        "uniqueIndex": 0,
+        "nativeIndex": 7,
+        "asset": "assets/mythra/drag-00.png"
+      },
+      {
+        "source": "vpet-core://local/mod/0000_core/pet/vup\\Raise\\Raised_Static\\A_Nomal\\被提起来_000_125.png",
+        "sha256": "a1ef0fed3dbb7fee46058d0051ae2e6aa84d26d12cd15d8c20dcd7ba9ea3d665",
+        "phase": "A",
+        "ms": 125,
+        "uniqueIndex": 7,
+        "nativeIndex": 8,
+        "asset": "assets/mythra/drag-07.png"
+      },
+      {
+        "source": "vpet-core://local/mod/0000_core/pet/vup\\Raise\\Raised_Static\\A_Nomal\\被提起来_001_125.png",
+        "sha256": "7ee2e18df01219f8213b898050dffe0f23189c76902140e7417d5c109ca77b0d",
+        "phase": "A",
+        "ms": 125,
+        "uniqueIndex": 8,
+        "nativeIndex": 9,
+        "asset": "assets/mythra/drag-08.png"
+      },
+      {
+        "source": "vpet-core://local/mod/0000_core/pet/vup\\Raise\\Raised_Static\\A_Nomal\\被提起来_002_125.png",
+        "sha256": "2625a681ecb50d6cb7d005832b7d30ab75d3400203b7e7818d12cded27a21230",
+        "phase": "A",
+        "ms": 125,
+        "uniqueIndex": 9,
+        "nativeIndex": 10,
+        "asset": "assets/mythra/drag-09.png"
+      },
+      {
+        "source": "vpet-core://local/mod/0000_core/pet/vup\\Raise\\Raised_Static\\A_Nomal\\被提起来_003_125.png",
+        "sha256": "7ee2e18df01219f8213b898050dffe0f23189c76902140e7417d5c109ca77b0d",
+        "phase": "A",
+        "ms": 125,
+        "uniqueIndex": 8,
+        "nativeIndex": 11,
+        "asset": "assets/mythra/drag-08.png"
+      },
+      {
+        "source": "vpet-core://local/mod/0000_core/pet/vup\\Raise\\Raised_Static\\A_Nomal\\被提起来_004_125.png",
+        "sha256": "4391dc31812c25ae7054f5956a39fe351d5b9d14923583b39d658a77016daa55",
+        "phase": "A",
+        "ms": 125,
+        "uniqueIndex": 10,
+        "nativeIndex": 12,
+        "asset": "assets/mythra/drag-10.png"
+      },
+      {
+        "source": "vpet-core://local/mod/0000_core/pet/vup\\Raise\\Raised_Static\\A_Nomal\\被提起来_005_625.png",
+        "sha256": "7ee2e18df01219f8213b898050dffe0f23189c76902140e7417d5c109ca77b0d",
+        "phase": "A",
+        "ms": 625,
+        "uniqueIndex": 8,
+        "nativeIndex": 13,
+        "asset": "assets/mythra/drag-08.png"
+      },
+      {
+        "source": "vpet-core://local/mod/0000_core/pet/vup\\Raise\\Raised_Static\\B_Nomal\\眨眼_000_125.png",
+        "sha256": "7ee2e18df01219f8213b898050dffe0f23189c76902140e7417d5c109ca77b0d",
+        "phase": "B",
+        "ms": 125,
+        "uniqueIndex": 8,
+        "nativeIndex": 14,
+        "asset": "assets/mythra/drag-08.png"
+      },
+      {
+        "source": "vpet-core://local/mod/0000_core/pet/vup\\Raise\\Raised_Static\\B_Nomal\\眨眼_001_125.png",
+        "sha256": "d5669aa75ebaeb8f268a9acc891d8466d9535a971ffabc454d093e11cb012241",
+        "phase": "B",
+        "ms": 125,
+        "uniqueIndex": 11,
+        "nativeIndex": 15,
+        "asset": "assets/mythra/drag-11.png"
+      },
+      {
+        "source": "vpet-core://local/mod/0000_core/pet/vup\\Raise\\Raised_Static\\B_Nomal\\眨眼_002_500.png",
+        "sha256": "c1758ea24cba09a00ece192a3592d85448e22c3e88e2b1ea402e4ebd3e2d7a76",
+        "phase": "B",
+        "ms": 500,
+        "uniqueIndex": 12,
+        "nativeIndex": 16,
+        "asset": "assets/mythra/drag-12.png"
+      },
+      {
+        "source": "vpet-core://local/mod/0000_core/pet/vup\\Raise\\Raised_Static\\B_Nomal\\眨眼_003_125.png",
+        "sha256": "d5669aa75ebaeb8f268a9acc891d8466d9535a971ffabc454d093e11cb012241",
+        "phase": "B",
+        "ms": 125,
+        "uniqueIndex": 11,
+        "nativeIndex": 17,
+        "asset": "assets/mythra/drag-11.png"
+      },
+      {
+        "source": "vpet-core://local/mod/0000_core/pet/vup\\Raise\\Raised_Static\\B_Nomal\\眨眼_004_875.png",
+        "sha256": "59e2fa22a105408982cc1f5ff798715df2607aa1b99a13e69181a48308e5ba3a",
+        "phase": "B",
+        "ms": 875,
+        "uniqueIndex": 13,
+        "nativeIndex": 18,
+        "asset": "assets/mythra/drag-13.png"
+      },
+      {
+        "source": "vpet-core://local/mod/0000_core/pet/vup\\Raise\\Raised_Static\\C_Nomal\\FLA_000_125.png",
+        "sha256": "42ffd07bc3398079216feed60421534efab4dcdb38ad19e30c5f84fc4a63c1bb",
+        "phase": "C",
+        "ms": 125,
+        "uniqueIndex": 14,
+        "nativeIndex": 19,
+        "asset": "assets/mythra/drag-14.png"
+      },
+      {
+        "source": "vpet-core://local/mod/0000_core/pet/vup\\Raise\\Raised_Static\\C_Nomal\\FLB_000_125.png",
+        "sha256": "2931399b8d0e2b3f67daf065585399bafedda665b1ca97ed903499e2b74c0ffe",
+        "phase": "C",
+        "ms": 125,
+        "uniqueIndex": 15,
+        "nativeIndex": 20,
+        "asset": "assets/mythra/drag-15.png"
+      },
+      {
+        "source": "vpet-core://local/mod/0000_core/pet/vup\\Raise\\Raised_Static\\C_Nomal\\FLA_001_125.png",
+        "sha256": "2d376d83d6a0c8485ba1e71048089c2180074d5ea2edc1efb15afc018208d0e9",
+        "phase": "C",
+        "ms": 125,
+        "uniqueIndex": 16,
+        "nativeIndex": 21,
+        "asset": "assets/mythra/drag-16.png"
+      },
+      {
+        "source": "vpet-core://local/mod/0000_core/pet/vup\\Raise\\Raised_Static\\C_Nomal\\FLB_001_125.png",
+        "sha256": "372bd4762dbb8e048f28fa8388622d3ba7243ba47d2f6cfe08ce31888e9c1603",
+        "phase": "C",
+        "ms": 125,
+        "uniqueIndex": 17,
+        "nativeIndex": 22,
+        "asset": "assets/mythra/drag-17.png"
+      },
+      {
+        "source": "vpet-core://local/mod/0000_core/pet/vup\\Raise\\Raised_Static\\C_Nomal\\FLA_002_125.png",
+        "sha256": "64d7780c2c596738f30af2c9619871623a2b4370e6e242c95ebfa127e5a0afba",
+        "phase": "C",
+        "ms": 125,
+        "uniqueIndex": 18,
+        "nativeIndex": 23,
+        "asset": "assets/mythra/drag-18.png"
+      },
+      {
+        "source": "vpet-core://local/mod/0000_core/pet/vup\\Raise\\Raised_Static\\C_Nomal\\FLB_002_125.png",
+        "sha256": "549a46aa44961bf97e79909f3f3ae46d2a536b109a68e0c15bfa5814d038a427",
+        "phase": "C",
+        "ms": 125,
+        "uniqueIndex": 19,
+        "nativeIndex": 24,
+        "asset": "assets/mythra/drag-19.png"
+      },
+      {
+        "source": "vpet-core://local/mod/0000_core/pet/vup\\Raise\\Raised_Static\\C_Nomal\\FLA_003_125.png",
+        "sha256": "43dad729a84e53bbaed2fbc1bef8f51df3209916bf0947d906fecfd7440e432d",
+        "phase": "C",
+        "ms": 125,
+        "uniqueIndex": 20,
+        "nativeIndex": 25,
+        "asset": "assets/mythra/drag-20.png"
+      },
+      {
+        "source": "vpet-core://local/mod/0000_core/pet/vup\\Raise\\Raised_Static\\C_Nomal\\FLB_003_125.png",
+        "sha256": "f647b6c539c9c799ad124c5bccbfd072469d8d0d93fb21ab299aa7c6a260b95e",
+        "phase": "C",
+        "ms": 125,
+        "uniqueIndex": 21,
+        "nativeIndex": 26,
+        "asset": "assets/mythra/drag-21.png"
+      },
+      {
+        "source": "vpet-core://local/mod/0000_core/pet/vup\\Raise\\Raised_Static\\C_Nomal\\FLA_004_125.png",
+        "sha256": "ebd38c057bbda992380f8d83e088c8c016abee64e55b4ae3b3fffe2c0ea5f6fb",
+        "phase": "C",
+        "ms": 125,
+        "uniqueIndex": 22,
+        "nativeIndex": 27,
+        "asset": "assets/mythra/drag-22.png"
+      },
+      {
+        "source": "vpet-core://local/mod/0000_core/pet/vup\\Raise\\Raised_Static\\C_Nomal\\FLB_004_125.png",
+        "sha256": "b7cf7f60c05c1b29bcff47e1ea44239fead1a7a9abe83311ff54090c900387b1",
+        "phase": "C",
+        "ms": 125,
+        "uniqueIndex": 23,
+        "nativeIndex": 28,
+        "asset": "assets/mythra/drag-23.png"
+      },
+      {
+        "source": "vpet-core://local/mod/0000_core/pet/vup\\Raise\\Raised_Static\\C_Nomal\\FLA_005_125.png",
+        "sha256": "cbc3390b8d38e2fbe62e907c090db919b8268d065fa42e4658f087c740d4fcbd",
+        "phase": "C",
+        "ms": 125,
+        "uniqueIndex": 24,
+        "nativeIndex": 29,
+        "asset": "assets/mythra/drag-24.png"
+      },
+      {
+        "source": "vpet-core://local/mod/0000_core/pet/vup\\Raise\\Raised_Static\\C_Nomal\\FLB_005_125.png",
+        "sha256": "bf9e10634b56756fc2ed88230dce59de4e53e52cb4205f8be82cd797e9404c94",
+        "phase": "C",
+        "ms": 125,
+        "uniqueIndex": 25,
+        "nativeIndex": 30,
+        "asset": "assets/mythra/drag-25.png"
+      },
+      {
+        "source": "vpet-core://local/mod/0000_core/pet/vup\\Raise\\Raised_Static\\C_Nomal\\FLA_006_500.png",
+        "sha256": "ebd38c057bbda992380f8d83e088c8c016abee64e55b4ae3b3fffe2c0ea5f6fb",
+        "phase": "C",
+        "ms": 500,
+        "uniqueIndex": 22,
+        "nativeIndex": 31,
+        "asset": "assets/mythra/drag-22.png"
+      },
+      {
+        "source": "vpet-core://local/mod/0000_core/pet/vup\\Raise\\Raised_Static\\C_Nomal\\FLB_006_125.png",
+        "sha256": "e39445f5e8454065584e36e72c89bd09dfb7ec59bbc80d61c85eadc8f2057ef7",
+        "phase": "C",
+        "ms": 125,
+        "uniqueIndex": 26,
+        "nativeIndex": 32,
+        "asset": "assets/mythra/drag-26.png"
+      },
+      {
+        "source": "vpet-core://local/mod/0000_core/pet/vup\\Raise\\Raised_Static\\C_Nomal\\FLB_007_125.png",
+        "sha256": "815d2dd2b3ea687a9a787501cdcab4a9aa5e60d5467ae113fc63c23a448627f5",
+        "phase": "C",
+        "ms": 125,
+        "uniqueIndex": 27,
+        "nativeIndex": 33,
+        "asset": "assets/mythra/drag-27.png"
+      },
+      {
+        "source": "vpet-core://local/mod/0000_core/pet/vup\\Raise\\Raised_Static\\C_Nomal\\FLB_008_125.png",
+        "sha256": "5c373d8d09d1631dc9930b0141673c426f0470e67a707cd0c6d4a8e1e8682b9a",
+        "phase": "C",
+        "ms": 125,
+        "uniqueIndex": 28,
+        "nativeIndex": 34,
+        "asset": "assets/mythra/drag-28.png"
+      },
+      {
+        "source": "vpet-core://local/mod/0000_core/pet/vup\\Raise\\Raised_Static\\C_Nomal\\FLB_009_125.png",
+        "sha256": "2b42b4fa1c14710f44fe54725396f8f9cf3097e05b060b1cf6e9492fb96b69d2",
+        "phase": "C",
+        "ms": 125,
+        "uniqueIndex": 29,
+        "nativeIndex": 35,
+        "asset": "assets/mythra/drag-29.png"
+      },
+      {
+        "source": "vpet-core://local/mod/0000_core/pet/vup\\Raise\\Raised_Static\\C_Nomal\\FLB_010_125.png",
+        "sha256": "2d5fcc653a586b223f3a166263ed6288a2dc1211fc2dbd75a90baad9e23a5a14",
+        "phase": "C",
+        "ms": 125,
+        "uniqueIndex": 30,
+        "nativeIndex": 36,
+        "asset": "assets/mythra/drag-30.png"
+      },
+      {
+        "source": "vpet-core://local/mod/0000_core/pet/vup\\Raise\\Raised_Static\\C_Nomal\\FLB_011_125.png",
+        "sha256": "6885e65950adb9c3c3f0a9d79e6414bc1ce56ef035cb5f0014ff674e9b0e937d",
+        "phase": "C",
+        "ms": 125,
+        "uniqueIndex": 31,
+        "nativeIndex": 37,
+        "asset": "assets/mythra/drag-31.png"
+      },
+      {
+        "source": "vpet-core://local/mod/0000_core/pet/vup\\Raise\\Raised_Static\\C_Nomal\\FLB_012_125.png",
+        "sha256": "5e57828564a829b08f02fff9bd3239c7336746eed158ed3d9ad7f557f8c36ffd",
+        "phase": "C",
+        "ms": 125,
+        "uniqueIndex": 32,
+        "nativeIndex": 38,
+        "asset": "assets/mythra/drag-32.png"
+      },
+      {
+        "source": "vpet-core://local/mod/0000_core/pet/vup\\Raise\\Raised_Static\\C_Nomal\\FLB_013_125.png",
+        "sha256": "8a350aeee6bbb0ced668cfccf38090416d6e0f953cbc5ec98da0914189eab803",
+        "phase": "C",
+        "ms": 125,
+        "uniqueIndex": 33,
+        "nativeIndex": 39,
+        "asset": "assets/mythra/drag-33.png"
+      }
+    ]
+  },
+  "reuse": [],
+  "idleScheduler": {
+    "actions": [
+      {
+        "action": "cheer"
+      },
+      {
+        "action": "lookAround"
+      },
+      {
+        "action": "stretch"
+      },
+      {
+        "action": "sofa"
+      },
+      {
+        "action": "book"
+      },
+      {
+        "action": "tea"
+      }
+    ],
+    "minDelayMs": 4200,
+    "maxDelayMs": 9500,
+    "quietAfterInputMs": 2500,
+    "noImmediateRepeat": true,
+    "policy": "shuffle-without-replacement"
+  },
+  "redraw": {
+    "source": "new sprite sheets keyed to headpat-C1 approved artwork",
+    "drawings": 30,
+    "sheets": [
+      {
+        "action": "cheer",
+        "sheetSHA256": "786656c1c705faa2b147f3e4931adb380adb526ef58565d06e52c2d96d37150a",
+        "drawings": 6,
+        "uniformScale": 1.0129310344827587
+      },
+      {
+        "action": "lookAround",
+        "sheetSHA256": "3364c14a2aaff28f20c3f8a74c9472570e12ae4b1775acd6247912c930f6f14f",
+        "drawings": 6,
+        "uniformScale": 1.042128603104213
+      },
+      {
+        "action": "stretch",
+        "sheetSHA256": "44cb13e1e50c1c70e6de9118b5b9bf06e7071339a2d2c2e95749fc2c4ee27c54",
+        "drawings": 6,
+        "uniformScale": 1.053811659192825
+      },
+      {
+        "action": "run",
+        "sheetSHA256": "2014882b3d4756193b00992f5709fbc4ac6dbf623c5b2e99b169b3a73c4b4126",
+        "drawings": 6,
+        "uniformScale": 0.9708333333333333
+      },
+      {
+        "action": "runBridge",
+        "sheetSHA256": "13b395d1352f9c2011e01672ef3f7ab280232191b3c227765bd28fa9ed05bee6",
+        "drawings": 6,
+        "uniformScale": 1.0129310344827587
+      }
+    ]
+  },
+  "idleDelights": {
+    "drawings": 22,
+    "sheets": [
+      {
+        "name": "sofa.png",
+        "sha256": "b4eeb1ed114a39482f2374f8388225e33ad38263ede6c800b260782341d0843c",
+        "drawings": 6,
+        "uniformScale": 0.965
+      },
+      {
+        "name": "book.png",
+        "sha256": "383575d9621078c2ac7e3d17d226b82292f474f5871f794e9f28251b1ed22d62",
+        "drawings": 6,
+        "uniformScale": 1.0561797752808988
+      },
+      {
+        "name": "tea.png",
+        "sha256": "3f6896f686cd550655d685c5a3b5172221539a91cab873c10e6879f197270e50",
+        "drawings": 6,
+        "uniformScale": 1.032967032967033
+      },
+      {
+        "name": "sofaBridge.png",
+        "sha256": "ae40bd47a22baf2ba662d086333a203df384acb5edceb78e07d26b974be389c2",
+        "drawings": 4,
+        "uniformScale": 0.7117794486215538
+      }
+    ]
+  },
+  "idleInbetweens": {
+    "drawings": 24,
+    "sources": [
+      {
+        "action": "cheer",
+        "sheet": "cheer.png",
+        "sha256": "0a5de4d76d04a90d748612ee1bfebe1dd81afa07ad2ec51755932a4114162f91",
+        "drawings": 4,
+        "uniformScale": 1.0151187904967602
+      },
+      {
+        "action": "lookAround",
+        "sheet": "lookAround.png",
+        "sha256": "1d45f8e61edb495be526e186da76164090f0d43b221f6e99649f1282321c03da",
+        "drawings": 4,
+        "uniformScale": 1.0609480812641083
+      },
+      {
+        "action": "stretch",
+        "sheet": "stretch.png",
+        "sha256": "754613467e58129eb8746a8527d36d919398045e23e7a8bd69d45f1bac42632f",
+        "drawings": 4,
+        "uniformScale": 1.0561797752808988
+      },
+      {
+        "action": "sofa",
+        "sheet": "sofa.png",
+        "sha256": "af4532d3b94d16e8ae10b55b232b7fb12c619b22d7505f99381de3a24162656d",
+        "drawings": 4,
+        "uniformScale": 0.7625649913344887
+      },
+      {
+        "action": "book",
+        "sheet": "book.png",
+        "sha256": "618388e290a8bfd9ba1152b891d618a5be7f56248e932c96a9dd4a3fe8c77876",
+        "drawings": 4,
+        "uniformScale": 1.0585585585585586
+      },
+      {
+        "action": "tea",
+        "sheet": "tea.png",
+        "sha256": "e78b419b33bb2f65f1d4aeb22bac33e10a95ce81bc89e7266b016b035f28cfaa",
+        "drawings": 4,
+        "uniformScale": 1.032967032967033
+      }
+    ]
+  },
+  "distribution": {
+    "standalone": true,
+    "bundledElectron": true,
+    "workspaceRequired": false,
+    "VPetRequired": false,
+    "originalCoreArtBundled": false,
+    "previewRelease": true
+  }
+}

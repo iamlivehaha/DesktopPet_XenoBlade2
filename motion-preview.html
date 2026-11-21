@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' file: data:; connect-src 'self'">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>光 · 动作重制与漫游</title>
+  <link rel="stylesheet" href="motion-preview.css">
+  <link rel="stylesheet" href="lab-extra.css">
+  <script defer src="native-motion-controller.cjs"></script>
+  <script defer src="idle-scheduler.cjs"></script>
+  <script defer src="motion-lab.js"></script>
+</head>
+<body>
+  <header><div><div class="eyebrow">MYTHRA · MOTION PREVIEW 0.2.6</div>
+    <h1>待机动作更连贯。</h1><p>补画中间姿势；六组动作逐一轮过，再重新洗牌。</p></div>
+    <span class="badge" id="asset-badge">加载动作…</span></header>
+  <main>
+    <section class="card"><div class="card-head"><h2>动作来源参考</h2><span id="original-state">原版 Core／已有原图</span></div>
+      <div class="stage" id="original-stage"><canvas id="original" aria-label="VPet原版动作参考"></canvas><div class="ground"></div></div>
+      <p class="caption">开发副本可同步比对本机 <code>0000_core</code> 参考。新待机与小跑使用重新绘制的姿势。</p></section>
+    <section class="card"><div class="card-head"><h2>光 · 新动作</h2><span id="phase" class="phase">准备中</span></div>
+      <div class="stage interactive" id="pet-stage"><canvas id="pet" aria-label="光的新动作，可以悬停互动"></canvas><div class="ground"></div></div>
+      <p class="caption">悬停摸头；按住或拖动角色进入悬空动作，松手后放下起身。也可打开桌面测试窗。</p></section>
+  </main>
+  <section class="controls">
+    <div class="lab-toolbar"><select id="action" aria-label="选择动作"></select><label><input id="auto-idle" type="checkbox" checked> 随机待机</label><button id="desktop" type="button">打开桌面测试</button></div>
+    <div class="buttons"><button id="play" type="button">完整播放一次</button><button id="hold" type="button" aria-pressed="false">保持循环</button><button id="stop" type="button">自然收尾</button></div>
+    <div class="timing" id="timing"></div>
+    <div class="progress" aria-label="当前帧"><div id="position"></div></div>
+    <div class="readout"><span id="frame">正在预解码整组 PNG…</span><span id="fps">—</span></div>
+  </section>
+  <footer><strong>本次：</strong>呼吸、摸头、开心招呼、张望理发、伸懒腰、提起／悬空／放下。复用旧图 18 张；跑步／爬行衔接和焰仍待接入，不是整套 VPet 动作库已完工。</footer>
+  <div id="error" hidden></div>
+</body>
+</html>
