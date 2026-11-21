@@ -285,7 +285,8 @@ app.whenReady().then(async()=>{
   win.webContents.sendInputEvent({type:'mouseDown',x:x+20,y:y+10,button:'left',clickCount:1,modifiers:['leftButtonDown']});await sleep(230);
   const regrabbed=await win.webContents.executeJavaScript('window.motionQA.getState()');
   win.webContents.sendInputEvent({type:'mouseUp',x:x+20,y:y+10,button:'left',clickCount:1});
-  await sleep(300+manifest.actions.drag.end.frames.reduce((n,f)=>n+f.ms,0)*(manifest.actions.drag.releaseTimeScale||1));
+  const domEndFrames=manifest.actions.drag.endVariants?.[0]?.frames||manifest.actions.drag.end.frames;
+  await sleep(300+domEndFrames.reduce((n,f)=>n+f.ms,0)*(manifest.actions.drag.releaseTimeScale||1));
   const recovered=await win.webContents.executeJavaScript('window.motionQA.getState()');
   result.actualDOMDrag={held,released,regrabbed,recovered,passed:held.dragging&&held.action==='drag'&&released.phase==='end'&&regrabbed.dragging&&regrabbed.phase==='dynamic'&&recovered.action==='idle'};
   await openFloating();petWindow.show();petWindow.focus();await waitReady(petWindow);

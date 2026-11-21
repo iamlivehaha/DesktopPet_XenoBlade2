@@ -13,6 +13,7 @@ class NativeMotionController {
     this.serial = 0;
     this.clock = 0;
     this.rootX = 0;
+    this.endVariantCursor = 0;
     this.validate();
     this.begin(this.winner());
   }
@@ -108,7 +109,11 @@ class NativeMotionController {
 
   enter(phase) {
     this.phase = phase;
-    this.clip = this.definitions[this.action][phase];
+    const def = this.definitions[this.action];
+    if (this.action === 'drag' && phase === 'end' && def.endVariants?.length) {
+      this.clip = def.endVariants[this.endVariantCursor % def.endVariants.length];
+      this.endVariantCursor++;
+    } else this.clip = def[phase];
     this.index = 0;
     this.elapsed = 0;
     this.phaseStartedAt = this.clock;

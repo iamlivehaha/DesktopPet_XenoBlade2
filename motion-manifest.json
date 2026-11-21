@@ -668,6 +668,42 @@
           }
         ]
       },
+      "endVariants": [
+        {
+          "frames": [
+            { "asset": "assets/mythra/drag-16.png", "ms": 125, "nativeIndex": 21 },
+            { "asset": "assets/mythra/drag-18.png", "ms": 125, "nativeIndex": 23 },
+            { "asset": "assets/mythra/drag-20.png", "ms": 125, "nativeIndex": 25 },
+            { "asset": "assets/mythra/drag-22.png", "ms": 125, "nativeIndex": 27 },
+            { "asset": "assets/mythra/drag-24.png", "ms": 125, "nativeIndex": 29 },
+            { "asset": "assets/mythra/drag-25.png", "ms": 125, "nativeIndex": 30 },
+            { "asset": "assets/mythra/drag-26.png", "ms": 125, "nativeIndex": 32 },
+            { "asset": "assets/mythra/drag-27.png", "ms": 125, "nativeIndex": 33 },
+            { "asset": "assets/mythra/drag-29.png", "ms": 125, "nativeIndex": 35 },
+            { "asset": "assets/mythra/drag-30.png", "ms": 125, "nativeIndex": 36 },
+            { "asset": "assets/mythra/drag-31.png", "ms": 125, "nativeIndex": 37 },
+            { "asset": "assets/mythra/drag-32.png", "ms": 125, "nativeIndex": 38 },
+            { "asset": "assets/mythra/drag-33.png", "ms": 125, "nativeIndex": 39 }
+          ]
+        },
+        {
+          "frames": [
+            { "asset": "assets/mythra/drag-17.png", "ms": 125, "nativeIndex": 22 },
+            { "asset": "assets/mythra/drag-19.png", "ms": 125, "nativeIndex": 24 },
+            { "asset": "assets/mythra/drag-21.png", "ms": 125, "nativeIndex": 26 },
+            { "asset": "assets/mythra/drag-23.png", "ms": 125, "nativeIndex": 28 },
+            { "asset": "assets/mythra/drag-25.png", "ms": 125, "nativeIndex": 30 },
+            { "asset": "assets/mythra/drag-26.png", "ms": 125, "nativeIndex": 32 },
+            { "asset": "assets/mythra/drag-27.png", "ms": 125, "nativeIndex": 33 },
+            { "asset": "assets/mythra/drag-28.png", "ms": 125, "nativeIndex": 34 },
+            { "asset": "assets/mythra/drag-29.png", "ms": 125, "nativeIndex": 35 },
+            { "asset": "assets/mythra/drag-30.png", "ms": 125, "nativeIndex": 36 },
+            { "asset": "assets/mythra/drag-31.png", "ms": 125, "nativeIndex": 37 },
+            { "asset": "assets/mythra/drag-32.png", "ms": 125, "nativeIndex": 38 },
+            { "asset": "assets/mythra/drag-33.png", "ms": 125, "nativeIndex": 39 }
+          ]
+        }
+      ],
       "settleAfterDynamicCycles": 3,
       "grabAnchor": [
         190,

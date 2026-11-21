@@ -67,7 +67,8 @@
   const d=manifest.actions[action];$('timing').replaceChildren();
   for(const key of (d.kind==='drag'?['dynamic','start','loop','end']:['start','loop','end'])){
    const e=document.createElement('span'),b=document.createElement('b');e.textContent=names[key]+(key==='loop'&&d.loopPasses?' ×'+d.loopPasses:'');
-   b.textContent=d[key].frames.reduce((n,f)=>n+f.ms,0)*(key==='end'?(d.releaseTimeScale||1):key==='loop'?(d.loopPasses||1):1)+' ms';e.append(b);$('timing').append(e);
+   const timingFrames=key==='end'&&d.endVariants?.length?d.endVariants[0].frames:d[key].frames;
+   b.textContent=timingFrames.reduce((n,f)=>n+f.ms,0)*(key==='end'?(d.releaseTimeScale||1):key==='loop'?(d.loopPasses||1):1)+' ms';e.append(b);$('timing').append(e);
   }
  }
  $('action').addEventListener('change',updateTiming);updateTiming();
@@ -279,7 +280,8 @@ window.motionHost.onMenu(value=>{
    controller.request('drag','drag',100,{hold:true});pump(300);const grabbed=lastRender.crown;
    controller.release('drag');render(controller.snapshot());const dropStart=lastRender.crown;
    check('landing keeps head root continuous at release',Math.hypot(grabbed[0]-dropStart[0],grabbed[1]-dropStart[1])<1.5,{grabbed,dropStart});
-   const recovery=manifest.actions.drag.end.frames.reduce((n,f)=>n+f.ms,0)*(manifest.actions.drag.releaseTimeScale||1);
+   const endFrames=manifest.actions.drag.endVariants?.[0]?.frames||manifest.actions.drag.end.frames;
+   const recovery=endFrames.reduce((n,f)=>n+f.ms,0)*(manifest.actions.drag.releaseTimeScale||1);
    pump(recovery-1);check('release plays full slower recovery',controller.action==='drag',controller.snapshot());
    pump(1);check('drawn release/get-up returns to breathing',controller.action==='idle',controller.snapshot());
    const {IdleScheduler}=window;let seed=41;const rnd=()=>((seed=(seed*1664525+1013904223)>>>0)/4294967296);
