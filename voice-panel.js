@@ -2,8 +2,13 @@
 const $=id=>document.getElementById(id);
 const log=$('log'),status=$('status'),input=$('input'),mic=$('mic'),banner=$('banner'),modal=$('settings-modal');
 let config=null,history=[],busy=false,recognition=null,listening=false,mediaRecorder=null,chunks=[],wakeArmed=false;
-const ACTION_LABEL={idle:'呼吸待机',headpat:'摸头',cheer:'开心招呼',lookAround:'四处张望',stretch:'伸懒腰',drag:'提起放下',run:'小跑漫游',sofa:'沙发游戏',book:'看书',tea:'喝热饮'};
-const CONTROL_LABEL={'open-preview':'动作预览','open-floating':'显示桌宠',quit:'退出',toggle:'开关'};
+const ACTION_LABEL={idle:'呼吸待机',headpat:'摸头',cheer:'开心招呼',lookAround:'四处张望',stretch:'伸懒腰',drag:'提起放下',run:'小跑漫游',sofa:'沙发游戏',book:'看书',tea:'喝热饮',
+ idleSword:'持剑待机',idleStretch:'舒展身体',idleSpark:'灵光一闪',idleQuestion:'心生疑惑',idleTsundere:'傲娇别过脸',idleSmile:'微笑',idleConfident:'自信持剑',idleScold:'轻声训斥',idleShy:'害羞',idleCoverEars:'捂耳朵',
+ idleComfort:'欣慰',idleShock:'惊讶',idleSeason:'季节问候',outfitChange:'换上新装',outfitRevert:'换回原装',
+ cook:'烹饪',eatCake:'吃蛋糕',fallDizzy:'眼花摔倒',music:'听音乐',sleep:'小憩',walk:'散步',angryStomp:'生气跺脚',eatDessert:'吃甜点',
+ transformToPyra:'变身为焰',transformToMythra:'变身为光'};
+const CONTROL_LABEL={'open-preview':'动作预览','open-floating':'显示桌宠',quit:'退出','toggle-idle':'开关随机待机','toggle-roam':'开关全屏漫游','switch-persona':'切换人格','switch-outfit':'切换服装'};
+const PERSONA_NAME={mythra:'光',pyra:'焰'};
 const PRESET_ARK={baseURL:'https://ark.cn-beijing.volces.com/api/plan/v3',model:'ark-code-latest',stt:'browser',voice:'zh-CN'};
 const PRESET_OPENAI={baseURL:'https://api.openai.com/v1',model:'gpt-4o-mini',stt:'browser',voice:'zh-CN'};
 
@@ -11,7 +16,7 @@ function setStatus(text,error=false){status.textContent=text;status.classList.to
 function addMsg(role,text,extra){
  const welcome=log.querySelector('.welcome');if(welcome&&role==='user')welcome.remove();
  const div=document.createElement('div');div.className='msg '+(role==='user'?'you':'guang');
- const who=document.createElement('span');who.className='who';who.textContent=role==='user'?'你':'光';
+ const who=document.createElement('span');who.className='who';who.textContent=role==='user'?'你':(PERSONA_NAME[config?.persona]||'光');
  const body=document.createElement('div');body.textContent=text;div.append(who,body);
  if(extra){const tag=document.createElement('span');tag.className='act';tag.textContent=extra;div.append(tag);}
  log.append(div);log.scrollTop=log.scrollHeight;return div;
@@ -50,7 +55,15 @@ function renderSuggest(){
  for(const item of items){const b=document.createElement('button');b.textContent=item;b.onclick=()=>send(item);wrap.append(b);}
 }
 function setFeedback(text,error=false){const f=$('cfg-feedback');f.textContent=text;f.classList.toggle('error',Boolean(error));}
-function paintPersona(key){for(const b of document.querySelectorAll('.persona'))b.classList.toggle('active',b.dataset.persona===key);}
+function paintPersona(key){
+ for(const b of document.querySelectorAll('.persona'))b.classList.toggle('active',b.dataset.persona===key);
+ document.documentElement.dataset.persona=key;
+ const name=PERSONA_NAME[key]||'光';
+ const portrait=document.querySelector('.portrait img');
+ if(portrait)portrait.src=config?.outfit==='new'?`assets/outfit-new/${key}/headpat-0.png`:`assets/${key}/headpat-C1.png`;
+ const heading=document.querySelector('.heading h1');if(heading)heading.textContent=`和${name}说话`;
+ const welcome=log.querySelector('.welcome strong');if(welcome)welcome.textContent=name;
+}
 function fillConfig(cfg){
  config=cfg;
  $('cfg-baseURL').value=cfg.baseURL||'';$('cfg-model').value=cfg.model||'';
@@ -161,6 +174,8 @@ $('cfg-save').addEventListener('click',async()=>{
 });
 window.voiceHost.onCommand(value=>{
  if(value?.type==='voice-panel'&&value.open===false)window.voiceHost.close();
+ if(value?.type==='persona-change'&&value.persona){if(config)config.persona=value.persona;paintPersona(value.persona);}
+ if(value?.type==='outfit-change'&&value.outfit){if(config)config.outfit=value.outfit;paintPersona(config?.persona||'mythra');}
 });
 window.voiceHost.readConfig().then(c=>{fillConfig(c);const w=log.querySelector('.welcome strong');if(w)w.textContent=c.persona==='pyra'?'焰':'光';}).catch(error=>{setStatus('读取配置失败：'+error.message,true);});
 renderSuggest();input.focus();

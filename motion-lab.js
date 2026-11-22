@@ -1,30 +1,91 @@
 'use strict';
 (async()=>{
- const {manifest,nativeUrlGroups,testing,floating,autoIdle,roam,persona:initialPersona}=await window.motionHost.getManifest();
+ const {manifest:baseManifest,nativeUrlGroups,testing,floating,autoIdle,roam,persona:initialPersona,outfit:initialOutfit}=await window.motionHost.getManifest();
  const $=id=>document.getElementById(id);
- $('asset-badge').textContent=`${Object.keys(manifest.actions).length} 类动作 · ${manifest.assets.length} 张实际姿势`;
+ $('asset-badge').textContent=`${Object.keys(baseManifest.actions).length} 类动作 · ${baseManifest.assets.length} 张资源`;
  if(floating){document.body.classList.add('floating');document.documentElement.classList.add('floating-root');}
  const images=new Map(),references=new Map(),legacy=new Map(),referenceFailures=[];
  const pyraImages=new Map(),transitionImages=new Map();
  let currentPersona=initialPersona==='pyra'?'pyra':'mythra';
+ let currentOutfit=initialOutfit==='new'?'new':'default';
  let personaTransition=null;
- const records=new Map(manifest.assets.map(r=>[r.file,r]));
+ // 按当前服装投影 manifest：替换有 outfitFrames 的动作帧和 neutral
+ const altOf=f=>f.replace(/^assets\/(outfit-new\/)?mythra\//,'assets/$1pyra/');
+ function projectManifest(outfit){
+  if(outfit==='default')return baseManifest;
+  const cfg=baseManifest.outfits?.new;if(!cfg)return baseManifest;
+  const m=JSON.parse(JSON.stringify(baseManifest));
+  for(const [key,frames] of Object.entries(cfg.frames||{})){
+   const d=m.actions[key];if(!d)continue;
+   // nativeSequence/Single/Drag 必须严格匹配原始 Core 时间线，不可替换帧。
+   if(d.nativeSequence||d.nativeSingle||d.nativeDrag)continue;
+   // 按 phase 顺序循环取帧；收尾帧设为 neutral，保证动作能回到中立。
+   let idx=0;const remap=new Map();
+   for(const ph of ['start','loop','end']){
+    if(!d[ph]?.frames)continue;
+    d[ph].frames=d[ph].frames.map((f,i)=>{
+     const asset=(ph==='end'&&i===d[ph].frames.length-1)?cfg.neutral:frames[idx++%frames.length];
+     if(!remap.has(f.asset))remap.set(f.asset,asset);
+     return {...f,asset,ms:135};
+    });
+   }
+   d.exitAtAssets=(d.exitAtAssets||[]).map(a=>remap.get(a)||a);
+  }
+  // neutralAsset 保持不变：nativeSequence 动作的收尾帧必须继续匹配默认中立帧，
+  // 否则 native-motion-controller 的严格校验会失败。
+  return m;
+ }
+ let manifest=projectManifest(currentOutfit);
+ const records=new Map(baseManifest.assets.map(r=>[r.file,r]));
+ const registeredAssets=new Set(baseManifest.assets.map(r=>r.file));
+ const outfitAssetMap=baseManifest.outfits?.new?.assetMap||{};
+ // 原生 Core 帧不能被改写成新路径（控制器会严格校验），因此只在实际绘制时换图。
+ function visualAsset(asset,outfit=currentOutfit){
+  if(outfit!=='new')return asset;
+  if(outfitAssetMap[asset])return outfitAssetMap[asset];
+  const match=/^assets\/mythra\/(.+)$/.exec(asset);
+  if(match){const alt='assets/outfit-new/mythra/'+match[1];if(registeredAssets.has(alt))return alt;}
+  return asset;
+ }
  const decode=async url=>{
   const i=new Image();
   await new Promise((resolve,reject)=>{
    const timer=setTimeout(()=>reject(new Error('Image load timeout')),12000);
    i.onload=()=>{clearTimeout(timer);resolve();};i.onerror=()=>{clearTimeout(timer);reject(new Error('Image load event failed'));};i.src=url;
   });
-  // Wait for load BEFORE requesting decode. Issuing decode while the file/data
-  // request is still being installed produced intermittent EncodingError here.
-  await i.decode();if(!i.naturalWidth)throw new Error('Empty decoded image');return i;
+  if(!i.naturalWidth)throw new Error('Empty decoded image');return i;
  };
- await Promise.all(manifest.assets.map(async r=>images.set(r.file,await decode(r.file))));
- // 焰（pyra）色调变体：同名文件，路径前缀替换为 assets/pyra/
- await Promise.all(manifest.assets.map(async r=>{
-  const alt=r.file.replace(/^assets\/mythra\//,'assets/pyra/');
-  try{pyraImages.set(r.file,await decode(alt));}catch(e){referenceFailures.push({kind:'pyra',url:alt,error:String(e)});}
- }));
+ // 只解码当前服装实际用到的帧，避免一次性解码全部服装导致资源耗尽。
+ function requiredAssets(src,outfit=currentOutfit){
+  const use=new Set([src.neutralAsset]);
+  for(const d of Object.values(src.actions)){
+   for(const ph of ['dynamic','start','loop','end'])for(const f of (d[ph]?.frames||[]))use.add(f.asset);
+   for(const v of (d.endVariants||[]))for(const f of (v.frames||[]))use.add(f.asset);
+  }
+  // 新装对原生帧只做绘制层替换：原路径仍用于控制器校验，替换后的图也要预解码。
+  if(outfit==='new')for(const f of [...use])use.add(visualAsset(f,'new'));
+  return [...use];
+ }
+ async function loadAssetsFor(src,outfit=currentOutfit){
+  const list=requiredAssets(src,outfit);
+  for(let i=0;i<list.length;i+=4){
+   const grp=list.slice(i,i+4);
+   await Promise.all(grp.map(async f=>{
+   if(images.has(f))return;
+   try{images.set(f,await decode(f));}catch(e){referenceFailures.push({kind:'mythra',url:f,error:String(e)});}
+  }));
+  }
+  for(let i=0;i<list.length;i+=4){
+   const grp=list.slice(i,i+4);
+   await Promise.all(grp.map(async f=>{
+    if(pyraImages.has(f))return;
+    const alt=altOf(f);
+    try{pyraImages.set(f,await decode(alt));}catch(e){referenceFailures.push({kind:'pyra',url:alt,error:String(e)});}
+   }));
+  }
+ }
+ await loadAssetsFor(manifest,currentOutfit);
+window.motionHost.getPetState?.().then(showPetStats).catch(()=>{});
  // 人格切换特效帧
  for(const dir of ['to-pyra','to-mythra'])for(let i=0;i<12;i++){
   try{transitionImages.set(`${dir}-${i}`,await decode(`assets/transition/${dir}-${String(i).padStart(2,'0')}.png`));}catch{}
@@ -48,6 +109,8 @@
  }
  let controller=new window.NativeMotionController(manifest);
  const scheduler=new window.IdleScheduler(manifest.idleScheduler,{enabled:autoIdle!==false});
+ scheduler.persona=currentPersona;
+ scheduler.setActionKeys(outfitActionKeys());
  $('auto-idle').checked=autoIdle!==false;
  scheduler.interact(performance.now(),controller);
  let frozen=false,displayed=null,drop=null,lastRender=null,hovered=false,dragging=false,press=null;
@@ -58,8 +121,31 @@
  let previous=performance.now(),fpsAt=previous,renderCount=0;
  const canvases=[$('original'),$('pet')],contexts=canvases.map(c=>c.getContext('2d',{willReadFrequently:true}));
  const names={dynamic:'D · 悬空动态',start:'A · 进入',loop:'B · 循环',end:'C · 收尾'};
- for(const [key,d] of Object.entries(manifest.actions)){const o=document.createElement('option');o.value=key;o.textContent=d.label;$('action').append(o);}
- $('action').value='headpat';
+ const personaOf=d=>!d.personas||d.personas.includes(currentPersona);
+ // 当前服装允许的动作 key列 表（undefined 表示不限）
+ function outfitActionKeys(){
+  const cfg=baseManifest.outfits?.[currentOutfit];
+  return cfg?.actions||Object.keys(manifest.actions);
+ }
+ function availableActions(){
+  const keys=new Set(outfitActionKeys());
+  return Object.entries(manifest.actions).filter(([key,d])=>keys.has(key)&&personaOf(d));
+ }
+ const personaName=()=>currentPersona==='pyra'?'焰':'光';
+ const outfitName=()=>currentOutfit==='new'?'新装':'原初';
+ function updateAppearanceStatus(){
+  document.documentElement.dataset.outfit=currentOutfit;
+  $('asset-badge').textContent=`${personaName()} · ${outfitName()} · ${availableActions().length} 类动作 · ${baseManifest.assets.length} 张资源`;
+  const title=$('pet-card-title');if(title)title.textContent=`${personaName()} · ${outfitName()}动作`;
+ }
+ function buildActionList(keep){
+  const sel=$('action');sel.replaceChildren();
+  const list=availableActions();
+  for(const [key,d] of list){const o=document.createElement('option');o.value=key;o.textContent=d.label;sel.append(o);}
+  sel.value=list.some(([k])=>k===keep)?keep:(list[0]?.[0]||'idle');
+  updateTiming(sel.value);
+ }
+ buildActionList('headpat');updateAppearanceStatus();
  function clearHover(){clearTimeout(hoverTimer);clearTimeout(leaveTimer);}
  function interact(){scheduler.interact(performance.now(),controller);}
  function updateTiming(action=$('action').value){
@@ -74,10 +160,12 @@
  $('action').addEventListener('change',updateTiming);updateTiming();
  function render(s,diagnostic=false){
   const prev=displayed;displayed=s;
+  const asset=visualAsset(s.asset);
   const set=currentPersona==='pyra'?pyraImages:images;
-  const im=set.get(s.asset)||images.get(s.asset);if(!im)throw new Error('No decoded cel '+s.asset);
+  const im=set.get(asset)||set.get(s.asset)||images.get(asset)||images.get(s.asset);if(!im)throw new Error('No decoded cel '+asset);
   if(prev?.action!==s.action)updateTiming(s.action);
-  const rec=records.get(s.asset),d=manifest.actions[s.action];let ox=0,oy=0;
+  const mappedRec=records.get(asset),baseRec=records.get(s.asset);
+  const rec=(mappedRec?.crownPoint?mappedRec:baseRec)||mappedRec||baseRec,d=manifest.actions[s.action];let ox=0,oy=0;
   if(!diagnostic&&s.action==='drag'&&s.phase==='end'){
    if(!drop||prev?.action!=='drag'||prev.phase!=='end'){
     const from=lastRender?.crown||manifest.actions.drag.grabAnchor;
@@ -90,11 +178,11 @@
   const right=canvases[1],ctx=contexts[1];ctx.clearRect(0,0,right.width,right.height);
   ctx.imageSmoothingEnabled=true;ctx.imageSmoothingQuality='high';
   ctx.save();
-  if(s.action==='run'&&roamDir<0&&s.asset!==manifest.neutralAsset){ctx.translate(right.width,0);ctx.scale(-1,1);}
+  if(s.action==='run'&&roamDir<0&&asset!==visualAsset(manifest.neutralAsset)){ctx.translate(right.width,0);ctx.scale(-1,1);}
   // 人格切换时，新旧形态交叉淡化
   if(personaTransition&&!diagnostic){
    const otherSet=currentPersona==='pyra'?images:pyraImages;
-   const otherIm=otherSet.get(s.asset);
+   const otherIm=otherSet.get(asset)||otherSet.get(s.asset);
    const t=personaTransition.progress;
    if(otherIm){
     ctx.globalAlpha=1-t;ctx.drawImage(otherIm,ox*right.width/500,oy*right.height/500,right.width,right.height);
@@ -109,7 +197,7 @@
    if(fx)ctx.drawImage(fx,0,0,right.width,right.height);
   }
   ctx.restore();
-  lastRender={asset:s.asset,crown:[(rec.crownPoint?.[0]??250)+ox,(rec.crownPoint?.[1]??120)+oy],offset:[ox,oy]};
+  lastRender={asset,crown:[(rec.crownPoint?.[0]??250)+ox,(rec.crownPoint?.[1]??120)+oy],offset:[ox,oy]};
   if(!floating){
    const c=canvases[0],rctx=contexts[0];rctx.clearRect(0,0,c.width,c.height);
    const source=nativeUrlGroups[s.action]?.[s.nativeIndex??0];const ref=references.get(source);
@@ -201,31 +289,98 @@
  $('auto-idle').addEventListener('change',saveAutonomy);
  $('desktop').addEventListener('click',()=>window.motionHost.openFloating());
  function performVoiceAction(action){
- if(!action||!manifest.actions[action])return false;
+ if(!action||!manifest.actions[action]||!personaOf(manifest.actions[action]))return false;
+ if(!outfitActionKeys().includes(action))return false;
  interact();interruptRoam();clearHover();
  ['manual','hold','hover','autonomy','voice'].forEach(o=>controller.release(o));
  controller.request('voice',action,70,{hold:action==='drag'||action==='run'});
  if(action==='drag')setTimeout(()=>controller.release('voice'),2200);
  if(action==='run'&&floating&&!roamEnabled){roamEnabled=true;planNextRoam(performance.now());}
+ window.motionHost.reportAction(action);
  return true;
 }
-function switchPersona(target){
+function switchPersona(target,silent=false){
  target=target==='pyra'?'pyra':'mythra';
  if(target===currentPersona)return false;
  const dir=target==='pyra'?'to-pyra':'to-mythra';
+ const keep=$('action').value;
  currentPersona=target;
  document.documentElement.dataset.persona=target;
- personaTransition={dir,progress:0,start:performance.now(),duration:520};
+ personaTransition=null; // 使用新的变身动画序列，不再叠加旧的交叉淡化/光晕
+ buildActionList(keep);updateAppearanceStatus();
+ scheduler.setPersona(target);
+ // 播放变身动画：方向对应 m2p/p2m，帧由当前服装投影决定（原初/新装各自一致）
+ const key=target==='pyra'?'transformToPyra':'transformToMythra';
+ const def=manifest.actions[key];
+ if(def){
+  ['manual','hold','hover','autonomy','voice','agent','outfit'].forEach(o=>controller.release(o));
+  controller.request('transform',key,85);
+  if(controller.action!=='drag')controller.begin(controller.winner());
+  render(controller.snapshot());
+  const total=['start','loop','end'].reduce((n,ph)=>n+def[ph].frames.reduce((m,f)=>m+f.ms,0),0);
+  setTimeout(()=>{if(controller.ticket?.owner==='transform')controller.release('transform');},total);
+ }
  interact();
- window.motionHost.savePersona(target).catch(()=>{});
+ if(!silent)window.motionHost.savePersona(target).catch(()=>{});
  return true;
 }
+async function switchOutfit(target,silent=false){
+ target=target==='new'?'new':'default';
+ if(target===currentOutfit)return false;
+ const keep=$('action').value;
+ const next=projectManifest(target);
+ await loadAssetsFor(next,target);
+ currentOutfit=target;
+ manifest=next;
+ controller=new window.NativeMotionController(manifest);
+ scheduler.config=manifest.idleScheduler;
+ scheduler.setActionKeys(outfitActionKeys());
+ buildActionList(keep);updateAppearanceStatus();
+ // 播放换装过场：按目标服装选择动画（换新装=outfitChange，换回原装=outfitRevert）。
+ // 清单与资源已切到目标服装，动画帧按当前人格/服装取图，二者一致。
+ const changeKey=manifest.outfits?.[target]?.changeAction||
+   (target==='new'?'outfitChange':'outfitRevert');
+ const change=manifest.actions[changeKey];
+ if(change){
+  ['manual','hold','hover','autonomy','voice','agent','outfit'].forEach(o=>controller.release(o));
+  controller.request('outfit',changeKey,80);
+  const total=['start','loop','end'].reduce((n,ph)=>n+change[ph].frames.reduce((m,f)=>m+f.ms,0),0);
+  setTimeout(()=>{if(controller.ticket?.owner==='outfit')controller.release('outfit');},total);
+ }
+ interact();
+ if(!silent)window.motionHost.saveOutfit(target).catch(()=>{});
+ return true;
+}
+// 智能体状态显示与索求气泡
+let bubbleTimer=null;
+function showPetStats(st){
+ if(!st)return;
+ const set=(id,v)=>{const el=document.getElementById(id);if(el)el.textContent=String(v);};
+ set('stat-satiety',st.satiety);set('stat-mood',st.mood);set('stat-energy',st.energy);
+}
+function showBubble(text,ms){
+ const b=document.getElementById('pet-bubble');if(!b)return;
+ b.textContent=text;b.hidden=false;
+ clearTimeout(bubbleTimer);bubbleTimer=setTimeout(()=>{b.hidden=true;},ms||4200);
+}
 window.motionHost.onVoice(value=>{
+ if(value?.type==='pet:state-changed')showPetStats(value.stats);
+ if(value?.type==='agent-request'){
+  if(value.say)showBubble(value.say,5000);
+  const act=value.action;
+  if(act&&manifest.actions[act]&&personaOf(manifest.actions[act])&&outfitActionKeys().includes(act)){
+   controller.request(act,'agent',60);
+   setTimeout(()=>{if(controller.owner==='agent')controller.release('agent');},2600);
+  }
+  window.motionHost.reportAction(act||'idle');
+ }
  if(value?.type==='voice-reply'){
   if(value.action)performVoiceAction(value.action);
-  if(value.control==='switch-persona')switchPersona(value.persona||(currentPersona==='pyra'?'mythra':'pyra'));
+  if(value.control==='switch-persona')switchPersona(value.persona||(currentPersona==='pyra'?'mythra':'pyra'),true);
+  if(value.control==='switch-outfit')switchOutfit(value.outfit||(currentOutfit==='new'?'default':'new'),true);
  }
- if(value?.type==='persona-change'&&value.persona)switchPersona(value.persona);
+ if(value?.type==='persona-change'&&value.persona)switchPersona(value.persona,true);
+ if(value?.type==='outfit-change'&&value.outfit)switchOutfit(value.outfit,true);
 });
 window.motionHost.onMenu(value=>{
   if(value?.type==='set-autonomy'){$('auto-idle').checked=value.enabled;scheduler.setEnabled(value.enabled,performance.now(),controller);}
@@ -237,7 +392,10 @@ window.motionHost.onMenu(value=>{
  resize();requestAnimationFrame(animate);
 
  window.motionQA={
-  startupInfo(){return{decodedImages:images.size,actions:Object.keys(manifest.actions),floating,initialAction:controller.action,originalReferenceImages:references.size,assetPathsRelative:manifest.assets.every(r=>!r.file.includes(':')&&!r.file.startsWith('..'))};},
+  listInfo(){return{outfit:currentOutfit,persona:currentPersona,visible:availableActions().map(([k])=>k),selected:document.getElementById('action').value,schedulerKeys:scheduler.actionKeys?[...scheduler.actionKeys]:null,visualNeutral:visualAsset(manifest.neutralAsset),badge:$('asset-badge').textContent};},
+  async setOutfitForQA(o){await switchOutfit(o,true);return this.listInfo();},
+  setPersonaForQA(p){switchPersona(p,true);return this.listInfo();},
+  startupInfo(){const req=requiredAssets(manifest);return{decodedImages:images.size,requiredImages:req.length,allRequiredDecoded:req.every(f=>images.has(f)),actions:Object.keys(manifest.actions),floating,initialAction:controller.action,originalReferenceImages:references.size,assetPathsRelative:baseManifest.assets.every(r=>!r.file.includes(':')&&!r.file.startsWith('..'))};},
   show(index,action='headpat'){
    frozen=true;let s=controller.snapshot();
    if(index===null){s={...s,action:'idle',phase:'loop',index:0,asset:manifest.neutralAsset,nativeIndex:null,phaseTime:1000};}
@@ -245,7 +403,7 @@ window.motionHost.onMenu(value=>{
    else{const d=manifest.actions[action],all=['start','loop','end'].flatMap(p=>d[p].frames.map(f=>({...f,phase:p})));const f=all[index];s={...s,action,phase:f.phase,index:0,asset:f.asset,nativeIndex:null,frameMs:f.ms,phaseTime:1000};}
    render(s,true);return true;
   },
-  getState(){const s=controller.snapshot();const set=currentPersona==='pyra'?pyraImages:images;const im=displayed?set.get(displayed.asset):null;return{action:s.action,phase:s.phase,index:s.index,dragging,pressing:Boolean(press),intents:controller.intents.size,persona:currentPersona,asset:displayed?.asset,imgW:im?.naturalWidth,pyraCount:pyraImages.size,mythraCount:images.size,referenceFailures:referenceFailures.slice(0,3)};},
+  getState(){const s=controller.snapshot(),asset=displayed?.asset,drawn=asset?visualAsset(asset):null;const set=currentPersona==='pyra'?pyraImages:images;const im=drawn?set.get(drawn)||set.get(asset):null;return{action:s.action,phase:s.phase,index:s.index,dragging,pressing:Boolean(press),intents:controller.intents.size,persona:currentPersona,asset,drawnAsset:drawn,imgW:im?.naturalWidth,pyraCount:pyraImages.size,mythraCount:images.size,referenceFailures:referenceFailures.slice(0,3)};},
   async startRoamTest(){
    if(!testing||!floating)return false;
    window.motionQA.prepareInputTest();roamEnabled=true;nextRoam=0;
@@ -256,13 +414,16 @@ window.motionHost.onMenu(value=>{
   async run(){
    if(!testing)throw new Error('Diagnostic mode requires --self-test');frozen=true;qaNoHover=true;clearHover();scheduler.enabled=false;
    const checks=[];const check=(name,passed,detail)=>{checks.push({name,passed,detail});if(!passed)throw new Error(name+': '+JSON.stringify(detail));};
-   check('all real PNGs predecoded, fixed finite cache',images.size===manifest.assets.length,images.size);
+   const required=requiredAssets(manifest);
+   check('all active PNGs predecoded, fixed finite cache',required.every(f=>images.has(f)),{decoded:images.size,required:required.length});
    const geometry=[];
-   for(const a of manifest.assets){const s={...controller.snapshot(),action:'idle',phase:'loop',asset:a.file,nativeIndex:null,index:0};render(s,true);
+   for(const f of required){const s={...controller.snapshot(),action:'idle',phase:'loop',asset:f,nativeIndex:null,index:0};render(s,true);
     const c=canvases[1],px=contexts[1].getImageData(0,0,c.width,c.height).data;let count=0,minX=c.width,maxX=-1,minY=c.height,maxY=-1;
     for(let y=0;y<c.height;y++)for(let x=0;x<c.width;x++)if(px[(y*c.width+x)*4+3]>128){count++;minX=Math.min(x,minX);maxX=Math.max(x,maxX);minY=Math.min(y,minY);maxY=Math.max(y,maxY);}
-    const valid=count>c.width*c.height*.09&&minX>0&&minY>0&&maxX<c.width-1&&maxY<c.height-1;
-    check('actual render: '+a.name,valid,{count,minX,maxX,minY,maxY});geometry.push({asset:a.file,count,minX,maxX,minY,maxY});
+    // 变身特效帧可满幅，扩展动作帧可贴底；只要绘制面积充足且裁切不超过画布边界即可。
+    // 扩展动作/变身特效帧允许贴边或满幅；只要求有足够绘制面积且不越出画布。
+    const valid=count>c.width*c.height*.09&&minX>=0&&minY>=0&&maxX<c.width&&maxY<c.height;
+    check('actual render: '+f.split('/').pop(),valid,{count,minX,maxX,minY,maxY});geometry.push({asset:f,count,minX,maxX,minY,maxY});
    }
    const pump=ms=>{for(let t=0;t<ms;t+=5)render(controller.tick(Math.min(5,ms-t)));};
    for(const action of ['headpat','run',...manifest.idleScheduler.actions.map(r=>r.action)]){
@@ -285,14 +446,64 @@ window.motionHost.onMenu(value=>{
    pump(recovery-1);check('release plays full slower recovery',controller.action==='drag',controller.snapshot());
    pump(1);check('drawn release/get-up returns to breathing',controller.action==='idle',controller.snapshot());
    const {IdleScheduler}=window;let seed=41;const rnd=()=>((seed=(seed*1664525+1013904223)>>>0)/4294967296);
-   const sch=new IdleScheduler(manifest.idleScheduler,{random:rnd});const chosen=[];
+   const sch=new IdleScheduler(manifest.idleScheduler,{random:rnd});sch.persona=currentPersona;const chosen=[];
    for(let now=0;now<600000;now+=50){controller.tick(50);const a=sch.tick(now,controller);if(a)chosen.push(a);}
-   const roundSize=manifest.idleScheduler.actions.length;
+   const roundSize=manifest.idleScheduler.actions.filter(r=>personaOf(manifest.actions[r.action])).length;
    const rounds=Array.from({length:Math.floor(chosen.length/roundSize)},(_,i)=>chosen.slice(i*roundSize,(i+1)*roundSize));
    check('all idle motions appear exactly once in each complete shuffled round',
     rounds.length>=4&&rounds.every(round=>new Set(round).size===roundSize)&&chosen.every((v,i)=>!i||v!==chosen[i-1]),rounds);
    frozen=false;let n=0;const t0=performance.now();await new Promise(resolve=>{const sample=t=>{n++;if(t-t0>=1500)resolve();else requestAnimationFrame(sample);};requestAnimationFrame(sample);});frozen=true;
    const fps=n*1000/(performance.now()-t0);check('real visible renderer rAF active',n>=15,{n,fps});
+   // 服装动作列表：新装与原初的可见动作集合应不同，且新装不含无新帧的动作。
+   const defaultKeys=baseManifest.outfits?.default?.actions||[];
+   const newKeys=baseManifest.outfits?.new?.actions||[];
+   const newFrameKeys=Object.keys(baseManifest.outfits?.new?.frames||{});
+   check('new-outfit list covers the full action set',newKeys.length===defaultKeys.length&&defaultKeys.every(k=>newKeys.includes(k)),{def:defaultKeys.length,neu:newKeys.length});
+   check('new-outfit list has new-art frames for every action',newKeys.every(k=>newFrameKeys.includes(k)),newKeys.filter(k=>!newFrameKeys.includes(k)));
+   check('outfit list respects persona',availableActions().every(([k,d])=>!d.personas||d.personas.includes(currentPersona)),availableActions().map(([k])=>k));
+   // 换装动画清单：两个方向都要有独立动作与已注册帧；换回原装还要有新装帧映射。
+   const assetSet=new Set(baseManifest.assets.map(r=>r.file));
+   const changeDirections=[['default','outfitRevert'],['new','outfitChange']];
+   const changeDetail=changeDirections.map(([outfit,expected])=>{
+    const key=baseManifest.outfits?.[outfit]?.changeAction;
+    const def=baseManifest.actions?.[key];
+    const frames=def?['start','loop','end'].flatMap(p=>def[p].frames.map(f=>f.asset)):[];
+    return {outfit,key,expected,frames:frames.length,registered:frames.length>=5&&frames.every(a=>assetSet.has(a))};
+   });
+   check('both outfit directions configure registered change animations',
+    changeDetail.every(d=>d.key===d.expected&&d.registered),changeDetail);
+   const revertMapped=baseManifest.outfits?.new?.frames?.outfitRevert||[];
+   check('outfit-revert mapped for new outfit',revertMapped.length>=5&&revertMapped.every(a=>assetSet.has(a)),revertMapped);
+   const nativeKeys=['idle','headpat','drag'];
+   const nativeVisualOk=nativeKeys.every(k=>{
+    const d=baseManifest.actions[k];if(!d)return false;
+    return ['dynamic','start','loop','end'].flatMap(p=>d[p]?.frames||[]).every(f=>{
+     const v=visualAsset(f.asset,'new');return v!==f.asset&&assetSet.has(v);
+    });
+   });
+   check('native idle/headpat/drag remap to registered new-outfit cels',nativeVisualOk,nativeKeys);
+   check('new-outfit neutral remaps to registered cel',
+    assetSet.has(visualAsset(baseManifest.neutralAsset,'new')),visualAsset(baseManifest.neutralAsset,'new'));
+   // 变身动画：两个方向都要在两套服装有帧映射，且帧已注册。
+   const transformKeys=['transformToPyra','transformToMythra'];
+   const transformOk=transformKeys.every(k=>{
+    const d=baseManifest.actions[k],fs=newFrameKeys.includes(k)?baseManifest.outfits.new.frames[k]:null;
+    return d&&fs&&fs.length>=5&&fs.every(f=>assetSet.has(f));
+   });
+   check('transform animations mapped for both outfits',transformOk,transformKeys);
+   const switchV2=[
+    ['transformToPyra','switch-v2-m2p'],
+    ['transformToMythra','switch-v2-p2m']
+   ];
+   const switchV2Ok=switchV2.every(([key,prefix])=>{
+    const fs=baseManifest.outfits.new.frames[key]||[];
+    return fs.length===10&&fs.every((f,i)=>f===`assets/outfit-new/mythra/${prefix}_${String(i+1).padStart(2,'0')}.png`&&assetSet.has(f));
+   });
+   check('new-outfit persona switch uses v2 animation in both directions',switchV2Ok,switchV2);
+   // 扩展动作人格归属：焰专属/光专属正确
+   check('expansion actions respect persona',
+    baseManifest.actions.cook?.personas?.join()==='pyra'&&baseManifest.actions.eatCake?.personas?.join()==='pyra'
+    &&baseManifest.actions.angryStomp?.personas?.join()==='mythra'&&baseManifest.actions.eatDessert?.personas?.join()==='mythra');
    return{success:true,checks,geometry,ownImages:images.size,referenceImages:references.size,legacySheets:legacy.size,referenceFailures,rafFPS:fps,
     redrawnDrawings:manifest.redraw?.drawings||0,dragDrawings:34,dragFrameEntries:40,actions:Object.keys(manifest.actions),noProceduralInbetweenArt:true};
   }

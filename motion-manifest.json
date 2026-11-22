@@ -1,6 +1,6 @@
 {
   "schema": 2,
-  "status": "v0.2.6-inbetweens-and-shuffled-idle",
+  "status": "v0.2.13-new-outfit-character-switch-v2",
   "canvas": [
     500,
     500
@@ -80,7 +80,11 @@
             "ms": 125
           }
         ]
-      }
+      },
+      "personas": [
+        "mythra",
+        "pyra"
+      ]
     },
     "headpat": {
       "label": "摸头反应",
@@ -181,6 +185,10 @@
       },
       "exitAtAssets": [
         "assets/mythra/headpat-B0.png"
+      ],
+      "personas": [
+        "mythra",
+        "pyra"
       ]
     },
     "cheer": {
@@ -276,6 +284,10 @@
       "exitAtAssets": [
         "assets/mythra/new-cheer-2.png",
         "assets/mythra/new-cheer-3.png"
+      ],
+      "personas": [
+        "mythra",
+        "pyra"
       ]
     },
     "lookAround": {
@@ -360,6 +372,10 @@
         "assets/mythra/new-lookAround-2.png",
         "assets/mythra/new-lookAround-3.png",
         "assets/mythra/smooth-idle-lookAround-2.png"
+      ],
+      "personas": [
+        "mythra",
+        "pyra"
       ]
     },
     "stretch": {
@@ -439,6 +455,10 @@
       "exitAtAssets": [
         "assets/mythra/smooth-idle-stretch-2.png",
         "assets/mythra/new-stretch-3.png"
+      ],
+      "personas": [
+        "mythra",
+        "pyra"
       ]
     },
     "drag": {
@@ -671,36 +691,140 @@
       "endVariants": [
         {
           "frames": [
-            { "asset": "assets/mythra/drag-16.png", "ms": 125, "nativeIndex": 21 },
-            { "asset": "assets/mythra/drag-18.png", "ms": 125, "nativeIndex": 23 },
-            { "asset": "assets/mythra/drag-20.png", "ms": 125, "nativeIndex": 25 },
-            { "asset": "assets/mythra/drag-22.png", "ms": 125, "nativeIndex": 27 },
-            { "asset": "assets/mythra/drag-24.png", "ms": 125, "nativeIndex": 29 },
-            { "asset": "assets/mythra/drag-25.png", "ms": 125, "nativeIndex": 30 },
-            { "asset": "assets/mythra/drag-26.png", "ms": 125, "nativeIndex": 32 },
-            { "asset": "assets/mythra/drag-27.png", "ms": 125, "nativeIndex": 33 },
-            { "asset": "assets/mythra/drag-29.png", "ms": 125, "nativeIndex": 35 },
-            { "asset": "assets/mythra/drag-30.png", "ms": 125, "nativeIndex": 36 },
-            { "asset": "assets/mythra/drag-31.png", "ms": 125, "nativeIndex": 37 },
-            { "asset": "assets/mythra/drag-32.png", "ms": 125, "nativeIndex": 38 },
-            { "asset": "assets/mythra/drag-33.png", "ms": 125, "nativeIndex": 39 }
+            {
+              "asset": "assets/mythra/drag-16.png",
+              "ms": 125,
+              "nativeIndex": 21
+            },
+            {
+              "asset": "assets/mythra/drag-18.png",
+              "ms": 125,
+              "nativeIndex": 23
+            },
+            {
+              "asset": "assets/mythra/drag-20.png",
+              "ms": 125,
+              "nativeIndex": 25
+            },
+            {
+              "asset": "assets/mythra/drag-22.png",
+              "ms": 125,
+              "nativeIndex": 27
+            },
+            {
+              "asset": "assets/mythra/drag-24.png",
+              "ms": 125,
+              "nativeIndex": 29
+            },
+            {
+              "asset": "assets/mythra/drag-25.png",
+              "ms": 125,
+              "nativeIndex": 30
+            },
+            {
+              "asset": "assets/mythra/drag-26.png",
+              "ms": 125,
+              "nativeIndex": 32
+            },
+            {
+              "asset": "assets/mythra/drag-27.png",
+              "ms": 125,
+              "nativeIndex": 33
+            },
+            {
+              "asset": "assets/mythra/drag-29.png",
+              "ms": 125,
+              "nativeIndex": 35
+            },
+            {
+              "asset": "assets/mythra/drag-30.png",
+              "ms": 125,
+              "nativeIndex": 36
+            },
+            {
+              "asset": "assets/mythra/drag-31.png",
+              "ms": 125,
+              "nativeIndex": 37
+            },
+            {
+              "asset": "assets/mythra/drag-32.png",
+              "ms": 125,
+              "nativeIndex": 38
+            },
+            {
+              "asset": "assets/mythra/drag-33.png",
+              "ms": 125,
+              "nativeIndex": 39
+            }
           ]
         },
         {
           "frames": [
-            { "asset": "assets/mythra/drag-17.png", "ms": 125, "nativeIndex": 22 },
-            { "asset": "assets/mythra/drag-19.png", "ms": 125, "nativeIndex": 24 },
-            { "asset": "assets/mythra/drag-21.png", "ms": 125, "nativeIndex": 26 },
-            { "asset": "assets/mythra/drag-23.png", "ms": 125, "nativeIndex": 28 },
-            { "asset": "assets/mythra/drag-25.png", "ms": 125, "nativeIndex": 30 },
-            { "asset": "assets/mythra/drag-26.png", "ms": 125, "nativeIndex": 32 },
-            { "asset": "assets/mythra/drag-27.png", "ms": 125, "nativeIndex": 33 },
-            { "asset": "assets/mythra/drag-28.png", "ms": 125, "nativeIndex": 34 },
-            { "asset": "assets/mythra/drag-29.png", "ms": 125, "nativeIndex": 35 },
-            { "asset": "assets/mythra/drag-30.png", "ms": 125, "nativeIndex": 36 },
-            { "asset": "assets/mythra/drag-31.png", "ms": 125, "nativeIndex": 37 },
-            { "asset": "assets/mythra/drag-32.png", "ms": 125, "nativeIndex": 38 },
-            { "asset": "assets/mythra/drag-33.png", "ms": 125, "nativeIndex": 39 }
+            {
+              "asset": "assets/mythra/drag-17.png",
+              "ms": 125,
+              "nativeIndex": 22
+            },
+            {
+              "asset": "assets/mythra/drag-19.png",
+              "ms": 125,
+              "nativeIndex": 24
+            },
+            {
+              "asset": "assets/mythra/drag-21.png",
+              "ms": 125,
+              "nativeIndex": 26
+            },
+            {
+              "asset": "assets/mythra/drag-23.png",
+              "ms": 125,
+              "nativeIndex": 28
+            },
+            {
+              "asset": "assets/mythra/drag-25.png",
+              "ms": 125,
+              "nativeIndex": 30
+            },
+            {
+              "asset": "assets/mythra/drag-26.png",
+              "ms": 125,
+              "nativeIndex": 32
+            },
+            {
+              "asset": "assets/mythra/drag-27.png",
+              "ms": 125,
+              "nativeIndex": 33
+            },
+            {
+              "asset": "assets/mythra/drag-28.png",
+              "ms": 125,
+              "nativeIndex": 34
+            },
+            {
+              "asset": "assets/mythra/drag-29.png",
+              "ms": 125,
+              "nativeIndex": 35
+            },
+            {
+              "asset": "assets/mythra/drag-30.png",
+              "ms": 125,
+              "nativeIndex": 36
+            },
+            {
+              "asset": "assets/mythra/drag-31.png",
+              "ms": 125,
+              "nativeIndex": 37
+            },
+            {
+              "asset": "assets/mythra/drag-32.png",
+              "ms": 125,
+              "nativeIndex": 38
+            },
+            {
+              "asset": "assets/mythra/drag-33.png",
+              "ms": 125,
+              "nativeIndex": 39
+            }
           ]
         }
       ],
@@ -710,7 +834,11 @@
         115
       ],
       "releaseTimeScale": 1,
-      "landingEaseMs": 360
+      "landingEaseMs": 360,
+      "personas": [
+        "mythra",
+        "pyra"
+      ]
     },
     "run": {
       "label": "全屏漫游／小跑",
@@ -789,6 +917,10 @@
       "exitAtAssets": [
         "assets/mythra/new-run-0.png",
         "assets/mythra/new-run-3.png"
+      ],
+      "personas": [
+        "mythra",
+        "pyra"
       ]
     },
     "sofa": {
@@ -916,7 +1048,11 @@
             "ms": 125
           }
         ]
-      }
+      },
+      "personas": [
+        "mythra",
+        "pyra"
+      ]
     },
     "book": {
       "label": "翻书／看看读到了什么",
@@ -1006,7 +1142,11 @@
             "ms": 125
           }
         ]
-      }
+      },
+      "personas": [
+        "mythra",
+        "pyra"
+      ]
     },
     "tea": {
       "label": "捧杯／喝热饮",
@@ -1086,6 +1226,1521 @@
           {
             "asset": "assets/mythra/idle-tea-5.png",
             "ms": 250
+          },
+          {
+            "asset": "assets/mythra/headpat-C1.png",
+            "ms": 125
+          }
+        ]
+      },
+      "personas": [
+        "mythra",
+        "pyra"
+      ]
+    },
+    "idleSword": {
+      "label": "持剑待机",
+      "artSource": "new-art-0.2.6-extra",
+      "start": {
+        "from": "neutral",
+        "to": "idleSword",
+        "frames": [
+          {
+            "asset": "assets/mythra/idle-sword-0.png",
+            "ms": 160
+          },
+          {
+            "asset": "assets/mythra/idle-sword-1.png",
+            "ms": 160
+          }
+        ]
+      },
+      "loop": {
+        "from": "idleSword",
+        "to": "idleSword",
+        "frames": [
+          {
+            "asset": "assets/mythra/idle-sword-2.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/idle-sword-3.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/idle-sword-4.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/idle-sword-5.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/idle-sword-6.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/idle-sword-7.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/idle-sword-8.png",
+            "ms": 135
+          }
+        ]
+      },
+      "end": {
+        "from": "idleSword",
+        "to": "neutral",
+        "frames": [
+          {
+            "asset": "assets/mythra/idle-sword-9.png",
+            "ms": 160
+          },
+          {
+            "asset": "assets/mythra/headpat-C1.png",
+            "ms": 125
+          }
+        ]
+      },
+      "personas": [
+        "mythra",
+        "pyra"
+      ]
+    },
+    "idleStretch": {
+      "label": "舒展身体",
+      "artSource": "new-art-0.2.6-extra",
+      "start": {
+        "from": "neutral",
+        "to": "idleStretch",
+        "frames": [
+          {
+            "asset": "assets/mythra/idle-stretch-0.png",
+            "ms": 160
+          },
+          {
+            "asset": "assets/mythra/idle-stretch-1.png",
+            "ms": 160
+          }
+        ]
+      },
+      "loop": {
+        "from": "idleStretch",
+        "to": "idleStretch",
+        "frames": [
+          {
+            "asset": "assets/mythra/idle-stretch-2.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/idle-stretch-3.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/idle-stretch-4.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/idle-stretch-5.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/idle-stretch-6.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/idle-stretch-7.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/idle-stretch-8.png",
+            "ms": 135
+          }
+        ]
+      },
+      "end": {
+        "from": "idleStretch",
+        "to": "neutral",
+        "frames": [
+          {
+            "asset": "assets/mythra/idle-stretch-9.png",
+            "ms": 160
+          },
+          {
+            "asset": "assets/mythra/headpat-C1.png",
+            "ms": 125
+          }
+        ]
+      },
+      "personas": [
+        "mythra"
+      ]
+    },
+    "idleSpark": {
+      "label": "灵光一闪",
+      "artSource": "new-art-0.2.6-extra",
+      "start": {
+        "from": "neutral",
+        "to": "idleSpark",
+        "frames": [
+          {
+            "asset": "assets/mythra/idle-spark-0.png",
+            "ms": 160
+          },
+          {
+            "asset": "assets/mythra/idle-spark-1.png",
+            "ms": 160
+          }
+        ]
+      },
+      "loop": {
+        "from": "idleSpark",
+        "to": "idleSpark",
+        "frames": [
+          {
+            "asset": "assets/mythra/idle-spark-2.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/idle-spark-3.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/idle-spark-4.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/idle-spark-5.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/idle-spark-6.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/idle-spark-7.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/idle-spark-8.png",
+            "ms": 135
+          }
+        ]
+      },
+      "end": {
+        "from": "idleSpark",
+        "to": "neutral",
+        "frames": [
+          {
+            "asset": "assets/mythra/idle-spark-9.png",
+            "ms": 160
+          },
+          {
+            "asset": "assets/mythra/headpat-C1.png",
+            "ms": 125
+          }
+        ]
+      },
+      "personas": [
+        "pyra"
+      ]
+    },
+    "idleQuestion": {
+      "label": "心生疑惑",
+      "artSource": "new-art-0.2.6-extra",
+      "start": {
+        "from": "neutral",
+        "to": "idleQuestion",
+        "frames": [
+          {
+            "asset": "assets/mythra/idle-question-0.png",
+            "ms": 160
+          },
+          {
+            "asset": "assets/mythra/idle-question-1.png",
+            "ms": 160
+          }
+        ]
+      },
+      "loop": {
+        "from": "idleQuestion",
+        "to": "idleQuestion",
+        "frames": [
+          {
+            "asset": "assets/mythra/idle-question-2.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/idle-question-3.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/idle-question-4.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/idle-question-5.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/idle-question-6.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/idle-question-7.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/idle-question-8.png",
+            "ms": 135
+          }
+        ]
+      },
+      "end": {
+        "from": "idleQuestion",
+        "to": "neutral",
+        "frames": [
+          {
+            "asset": "assets/mythra/idle-question-9.png",
+            "ms": 160
+          },
+          {
+            "asset": "assets/mythra/headpat-C1.png",
+            "ms": 125
+          }
+        ]
+      },
+      "personas": [
+        "pyra"
+      ]
+    },
+    "idleTsundere": {
+      "label": "傲娇别过脸",
+      "artSource": "new-art-0.2.6-extra",
+      "start": {
+        "from": "neutral",
+        "to": "idleTsundere",
+        "frames": [
+          {
+            "asset": "assets/mythra/idle-tsundere-0.png",
+            "ms": 160
+          },
+          {
+            "asset": "assets/mythra/idle-tsundere-1.png",
+            "ms": 160
+          }
+        ]
+      },
+      "loop": {
+        "from": "idleTsundere",
+        "to": "idleTsundere",
+        "frames": [
+          {
+            "asset": "assets/mythra/idle-tsundere-2.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/idle-tsundere-3.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/idle-tsundere-4.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/idle-tsundere-5.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/idle-tsundere-6.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/idle-tsundere-7.png",
+            "ms": 135
+          }
+        ]
+      },
+      "end": {
+        "from": "idleTsundere",
+        "to": "neutral",
+        "frames": [
+          {
+            "asset": "assets/mythra/idle-tsundere-8.png",
+            "ms": 160
+          },
+          {
+            "asset": "assets/mythra/headpat-C1.png",
+            "ms": 125
+          }
+        ]
+      },
+      "personas": [
+        "mythra"
+      ]
+    },
+    "idleSmile": {
+      "label": "微笑",
+      "artSource": "new-art-0.2.6-extra",
+      "start": {
+        "from": "neutral",
+        "to": "idleSmile",
+        "frames": [
+          {
+            "asset": "assets/mythra/idle-smile-0.png",
+            "ms": 160
+          },
+          {
+            "asset": "assets/mythra/idle-smile-1.png",
+            "ms": 160
+          }
+        ]
+      },
+      "loop": {
+        "from": "idleSmile",
+        "to": "idleSmile",
+        "frames": [
+          {
+            "asset": "assets/mythra/idle-smile-2.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/idle-smile-3.png",
+            "ms": 135
+          }
+        ]
+      },
+      "end": {
+        "from": "idleSmile",
+        "to": "neutral",
+        "frames": [
+          {
+            "asset": "assets/mythra/idle-smile-4.png",
+            "ms": 160
+          },
+          {
+            "asset": "assets/mythra/headpat-C1.png",
+            "ms": 125
+          }
+        ]
+      },
+      "personas": [
+        "mythra",
+        "pyra"
+      ]
+    },
+    "idleConfident": {
+      "label": "自信持剑",
+      "artSource": "new-art-0.2.6-extra",
+      "start": {
+        "from": "neutral",
+        "to": "idleConfident",
+        "frames": [
+          {
+            "asset": "assets/mythra/idle-confident-0.png",
+            "ms": 160
+          },
+          {
+            "asset": "assets/mythra/idle-confident-1.png",
+            "ms": 160
+          }
+        ]
+      },
+      "loop": {
+        "from": "idleConfident",
+        "to": "idleConfident",
+        "frames": [
+          {
+            "asset": "assets/mythra/idle-confident-2.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/idle-confident-3.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/idle-confident-4.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/idle-confident-5.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/idle-confident-6.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/idle-confident-7.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/idle-confident-8.png",
+            "ms": 135
+          }
+        ]
+      },
+      "end": {
+        "from": "idleConfident",
+        "to": "neutral",
+        "frames": [
+          {
+            "asset": "assets/mythra/idle-confident-9.png",
+            "ms": 160
+          },
+          {
+            "asset": "assets/mythra/headpat-C1.png",
+            "ms": 125
+          }
+        ]
+      },
+      "personas": [
+        "mythra"
+      ]
+    },
+    "idleScold": {
+      "label": "轻声训斥",
+      "artSource": "new-art-0.2.6-extra",
+      "start": {
+        "from": "neutral",
+        "to": "idleScold",
+        "frames": [
+          {
+            "asset": "assets/mythra/idle-scold-0.png",
+            "ms": 160
+          },
+          {
+            "asset": "assets/mythra/idle-scold-1.png",
+            "ms": 160
+          }
+        ]
+      },
+      "loop": {
+        "from": "idleScold",
+        "to": "idleScold",
+        "frames": [
+          {
+            "asset": "assets/mythra/idle-scold-2.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/idle-scold-3.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/idle-scold-4.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/idle-scold-5.png",
+            "ms": 135
+          }
+        ]
+      },
+      "end": {
+        "from": "idleScold",
+        "to": "neutral",
+        "frames": [
+          {
+            "asset": "assets/mythra/idle-scold-6.png",
+            "ms": 160
+          },
+          {
+            "asset": "assets/mythra/headpat-C1.png",
+            "ms": 125
+          }
+        ]
+      },
+      "personas": [
+        "mythra"
+      ]
+    },
+    "idleShy": {
+      "label": "害羞",
+      "artSource": "new-art-0.2.6-extra",
+      "start": {
+        "from": "neutral",
+        "to": "idleShy",
+        "frames": [
+          {
+            "asset": "assets/mythra/idle-shy-0.png",
+            "ms": 160
+          },
+          {
+            "asset": "assets/mythra/idle-shy-1.png",
+            "ms": 160
+          }
+        ]
+      },
+      "loop": {
+        "from": "idleShy",
+        "to": "idleShy",
+        "frames": [
+          {
+            "asset": "assets/mythra/idle-shy-2.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/idle-shy-3.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/idle-shy-4.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/idle-shy-5.png",
+            "ms": 135
+          }
+        ]
+      },
+      "end": {
+        "from": "idleShy",
+        "to": "neutral",
+        "frames": [
+          {
+            "asset": "assets/mythra/idle-shy-6.png",
+            "ms": 160
+          },
+          {
+            "asset": "assets/mythra/headpat-C1.png",
+            "ms": 125
+          }
+        ]
+      },
+      "personas": [
+        "pyra"
+      ]
+    },
+    "idleCoverEars": {
+      "label": "捂耳朵",
+      "artSource": "new-art-0.2.6-extra",
+      "start": {
+        "from": "neutral",
+        "to": "idleCoverEars",
+        "frames": [
+          {
+            "asset": "assets/mythra/idle-coverEars-0.png",
+            "ms": 160
+          },
+          {
+            "asset": "assets/mythra/idle-coverEars-1.png",
+            "ms": 160
+          }
+        ]
+      },
+      "loop": {
+        "from": "idleCoverEars",
+        "to": "idleCoverEars",
+        "frames": [
+          {
+            "asset": "assets/mythra/idle-coverEars-2.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/idle-coverEars-3.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/idle-coverEars-4.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/idle-coverEars-5.png",
+            "ms": 135
+          }
+        ]
+      },
+      "end": {
+        "from": "idleCoverEars",
+        "to": "neutral",
+        "frames": [
+          {
+            "asset": "assets/mythra/idle-coverEars-6.png",
+            "ms": 160
+          },
+          {
+            "asset": "assets/mythra/headpat-C1.png",
+            "ms": 125
+          }
+        ]
+      },
+      "personas": [
+        "mythra"
+      ]
+    },
+    "idleComfort": {
+      "label": "欣慰",
+      "artSource": "new-art-0.2.7",
+      "personas": [
+        "pyra"
+      ],
+      "start": {
+        "from": "neutral",
+        "to": "idleComfort",
+        "frames": [
+          {
+            "asset": "assets/mythra/idle-comfort-0.png",
+            "ms": 160
+          },
+          {
+            "asset": "assets/mythra/idle-comfort-1.png",
+            "ms": 160
+          }
+        ]
+      },
+      "loop": {
+        "from": "idleComfort",
+        "to": "idleComfort",
+        "frames": [
+          {
+            "asset": "assets/mythra/idle-comfort-2.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/idle-comfort-3.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/idle-comfort-4.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/idle-comfort-5.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/idle-comfort-6.png",
+            "ms": 135
+          }
+        ]
+      },
+      "end": {
+        "from": "idleComfort",
+        "to": "neutral",
+        "frames": [
+          {
+            "asset": "assets/mythra/idle-comfort-7.png",
+            "ms": 160
+          },
+          {
+            "asset": "assets/mythra/headpat-C1.png",
+            "ms": 125
+          }
+        ]
+      }
+    },
+    "idleShock": {
+      "label": "惊讶",
+      "artSource": "new-art-0.2.7",
+      "personas": [
+        "pyra"
+      ],
+      "start": {
+        "from": "neutral",
+        "to": "idleShock",
+        "frames": [
+          {
+            "asset": "assets/mythra/idle-shock-0.png",
+            "ms": 160
+          },
+          {
+            "asset": "assets/mythra/idle-shock-1.png",
+            "ms": 160
+          }
+        ]
+      },
+      "loop": {
+        "from": "idleShock",
+        "to": "idleShock",
+        "frames": [
+          {
+            "asset": "assets/mythra/idle-shock-2.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/idle-shock-3.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/idle-shock-4.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/idle-shock-5.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/idle-shock-6.png",
+            "ms": 135
+          }
+        ]
+      },
+      "end": {
+        "from": "idleShock",
+        "to": "neutral",
+        "frames": [
+          {
+            "asset": "assets/mythra/idle-shock-7.png",
+            "ms": 160
+          },
+          {
+            "asset": "assets/mythra/headpat-C1.png",
+            "ms": 125
+          }
+        ]
+      }
+    },
+    "idleSeason": {
+      "label": "季节问候",
+      "artSource": "new-art-0.2.7",
+      "personas": [
+        "mythra"
+      ],
+      "start": {
+        "from": "neutral",
+        "to": "idleSeason",
+        "frames": [
+          {
+            "asset": "assets/mythra/idle-season-0.png",
+            "ms": 160
+          },
+          {
+            "asset": "assets/mythra/idle-season-1.png",
+            "ms": 160
+          }
+        ]
+      },
+      "loop": {
+        "from": "idleSeason",
+        "to": "idleSeason",
+        "frames": [
+          {
+            "asset": "assets/mythra/idle-season-2.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/idle-season-3.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/idle-season-4.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/idle-season-5.png",
+            "ms": 135
+          }
+        ]
+      },
+      "end": {
+        "from": "idleSeason",
+        "to": "neutral",
+        "frames": [
+          {
+            "asset": "assets/mythra/idle-season-6.png",
+            "ms": 160
+          },
+          {
+            "asset": "assets/mythra/headpat-C1.png",
+            "ms": 125
+          }
+        ]
+      }
+    },
+    "outfitChange": {
+      "label": "换上新装",
+      "artSource": "new-art-0.2.7",
+      "personas": [
+        "mythra",
+        "pyra"
+      ],
+      "start": {
+        "from": "neutral",
+        "to": "outfit",
+        "frames": [
+          {
+            "asset": "assets/mythra/outfit-change-0.png",
+            "ms": 200
+          },
+          {
+            "asset": "assets/mythra/outfit-change-1.png",
+            "ms": 160
+          }
+        ]
+      },
+      "loop": {
+        "from": "outfit",
+        "to": "outfit",
+        "frames": [
+          {
+            "asset": "assets/mythra/outfit-change-2.png",
+            "ms": 160
+          },
+          {
+            "asset": "assets/mythra/outfit-change-3.png",
+            "ms": 160
+          }
+        ]
+      },
+      "end": {
+        "from": "outfit",
+        "to": "neutral",
+        "frames": [
+          {
+            "asset": "assets/mythra/outfit-change-4.png",
+            "ms": 200
+          },
+          {
+            "asset": "assets/mythra/headpat-C1.png",
+            "ms": 125
+          }
+        ]
+      }
+    },
+    "cook": {
+      "label": "烹饪",
+      "artSource": "new-art-0.2.10",
+      "personas": [
+        "pyra"
+      ],
+      "start": {
+        "from": "neutral",
+        "to": "cook",
+        "frames": [
+          {
+            "asset": "assets/mythra/cook_01.png",
+            "ms": 150
+          },
+          {
+            "asset": "assets/mythra/cook_02.png",
+            "ms": 150
+          }
+        ]
+      },
+      "loop": {
+        "from": "cook",
+        "to": "cook",
+        "frames": [
+          {
+            "asset": "assets/mythra/cook_03.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/cook_04.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/cook_05.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/cook_06.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/cook_07.png",
+            "ms": 135
+          }
+        ]
+      },
+      "end": {
+        "from": "cook",
+        "to": "neutral",
+        "frames": [
+          {
+            "asset": "assets/mythra/cook_08.png",
+            "ms": 160
+          },
+          {
+            "asset": "assets/mythra/headpat-C1.png",
+            "ms": 125
+          }
+        ]
+      }
+    },
+    "eatCake": {
+      "label": "吃蛋糕",
+      "artSource": "new-art-0.2.10",
+      "personas": [
+        "pyra"
+      ],
+      "start": {
+        "from": "neutral",
+        "to": "eatCake",
+        "frames": [
+          {
+            "asset": "assets/mythra/eat-cake_01.png",
+            "ms": 150
+          },
+          {
+            "asset": "assets/mythra/eat-cake_02.png",
+            "ms": 150
+          }
+        ]
+      },
+      "loop": {
+        "from": "eatCake",
+        "to": "eatCake",
+        "frames": [
+          {
+            "asset": "assets/mythra/eat-cake_03.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/eat-cake_04.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/eat-cake_05.png",
+            "ms": 135
+          }
+        ]
+      },
+      "end": {
+        "from": "eatCake",
+        "to": "neutral",
+        "frames": [
+          {
+            "asset": "assets/mythra/eat-cake_06.png",
+            "ms": 160
+          },
+          {
+            "asset": "assets/mythra/headpat-C1.png",
+            "ms": 125
+          }
+        ]
+      }
+    },
+    "fallDizzy": {
+      "label": "眼花摔倒",
+      "artSource": "new-art-0.2.10",
+      "personas": [
+        "mythra",
+        "pyra"
+      ],
+      "start": {
+        "from": "neutral",
+        "to": "fallDizzy",
+        "frames": [
+          {
+            "asset": "assets/mythra/fall-dizzy_01.png",
+            "ms": 150
+          },
+          {
+            "asset": "assets/mythra/fall-dizzy_02.png",
+            "ms": 150
+          }
+        ]
+      },
+      "loop": {
+        "from": "fallDizzy",
+        "to": "fallDizzy",
+        "frames": [
+          {
+            "asset": "assets/mythra/fall-dizzy_03.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/fall-dizzy_04.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/fall-dizzy_05.png",
+            "ms": 135
+          }
+        ]
+      },
+      "end": {
+        "from": "fallDizzy",
+        "to": "neutral",
+        "frames": [
+          {
+            "asset": "assets/mythra/fall-dizzy_06.png",
+            "ms": 160
+          },
+          {
+            "asset": "assets/mythra/headpat-C1.png",
+            "ms": 125
+          }
+        ]
+      }
+    },
+    "music": {
+      "label": "听音乐",
+      "artSource": "new-art-0.2.10",
+      "personas": [
+        "mythra",
+        "pyra"
+      ],
+      "start": {
+        "from": "neutral",
+        "to": "music",
+        "frames": [
+          {
+            "asset": "assets/mythra/music_01.png",
+            "ms": 150
+          },
+          {
+            "asset": "assets/mythra/music_02.png",
+            "ms": 150
+          }
+        ]
+      },
+      "loop": {
+        "from": "music",
+        "to": "music",
+        "frames": [
+          {
+            "asset": "assets/mythra/music_03.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/music_04.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/music_05.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/music_06.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/music_07.png",
+            "ms": 135
+          }
+        ]
+      },
+      "end": {
+        "from": "music",
+        "to": "neutral",
+        "frames": [
+          {
+            "asset": "assets/mythra/music_08.png",
+            "ms": 160
+          },
+          {
+            "asset": "assets/mythra/headpat-C1.png",
+            "ms": 125
+          }
+        ]
+      }
+    },
+    "sleep": {
+      "label": "小憩",
+      "artSource": "new-art-0.2.10",
+      "personas": [
+        "mythra",
+        "pyra"
+      ],
+      "start": {
+        "from": "neutral",
+        "to": "sleep",
+        "frames": [
+          {
+            "asset": "assets/mythra/sleep_01.png",
+            "ms": 150
+          },
+          {
+            "asset": "assets/mythra/sleep_02.png",
+            "ms": 150
+          }
+        ]
+      },
+      "loop": {
+        "from": "sleep",
+        "to": "sleep",
+        "frames": [
+          {
+            "asset": "assets/mythra/sleep_03.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/sleep_04.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/sleep_05.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/sleep_06.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/sleep_07.png",
+            "ms": 135
+          }
+        ]
+      },
+      "end": {
+        "from": "sleep",
+        "to": "neutral",
+        "frames": [
+          {
+            "asset": "assets/mythra/sleep_08.png",
+            "ms": 160
+          },
+          {
+            "asset": "assets/mythra/headpat-C1.png",
+            "ms": 125
+          }
+        ]
+      }
+    },
+    "walk": {
+      "label": "散步",
+      "artSource": "new-art-0.2.10",
+      "personas": [
+        "mythra",
+        "pyra"
+      ],
+      "start": {
+        "from": "neutral",
+        "to": "walk",
+        "frames": [
+          {
+            "asset": "assets/mythra/walk_01.png",
+            "ms": 150
+          },
+          {
+            "asset": "assets/mythra/walk_02.png",
+            "ms": 150
+          }
+        ]
+      },
+      "loop": {
+        "from": "walk",
+        "to": "walk",
+        "frames": [
+          {
+            "asset": "assets/mythra/walk_03.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/walk_04.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/walk_05.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/walk_06.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/walk_07.png",
+            "ms": 135
+          }
+        ]
+      },
+      "end": {
+        "from": "walk",
+        "to": "neutral",
+        "frames": [
+          {
+            "asset": "assets/mythra/walk_08.png",
+            "ms": 160
+          },
+          {
+            "asset": "assets/mythra/headpat-C1.png",
+            "ms": 125
+          }
+        ]
+      }
+    },
+    "angryStomp": {
+      "label": "生气跺脚",
+      "artSource": "new-art-0.2.10",
+      "personas": [
+        "mythra"
+      ],
+      "start": {
+        "from": "neutral",
+        "to": "angryStomp",
+        "frames": [
+          {
+            "asset": "assets/mythra/angry-stomp_01.png",
+            "ms": 150
+          },
+          {
+            "asset": "assets/mythra/angry-stomp_02.png",
+            "ms": 150
+          }
+        ]
+      },
+      "loop": {
+        "from": "angryStomp",
+        "to": "angryStomp",
+        "frames": [
+          {
+            "asset": "assets/mythra/angry-stomp_03.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/angry-stomp_04.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/angry-stomp_05.png",
+            "ms": 135
+          }
+        ]
+      },
+      "end": {
+        "from": "angryStomp",
+        "to": "neutral",
+        "frames": [
+          {
+            "asset": "assets/mythra/angry-stomp_06.png",
+            "ms": 160
+          },
+          {
+            "asset": "assets/mythra/headpat-C1.png",
+            "ms": 125
+          }
+        ]
+      }
+    },
+    "eatDessert": {
+      "label": "吃甜点",
+      "artSource": "new-art-0.2.10",
+      "personas": [
+        "mythra"
+      ],
+      "start": {
+        "from": "neutral",
+        "to": "eatDessert",
+        "frames": [
+          {
+            "asset": "assets/mythra/eat-dessert_01.png",
+            "ms": 150
+          },
+          {
+            "asset": "assets/mythra/eat-dessert_02.png",
+            "ms": 150
+          }
+        ]
+      },
+      "loop": {
+        "from": "eatDessert",
+        "to": "eatDessert",
+        "frames": [
+          {
+            "asset": "assets/mythra/eat-dessert_03.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/eat-dessert_04.png",
+            "ms": 135
+          },
+          {
+            "asset": "assets/mythra/eat-dessert_05.png",
+            "ms": 135
+          }
+        ]
+      },
+      "end": {
+        "from": "eatDessert",
+        "to": "neutral",
+        "frames": [
+          {
+            "asset": "assets/mythra/eat-dessert_06.png",
+            "ms": 160
+          },
+          {
+            "asset": "assets/mythra/headpat-C1.png",
+            "ms": 125
+          }
+        ]
+      }
+    },
+    "transformToPyra": {
+      "label": "变身为焰",
+      "artSource": "new-art-0.2.10",
+      "personas": [
+        "mythra",
+        "pyra"
+      ],
+      "start": {
+        "from": "neutral",
+        "to": "transform",
+        "frames": [
+          {
+            "asset": "assets/mythra/switch-m2p_01.png",
+            "ms": 130
+          },
+          {
+            "asset": "assets/mythra/switch-m2p_02.png",
+            "ms": 130
+          }
+        ]
+      },
+      "loop": {
+        "from": "transform",
+        "to": "transform",
+        "frames": [
+          {
+            "asset": "assets/mythra/switch-m2p_03.png",
+            "ms": 120
+          },
+          {
+            "asset": "assets/mythra/switch-m2p_04.png",
+            "ms": 120
+          },
+          {
+            "asset": "assets/mythra/switch-m2p_05.png",
+            "ms": 120
+          },
+          {
+            "asset": "assets/mythra/switch-m2p_06.png",
+            "ms": 120
+          },
+          {
+            "asset": "assets/mythra/switch-m2p_07.png",
+            "ms": 120
+          },
+          {
+            "asset": "assets/mythra/switch-m2p_08.png",
+            "ms": 120
+          },
+          {
+            "asset": "assets/mythra/switch-m2p_09.png",
+            "ms": 120
+          }
+        ]
+      },
+      "end": {
+        "from": "transform",
+        "to": "neutral",
+        "frames": [
+          {
+            "asset": "assets/mythra/switch-m2p_10.png",
+            "ms": 130
+          },
+          {
+            "asset": "assets/mythra/headpat-C1.png",
+            "ms": 125
+          }
+        ]
+      }
+    },
+    "transformToMythra": {
+      "label": "变身为光",
+      "artSource": "new-art-0.2.10",
+      "personas": [
+        "mythra",
+        "pyra"
+      ],
+      "start": {
+        "from": "neutral",
+        "to": "transform",
+        "frames": [
+          {
+            "asset": "assets/mythra/switch-p2m_01.png",
+            "ms": 130
+          },
+          {
+            "asset": "assets/mythra/switch-p2m_02.png",
+            "ms": 130
+          }
+        ]
+      },
+      "loop": {
+        "from": "transform",
+        "to": "transform",
+        "frames": [
+          {
+            "asset": "assets/mythra/switch-p2m_03.png",
+            "ms": 120
+          },
+          {
+            "asset": "assets/mythra/switch-p2m_04.png",
+            "ms": 120
+          },
+          {
+            "asset": "assets/mythra/switch-p2m_05.png",
+            "ms": 120
+          },
+          {
+            "asset": "assets/mythra/switch-p2m_06.png",
+            "ms": 120
+          },
+          {
+            "asset": "assets/mythra/switch-p2m_07.png",
+            "ms": 120
+          },
+          {
+            "asset": "assets/mythra/switch-p2m_08.png",
+            "ms": 120
+          },
+          {
+            "asset": "assets/mythra/switch-p2m_09.png",
+            "ms": 120
+          }
+        ]
+      },
+      "end": {
+        "from": "transform",
+        "to": "neutral",
+        "frames": [
+          {
+            "asset": "assets/mythra/switch-p2m_10.png",
+            "ms": 130
+          },
+          {
+            "asset": "assets/mythra/headpat-C1.png",
+            "ms": 125
+          }
+        ]
+      }
+    },
+    "outfitRevert": {
+      "label": "换回原装",
+      "artSource": "new-art-0.2.11",
+      "personas": [
+        "mythra",
+        "pyra"
+      ],
+      "start": {
+        "from": "neutral",
+        "to": "outfit",
+        "frames": [
+          {
+            "asset": "assets/mythra/outfit-revert-0.png",
+            "ms": 200
+          },
+          {
+            "asset": "assets/mythra/outfit-revert-1.png",
+            "ms": 200
+          }
+        ]
+      },
+      "loop": {
+        "from": "outfit",
+        "to": "outfit",
+        "frames": [
+          {
+            "asset": "assets/mythra/outfit-revert-2.png",
+            "ms": 160
+          },
+          {
+            "asset": "assets/mythra/outfit-revert-3.png",
+            "ms": 160
+          }
+        ]
+      },
+      "end": {
+        "from": "outfit",
+        "to": "neutral",
+        "frames": [
+          {
+            "asset": "assets/mythra/outfit-revert-4.png",
+            "ms": 200
           },
           {
             "asset": "assets/mythra/headpat-C1.png",
@@ -2991,6 +4646,4366 @@
         480
       ],
       "realDrawing": true
+    },
+    {
+      "name": "idle-sword-0",
+      "file": "assets/mythra/idle-sword-0.png",
+      "sha256": "152db2f834e4f0c8af300d0071c21daf7d7ead5d79af99c2d73a381ee1679a06",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-sword-1",
+      "file": "assets/mythra/idle-sword-1.png",
+      "sha256": "e10c13f48b1ff4ee92398709c098664c48d819e0329fd1a640ca51cc1feb1af1",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-sword-2",
+      "file": "assets/mythra/idle-sword-2.png",
+      "sha256": "f7b81e161179ae7d98e5ecd690bee34c6e03b0277f20820b2a65338cbdd00b68",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-sword-3",
+      "file": "assets/mythra/idle-sword-3.png",
+      "sha256": "b9b9af405934674d91661b808c229ba189473eb1ddeb8fb2949bc13ed2c3bdb3",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-sword-4",
+      "file": "assets/mythra/idle-sword-4.png",
+      "sha256": "cba2d1e0080c2a478e0b013d8ca7b292e3433250adfcc906e073b0ed46165eee",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-sword-5",
+      "file": "assets/mythra/idle-sword-5.png",
+      "sha256": "4f51abdbcf0aedab9a3fdda594d4c610ed53c86c91fe4db56c8c5e268f5904c7",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-sword-6",
+      "file": "assets/mythra/idle-sword-6.png",
+      "sha256": "73f437f794afdcd7284cc8840a4b0f73681bf2292f42c82cd910ac84b7277a82",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-sword-7",
+      "file": "assets/mythra/idle-sword-7.png",
+      "sha256": "df619479740794b75090c72850edde64c934c19d7cd1f33aa3ee1aac0ce9a7ea",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-sword-8",
+      "file": "assets/mythra/idle-sword-8.png",
+      "sha256": "10dd0fed0c893ed2949900eac5d0beaad2aab704f9a623fb7e5fee9e038cc1b3",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-sword-9",
+      "file": "assets/mythra/idle-sword-9.png",
+      "sha256": "840f2eb330f8f51b9d2378007a7dc0096fa329c637d13ea09b8b602f2183a266",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-stretch-0",
+      "file": "assets/mythra/idle-stretch-0.png",
+      "sha256": "676857a917cb9c12196d6837d4fc3d6e77568f2865dab474750b781700e601e3",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-stretch-1",
+      "file": "assets/mythra/idle-stretch-1.png",
+      "sha256": "bf73f581ae8110ada3e3eb1a4917fa90dbc1bd3e96caa6f9dd024c90e5896950",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-stretch-2",
+      "file": "assets/mythra/idle-stretch-2.png",
+      "sha256": "873a9d544f9d8e6ec7732b3ab197017f4dc5ef836dd546eaeb1c8996fa8e04fc",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-stretch-3",
+      "file": "assets/mythra/idle-stretch-3.png",
+      "sha256": "a19ebde970c39ad7be0d4842cdaa80fae4385c1266d2ab107f999420d09d79d9",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-stretch-4",
+      "file": "assets/mythra/idle-stretch-4.png",
+      "sha256": "8228222a03f3d1bf921aa8a4b2da6ba8761e65650e26c549f77b6ac266e78a89",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-stretch-5",
+      "file": "assets/mythra/idle-stretch-5.png",
+      "sha256": "faaa2f398ef37795d4d20de5b8abbc0e28be6e4df834ef48c3a962e88ea62dc8",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-stretch-6",
+      "file": "assets/mythra/idle-stretch-6.png",
+      "sha256": "484649714c4c3cddd2a92b883fa2861f31d4750fbcb2563aec06e40d94660b09",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-stretch-7",
+      "file": "assets/mythra/idle-stretch-7.png",
+      "sha256": "9c5f01475738cd2d221a26c21f2718caca59ae3b85e945032c085f1e2602e86f",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-stretch-8",
+      "file": "assets/mythra/idle-stretch-8.png",
+      "sha256": "40500c725654dd5bd4a7ef7df5fc6480e73a3eea8ea7a7a19da5c402187ab4d3",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-stretch-9",
+      "file": "assets/mythra/idle-stretch-9.png",
+      "sha256": "0a4580d4190ad7f9609958aa4b52ecb3584c52d3699c365386c76affbad0d186",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-spark-0",
+      "file": "assets/mythra/idle-spark-0.png",
+      "sha256": "c62be0d68ff099f12f94dcaf0427c86ef2804126419162cd8ba5b005870eea9a",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-spark-1",
+      "file": "assets/mythra/idle-spark-1.png",
+      "sha256": "515bacf278c4e0cedc4bdd254d5a216e951b466f9c818d993576748e1b8f8b7c",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-spark-2",
+      "file": "assets/mythra/idle-spark-2.png",
+      "sha256": "477f5466ffd5c2dab401b6c94ece503a53ede76daea7c940c366314efa58f2a0",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-spark-3",
+      "file": "assets/mythra/idle-spark-3.png",
+      "sha256": "10d4ea707915029e54cc2d6eec626142d062bba431969a8683e56b533f69751e",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-spark-4",
+      "file": "assets/mythra/idle-spark-4.png",
+      "sha256": "371dd73dd480b36395a6c6ad9edc33890b1f3630a6dd304a5e9cce5ed5028f04",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-spark-5",
+      "file": "assets/mythra/idle-spark-5.png",
+      "sha256": "46bc362cdfd51ecc7ac6d31df119899181877e44742c05c17d6408410b4b543d",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-spark-6",
+      "file": "assets/mythra/idle-spark-6.png",
+      "sha256": "ed2803884792541846d760942f66179f69b8742e6d83d7ce0e5c3fb02bc62806",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-spark-7",
+      "file": "assets/mythra/idle-spark-7.png",
+      "sha256": "5d4ae7f9e5cfce94b2b92a0a5f8d1e22aa749831388f23db2d8d280be18dad63",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-spark-8",
+      "file": "assets/mythra/idle-spark-8.png",
+      "sha256": "b60c49f33ef4c167f3121f5e3c8a2d9bca55932693465317b9f3ae61dbbb0ff7",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-spark-9",
+      "file": "assets/mythra/idle-spark-9.png",
+      "sha256": "e918c430c4148af5160d3102d6d2b49519244b4b8e9ab326c7bb88a589975936",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-question-0",
+      "file": "assets/mythra/idle-question-0.png",
+      "sha256": "9f07353620ea46b8ccfd00bd0a95dfa1021e768a2ada6b35e9e90784d00eee60",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-question-1",
+      "file": "assets/mythra/idle-question-1.png",
+      "sha256": "fb2d1abcddf29b2d1d1d2ac416e50357803e8818f724f0c667ecde667a70df50",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-question-2",
+      "file": "assets/mythra/idle-question-2.png",
+      "sha256": "12b2fa855f2fffd74568cb6cad8024b215990aa515fb201995ab813df1aadfc6",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-question-3",
+      "file": "assets/mythra/idle-question-3.png",
+      "sha256": "1155f76f469bb9000458e9ab8d4dd8822fc71fa386b65be316fe876737b46071",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-question-4",
+      "file": "assets/mythra/idle-question-4.png",
+      "sha256": "42e202185bb9c28885d74ec310626e6bd1dee1cb3c4a15e78f3cd3c9ab6fead0",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-question-5",
+      "file": "assets/mythra/idle-question-5.png",
+      "sha256": "16b22501bd092ee53639f3f3f3553463c749c3fb230c844c655f147103d90dd5",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-question-6",
+      "file": "assets/mythra/idle-question-6.png",
+      "sha256": "d0585c2fb34ec4b2e2eff8b12692dfa3fb8c0b98aa7f59c6ec1b8daaf5055050",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-question-7",
+      "file": "assets/mythra/idle-question-7.png",
+      "sha256": "8039a8fb5de9dcdf211fa02d6ffb8f0c2c9f81dca91d3f5fcec82e096e96edb1",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-question-8",
+      "file": "assets/mythra/idle-question-8.png",
+      "sha256": "79b664c564f69e654ba2f13f0c2f9f8e4928be969970aebe298ef749047e7152",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-question-9",
+      "file": "assets/mythra/idle-question-9.png",
+      "sha256": "7363d335fba6a24356671dc98c1cca47a42c1383486bc7d4c5f906ab68c83759",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-tsundere-0",
+      "file": "assets/mythra/idle-tsundere-0.png",
+      "sha256": "79520c823fe947e6afd4248095085a20f25125ae31a7950ca0e04f442d6540b3",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-tsundere-1",
+      "file": "assets/mythra/idle-tsundere-1.png",
+      "sha256": "ded421b4bd9ce4f7e385b4a45b16f5281bab8c4647a57c2b3e2042a62b973663",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-tsundere-2",
+      "file": "assets/mythra/idle-tsundere-2.png",
+      "sha256": "323383c49a9c864f07734ff56318a825fd0b4238e630aed3f7db3bc3d16028a1",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-tsundere-3",
+      "file": "assets/mythra/idle-tsundere-3.png",
+      "sha256": "0add1c457eef11421b1cc74ec198e5ee6041f7b4da21025c3baec0ff250e5af6",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-tsundere-4",
+      "file": "assets/mythra/idle-tsundere-4.png",
+      "sha256": "0adb532580884547a53949db2a25f4132a3e8bc8c616f288e0de4d94bf952f5c",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-tsundere-5",
+      "file": "assets/mythra/idle-tsundere-5.png",
+      "sha256": "0667f5bcfc868510dc081d8af88e36bddd75296b1041c6b3b11a4cc242194f9a",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-tsundere-6",
+      "file": "assets/mythra/idle-tsundere-6.png",
+      "sha256": "f3a5502b421fedb5692cc0475c401e87904e6c785eaa84d7d4d78e49418dea6c",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-tsundere-7",
+      "file": "assets/mythra/idle-tsundere-7.png",
+      "sha256": "78f562b0defdd44280b73399fa1fdabad6eabee699c2e6c1f298ba73b03f113e",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-tsundere-8",
+      "file": "assets/mythra/idle-tsundere-8.png",
+      "sha256": "79520c823fe947e6afd4248095085a20f25125ae31a7950ca0e04f442d6540b3",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-smile-0",
+      "file": "assets/mythra/idle-smile-0.png",
+      "sha256": "e71eeaeebcf64eb238d6e86e2e6f445dcbb355e8a2fe32c6f93a2843a50d0d02",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-smile-1",
+      "file": "assets/mythra/idle-smile-1.png",
+      "sha256": "453a826f37f38fa964646147ebca5b87831d2532064cd2c7211d6203cc4d95b5",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-smile-2",
+      "file": "assets/mythra/idle-smile-2.png",
+      "sha256": "69b449a84c0b828ae5a26ad9c330144ae3e774793b9b928ac49edd3d0ca8d4a1",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-smile-3",
+      "file": "assets/mythra/idle-smile-3.png",
+      "sha256": "e6cabb0c534d6ba5f65b07e1ed89f9682d7e0d124854b277471a1726f0aad3b6",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-smile-4",
+      "file": "assets/mythra/idle-smile-4.png",
+      "sha256": "cee651d5f8e1bd10c2d8655f497c081bdead4dccc6414057db5711c9a445bc43",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-confident-0",
+      "file": "assets/mythra/idle-confident-0.png",
+      "sha256": "2128f66d3873f2629074a7e611c383d434d0fd8bce023e6deb6f4f303eaa8215",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-confident-1",
+      "file": "assets/mythra/idle-confident-1.png",
+      "sha256": "15de7cdde65ed15858469ff19eecf32f157641739120be22a57e54fec1e12eed",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-confident-2",
+      "file": "assets/mythra/idle-confident-2.png",
+      "sha256": "fe2770ba7dd99d6972bafdce90e02c2a8c597d0f6a16ecf7545dbf1b2a741002",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-confident-3",
+      "file": "assets/mythra/idle-confident-3.png",
+      "sha256": "f301229c147ab5a7ffa676a35c6a6499ced7c07f13565ad8876b77cff7a3bcdd",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-confident-4",
+      "file": "assets/mythra/idle-confident-4.png",
+      "sha256": "9bb297ad623236f629280a0fe2a81815a442e504a940da9acc2211d4dcb1f3b2",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-confident-5",
+      "file": "assets/mythra/idle-confident-5.png",
+      "sha256": "643de61d086ccaf42ef7e4a42dbde34a75d733a91ac9de76f9497b00dd04ce09",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-confident-6",
+      "file": "assets/mythra/idle-confident-6.png",
+      "sha256": "1d089b85c00e661436b07c7d41353f4a80bf9d403a7b15320bfb8b0c74dcfbfd",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-confident-7",
+      "file": "assets/mythra/idle-confident-7.png",
+      "sha256": "54eca0a8c435a232a7701739be14fe84dd6099134edb2f901204437fe43a7c28",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-confident-8",
+      "file": "assets/mythra/idle-confident-8.png",
+      "sha256": "14eb624ddc3a022ea49e92b957c5162a3e1b71def9a73e9dc3a18310cedcce2c",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-confident-9",
+      "file": "assets/mythra/idle-confident-9.png",
+      "sha256": "7eba51aaedcec5c065d88efecfa6d2cd32b0f4f24a37f2faa3f317c5cae91f55",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-scold-0",
+      "file": "assets/mythra/idle-scold-0.png",
+      "sha256": "1ae54dfd0c1b3ec4f6bc6168e7fa5802fa279e2007927d7766a1d1a3d5ced63a",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-scold-1",
+      "file": "assets/mythra/idle-scold-1.png",
+      "sha256": "42503c64302fd95310a5b2b480e195916b3478170d5b763396a195b0746648a1",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-scold-2",
+      "file": "assets/mythra/idle-scold-2.png",
+      "sha256": "bd7a8a142f8bff085a4b1d570964726e8712bbe9dcc6ed61701887c0df2e4638",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-scold-3",
+      "file": "assets/mythra/idle-scold-3.png",
+      "sha256": "5fbc9504770b53740d75f3cc747eacabe8e78ec77a45e5d22e0b335d804e9971",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-scold-4",
+      "file": "assets/mythra/idle-scold-4.png",
+      "sha256": "f7ce1198f848a8a7cfa54e78d5e717519fc0c0d5d3f501aed3585f6ca1636a79",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-scold-5",
+      "file": "assets/mythra/idle-scold-5.png",
+      "sha256": "6b52b1af091a4f47abf0888d6de0af6b6438133c6ea577875f897f97354bd402",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-scold-6",
+      "file": "assets/mythra/idle-scold-6.png",
+      "sha256": "87a78f2246a9f13c978dce90d584c315b1bbb4dbe56a95fd84379a27032ca99d",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-shy-0",
+      "file": "assets/mythra/idle-shy-0.png",
+      "sha256": "2153d42b8b28b5b1330196130c9e8a55e9edb480e1891d71bdebcfcbb0166247",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-shy-1",
+      "file": "assets/mythra/idle-shy-1.png",
+      "sha256": "4bb5177aaa0d20e1fcdd52c199cf3197844f7982ae50068c8ba747d027a98ea7",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-shy-2",
+      "file": "assets/mythra/idle-shy-2.png",
+      "sha256": "a280c8b44385514e5497bc523bcc8eb90bae0ebd6337ca33c955a218ec316d06",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-shy-3",
+      "file": "assets/mythra/idle-shy-3.png",
+      "sha256": "98428cf66018e089d73b2d34d6a7762365be8499124053d11875ff8f9927fc18",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-shy-4",
+      "file": "assets/mythra/idle-shy-4.png",
+      "sha256": "458dcd83941900a094802bb08dcfdaea69399acf2a5cdfeadde244b86a0a32d9",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-shy-5",
+      "file": "assets/mythra/idle-shy-5.png",
+      "sha256": "bca4268484e8bed2ae6dfff1c2fade071c4efdf5081874839a8ecc689e10aa11",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-shy-6",
+      "file": "assets/mythra/idle-shy-6.png",
+      "sha256": "c0cba3acad5ec8f3e7d065b2cf1ddf9ff197b308780259327a6ec4a7210e880c",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-coverEars-0",
+      "file": "assets/mythra/idle-coverEars-0.png",
+      "sha256": "0ec1d06a4092e7697187f23c5aa5071c810e357ef4a9989bbe0dc5d1334db5cc",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-coverEars-1",
+      "file": "assets/mythra/idle-coverEars-1.png",
+      "sha256": "6b49d50126e2a2db71daa4ee8ad3aacc7dcbaf29c12b48fbc2c42c1f88bc3373",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-coverEars-2",
+      "file": "assets/mythra/idle-coverEars-2.png",
+      "sha256": "4efa30060381123e7053959c255dfab9c7673480e0fed06d9440c219645ad3f4",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-coverEars-3",
+      "file": "assets/mythra/idle-coverEars-3.png",
+      "sha256": "b8ee6b3c25c70e3ddc4c19217411450b9bda6abdf49a6ac3af2900f59e2f19b8",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-coverEars-4",
+      "file": "assets/mythra/idle-coverEars-4.png",
+      "sha256": "7e0ee69fe1c72956078670c844c99e6c12b174aad6f62d3e7ae4cd2a2ae4f5b1",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-coverEars-5",
+      "file": "assets/mythra/idle-coverEars-5.png",
+      "sha256": "49d40db47ecb8c191dc3aebe9cc4c33acb0b74a6c26975601a00d7c3fc33f5fd",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-coverEars-6",
+      "file": "assets/mythra/idle-coverEars-6.png",
+      "sha256": "55170cfdacecc33cd7a8840e489efc2853f41b968f5cd6fba1b9be077f5c50ee",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-comfort-0",
+      "file": "assets/mythra/idle-comfort-0.png",
+      "sha256": "75f4d07f0a95e7c1c3a3403146bcd63e96ddf0d3265fa6949ef9f9d75955d008",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-comfort-1",
+      "file": "assets/mythra/idle-comfort-1.png",
+      "sha256": "7bd5f2888cff8a756b4a013d0fc4493e0cc7a0aa67e0ce19c9442c4e725eadc5",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-comfort-2",
+      "file": "assets/mythra/idle-comfort-2.png",
+      "sha256": "ce96a8d5dc05eee901221c6f988c0b2d02ac61f4f0e3d9086d7ce1708f894875",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-comfort-3",
+      "file": "assets/mythra/idle-comfort-3.png",
+      "sha256": "3ed0044ab91a87b41a82988b66b98b46a226ae868fb6f3cf5c3ed113d6c9dcd1",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-comfort-4",
+      "file": "assets/mythra/idle-comfort-4.png",
+      "sha256": "5b0a93d23ea11451216ddbe67dcfdeb6723960bb7076f4b3c15c5d2c96ee93d4",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-comfort-5",
+      "file": "assets/mythra/idle-comfort-5.png",
+      "sha256": "7ca0bd0274def31b3fe22bad28d3aa3ac3a4a435ae496e3800aee2f4d6acef32",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-comfort-6",
+      "file": "assets/mythra/idle-comfort-6.png",
+      "sha256": "268a5465d91352a0d7cb9e633f8969750e012269542abe25bf190a5d071a04d9",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-comfort-7",
+      "file": "assets/mythra/idle-comfort-7.png",
+      "sha256": "e8dfbd9e094532d19179d3e6abc92040d1267ea5ba1c1bbe24ed4f075952e5ae",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-shock-0",
+      "file": "assets/mythra/idle-shock-0.png",
+      "sha256": "677ab0d98b9259b53c865e07b731d3c729ae0dcf13f75cea289d52216bdbb7c2",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-shock-1",
+      "file": "assets/mythra/idle-shock-1.png",
+      "sha256": "958f74909e0a72b8f0fb136955545294ccf3282dabe4645b6320e1f530509a9d",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-shock-2",
+      "file": "assets/mythra/idle-shock-2.png",
+      "sha256": "220969b38890b5d0e450f095347ec573718523afa880fee2472a38c8de60c920",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-shock-3",
+      "file": "assets/mythra/idle-shock-3.png",
+      "sha256": "788617b6f0e61bd836a4d2fede8d76a980c021d8bc6deec1a03762c754fa234f",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-shock-4",
+      "file": "assets/mythra/idle-shock-4.png",
+      "sha256": "d429dd43717d6d18a3ccc016b6bd6e1d5be024c18f0ea94060d47ee16c50db34",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-shock-5",
+      "file": "assets/mythra/idle-shock-5.png",
+      "sha256": "637f11b6528ad6bb74d520a5895d087ee0e91ab7675c3ec55eda235fceb99797",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-shock-6",
+      "file": "assets/mythra/idle-shock-6.png",
+      "sha256": "244c57133fbff876340b1007527a7584c741a1247bd3b726d22f58b88d26761d",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-shock-7",
+      "file": "assets/mythra/idle-shock-7.png",
+      "sha256": "32a3ff5da33b014b73612ab2b340089f8c9caa7d1a0b90cb5e210c4c8cef204e",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-season-0",
+      "file": "assets/mythra/idle-season-0.png",
+      "sha256": "c19f3b1841c6bb46b0eba274f300aa024a04c7374a8d94e2eeb82872f09fd475",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-season-1",
+      "file": "assets/mythra/idle-season-1.png",
+      "sha256": "c5ac7149261653a3308228370c6f73c732617eff16df24a667956528e408137a",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-season-2",
+      "file": "assets/mythra/idle-season-2.png",
+      "sha256": "0a4a03ac083dd255ad3a894eb1ebaf437097eb970d1f56b0cc2fc3ddec925782",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-season-3",
+      "file": "assets/mythra/idle-season-3.png",
+      "sha256": "0e2b8c56680cfcf043841201768fca97db85d61f2a734651f8476a0f3f7f3dc8",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-season-4",
+      "file": "assets/mythra/idle-season-4.png",
+      "sha256": "889ac0c4d9a12fb6a371318da2f450aa13a9bf45424fe74db097919935847b72",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-season-5",
+      "file": "assets/mythra/idle-season-5.png",
+      "sha256": "f67f150708e41efdcc4e4f1d37555dce781a5fdfb49d43b0c8219a6ddbef6267",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "idle-season-6",
+      "file": "assets/mythra/idle-season-6.png",
+      "sha256": "c72416dcc6ec56e20a84dc5d2e34f3f5f2153580e5250298624b4f503faa0319",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-change-0",
+      "file": "assets/mythra/outfit-change-0.png",
+      "sha256": "198e77a73084eda5044e9001eb6968ae9436323db64e5d42c8be083ac92ee5ca",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-change-1",
+      "file": "assets/mythra/outfit-change-1.png",
+      "sha256": "144f4cb3865b523fd4ea4a42cdfbec8dd6cf1abafa5c785a158315c7dbf09a47",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-change-2",
+      "file": "assets/mythra/outfit-change-2.png",
+      "sha256": "f19a9f283c0cbd6ef1c275016b3bf1944e19a8be839ebb9b6ddd51c4a2a6dd9c",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-change-3",
+      "file": "assets/mythra/outfit-change-3.png",
+      "sha256": "61b3510f5a8b37f2689da9685570b39e0738599bc2cb7244c7a6ff6951cc0093",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-change-4",
+      "file": "assets/mythra/outfit-change-4.png",
+      "sha256": "e90645b3228977296bf6e11872fbe94a28acaaaa38c586253c3244bb5fefd54d",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-drag-0",
+      "file": "assets/outfit-new/mythra/drag-0.png",
+      "sha256": "380522c763cfcfc2045800f2098af15075e6033cc7c28b26e1d964e6554a661d",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-drag-1",
+      "file": "assets/outfit-new/mythra/drag-1.png",
+      "sha256": "f13e9cab2484f438029ccc11a21cd5816688381a958187acc9dd1f090ac7d6b2",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-drag-2",
+      "file": "assets/outfit-new/mythra/drag-2.png",
+      "sha256": "5d13029a93aa140210a0e8ba3d193a97041c9219872595059d895f862ab4b176",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-drag-3",
+      "file": "assets/outfit-new/mythra/drag-3.png",
+      "sha256": "6c25dc0f46a8377bd6569a50d607ef062a4454350e9354c518d08e21c060e238",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-drag-4",
+      "file": "assets/outfit-new/mythra/drag-4.png",
+      "sha256": "3bcab009bb4326b17cd7b576b6800b400c55808d560527574bb87a8e3317d997",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-drag-5",
+      "file": "assets/outfit-new/mythra/drag-5.png",
+      "sha256": "5d13029a93aa140210a0e8ba3d193a97041c9219872595059d895f862ab4b176",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-headpat-0",
+      "file": "assets/outfit-new/mythra/headpat-0.png",
+      "sha256": "45dc23cb98f3a196e5a78bc6b6a274a940d57561a21065dd9c97de1416621621",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-headpat-1",
+      "file": "assets/outfit-new/mythra/headpat-1.png",
+      "sha256": "ca75768e41ec47ab6b7b808a10f6d4468a1015eb62ea33ab31a5e78603df89db",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-headpat-2",
+      "file": "assets/outfit-new/mythra/headpat-2.png",
+      "sha256": "437cceb0cdf139368c678499c58042cc6673cb1511147687f5d4c313a62fe00f",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-headpat-3",
+      "file": "assets/outfit-new/mythra/headpat-3.png",
+      "sha256": "f51f2d747c81d2df8d1f63e9304cec1c831edae2b08a011f2c2e1d1e20df1d9f",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-headpat-4",
+      "file": "assets/outfit-new/mythra/headpat-4.png",
+      "sha256": "61fb33884b8c2ba1cea93ba77d51a7b964fe90e3697228087703bfdc55aaa405",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-headpat-5",
+      "file": "assets/outfit-new/mythra/headpat-5.png",
+      "sha256": "b517b626dab627f8bfcd851f7fd2b9d4f657e5bb9cf787620c2028c145c73b71",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-book-0",
+      "file": "assets/outfit-new/mythra/idle-book-0.png",
+      "sha256": "866b08bacc2abc453c3dd1b4a8ddf31f2e259b768c2bd803e0b0bfab485558c2",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-book-1",
+      "file": "assets/outfit-new/mythra/idle-book-1.png",
+      "sha256": "00fd7d813184326bbffb84ca4ad5c08395abda3bb202ff8f6cf4f59c3fe076fc",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-book-2",
+      "file": "assets/outfit-new/mythra/idle-book-2.png",
+      "sha256": "00fd7d813184326bbffb84ca4ad5c08395abda3bb202ff8f6cf4f59c3fe076fc",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-book-3",
+      "file": "assets/outfit-new/mythra/idle-book-3.png",
+      "sha256": "866b08bacc2abc453c3dd1b4a8ddf31f2e259b768c2bd803e0b0bfab485558c2",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-book-4",
+      "file": "assets/outfit-new/mythra/idle-book-4.png",
+      "sha256": "7d15b9d261758e9f0ef8f5745a59c6d2223167c5bacc25a96e1f975be0d548d0",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-book-5",
+      "file": "assets/outfit-new/mythra/idle-book-5.png",
+      "sha256": "7d15b9d261758e9f0ef8f5745a59c6d2223167c5bacc25a96e1f975be0d548d0",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-breath-0",
+      "file": "assets/outfit-new/mythra/idle-breath-0.png",
+      "sha256": "61b3510f5a8b37f2689da9685570b39e0738599bc2cb7244c7a6ff6951cc0093",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-breath-1",
+      "file": "assets/outfit-new/mythra/idle-breath-1.png",
+      "sha256": "e139561f3e0fa347ec9cc8ad8b4f04456aca2b20bb32234307392af51c4b8695",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-breath-2",
+      "file": "assets/outfit-new/mythra/idle-breath-2.png",
+      "sha256": "f7ca0e33f6de1268d72513b55a622f99030f33438615680d1c0dbc0567eda2dd",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-breath-3",
+      "file": "assets/outfit-new/mythra/idle-breath-3.png",
+      "sha256": "972eb1bf81b76301c48d3e9de77d7d6dc8f36cf2e2bb034e93c13e311cdbe513",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-breath-4",
+      "file": "assets/outfit-new/mythra/idle-breath-4.png",
+      "sha256": "b12f967b7262ba0b38a30bfa6d9a1d150da3d14584309a178627e892726740f5",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-breath-5",
+      "file": "assets/outfit-new/mythra/idle-breath-5.png",
+      "sha256": "ea65074f49aa0fd27a2290234e52df690ea12ae15d6cb15835f7f2ad39d0829d",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-confident_01",
+      "file": "assets/outfit-new/mythra/idle-confident_01.png",
+      "sha256": "e2cde49ded398b9fb10a9f7c9ee2b5664bcb73735473281178322dcfe0a45fd9",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-confident_02",
+      "file": "assets/outfit-new/mythra/idle-confident_02.png",
+      "sha256": "e9c96276b04a02dcad9298679be59afda331f6f68021982710cd6f98c1021ab2",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-confident_03",
+      "file": "assets/outfit-new/mythra/idle-confident_03.png",
+      "sha256": "8ee1e526f9064056f95fe071ea9b71c6dab8c4993aa5146ee06d2b1d4f9e84b3",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-confident_04",
+      "file": "assets/outfit-new/mythra/idle-confident_04.png",
+      "sha256": "b9d1b3ad6fcafed911f453032814198418afbcf37503d4e3780be19d4bc9d2f8",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-confident_05",
+      "file": "assets/outfit-new/mythra/idle-confident_05.png",
+      "sha256": "b85160d3f7be582274234fd4414645f610ca5cad7678458e980f9facdab12377",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-confident_06",
+      "file": "assets/outfit-new/mythra/idle-confident_06.png",
+      "sha256": "762ef8261e6df8e8e0c9b1ee7e1b2281cb9c70d6ff2a8e28feed6a6aa0270e08",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-confident_07",
+      "file": "assets/outfit-new/mythra/idle-confident_07.png",
+      "sha256": "ca2dde449f8081640dd7d6645ce9f32f44cedfb3812edfeeaaea715ff38ba572",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-confident_08",
+      "file": "assets/outfit-new/mythra/idle-confident_08.png",
+      "sha256": "d91d1b00de9021c02f2d5a4243e1f0f70b5169fdccbea179fafd130e8104a150",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-coverEars_01",
+      "file": "assets/outfit-new/mythra/idle-coverEars_01.png",
+      "sha256": "593c59b2628471330171cc3906ba8c00e1fe640ceef4559a900feb5394ac5650",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-coverEars_02",
+      "file": "assets/outfit-new/mythra/idle-coverEars_02.png",
+      "sha256": "cc3ab36b369d289ba767f4f23450b3f3c2940e80a6ed8656dcd14277636aa405",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-coverEars_03",
+      "file": "assets/outfit-new/mythra/idle-coverEars_03.png",
+      "sha256": "5878035c6cec559dedac20cab0aec9b6998d5c37bb336d76327ff82db2b114b6",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-coverEars_04",
+      "file": "assets/outfit-new/mythra/idle-coverEars_04.png",
+      "sha256": "593c59b2628471330171cc3906ba8c00e1fe640ceef4559a900feb5394ac5650",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-coverEars_05",
+      "file": "assets/outfit-new/mythra/idle-coverEars_05.png",
+      "sha256": "5727714aba944a0f3aaeeada8148bbc0b7af8efdffbda2bb522bfb42416bc3ea",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-coverEars_06",
+      "file": "assets/outfit-new/mythra/idle-coverEars_06.png",
+      "sha256": "a45dbfebf5d9056977ebfe3ec3e7904096afe4b17078982ee9205f9544c24ab2",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-lookAround-0",
+      "file": "assets/outfit-new/mythra/idle-lookAround-0.png",
+      "sha256": "61b3510f5a8b37f2689da9685570b39e0738599bc2cb7244c7a6ff6951cc0093",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-lookAround-1",
+      "file": "assets/outfit-new/mythra/idle-lookAround-1.png",
+      "sha256": "ff310fc807ec38bc130dabcb899a579504286c4a5eee86383a8350105bb4d1ab",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-lookAround-2",
+      "file": "assets/outfit-new/mythra/idle-lookAround-2.png",
+      "sha256": "ed46dd2de5999d53d018864dd5a6af47217b4b320b01308f35af410112276ed9",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-lookAround-3",
+      "file": "assets/outfit-new/mythra/idle-lookAround-3.png",
+      "sha256": "ef79c1b9188b69f0c70d66e1303a00d2843425bb6463ad19010e46e16b48fcc4",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-lookAround-4",
+      "file": "assets/outfit-new/mythra/idle-lookAround-4.png",
+      "sha256": "46bbe871d7453844c6fa9ac8c5ceb6b7f767f703ac0da6dc50911f8b328e5977",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-lookAround-5",
+      "file": "assets/outfit-new/mythra/idle-lookAround-5.png",
+      "sha256": "d32861503f41f2ced466c2bcf3b744ac0e97cc6f19fba6110508364387008c77",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-scold_01",
+      "file": "assets/outfit-new/mythra/idle-scold_01.png",
+      "sha256": "9274095f57083db3de11ba06ede7d4a5eb072339710c316bb74709102a4dc1c3",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-scold_02",
+      "file": "assets/outfit-new/mythra/idle-scold_02.png",
+      "sha256": "29d06dcbd54f70d2de01894cb7c30d4099b2fe583fe89906ee1af0acb5aee40d",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-scold_03",
+      "file": "assets/outfit-new/mythra/idle-scold_03.png",
+      "sha256": "29d06dcbd54f70d2de01894cb7c30d4099b2fe583fe89906ee1af0acb5aee40d",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-scold_04",
+      "file": "assets/outfit-new/mythra/idle-scold_04.png",
+      "sha256": "9274095f57083db3de11ba06ede7d4a5eb072339710c316bb74709102a4dc1c3",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-scold_05",
+      "file": "assets/outfit-new/mythra/idle-scold_05.png",
+      "sha256": "acba49671800ce5c8bf1e79d9a9ca2523201d983a0aacca0d7d0addc30e4f037",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-scold_06",
+      "file": "assets/outfit-new/mythra/idle-scold_06.png",
+      "sha256": "acba49671800ce5c8bf1e79d9a9ca2523201d983a0aacca0d7d0addc30e4f037",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-season_01",
+      "file": "assets/outfit-new/mythra/idle-season_01.png",
+      "sha256": "736df6fb81311c6b556ebd02d3dfbb74359cfee064a7ac58d47b73a73d488c9f",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-season_02",
+      "file": "assets/outfit-new/mythra/idle-season_02.png",
+      "sha256": "56010c44a73ef59577fd6ac0140761de3e766d901c344911a5f55de9c1c7d628",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-season_03",
+      "file": "assets/outfit-new/mythra/idle-season_03.png",
+      "sha256": "d86e11ddaebaf7d76a59f6a4e1ff1467eda8833f97d2440655475369b279e523",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-season_04",
+      "file": "assets/outfit-new/mythra/idle-season_04.png",
+      "sha256": "736df6fb81311c6b556ebd02d3dfbb74359cfee064a7ac58d47b73a73d488c9f",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-season_05",
+      "file": "assets/outfit-new/mythra/idle-season_05.png",
+      "sha256": "b99624bd288350104ec793bdd8379ff7c44544773a2ce96f7e9dd991e6fb63c5",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-season_06",
+      "file": "assets/outfit-new/mythra/idle-season_06.png",
+      "sha256": "9a6b3cdaf83511765220ddc565b679bb16392bbbdb146f176f85ba4785e52901",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-sofa-0",
+      "file": "assets/outfit-new/mythra/idle-sofa-0.png",
+      "sha256": "38c1eacc063d84fa4733bcd2a7fe82c0d928ec4dd7711b3753af4e229cbc78c5",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-sofa-1",
+      "file": "assets/outfit-new/mythra/idle-sofa-1.png",
+      "sha256": "47fe4a95e46cbb57aff40b8156489f255d15ba0575ece4ec8f59bbeeeb7365f5",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-sofa-2",
+      "file": "assets/outfit-new/mythra/idle-sofa-2.png",
+      "sha256": "47fe4a95e46cbb57aff40b8156489f255d15ba0575ece4ec8f59bbeeeb7365f5",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-sofa-3",
+      "file": "assets/outfit-new/mythra/idle-sofa-3.png",
+      "sha256": "38c1eacc063d84fa4733bcd2a7fe82c0d928ec4dd7711b3753af4e229cbc78c5",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-sofa-4",
+      "file": "assets/outfit-new/mythra/idle-sofa-4.png",
+      "sha256": "ad28e77e20a41599f48cb98a37166b4d12820271390ae440acda1e550d5d6316",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-sofa-5",
+      "file": "assets/outfit-new/mythra/idle-sofa-5.png",
+      "sha256": "ad28e77e20a41599f48cb98a37166b4d12820271390ae440acda1e550d5d6316",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-sword_01",
+      "file": "assets/outfit-new/mythra/idle-sword_01.png",
+      "sha256": "ab2a024206fdb8c447c7e2e58de809a0da743a42d340601e800e4a749abb9d08",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-sword_02",
+      "file": "assets/outfit-new/mythra/idle-sword_02.png",
+      "sha256": "79292fd83d3ccc79fd8ee7d00f676fe95b9b0d4bd5c93be932a055299bd28dd0",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-sword_03",
+      "file": "assets/outfit-new/mythra/idle-sword_03.png",
+      "sha256": "8e9e81bf9733dad5edcaeb072c78041a44292e3f65f46a6353356a7046c484b6",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-sword_04",
+      "file": "assets/outfit-new/mythra/idle-sword_04.png",
+      "sha256": "4b58ea3a1773555e75ba210508d535b20fc83796111e5c969f0e6c7718c56769",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-sword_05",
+      "file": "assets/outfit-new/mythra/idle-sword_05.png",
+      "sha256": "38c0655ef744c3e9263a2750da1e6ea17e204fac256e1e8a62fc1fc528be6e1c",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-sword_06",
+      "file": "assets/outfit-new/mythra/idle-sword_06.png",
+      "sha256": "f023af8ecf56039b14968c554e729e3558cd72f199ec71fcb01a9fd2fc835270",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-sword_07",
+      "file": "assets/outfit-new/mythra/idle-sword_07.png",
+      "sha256": "ecd5ce2ea02e3d5c4e8d7fbfeb9584942fc9d1b5da883145bd64c18bbdf1a538",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-sword_08",
+      "file": "assets/outfit-new/mythra/idle-sword_08.png",
+      "sha256": "94be466792e95658506723d10398684d929dc4ce9a06dce43fe9ef3b31d29338",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-tea-0",
+      "file": "assets/outfit-new/mythra/idle-tea-0.png",
+      "sha256": "7fabbd19b4b3fcfabfc7b4d1598c256463ed5692dfeebccd584585c8b0d7ab81",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-tea-1",
+      "file": "assets/outfit-new/mythra/idle-tea-1.png",
+      "sha256": "7afb890b514347fcf24dfb9f4d08ca7dfad4f3796f7e147fe8a770404af7ebce",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-tea-2",
+      "file": "assets/outfit-new/mythra/idle-tea-2.png",
+      "sha256": "7afb890b514347fcf24dfb9f4d08ca7dfad4f3796f7e147fe8a770404af7ebce",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-tea-3",
+      "file": "assets/outfit-new/mythra/idle-tea-3.png",
+      "sha256": "7fabbd19b4b3fcfabfc7b4d1598c256463ed5692dfeebccd584585c8b0d7ab81",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-tea-4",
+      "file": "assets/outfit-new/mythra/idle-tea-4.png",
+      "sha256": "3d56ace0809be97ab0074edb935056d9d07bd5a244a00b6a1f93266190769980",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-tea-5",
+      "file": "assets/outfit-new/mythra/idle-tea-5.png",
+      "sha256": "3d56ace0809be97ab0074edb935056d9d07bd5a244a00b6a1f93266190769980",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-tsundere_01",
+      "file": "assets/outfit-new/mythra/idle-tsundere_01.png",
+      "sha256": "0af920a557003c90b5e581a976bc01346bf345f75d4bfa868ef42c77afd40c49",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-tsundere_02",
+      "file": "assets/outfit-new/mythra/idle-tsundere_02.png",
+      "sha256": "eae22f34909650c6a0e5b38a9908926d303cbdfa84acb33dea5046d55758d305",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-tsundere_03",
+      "file": "assets/outfit-new/mythra/idle-tsundere_03.png",
+      "sha256": "766aebd5284821cb15d474898b25d0274be4b555721d0beabdc890a6a59aa152",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-tsundere_04",
+      "file": "assets/outfit-new/mythra/idle-tsundere_04.png",
+      "sha256": "eae22f34909650c6a0e5b38a9908926d303cbdfa84acb33dea5046d55758d305",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-tsundere_05",
+      "file": "assets/outfit-new/mythra/idle-tsundere_05.png",
+      "sha256": "0af920a557003c90b5e581a976bc01346bf345f75d4bfa868ef42c77afd40c49",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-tsundere_06",
+      "file": "assets/outfit-new/mythra/idle-tsundere_06.png",
+      "sha256": "3e34e9065b8cd28a91a0fdbf486e50f50f2fb29e5f6f5806e9346524c7bd9d83",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-tsundere_07",
+      "file": "assets/outfit-new/mythra/idle-tsundere_07.png",
+      "sha256": "b9d5532dfffbfea925db0cc26a3761179418ea1150cb359b7c8879f44756ac7d",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-tsundere_08",
+      "file": "assets/outfit-new/mythra/idle-tsundere_08.png",
+      "sha256": "3e34e9065b8cd28a91a0fdbf486e50f50f2fb29e5f6f5806e9346524c7bd9d83",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-new-cheer-0",
+      "file": "assets/outfit-new/mythra/new-cheer-0.png",
+      "sha256": "9b83d51cbc555519a81dcb8e9913e4aa0437139db2ba5fe2b5134617a23052d3",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-new-cheer-1",
+      "file": "assets/outfit-new/mythra/new-cheer-1.png",
+      "sha256": "3fc4786f402a20cd25871480860276179264424f9eacc237f55b33798b022a39",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-new-cheer-2",
+      "file": "assets/outfit-new/mythra/new-cheer-2.png",
+      "sha256": "84986d8ec4e38290a8bdd7bf4bb19a75e56da04895167e68a2a41af73a74c4d5",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-new-cheer-3",
+      "file": "assets/outfit-new/mythra/new-cheer-3.png",
+      "sha256": "7837b7c9b5bad6c8124b570eafe56d1f9604c3e1d802c53dee92eafee4f55b05",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-new-cheer-4",
+      "file": "assets/outfit-new/mythra/new-cheer-4.png",
+      "sha256": "5d47002e12e29043303530ef978e7b6a31c5f7fe3dc088f178a15ebb7efbd514",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-new-cheer-5",
+      "file": "assets/outfit-new/mythra/new-cheer-5.png",
+      "sha256": "ee0291cd034c3844e614669cc46ac9583c895fbb43c515a8914dab3effc5fb70",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-new-run-0",
+      "file": "assets/outfit-new/mythra/new-run-0.png",
+      "sha256": "88d19168727ec63b96e464a65ba5d0066db1d346a6cec8f9b0d7bf7b644d5fd4",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-new-run-1",
+      "file": "assets/outfit-new/mythra/new-run-1.png",
+      "sha256": "a570626ca909183b9439adb8731a652ac1ac2648de8996748e40b7b83bb72653",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-new-run-2",
+      "file": "assets/outfit-new/mythra/new-run-2.png",
+      "sha256": "0b8d1c8691d3bf4e8b5c55b44570288a1a9582ea89502a9d47f82f6f9d518c65",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-new-run-3",
+      "file": "assets/outfit-new/mythra/new-run-3.png",
+      "sha256": "6e99aa9dab2459c15022c5d26bd65dd3666551c4e8fdbf7aad6c603d4b49c01d",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-new-run-4",
+      "file": "assets/outfit-new/mythra/new-run-4.png",
+      "sha256": "c874d8eee0c12e4506de4d8be6c2429b7682a1f1cc8386c97003f440db3ebfc8",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-new-run-5",
+      "file": "assets/outfit-new/mythra/new-run-5.png",
+      "sha256": "d139155b3f44f897a8fcbbca3274a233bf943390cea8e104d5edd44cd402f882",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-new-stretch-0",
+      "file": "assets/outfit-new/mythra/new-stretch-0.png",
+      "sha256": "db53552a9a00f97c8319914ed51f116099fe620dd1a96bf67e7c088f5de0ba43",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-new-stretch-1",
+      "file": "assets/outfit-new/mythra/new-stretch-1.png",
+      "sha256": "e341825238d52f367f88423483c8ba59a7e660f20c95218b72901327f325bf5a",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-new-stretch-2",
+      "file": "assets/outfit-new/mythra/new-stretch-2.png",
+      "sha256": "7cda2963fbfd2b43f2559a2437cade7959539475efc303848e5125fc3c7137a3",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-new-stretch-3",
+      "file": "assets/outfit-new/mythra/new-stretch-3.png",
+      "sha256": "63067ed861ae161b030994bd1c95c4cc8e585092fdb85f2df5844691e2abd528",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-new-stretch-4",
+      "file": "assets/outfit-new/mythra/new-stretch-4.png",
+      "sha256": "610d095ba7b5e34cb3c543636adc775ccc9c46d69bf61a3fc749c60381757ac1",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-new-stretch-5",
+      "file": "assets/outfit-new/mythra/new-stretch-5.png",
+      "sha256": "85f03a1bf807eee680b3baf1bd5417cbdfc8864c2f401fc842d1cbc6d2758306",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-outfit-change-0",
+      "file": "assets/outfit-new/mythra/outfit-change-0.png",
+      "sha256": "198e77a73084eda5044e9001eb6968ae9436323db64e5d42c8be083ac92ee5ca",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-outfit-change-1",
+      "file": "assets/outfit-new/mythra/outfit-change-1.png",
+      "sha256": "144f4cb3865b523fd4ea4a42cdfbec8dd6cf1abafa5c785a158315c7dbf09a47",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-outfit-change-2",
+      "file": "assets/outfit-new/mythra/outfit-change-2.png",
+      "sha256": "f19a9f283c0cbd6ef1c275016b3bf1944e19a8be839ebb9b6ddd51c4a2a6dd9c",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-outfit-change-3",
+      "file": "assets/outfit-new/mythra/outfit-change-3.png",
+      "sha256": "61b3510f5a8b37f2689da9685570b39e0738599bc2cb7244c7a6ff6951cc0093",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-outfit-change-4",
+      "file": "assets/outfit-new/mythra/outfit-change-4.png",
+      "sha256": "e90645b3228977296bf6e11872fbe94a28acaaaa38c586253c3244bb5fefd54d",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-comfort_01",
+      "file": "assets/outfit-new/mythra/idle-comfort_01.png",
+      "sha256": "584fbd879874347382f6eda45b8883a2857d787f350edbcdbf9f9157a8e93b12",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-comfort_02",
+      "file": "assets/outfit-new/mythra/idle-comfort_02.png",
+      "sha256": "1493b80135665506056210c7cb368a1441269de0532446870cc75555ba8b90d7",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-comfort_03",
+      "file": "assets/outfit-new/mythra/idle-comfort_03.png",
+      "sha256": "1f3ae2c69ce517aec836522ca3c3397b24efa9be1f7827b4a1d3066460fd2628",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-comfort_04",
+      "file": "assets/outfit-new/mythra/idle-comfort_04.png",
+      "sha256": "f58b4655d331958ac5c0e223ef14b4a056603dc90da055b2bd3eff5f99f2a4c7",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-comfort_05",
+      "file": "assets/outfit-new/mythra/idle-comfort_05.png",
+      "sha256": "ea34433d508570a3089d6155ea057f59ac483ef56f852199b62bb96691228a12",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-comfort_06",
+      "file": "assets/outfit-new/mythra/idle-comfort_06.png",
+      "sha256": "241a6e02220d86c562ef470f5c183ceb5b50f042dcec987fcfbe99ad68b8e9c8",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-question_01",
+      "file": "assets/outfit-new/mythra/idle-question_01.png",
+      "sha256": "97a6adcd507feb4971cde793f99d74a1723e4ad0c028b77a7805d53fe55ea441",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-question_02",
+      "file": "assets/outfit-new/mythra/idle-question_02.png",
+      "sha256": "b0669043e8bdb853e97e16b14dc40236e5a35b06c63259271323c9f6dc47a751",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-question_03",
+      "file": "assets/outfit-new/mythra/idle-question_03.png",
+      "sha256": "25924e5e622f990b2088f22b36e627e5e5f6aa23ac9354035fe1c23bf461f1b3",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-question_04",
+      "file": "assets/outfit-new/mythra/idle-question_04.png",
+      "sha256": "b0669043e8bdb853e97e16b14dc40236e5a35b06c63259271323c9f6dc47a751",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-question_05",
+      "file": "assets/outfit-new/mythra/idle-question_05.png",
+      "sha256": "97a6adcd507feb4971cde793f99d74a1723e4ad0c028b77a7805d53fe55ea441",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-question_06",
+      "file": "assets/outfit-new/mythra/idle-question_06.png",
+      "sha256": "3b7a75b2464a5ce0513b914292952fead256b8c672a3005da5ed5ce42b2d59f9",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-question_07",
+      "file": "assets/outfit-new/mythra/idle-question_07.png",
+      "sha256": "06e5501d67a46fded1c2f34c944a888d60e13093fbbc306ab29fad790f4fed15",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-question_08",
+      "file": "assets/outfit-new/mythra/idle-question_08.png",
+      "sha256": "3b7a75b2464a5ce0513b914292952fead256b8c672a3005da5ed5ce42b2d59f9",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-shock_01",
+      "file": "assets/outfit-new/mythra/idle-shock_01.png",
+      "sha256": "0bc78ea74a6c6455970321db28c8edfee4dcd539602beb122a8eb68a786fba7d",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-shock_02",
+      "file": "assets/outfit-new/mythra/idle-shock_02.png",
+      "sha256": "1e68fb76698347be56ae45dfa873be27175f6ee273178cec6170a4eec940d66f",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-shock_03",
+      "file": "assets/outfit-new/mythra/idle-shock_03.png",
+      "sha256": "80a859c10275b393d4d1eb319484b2b4b42be33061461518582b8c77f538c30a",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-shock_04",
+      "file": "assets/outfit-new/mythra/idle-shock_04.png",
+      "sha256": "4c4a875976308aa3632df17edd01e5cfd688743d9b84f4fba21798ed72b9d866",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-shock_05",
+      "file": "assets/outfit-new/mythra/idle-shock_05.png",
+      "sha256": "e357cc84bf835831d4d746ff6d16514619ce0c5397e631bf9de92a52066ef11c",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-shock_06",
+      "file": "assets/outfit-new/mythra/idle-shock_06.png",
+      "sha256": "ab2e90145d465f2453239bd682df1b9e2a4e94f7e25a4c273fb0658b0d626a6c",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-shy_01",
+      "file": "assets/outfit-new/mythra/idle-shy_01.png",
+      "sha256": "cb56c9c3e5b6c1a24046f3868e1946ab2c8dc76a55ef1e45b0abed28aa68b8b2",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-shy_02",
+      "file": "assets/outfit-new/mythra/idle-shy_02.png",
+      "sha256": "9444b85e412f674ee4332a0b4b60c52a282db7051896703c6ca1342d021e4b4e",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-shy_03",
+      "file": "assets/outfit-new/mythra/idle-shy_03.png",
+      "sha256": "9444b85e412f674ee4332a0b4b60c52a282db7051896703c6ca1342d021e4b4e",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-shy_04",
+      "file": "assets/outfit-new/mythra/idle-shy_04.png",
+      "sha256": "cb56c9c3e5b6c1a24046f3868e1946ab2c8dc76a55ef1e45b0abed28aa68b8b2",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-shy_05",
+      "file": "assets/outfit-new/mythra/idle-shy_05.png",
+      "sha256": "1fb6f334159d7db3d5e1765a4e6d594a24feb946e471bb2bb50ae1189e151922",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-shy_06",
+      "file": "assets/outfit-new/mythra/idle-shy_06.png",
+      "sha256": "1fb6f334159d7db3d5e1765a4e6d594a24feb946e471bb2bb50ae1189e151922",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-spark_01",
+      "file": "assets/outfit-new/mythra/idle-spark_01.png",
+      "sha256": "9a4ead8339ebb29d93d2a1229f646a553a12c7d2a560d0e25ea9f9bb61191ee9",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-spark_02",
+      "file": "assets/outfit-new/mythra/idle-spark_02.png",
+      "sha256": "eb6d2d5acfe7774ba3502b773ada56bbbeb53db31764b3917b5609edc041e322",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-spark_03",
+      "file": "assets/outfit-new/mythra/idle-spark_03.png",
+      "sha256": "b3224ad1308e01d6d63a29cc61522333b36ea2b0783713c11ab505f3474f1c30",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-spark_04",
+      "file": "assets/outfit-new/mythra/idle-spark_04.png",
+      "sha256": "269171145d812b7af7ffcb41bfd60270bdd31b54264a5ed6bda4561924ac9e60",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-spark_05",
+      "file": "assets/outfit-new/mythra/idle-spark_05.png",
+      "sha256": "d5def686432208a1fe7184a9d4c7a8f858ddae8e552d9f1e7ab3af9d678065f5",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-spark_06",
+      "file": "assets/outfit-new/mythra/idle-spark_06.png",
+      "sha256": "1327d470815ec4b5cffa37b708e1bf6643210a8791fd6f578dabfbf51aa1d7f3",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-spark_07",
+      "file": "assets/outfit-new/mythra/idle-spark_07.png",
+      "sha256": "21388468d5cc4a01f09a2ca22af97198caadb2c9994b4c476b9bdf893a7d9b4c",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-idle-spark_08",
+      "file": "assets/outfit-new/mythra/idle-spark_08.png",
+      "sha256": "1ac9bfb869a33005252f585643ae4a15a4c91ad992a6258100af1bae9e925916",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "cook_01.png",
+      "file": "assets/mythra/cook_01.png",
+      "sha256": "abc257d6c9a23693170a402f814d5fc575259017613df508135e62d0cab71c53",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "cook_02.png",
+      "file": "assets/mythra/cook_02.png",
+      "sha256": "a8092cd224d71c37e79366c9fe9fa0a52610a9c5640d88b60a944124e7e1f664",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "cook_03.png",
+      "file": "assets/mythra/cook_03.png",
+      "sha256": "8ebf2c678e9b879d92d2227d4f019e1c5d7e1ea2013430aeabfe6c69a92d95b3",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "cook_04.png",
+      "file": "assets/mythra/cook_04.png",
+      "sha256": "cfd00217adf3f7cfaabcdc254ae6ef128f45e360f0a31be7c176f74a451a4ea3",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "cook_05.png",
+      "file": "assets/mythra/cook_05.png",
+      "sha256": "4ef4bb04c5282971784a8608d4f2804ba5a9ff9f0bc12117c1bcc48102090e45",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "cook_06.png",
+      "file": "assets/mythra/cook_06.png",
+      "sha256": "e3b8848e39edf221172231ba8f43125eef66a8d4d16c1693e52d20f7bfcfc94f",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "cook_07.png",
+      "file": "assets/mythra/cook_07.png",
+      "sha256": "623178c060d2245686d4c213b6b0caf15a2926f9887baa1d99c873882920b777",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "cook_08.png",
+      "file": "assets/mythra/cook_08.png",
+      "sha256": "1b8033c60a6ffebe7645e6d7ab0fef6013f7c656e6fbff7b2c141e3dc93774b3",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-cook_01.png",
+      "file": "assets/outfit-new/mythra/cook_01.png",
+      "sha256": "72077ae621a89e2c74ed844f403c94f5e08a99cbb82fe8d112eeba55d06527c6",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-cook_02.png",
+      "file": "assets/outfit-new/mythra/cook_02.png",
+      "sha256": "3e96141bd7d765d76497cfbd1c8b0c5c3f9d3be9b8867db24758a5c7d8c9f9dd",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-cook_03.png",
+      "file": "assets/outfit-new/mythra/cook_03.png",
+      "sha256": "7966092ed54633d9e492c748d8b20cc0e15e199e938ca1ec84b5bea27faf4b0a",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-cook_04.png",
+      "file": "assets/outfit-new/mythra/cook_04.png",
+      "sha256": "a59a31e466e11362b317001ebdc7fa61cbcbfae69857a55045aa9628d1a919b9",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-cook_05.png",
+      "file": "assets/outfit-new/mythra/cook_05.png",
+      "sha256": "a6437da9af4723c9f90c428b44d7d4a890c269d006e89cb87605388fab79ffeb",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-cook_06.png",
+      "file": "assets/outfit-new/mythra/cook_06.png",
+      "sha256": "b2b1914e3956cad85f6bd4dd585d10465c6e310f17f2a6bb585e90fd747f1e43",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-cook_07.png",
+      "file": "assets/outfit-new/mythra/cook_07.png",
+      "sha256": "d114011427e22ac1f048749534031b178522a1aead36291a0c7aa329f4939b2f",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-cook_08.png",
+      "file": "assets/outfit-new/mythra/cook_08.png",
+      "sha256": "eed3656b2684c5ff8e17395ac360578f55ba819af30fd2ccfdf05d150576adfa",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "eat-cake_01.png",
+      "file": "assets/mythra/eat-cake_01.png",
+      "sha256": "14db739fd004c8b086dab1d0579289d2d80e61912bed379518367a4b452be293",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "eat-cake_02.png",
+      "file": "assets/mythra/eat-cake_02.png",
+      "sha256": "c23193fe4bd7e06f2c088a29c38aee65c4b0bc66dde4fa0265fe37d64786c94a",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "eat-cake_03.png",
+      "file": "assets/mythra/eat-cake_03.png",
+      "sha256": "c23193fe4bd7e06f2c088a29c38aee65c4b0bc66dde4fa0265fe37d64786c94a",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "eat-cake_04.png",
+      "file": "assets/mythra/eat-cake_04.png",
+      "sha256": "14db739fd004c8b086dab1d0579289d2d80e61912bed379518367a4b452be293",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "eat-cake_05.png",
+      "file": "assets/mythra/eat-cake_05.png",
+      "sha256": "eaa7b01d70774ae49c317ede1ba3848418e3b954a2c8657ad850c6d60614b59c",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "eat-cake_06.png",
+      "file": "assets/mythra/eat-cake_06.png",
+      "sha256": "eaa7b01d70774ae49c317ede1ba3848418e3b954a2c8657ad850c6d60614b59c",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-eat-cake_01.png",
+      "file": "assets/outfit-new/mythra/eat-cake_01.png",
+      "sha256": "a8780ca6047547dc18ca0325ea7ea77421dc991801ab765eeb9b5074cf8871b5",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-eat-cake_02.png",
+      "file": "assets/outfit-new/mythra/eat-cake_02.png",
+      "sha256": "47d87fd836f0a0302e6c9d7f82e23a31032ff27df8e972bad95a2ed42136ee97",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-eat-cake_03.png",
+      "file": "assets/outfit-new/mythra/eat-cake_03.png",
+      "sha256": "47d87fd836f0a0302e6c9d7f82e23a31032ff27df8e972bad95a2ed42136ee97",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-eat-cake_04.png",
+      "file": "assets/outfit-new/mythra/eat-cake_04.png",
+      "sha256": "a8780ca6047547dc18ca0325ea7ea77421dc991801ab765eeb9b5074cf8871b5",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-eat-cake_05.png",
+      "file": "assets/outfit-new/mythra/eat-cake_05.png",
+      "sha256": "4464fbada1a9815d2fd89df03ad69f5173118e3577fdab10eaa584cb1faa90d7",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-eat-cake_06.png",
+      "file": "assets/outfit-new/mythra/eat-cake_06.png",
+      "sha256": "4464fbada1a9815d2fd89df03ad69f5173118e3577fdab10eaa584cb1faa90d7",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "fall-dizzy_01.png",
+      "file": "assets/mythra/fall-dizzy_01.png",
+      "sha256": "f463e91a6fb560666b2689426ab9e840252cf53aef806430fee7adf3aa3b7472",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "fall-dizzy_02.png",
+      "file": "assets/mythra/fall-dizzy_02.png",
+      "sha256": "2f5f8a91053c7a88fc669d260cbc24a723f1718f85be3f74367ada249f01a375",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "fall-dizzy_03.png",
+      "file": "assets/mythra/fall-dizzy_03.png",
+      "sha256": "a0e949b7b30df02037f4acdd4609fb7c4b23f8adabd315466f940146777dc18a",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "fall-dizzy_04.png",
+      "file": "assets/mythra/fall-dizzy_04.png",
+      "sha256": "a4d5dcdd316b06aa559d982bf7f1f4a5b94bae31d7eb705ff1f278333a31d933",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "fall-dizzy_05.png",
+      "file": "assets/mythra/fall-dizzy_05.png",
+      "sha256": "901e2f96460b01096de0a1f53419fb384b88b3220eb0bc0b85049a68ec69702c",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "fall-dizzy_06.png",
+      "file": "assets/mythra/fall-dizzy_06.png",
+      "sha256": "837ca0dd92424ee06ed14f3b69de64bdb062fc278e293259dd1f294ca82dccb4",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-fall-dizzy_01.png",
+      "file": "assets/outfit-new/mythra/fall-dizzy_01.png",
+      "sha256": "c18f21382553ee3696044c9f3116a7dfdea10cc7ba8803ee8c38bd633d207cb4",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-fall-dizzy_02.png",
+      "file": "assets/outfit-new/mythra/fall-dizzy_02.png",
+      "sha256": "05be9f07cc215886c3f1b70a34cdbff82e49638caf05572970e81009fd0e2e82",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-fall-dizzy_03.png",
+      "file": "assets/outfit-new/mythra/fall-dizzy_03.png",
+      "sha256": "2bd2d48c4ccfe691e546a2f2ca74e8a786a24e46618be90d87d5741a93dbbaf0",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-fall-dizzy_04.png",
+      "file": "assets/outfit-new/mythra/fall-dizzy_04.png",
+      "sha256": "97a0b46abd56e1d942e9944c9de04e1374f0638dea968eed3335fbf814f15084",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-fall-dizzy_05.png",
+      "file": "assets/outfit-new/mythra/fall-dizzy_05.png",
+      "sha256": "06ba80f0ada65edf5fdd60c2c2f2bccbcd8140d8bbc487665d558c79c451eaf0",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-fall-dizzy_06.png",
+      "file": "assets/outfit-new/mythra/fall-dizzy_06.png",
+      "sha256": "8639a7ae61b92b891b4751d449ca13ee77ef59ce27000f8ba468bbabf6a08cdb",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "music_01.png",
+      "file": "assets/mythra/music_01.png",
+      "sha256": "1740570674dea97716b498a06a9d5987c52de81976de81abc38e3795dcf90db1",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "music_02.png",
+      "file": "assets/mythra/music_02.png",
+      "sha256": "5fbf2f22c43d8a6f09a78829dbeee13bdf644359cecfa1c75254fcf9172b871b",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "music_03.png",
+      "file": "assets/mythra/music_03.png",
+      "sha256": "603c5713e41884272f7db84d3aa9aa56091324338a8e66aa5d1504fd0f0cd10e",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "music_04.png",
+      "file": "assets/mythra/music_04.png",
+      "sha256": "5067c7687a58279be2edf5fb689655ca86973e16d7b5f2023b178b6888a80425",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "music_05.png",
+      "file": "assets/mythra/music_05.png",
+      "sha256": "181c5e13bb7872a628a4102fb2cb2096d820fb5019ae74b23f259e13b9445a97",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "music_06.png",
+      "file": "assets/mythra/music_06.png",
+      "sha256": "26d31c492e5b8231ed8d2fe04cc47479613f05ce4bd9a07bf6c4107922b1fc16",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "music_07.png",
+      "file": "assets/mythra/music_07.png",
+      "sha256": "556fdf46d1bd9c8e8b81bdb828a7c2562266915b0c502f418bc6c1c9c3f3e0ab",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "music_08.png",
+      "file": "assets/mythra/music_08.png",
+      "sha256": "0065bf243f78ec1fbf3a1ecd8fb9d3e2fc0aa86cbc717267a9534e8302b6eb5f",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-music_01.png",
+      "file": "assets/outfit-new/mythra/music_01.png",
+      "sha256": "fcc30ce9d5871d472b8da0007bcfaa328fc931d07d11e5a9829d7dd820629ba9",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-music_02.png",
+      "file": "assets/outfit-new/mythra/music_02.png",
+      "sha256": "29bd9abd8ed2f114e798b4d91667aba7057478c302600d567e9fae7b9a93e903",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-music_03.png",
+      "file": "assets/outfit-new/mythra/music_03.png",
+      "sha256": "547951125179d6e1c9aef78d375c6954294d3b8b70a69c4d411e63553d699835",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-music_04.png",
+      "file": "assets/outfit-new/mythra/music_04.png",
+      "sha256": "f206495797954d219d8bfed6a01f34012fbe915c16d8800876340050fce26c27",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-music_05.png",
+      "file": "assets/outfit-new/mythra/music_05.png",
+      "sha256": "0a058c448f52c866cdbea88ede568effbdfb08c46d0edafa643fac6dc7e42b9e",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-music_06.png",
+      "file": "assets/outfit-new/mythra/music_06.png",
+      "sha256": "b65c955948ca5b4ab2e56f01e8766b196b939aaa015b30012f758ba9112410cd",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-music_07.png",
+      "file": "assets/outfit-new/mythra/music_07.png",
+      "sha256": "6cb764d9ecac09710e87ca0a19be57b856f9786c431835c42738563a790f8e79",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-music_08.png",
+      "file": "assets/outfit-new/mythra/music_08.png",
+      "sha256": "2b50ef6595e8bc0cc56c4f483faedee2debe68975fea4e79dc14001d2de1a0a3",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "sleep_01.png",
+      "file": "assets/mythra/sleep_01.png",
+      "sha256": "0cc8c1a24b7e23b161a20f5462219943b28120b2062154b40c1c4035b70dee26",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "sleep_02.png",
+      "file": "assets/mythra/sleep_02.png",
+      "sha256": "71e66202420ebb320c9f79f7b0f8c8f499f49367af140bdd7e78cc151e3fb835",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "sleep_03.png",
+      "file": "assets/mythra/sleep_03.png",
+      "sha256": "742b3e6b4f2ddfd89fb37a08aa89754a4cf37e45999ced202d96888bc441c7a5",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "sleep_04.png",
+      "file": "assets/mythra/sleep_04.png",
+      "sha256": "ba4c297a9f74bc52b7d4f0b9de472d195893224ed9ba4240d8e6d078bf350cfc",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "sleep_05.png",
+      "file": "assets/mythra/sleep_05.png",
+      "sha256": "358c7438589461483baa0728bafcd37e569017c70d7b9d8f9fc03f8f778d8cf1",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "sleep_06.png",
+      "file": "assets/mythra/sleep_06.png",
+      "sha256": "9a29d0d88870dd7aee3bcf49128895de9ffdbf36552f2b7394e66fa5c3b2f1ad",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "sleep_07.png",
+      "file": "assets/mythra/sleep_07.png",
+      "sha256": "da95d1e76dc4a44bb95aa84ef0e4adfac36c719949d510b0844674a0cc30781c",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "sleep_08.png",
+      "file": "assets/mythra/sleep_08.png",
+      "sha256": "ff735bf43443d615605b5a6665ab89edbe3ac3c585702249f22e118cb4418ded",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-sleep_01.png",
+      "file": "assets/outfit-new/mythra/sleep_01.png",
+      "sha256": "43d24174e1b7b8a4e5223d07059345a537a6c687d68809366f3fb5bf624ce15a",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-sleep_02.png",
+      "file": "assets/outfit-new/mythra/sleep_02.png",
+      "sha256": "2e0b2037fa0abe812c0c888521c22535dfe0e939f068ead1a4bc86b274c157e2",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-sleep_03.png",
+      "file": "assets/outfit-new/mythra/sleep_03.png",
+      "sha256": "8a20b481f141d0033c3981d65cc5b5d326a41b6a5cf55c2a47ad7a59b83fcacf",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-sleep_04.png",
+      "file": "assets/outfit-new/mythra/sleep_04.png",
+      "sha256": "60a7bbeb6b1d43251b55c8fc41946ef400f682207f5ea12fd0333137abb6136e",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-sleep_05.png",
+      "file": "assets/outfit-new/mythra/sleep_05.png",
+      "sha256": "5d2080f7fe278b7f0af3ac2ce48bb6156161513bd1e136cd187ba016bf081232",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-sleep_06.png",
+      "file": "assets/outfit-new/mythra/sleep_06.png",
+      "sha256": "6b3157fea9a04db7bb33d43674bcc7c3e7edb210445beb08fcba8c530f723ec7",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-sleep_07.png",
+      "file": "assets/outfit-new/mythra/sleep_07.png",
+      "sha256": "68708a7a4bd174f009a6dedcff0d4b4a8bc71b34b4d84d57a8398a00185c585d",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-sleep_08.png",
+      "file": "assets/outfit-new/mythra/sleep_08.png",
+      "sha256": "cb1014cdac053faf83be2ad731f7edf081494189dc12f5a258801447a74c3ee0",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "walk_01.png",
+      "file": "assets/mythra/walk_01.png",
+      "sha256": "62f578c6575d1bf905ccf64086c2ef29baeed19a5067b40cc05c8929958cf9c7",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "walk_02.png",
+      "file": "assets/mythra/walk_02.png",
+      "sha256": "de090ccaa5afda3621d752ddbdb922afdd496c4fb0722fc63d492c6d2e7534b2",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "walk_03.png",
+      "file": "assets/mythra/walk_03.png",
+      "sha256": "ac51948adac528f7ce95132cd465f3c3bf3d950feb4749b05b243e7add5b3e95",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "walk_04.png",
+      "file": "assets/mythra/walk_04.png",
+      "sha256": "de090ccaa5afda3621d752ddbdb922afdd496c4fb0722fc63d492c6d2e7534b2",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "walk_05.png",
+      "file": "assets/mythra/walk_05.png",
+      "sha256": "62f578c6575d1bf905ccf64086c2ef29baeed19a5067b40cc05c8929958cf9c7",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "walk_06.png",
+      "file": "assets/mythra/walk_06.png",
+      "sha256": "204fd523875d6099599854444de16351ff7218fb53d8bd64de79afacd5d31f4a",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "walk_07.png",
+      "file": "assets/mythra/walk_07.png",
+      "sha256": "385f10b93755715fcb7c07422076ced981b78ed664939c8638af3f7dba410353",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "walk_08.png",
+      "file": "assets/mythra/walk_08.png",
+      "sha256": "204fd523875d6099599854444de16351ff7218fb53d8bd64de79afacd5d31f4a",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-walk_01.png",
+      "file": "assets/outfit-new/mythra/walk_01.png",
+      "sha256": "0c7ef3414d7c51588694d5b3fac538aa59f8fd2e1f5b2523f88c1c761792d0b8",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-walk_02.png",
+      "file": "assets/outfit-new/mythra/walk_02.png",
+      "sha256": "0d3a77fc991f0dbfc53639a9b83f77dfb79e7ca1e6c027afafa47ca12ffe5d2c",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-walk_03.png",
+      "file": "assets/outfit-new/mythra/walk_03.png",
+      "sha256": "1c48950e27004b1f1e48b295260f72615ba2bddd8ba5e00d598dc3b94c723ee3",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-walk_04.png",
+      "file": "assets/outfit-new/mythra/walk_04.png",
+      "sha256": "0d3a77fc991f0dbfc53639a9b83f77dfb79e7ca1e6c027afafa47ca12ffe5d2c",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-walk_05.png",
+      "file": "assets/outfit-new/mythra/walk_05.png",
+      "sha256": "0c7ef3414d7c51588694d5b3fac538aa59f8fd2e1f5b2523f88c1c761792d0b8",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-walk_06.png",
+      "file": "assets/outfit-new/mythra/walk_06.png",
+      "sha256": "0d045eef1dac08f5eed1e2ce4eaf5326406c288af743360f0b47cefa84442e1b",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-walk_07.png",
+      "file": "assets/outfit-new/mythra/walk_07.png",
+      "sha256": "20486054780bcc8b73fced8f25af85597fb43ff3b3ad6e590087c03439493391",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-walk_08.png",
+      "file": "assets/outfit-new/mythra/walk_08.png",
+      "sha256": "0d045eef1dac08f5eed1e2ce4eaf5326406c288af743360f0b47cefa84442e1b",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "angry-stomp_01.png",
+      "file": "assets/mythra/angry-stomp_01.png",
+      "sha256": "5c39033e16310d6758eb4d266c8b285fd04d90cff286aa490480e03fbfd7f8cb",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "angry-stomp_02.png",
+      "file": "assets/mythra/angry-stomp_02.png",
+      "sha256": "5aaf36aeb9f3b25fc351d8577de0747d53a407c42b443c9e2e8e97f3f704fc0a",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "angry-stomp_03.png",
+      "file": "assets/mythra/angry-stomp_03.png",
+      "sha256": "cf2ae413191c8012fa31a4c6fda2fce5a3cd214a671c588efd6135882ce6b3c9",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "angry-stomp_04.png",
+      "file": "assets/mythra/angry-stomp_04.png",
+      "sha256": "3a111352d37d1e9934e55640cda0a516ef1fd2fb7807ce53c85f36ed823df1e6",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "angry-stomp_05.png",
+      "file": "assets/mythra/angry-stomp_05.png",
+      "sha256": "4d71727336a463fa60faff7749f758f13e6905f1edf4fba1596dee63fa4fd771",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "angry-stomp_06.png",
+      "file": "assets/mythra/angry-stomp_06.png",
+      "sha256": "5acd2dfc90b8a8ad6100005e4c0fd96490e38c3d5e385d0bcfb13d6601367abf",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-angry-stomp_01.png",
+      "file": "assets/outfit-new/mythra/angry-stomp_01.png",
+      "sha256": "76ae7e147b74fefffecb61ee71da7681ccc110d2868219338087b3283282bd8d",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-angry-stomp_02.png",
+      "file": "assets/outfit-new/mythra/angry-stomp_02.png",
+      "sha256": "054c83cb0f94537e52c9022d240770a3f5030cab2ce0058a10a2bcb75990a13b",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-angry-stomp_03.png",
+      "file": "assets/outfit-new/mythra/angry-stomp_03.png",
+      "sha256": "32d2b3b42fc187fe1b525414e7c2d646d9fd44da9871cdbef42df0a74d31bcd6",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-angry-stomp_04.png",
+      "file": "assets/outfit-new/mythra/angry-stomp_04.png",
+      "sha256": "3a58d6df51a1adcd47da396afd1420bfd37e3e4e731b94f311493a5cb86e17a6",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-angry-stomp_05.png",
+      "file": "assets/outfit-new/mythra/angry-stomp_05.png",
+      "sha256": "6db07023196eebe18fa7061e3907af37955e8e7477d3ef6c8e7521a338bf2a60",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-angry-stomp_06.png",
+      "file": "assets/outfit-new/mythra/angry-stomp_06.png",
+      "sha256": "5e14b7546f00e92aac0849f055df265e96b4b668081e6fdf6e7c88445597bbd0",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "eat-dessert_01.png",
+      "file": "assets/mythra/eat-dessert_01.png",
+      "sha256": "efb07d7f646c01659c5f923ee06a9ef083df35aca6ca05a3cd95fd0725bb8794",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "eat-dessert_02.png",
+      "file": "assets/mythra/eat-dessert_02.png",
+      "sha256": "0ab4c45659f5bc83d1be08862ede4e5b47c3cb1db925d6175aa0ad7e6a20b119",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "eat-dessert_03.png",
+      "file": "assets/mythra/eat-dessert_03.png",
+      "sha256": "0ab4c45659f5bc83d1be08862ede4e5b47c3cb1db925d6175aa0ad7e6a20b119",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "eat-dessert_04.png",
+      "file": "assets/mythra/eat-dessert_04.png",
+      "sha256": "efb07d7f646c01659c5f923ee06a9ef083df35aca6ca05a3cd95fd0725bb8794",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "eat-dessert_05.png",
+      "file": "assets/mythra/eat-dessert_05.png",
+      "sha256": "5f1ea269b3dab0fd2b7f6f7a231a8970c95d3a38369405c4a2e223a9a3be2c4f",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "eat-dessert_06.png",
+      "file": "assets/mythra/eat-dessert_06.png",
+      "sha256": "5f1ea269b3dab0fd2b7f6f7a231a8970c95d3a38369405c4a2e223a9a3be2c4f",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-eat-dessert_01.png",
+      "file": "assets/outfit-new/mythra/eat-dessert_01.png",
+      "sha256": "aadf01a8aa22977b8032fd7ccab01723fd55bc81e0dde828a66739b64684b184",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-eat-dessert_02.png",
+      "file": "assets/outfit-new/mythra/eat-dessert_02.png",
+      "sha256": "63146c41f25c739336a7e853a634aba442a7c6453206ba8ee8b5f38a0bc24298",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-eat-dessert_03.png",
+      "file": "assets/outfit-new/mythra/eat-dessert_03.png",
+      "sha256": "63146c41f25c739336a7e853a634aba442a7c6453206ba8ee8b5f38a0bc24298",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-eat-dessert_04.png",
+      "file": "assets/outfit-new/mythra/eat-dessert_04.png",
+      "sha256": "aadf01a8aa22977b8032fd7ccab01723fd55bc81e0dde828a66739b64684b184",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-eat-dessert_05.png",
+      "file": "assets/outfit-new/mythra/eat-dessert_05.png",
+      "sha256": "123b7638c996baf06d583c052ac7535cd63a562dc33d2430025d0ea61e917efb",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-eat-dessert_06.png",
+      "file": "assets/outfit-new/mythra/eat-dessert_06.png",
+      "sha256": "123b7638c996baf06d583c052ac7535cd63a562dc33d2430025d0ea61e917efb",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "switch-m2p_01.png",
+      "file": "assets/mythra/switch-m2p_01.png",
+      "sha256": "611f8df3411c0d4f8b8614ab15073e46c506fbd3c96169447cb996f0c03f0508",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "switch-m2p_02.png",
+      "file": "assets/mythra/switch-m2p_02.png",
+      "sha256": "0b527c9dda6f691ddd8957d3d53a122971ebb8f4916d1b7b11fc79ffd5a0b0fb",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "switch-m2p_03.png",
+      "file": "assets/mythra/switch-m2p_03.png",
+      "sha256": "766951a64f226d70a3e4652eb373557d7441a2bd469c39a304850e4e431a8a35",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "switch-m2p_04.png",
+      "file": "assets/mythra/switch-m2p_04.png",
+      "sha256": "aeb088e86c2617aae29b687efd59e4eda955abe6c544f91f7aee80884bbcced7",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "switch-m2p_05.png",
+      "file": "assets/mythra/switch-m2p_05.png",
+      "sha256": "e2a49902c0fab4b1cb43f678b583be27a041ff65bd533b5c03f695ee241b8580",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "switch-m2p_06.png",
+      "file": "assets/mythra/switch-m2p_06.png",
+      "sha256": "a010fbd2608733a6c8b8b0e87b6bd0fdb66a8f012232505e75a1b0812bdc544a",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "switch-m2p_07.png",
+      "file": "assets/mythra/switch-m2p_07.png",
+      "sha256": "bb97cab65f6311d4426301d52c543842808b9273a3d9a94031ad9a2b4327fa77",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "switch-m2p_08.png",
+      "file": "assets/mythra/switch-m2p_08.png",
+      "sha256": "ae28252857b1e9ff966f4fb4b467f285cfab72fb3aa92963cd75f154321f1c39",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "switch-m2p_09.png",
+      "file": "assets/mythra/switch-m2p_09.png",
+      "sha256": "fd442100f63fe58e3c8735b7fe72495b31a523809c8dea26aec4aec22ec7424d",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "switch-m2p_10.png",
+      "file": "assets/mythra/switch-m2p_10.png",
+      "sha256": "0d20adb8edeaecbbc3d2d5d34711c68cdb2bf942a9363f6b2660e067f37435e9",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-switch-m2p_01.png",
+      "file": "assets/outfit-new/mythra/switch-m2p_01.png",
+      "sha256": "0a3e63b4bab0f95f7a78ffc286349b63ce1f7ab5bba6c07e40345d298bbc4a67",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-switch-m2p_02.png",
+      "file": "assets/outfit-new/mythra/switch-m2p_02.png",
+      "sha256": "74f952f35848e003420155bbc003e79778bf9b45d7202ac1475a7463f2e8af04",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-switch-m2p_03.png",
+      "file": "assets/outfit-new/mythra/switch-m2p_03.png",
+      "sha256": "291058ebccd2c39ced49cc788b110289ca372cd04c1b881e6f666bd9cd92e697",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-switch-m2p_04.png",
+      "file": "assets/outfit-new/mythra/switch-m2p_04.png",
+      "sha256": "12025029b546954e0d16011e2be08ba5123a76911dde62109ceeabff19e31e7e",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-switch-m2p_05.png",
+      "file": "assets/outfit-new/mythra/switch-m2p_05.png",
+      "sha256": "c4e221b4fa8599f5177c5736f28b923227aaddc1db1b74db9d42f56fe3dac36e",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-switch-m2p_06.png",
+      "file": "assets/outfit-new/mythra/switch-m2p_06.png",
+      "sha256": "7dbffb9ebc4fec9f2e147af6a9f0a33ee742d6ab068700ee04733f51940df74d",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-switch-m2p_07.png",
+      "file": "assets/outfit-new/mythra/switch-m2p_07.png",
+      "sha256": "c2582b9a396e9a6cf6046be69cd4aef8d8a5edc5aa8711a2677d95066ced88aa",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-switch-m2p_08.png",
+      "file": "assets/outfit-new/mythra/switch-m2p_08.png",
+      "sha256": "10a7004f0105a3234b404440f76f7711cc43c566094202d43ae463c6b8c8f950",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-switch-m2p_09.png",
+      "file": "assets/outfit-new/mythra/switch-m2p_09.png",
+      "sha256": "aed586510baed98c35c2bf8ea12712021a7c28402f88f24395e71036283ef370",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-switch-m2p_10.png",
+      "file": "assets/outfit-new/mythra/switch-m2p_10.png",
+      "sha256": "9f3cad8baf1cf6cfe9a6b613d76ce71b5c81213199b5f97967b7b733eeaca140",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "switch-p2m_01.png",
+      "file": "assets/mythra/switch-p2m_01.png",
+      "sha256": "0d20adb8edeaecbbc3d2d5d34711c68cdb2bf942a9363f6b2660e067f37435e9",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "switch-p2m_02.png",
+      "file": "assets/mythra/switch-p2m_02.png",
+      "sha256": "b60369529a1c3b06dbaf71f1f38195b9d64f3efd59fa6129451a04cdc6525b62",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "switch-p2m_03.png",
+      "file": "assets/mythra/switch-p2m_03.png",
+      "sha256": "742379cb3b61e19e98a0a665f3468f213f3a541c50d6e34931f9e30f65ea02ea",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "switch-p2m_04.png",
+      "file": "assets/mythra/switch-p2m_04.png",
+      "sha256": "1792f98e2f09d55c20bca1fb03996e5ca571c76c4579c1910958ae53523c8d4e",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "switch-p2m_05.png",
+      "file": "assets/mythra/switch-p2m_05.png",
+      "sha256": "26e596920f0fa4bfe2bd94bb43bb6eabdcd0114b46b59f3ac98c41b4f2d7aa43",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "switch-p2m_06.png",
+      "file": "assets/mythra/switch-p2m_06.png",
+      "sha256": "5ed95c81a4b1caf772e5d7dd324f806af8505a6bf9cd944776e1d205399b2a3a",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "switch-p2m_07.png",
+      "file": "assets/mythra/switch-p2m_07.png",
+      "sha256": "2c6f421ebd8e12ffdff3cc97ec6bbf34fc629ac67a0f30b41dba92c1da296e95",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "switch-p2m_08.png",
+      "file": "assets/mythra/switch-p2m_08.png",
+      "sha256": "0d2f92d4335bec645a510c8e71336040608f0b2fc75f62b49a676494cfd46cb0",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "switch-p2m_09.png",
+      "file": "assets/mythra/switch-p2m_09.png",
+      "sha256": "200c91a4eff4d95508b4ff6c6f71896cd7f81a47a843d862b4c9ff14e20984b4",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "switch-p2m_10.png",
+      "file": "assets/mythra/switch-p2m_10.png",
+      "sha256": "611f8df3411c0d4f8b8614ab15073e46c506fbd3c96169447cb996f0c03f0508",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-switch-p2m_01.png",
+      "file": "assets/outfit-new/mythra/switch-p2m_01.png",
+      "sha256": "9f3cad8baf1cf6cfe9a6b613d76ce71b5c81213199b5f97967b7b733eeaca140",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-switch-p2m_02.png",
+      "file": "assets/outfit-new/mythra/switch-p2m_02.png",
+      "sha256": "be8dc13e06d9d52d559b9dc8ed7f95e9c79b53a6ba92d52dfa3943f06384d36a",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-switch-p2m_03.png",
+      "file": "assets/outfit-new/mythra/switch-p2m_03.png",
+      "sha256": "f21fb0fc649690982a298925d8ba350fd0aded7b3afadc5607f9338c0a416159",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-switch-p2m_04.png",
+      "file": "assets/outfit-new/mythra/switch-p2m_04.png",
+      "sha256": "b99f98c958eeb6a26c808847c73eec61d382ff96e4da2fd566176f48bc744321",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-switch-p2m_05.png",
+      "file": "assets/outfit-new/mythra/switch-p2m_05.png",
+      "sha256": "26e596920f0fa4bfe2bd94bb43bb6eabdcd0114b46b59f3ac98c41b4f2d7aa43",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-switch-p2m_06.png",
+      "file": "assets/outfit-new/mythra/switch-p2m_06.png",
+      "sha256": "6bee807ba9b0b39ccb3b6efc6088d65f7f6147fa337a7189f2db1290b3494176",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-switch-p2m_07.png",
+      "file": "assets/outfit-new/mythra/switch-p2m_07.png",
+      "sha256": "157402d8a906534d713a1445a836094b6de1704719fe6670003c19f7934894b1",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-switch-p2m_08.png",
+      "file": "assets/outfit-new/mythra/switch-p2m_08.png",
+      "sha256": "d3f0a0b2015fe1e7069e272575b60ca3569bb8522c0e3718fd6c3905ceb33f1d",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-switch-p2m_09.png",
+      "file": "assets/outfit-new/mythra/switch-p2m_09.png",
+      "sha256": "d83e3097d8b8e9132932e3ca3054138fcd2ef9e8113e9bbc94933c2aaffda5ec",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-switch-p2m_10.png",
+      "file": "assets/outfit-new/mythra/switch-p2m_10.png",
+      "sha256": "0a3e63b4bab0f95f7a78ffc286349b63ce1f7ab5bba6c07e40345d298bbc4a67",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-switch-v2-m2p_01.png",
+      "file": "assets/outfit-new/mythra/switch-v2-m2p_01.png",
+      "sha256": "a25ea6773282d256d27ffadef79e40cd3663e1dd42dd36cfe98b6b487fcc34d0",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-switch-v2-m2p_02.png",
+      "file": "assets/outfit-new/mythra/switch-v2-m2p_02.png",
+      "sha256": "c3dccab805b66abaa061ac300c2bce19d7c34ad199cfaebf55595c15ba7d1a5b",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-switch-v2-m2p_03.png",
+      "file": "assets/outfit-new/mythra/switch-v2-m2p_03.png",
+      "sha256": "82d94c054826a92692714a76c4f2132694526dfbcb07f19f8d568393c62e8b21",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-switch-v2-m2p_04.png",
+      "file": "assets/outfit-new/mythra/switch-v2-m2p_04.png",
+      "sha256": "8b2353980c9b222284ece69426c6d35a50b70e8139474752ced6e21448280891",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-switch-v2-m2p_05.png",
+      "file": "assets/outfit-new/mythra/switch-v2-m2p_05.png",
+      "sha256": "df93a3bebb6b958648cfada12b273fd5660eedc6dba280b7b174b8d54701eb3e",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-switch-v2-m2p_06.png",
+      "file": "assets/outfit-new/mythra/switch-v2-m2p_06.png",
+      "sha256": "6108e5298ebc32f12cfff044fbe3620c58a888f1fdb516035257852b58708285",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-switch-v2-m2p_07.png",
+      "file": "assets/outfit-new/mythra/switch-v2-m2p_07.png",
+      "sha256": "bbec5c7b28412e236e7e07d780c28b9bd06b3c42bb81442426d459b9ee9a7421",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-switch-v2-m2p_08.png",
+      "file": "assets/outfit-new/mythra/switch-v2-m2p_08.png",
+      "sha256": "afeab80d2f00a7c1907a91a763caffee10c1e1642ec60f7e73d54d7b83f44ef7",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-switch-v2-m2p_09.png",
+      "file": "assets/outfit-new/mythra/switch-v2-m2p_09.png",
+      "sha256": "3ccf0db75df6af454e7ca3f9050c55c715cc137200011459456e86d19b06fd72",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-switch-v2-m2p_10.png",
+      "file": "assets/outfit-new/mythra/switch-v2-m2p_10.png",
+      "sha256": "a39f87b67576251e05cb3b586a6d70f9ba6a531a2492994814b1007db92ebe56",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-switch-v2-p2m_01.png",
+      "file": "assets/outfit-new/mythra/switch-v2-p2m_01.png",
+      "sha256": "a1532bb8886c6b6470bb09ec76d06e6da6bdeacdd65213a88a5d95b4a886037d",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-switch-v2-p2m_02.png",
+      "file": "assets/outfit-new/mythra/switch-v2-p2m_02.png",
+      "sha256": "766ca8091e1d01a5e981b7de30e7ff39b48beb77b739d50f5efcd71001b017b6",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-switch-v2-p2m_03.png",
+      "file": "assets/outfit-new/mythra/switch-v2-p2m_03.png",
+      "sha256": "1d8d5a11e1cfed1fdd02f3f008fff5be913e1a7efca8eedd973a87c3a07e81f6",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-switch-v2-p2m_04.png",
+      "file": "assets/outfit-new/mythra/switch-v2-p2m_04.png",
+      "sha256": "aedd661594c272eb68731a0c82cbcad8f9d964a436e9d457cf507d19332128ba",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-switch-v2-p2m_05.png",
+      "file": "assets/outfit-new/mythra/switch-v2-p2m_05.png",
+      "sha256": "cadab4a025b16eb204fa5dcb24d8cbd81ac3741201aae93791b8bd454647fd7e",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-switch-v2-p2m_06.png",
+      "file": "assets/outfit-new/mythra/switch-v2-p2m_06.png",
+      "sha256": "c8d4d5a92586a32bb02ff632b7f07cdaaf85d3a7ad6d5749bf6e9d658010ca83",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-switch-v2-p2m_07.png",
+      "file": "assets/outfit-new/mythra/switch-v2-p2m_07.png",
+      "sha256": "c7b5fd6516f1455aa19839a9fbb33ad429b83dbe4fae39a97b62f02ee6741974",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-switch-v2-p2m_08.png",
+      "file": "assets/outfit-new/mythra/switch-v2-p2m_08.png",
+      "sha256": "d39c157b9db7d01a5b970638a3b16330cc2696c1dbadeeaa324595bfd57c36fa",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-switch-v2-p2m_09.png",
+      "file": "assets/outfit-new/mythra/switch-v2-p2m_09.png",
+      "sha256": "ee9fc755750401be2c5e0d8d6ced530d08fd7c5ffaf9bad03e33f68dccb8b610",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "new-switch-v2-p2m_10.png",
+      "file": "assets/outfit-new/mythra/switch-v2-p2m_10.png",
+      "sha256": "26435f827ba72cbd5c56f3ba0c6f53a05ce28334411b5f9ea3b1413959f39f61",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-revert-0",
+      "file": "assets/mythra/outfit-revert-0.png",
+      "sha256": "7131ab1732d089ca8cddf26fa90e45d2d3401007519ad2508fe597d57800cdc4",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-revert-1",
+      "file": "assets/mythra/outfit-revert-1.png",
+      "sha256": "a020b1abd2c34c2f4205205c13b6fbad0dadbf308fd7a1023b7135903b66d534",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-revert-2",
+      "file": "assets/mythra/outfit-revert-2.png",
+      "sha256": "e103e08312c7f50043335cdd25524191e7e2bfcc816f7a9f4cf4cb69af30141d",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-revert-3",
+      "file": "assets/mythra/outfit-revert-3.png",
+      "sha256": "6ed349197b861564766889b0154ad3423ac7fa65413ee4bf0e8ed1ed9ebdfa1e",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-revert-4",
+      "file": "assets/mythra/outfit-revert-4.png",
+      "sha256": "c2e8dff80836f5f0c5be9b170889a6e17c9f3d7955c20aecd0aa7e049da686ec",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-outfit-revert-0",
+      "file": "assets/outfit-new/mythra/outfit-revert-0.png",
+      "sha256": "7131ab1732d089ca8cddf26fa90e45d2d3401007519ad2508fe597d57800cdc4",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-outfit-revert-1",
+      "file": "assets/outfit-new/mythra/outfit-revert-1.png",
+      "sha256": "a020b1abd2c34c2f4205205c13b6fbad0dadbf308fd7a1023b7135903b66d534",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-outfit-revert-2",
+      "file": "assets/outfit-new/mythra/outfit-revert-2.png",
+      "sha256": "e103e08312c7f50043335cdd25524191e7e2bfcc816f7a9f4cf4cb69af30141d",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-outfit-revert-3",
+      "file": "assets/outfit-new/mythra/outfit-revert-3.png",
+      "sha256": "6ed349197b861564766889b0154ad3423ac7fa65413ee4bf0e8ed1ed9ebdfa1e",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
+    },
+    {
+      "name": "outfit-mythra-outfit-revert-4",
+      "file": "assets/outfit-new/mythra/outfit-revert-4.png",
+      "sha256": "c2e8dff80836f5f0c5be9b170889a6e17c9f3d7955c20aecd0aa7e049da686ec",
+      "registeredRoot": [
+        250,
+        480
+      ],
+      "realDrawing": true
     }
   ],
   "nativeTimeline": [
@@ -3701,6 +9716,60 @@
       },
       {
         "action": "tea"
+      },
+      {
+        "action": "idleSword"
+      },
+      {
+        "action": "idleStretch"
+      },
+      {
+        "action": "idleSpark"
+      },
+      {
+        "action": "idleQuestion"
+      },
+      {
+        "action": "idleTsundere"
+      },
+      {
+        "action": "idleSmile"
+      },
+      {
+        "action": "idleConfident"
+      },
+      {
+        "action": "idleScold"
+      },
+      {
+        "action": "idleShy"
+      },
+      {
+        "action": "idleCoverEars"
+      },
+      {
+        "action": "cook"
+      },
+      {
+        "action": "eatCake"
+      },
+      {
+        "action": "fallDizzy"
+      },
+      {
+        "action": "music"
+      },
+      {
+        "action": "sleep"
+      },
+      {
+        "action": "walk"
+      },
+      {
+        "action": "angryStomp"
+      },
+      {
+        "action": "eatDessert"
       }
     ],
     "minDelayMs": 4200,
@@ -3828,5 +9897,437 @@
     "VPetRequired": false,
     "originalCoreArtBundled": false,
     "previewRelease": true
+  },
+  "outfits": {
+    "default": {
+      "label": "原初服饰",
+      "assetRoot": "assets/mythra",
+      "neutral": "assets/mythra/headpat-C1.png",
+      "actions": [
+        "idle",
+        "headpat",
+        "cheer",
+        "lookAround",
+        "stretch",
+        "drag",
+        "run",
+        "sofa",
+        "book",
+        "tea",
+        "idleSword",
+        "idleStretch",
+        "idleSpark",
+        "idleQuestion",
+        "idleTsundere",
+        "idleSmile",
+        "idleConfident",
+        "idleScold",
+        "idleShy",
+        "idleCoverEars",
+        "idleComfort",
+        "idleShock",
+        "idleSeason",
+        "cook",
+        "eatCake",
+        "fallDizzy",
+        "music",
+        "sleep",
+        "walk",
+        "angryStomp",
+        "eatDessert"
+      ],
+      "changeAction": "outfitRevert"
+    },
+    "new": {
+      "label": "新服饰",
+      "assetRoot": "assets/outfit-new/mythra",
+      "neutral": "assets/outfit-new/mythra/headpat-0.png",
+      "frames": {
+        "cheer": [
+          "assets/outfit-new/mythra/new-cheer-0.png",
+          "assets/outfit-new/mythra/new-cheer-1.png",
+          "assets/outfit-new/mythra/new-cheer-2.png",
+          "assets/outfit-new/mythra/new-cheer-3.png",
+          "assets/outfit-new/mythra/new-cheer-4.png",
+          "assets/outfit-new/mythra/new-cheer-5.png"
+        ],
+        "lookAround": [
+          "assets/outfit-new/mythra/idle-lookAround-0.png",
+          "assets/outfit-new/mythra/idle-lookAround-1.png",
+          "assets/outfit-new/mythra/idle-lookAround-2.png",
+          "assets/outfit-new/mythra/idle-lookAround-3.png",
+          "assets/outfit-new/mythra/idle-lookAround-4.png",
+          "assets/outfit-new/mythra/idle-lookAround-5.png"
+        ],
+        "stretch": [
+          "assets/outfit-new/mythra/new-stretch-0.png",
+          "assets/outfit-new/mythra/new-stretch-1.png",
+          "assets/outfit-new/mythra/new-stretch-2.png",
+          "assets/outfit-new/mythra/new-stretch-3.png",
+          "assets/outfit-new/mythra/new-stretch-4.png",
+          "assets/outfit-new/mythra/new-stretch-5.png"
+        ],
+        "drag": [
+          "assets/outfit-new/mythra/drag-0.png",
+          "assets/outfit-new/mythra/drag-1.png",
+          "assets/outfit-new/mythra/drag-2.png",
+          "assets/outfit-new/mythra/drag-3.png",
+          "assets/outfit-new/mythra/drag-4.png",
+          "assets/outfit-new/mythra/drag-5.png"
+        ],
+        "sofa": [
+          "assets/outfit-new/mythra/idle-sofa-0.png",
+          "assets/outfit-new/mythra/idle-sofa-1.png",
+          "assets/outfit-new/mythra/idle-sofa-2.png",
+          "assets/outfit-new/mythra/idle-sofa-3.png",
+          "assets/outfit-new/mythra/idle-sofa-4.png",
+          "assets/outfit-new/mythra/idle-sofa-5.png"
+        ],
+        "book": [
+          "assets/outfit-new/mythra/idle-book-0.png",
+          "assets/outfit-new/mythra/idle-book-1.png",
+          "assets/outfit-new/mythra/idle-book-2.png",
+          "assets/outfit-new/mythra/idle-book-3.png",
+          "assets/outfit-new/mythra/idle-book-4.png",
+          "assets/outfit-new/mythra/idle-book-5.png"
+        ],
+        "tea": [
+          "assets/outfit-new/mythra/idle-tea-0.png",
+          "assets/outfit-new/mythra/idle-tea-1.png",
+          "assets/outfit-new/mythra/idle-tea-2.png",
+          "assets/outfit-new/mythra/idle-tea-3.png",
+          "assets/outfit-new/mythra/idle-tea-4.png",
+          "assets/outfit-new/mythra/idle-tea-5.png"
+        ],
+        "idleSword": [
+          "assets/outfit-new/mythra/idle-sword_01.png",
+          "assets/outfit-new/mythra/idle-sword_02.png",
+          "assets/outfit-new/mythra/idle-sword_03.png",
+          "assets/outfit-new/mythra/idle-sword_04.png",
+          "assets/outfit-new/mythra/idle-sword_05.png",
+          "assets/outfit-new/mythra/idle-sword_06.png",
+          "assets/outfit-new/mythra/idle-sword_07.png",
+          "assets/outfit-new/mythra/idle-sword_08.png"
+        ],
+        "idleSpark": [
+          "assets/outfit-new/mythra/idle-spark_01.png",
+          "assets/outfit-new/mythra/idle-spark_02.png",
+          "assets/outfit-new/mythra/idle-spark_03.png",
+          "assets/outfit-new/mythra/idle-spark_04.png",
+          "assets/outfit-new/mythra/idle-spark_05.png",
+          "assets/outfit-new/mythra/idle-spark_06.png",
+          "assets/outfit-new/mythra/idle-spark_07.png",
+          "assets/outfit-new/mythra/idle-spark_08.png"
+        ],
+        "idleQuestion": [
+          "assets/outfit-new/mythra/idle-question_01.png",
+          "assets/outfit-new/mythra/idle-question_02.png",
+          "assets/outfit-new/mythra/idle-question_03.png",
+          "assets/outfit-new/mythra/idle-question_04.png",
+          "assets/outfit-new/mythra/idle-question_05.png",
+          "assets/outfit-new/mythra/idle-question_06.png",
+          "assets/outfit-new/mythra/idle-question_07.png",
+          "assets/outfit-new/mythra/idle-question_08.png"
+        ],
+        "idleTsundere": [
+          "assets/outfit-new/mythra/idle-tsundere_01.png",
+          "assets/outfit-new/mythra/idle-tsundere_02.png",
+          "assets/outfit-new/mythra/idle-tsundere_03.png",
+          "assets/outfit-new/mythra/idle-tsundere_04.png",
+          "assets/outfit-new/mythra/idle-tsundere_05.png",
+          "assets/outfit-new/mythra/idle-tsundere_06.png",
+          "assets/outfit-new/mythra/idle-tsundere_07.png",
+          "assets/outfit-new/mythra/idle-tsundere_08.png"
+        ],
+        "idleConfident": [
+          "assets/outfit-new/mythra/idle-confident_01.png",
+          "assets/outfit-new/mythra/idle-confident_02.png",
+          "assets/outfit-new/mythra/idle-confident_03.png",
+          "assets/outfit-new/mythra/idle-confident_04.png",
+          "assets/outfit-new/mythra/idle-confident_05.png",
+          "assets/outfit-new/mythra/idle-confident_06.png",
+          "assets/outfit-new/mythra/idle-confident_07.png",
+          "assets/outfit-new/mythra/idle-confident_08.png"
+        ],
+        "idleScold": [
+          "assets/outfit-new/mythra/idle-scold_01.png",
+          "assets/outfit-new/mythra/idle-scold_02.png",
+          "assets/outfit-new/mythra/idle-scold_03.png",
+          "assets/outfit-new/mythra/idle-scold_04.png",
+          "assets/outfit-new/mythra/idle-scold_05.png",
+          "assets/outfit-new/mythra/idle-scold_06.png"
+        ],
+        "idleShy": [
+          "assets/outfit-new/mythra/idle-shy_01.png",
+          "assets/outfit-new/mythra/idle-shy_02.png",
+          "assets/outfit-new/mythra/idle-shy_03.png",
+          "assets/outfit-new/mythra/idle-shy_04.png",
+          "assets/outfit-new/mythra/idle-shy_05.png",
+          "assets/outfit-new/mythra/idle-shy_06.png"
+        ],
+        "idleCoverEars": [
+          "assets/outfit-new/mythra/idle-coverEars_01.png",
+          "assets/outfit-new/mythra/idle-coverEars_02.png",
+          "assets/outfit-new/mythra/idle-coverEars_03.png",
+          "assets/outfit-new/mythra/idle-coverEars_04.png",
+          "assets/outfit-new/mythra/idle-coverEars_05.png",
+          "assets/outfit-new/mythra/idle-coverEars_06.png"
+        ],
+        "idleComfort": [
+          "assets/outfit-new/mythra/idle-comfort_01.png",
+          "assets/outfit-new/mythra/idle-comfort_02.png",
+          "assets/outfit-new/mythra/idle-comfort_03.png",
+          "assets/outfit-new/mythra/idle-comfort_04.png",
+          "assets/outfit-new/mythra/idle-comfort_05.png",
+          "assets/outfit-new/mythra/idle-comfort_06.png"
+        ],
+        "idleShock": [
+          "assets/outfit-new/mythra/idle-shock_01.png",
+          "assets/outfit-new/mythra/idle-shock_02.png",
+          "assets/outfit-new/mythra/idle-shock_03.png",
+          "assets/outfit-new/mythra/idle-shock_04.png",
+          "assets/outfit-new/mythra/idle-shock_05.png",
+          "assets/outfit-new/mythra/idle-shock_06.png"
+        ],
+        "idleSeason": [
+          "assets/outfit-new/mythra/idle-season_01.png",
+          "assets/outfit-new/mythra/idle-season_02.png",
+          "assets/outfit-new/mythra/idle-season_03.png",
+          "assets/outfit-new/mythra/idle-season_04.png",
+          "assets/outfit-new/mythra/idle-season_05.png",
+          "assets/outfit-new/mythra/idle-season_06.png"
+        ],
+        "cook": [
+          "assets/outfit-new/mythra/cook_01.png",
+          "assets/outfit-new/mythra/cook_02.png",
+          "assets/outfit-new/mythra/cook_03.png",
+          "assets/outfit-new/mythra/cook_04.png",
+          "assets/outfit-new/mythra/cook_05.png",
+          "assets/outfit-new/mythra/cook_06.png",
+          "assets/outfit-new/mythra/cook_07.png",
+          "assets/outfit-new/mythra/cook_08.png"
+        ],
+        "eatCake": [
+          "assets/outfit-new/mythra/eat-cake_01.png",
+          "assets/outfit-new/mythra/eat-cake_02.png",
+          "assets/outfit-new/mythra/eat-cake_03.png",
+          "assets/outfit-new/mythra/eat-cake_04.png",
+          "assets/outfit-new/mythra/eat-cake_05.png",
+          "assets/outfit-new/mythra/eat-cake_06.png"
+        ],
+        "fallDizzy": [
+          "assets/outfit-new/mythra/fall-dizzy_01.png",
+          "assets/outfit-new/mythra/fall-dizzy_02.png",
+          "assets/outfit-new/mythra/fall-dizzy_03.png",
+          "assets/outfit-new/mythra/fall-dizzy_04.png",
+          "assets/outfit-new/mythra/fall-dizzy_05.png",
+          "assets/outfit-new/mythra/fall-dizzy_06.png"
+        ],
+        "music": [
+          "assets/outfit-new/mythra/music_01.png",
+          "assets/outfit-new/mythra/music_02.png",
+          "assets/outfit-new/mythra/music_03.png",
+          "assets/outfit-new/mythra/music_04.png",
+          "assets/outfit-new/mythra/music_05.png",
+          "assets/outfit-new/mythra/music_06.png",
+          "assets/outfit-new/mythra/music_07.png",
+          "assets/outfit-new/mythra/music_08.png"
+        ],
+        "sleep": [
+          "assets/outfit-new/mythra/sleep_01.png",
+          "assets/outfit-new/mythra/sleep_02.png",
+          "assets/outfit-new/mythra/sleep_03.png",
+          "assets/outfit-new/mythra/sleep_04.png",
+          "assets/outfit-new/mythra/sleep_05.png",
+          "assets/outfit-new/mythra/sleep_06.png",
+          "assets/outfit-new/mythra/sleep_07.png",
+          "assets/outfit-new/mythra/sleep_08.png"
+        ],
+        "walk": [
+          "assets/outfit-new/mythra/walk_01.png",
+          "assets/outfit-new/mythra/walk_02.png",
+          "assets/outfit-new/mythra/walk_03.png",
+          "assets/outfit-new/mythra/walk_04.png",
+          "assets/outfit-new/mythra/walk_05.png",
+          "assets/outfit-new/mythra/walk_06.png",
+          "assets/outfit-new/mythra/walk_07.png",
+          "assets/outfit-new/mythra/walk_08.png"
+        ],
+        "angryStomp": [
+          "assets/outfit-new/mythra/angry-stomp_01.png",
+          "assets/outfit-new/mythra/angry-stomp_02.png",
+          "assets/outfit-new/mythra/angry-stomp_03.png",
+          "assets/outfit-new/mythra/angry-stomp_04.png",
+          "assets/outfit-new/mythra/angry-stomp_05.png",
+          "assets/outfit-new/mythra/angry-stomp_06.png"
+        ],
+        "eatDessert": [
+          "assets/outfit-new/mythra/eat-dessert_01.png",
+          "assets/outfit-new/mythra/eat-dessert_02.png",
+          "assets/outfit-new/mythra/eat-dessert_03.png",
+          "assets/outfit-new/mythra/eat-dessert_04.png",
+          "assets/outfit-new/mythra/eat-dessert_05.png",
+          "assets/outfit-new/mythra/eat-dessert_06.png"
+        ],
+        "transformToPyra": [
+          "assets/outfit-new/mythra/switch-v2-m2p_01.png",
+          "assets/outfit-new/mythra/switch-v2-m2p_02.png",
+          "assets/outfit-new/mythra/switch-v2-m2p_03.png",
+          "assets/outfit-new/mythra/switch-v2-m2p_04.png",
+          "assets/outfit-new/mythra/switch-v2-m2p_05.png",
+          "assets/outfit-new/mythra/switch-v2-m2p_06.png",
+          "assets/outfit-new/mythra/switch-v2-m2p_07.png",
+          "assets/outfit-new/mythra/switch-v2-m2p_08.png",
+          "assets/outfit-new/mythra/switch-v2-m2p_09.png",
+          "assets/outfit-new/mythra/switch-v2-m2p_10.png"
+        ],
+        "transformToMythra": [
+          "assets/outfit-new/mythra/switch-v2-p2m_01.png",
+          "assets/outfit-new/mythra/switch-v2-p2m_02.png",
+          "assets/outfit-new/mythra/switch-v2-p2m_03.png",
+          "assets/outfit-new/mythra/switch-v2-p2m_04.png",
+          "assets/outfit-new/mythra/switch-v2-p2m_05.png",
+          "assets/outfit-new/mythra/switch-v2-p2m_06.png",
+          "assets/outfit-new/mythra/switch-v2-p2m_07.png",
+          "assets/outfit-new/mythra/switch-v2-p2m_08.png",
+          "assets/outfit-new/mythra/switch-v2-p2m_09.png",
+          "assets/outfit-new/mythra/switch-v2-p2m_10.png"
+        ],
+        "outfitRevert": [
+          "assets/outfit-new/mythra/outfit-revert-0.png",
+          "assets/outfit-new/mythra/outfit-revert-1.png",
+          "assets/outfit-new/mythra/outfit-revert-2.png",
+          "assets/outfit-new/mythra/outfit-revert-3.png",
+          "assets/outfit-new/mythra/outfit-revert-4.png"
+        ],
+        "idle": [
+          "assets/outfit-new/mythra/headpat-0.png",
+          "assets/outfit-new/mythra/idle-breath-0.png",
+          "assets/outfit-new/mythra/idle-breath-1.png",
+          "assets/outfit-new/mythra/idle-breath-2.png",
+          "assets/outfit-new/mythra/idle-breath-3.png",
+          "assets/outfit-new/mythra/idle-breath-4.png",
+          "assets/outfit-new/mythra/idle-breath-5.png"
+        ],
+        "headpat": [
+          "assets/outfit-new/mythra/headpat-0.png",
+          "assets/outfit-new/mythra/headpat-1.png",
+          "assets/outfit-new/mythra/headpat-2.png",
+          "assets/outfit-new/mythra/headpat-3.png",
+          "assets/outfit-new/mythra/headpat-4.png",
+          "assets/outfit-new/mythra/headpat-5.png"
+        ],
+        "run": [
+          "assets/outfit-new/mythra/new-run-0.png",
+          "assets/outfit-new/mythra/new-run-1.png",
+          "assets/outfit-new/mythra/new-run-2.png",
+          "assets/outfit-new/mythra/new-run-3.png",
+          "assets/outfit-new/mythra/new-run-4.png",
+          "assets/outfit-new/mythra/new-run-5.png"
+        ],
+        "idleStretch": [
+          "assets/outfit-new/mythra/new-stretch-0.png",
+          "assets/outfit-new/mythra/new-stretch-1.png",
+          "assets/outfit-new/mythra/new-stretch-2.png",
+          "assets/outfit-new/mythra/new-stretch-3.png",
+          "assets/outfit-new/mythra/new-stretch-4.png",
+          "assets/outfit-new/mythra/new-stretch-5.png"
+        ],
+        "idleSmile": [
+          "assets/outfit-new/mythra/new-cheer-0.png",
+          "assets/outfit-new/mythra/new-cheer-1.png",
+          "assets/outfit-new/mythra/new-cheer-2.png",
+          "assets/outfit-new/mythra/new-cheer-3.png",
+          "assets/outfit-new/mythra/new-cheer-4.png",
+          "assets/outfit-new/mythra/new-cheer-5.png"
+        ]
+      },
+      "changeAction": "outfitChange",
+      "actions": [
+        "idle",
+        "headpat",
+        "cheer",
+        "lookAround",
+        "stretch",
+        "drag",
+        "run",
+        "sofa",
+        "book",
+        "tea",
+        "idleSword",
+        "idleStretch",
+        "idleSpark",
+        "idleQuestion",
+        "idleTsundere",
+        "idleSmile",
+        "idleConfident",
+        "idleScold",
+        "idleShy",
+        "idleCoverEars",
+        "idleComfort",
+        "idleShock",
+        "idleSeason",
+        "cook",
+        "eatCake",
+        "fallDizzy",
+        "music",
+        "sleep",
+        "walk",
+        "angryStomp",
+        "eatDessert"
+      ],
+      "assetMap": {
+        "assets/mythra/headpat-C1.png": "assets/outfit-new/mythra/headpat-0.png",
+        "assets/mythra/headpat-A0.png": "assets/outfit-new/mythra/headpat-0.png",
+        "assets/mythra/headpat-A1.png": "assets/outfit-new/mythra/headpat-1.png",
+        "assets/mythra/headpat-B0.png": "assets/outfit-new/mythra/headpat-2.png",
+        "assets/mythra/headpat-B1.png": "assets/outfit-new/mythra/headpat-3.png",
+        "assets/mythra/headpat-B2.png": "assets/outfit-new/mythra/headpat-4.png",
+        "assets/mythra/headpat-B4.png": "assets/outfit-new/mythra/headpat-5.png",
+        "assets/mythra/headpat-B7.png": "assets/outfit-new/mythra/headpat-0.png",
+        "assets/mythra/headpat-B9.png": "assets/outfit-new/mythra/headpat-1.png",
+        "assets/mythra/headpat-C0.png": "assets/outfit-new/mythra/headpat-2.png",
+        "assets/mythra/new-runBridge-0.png": "assets/outfit-new/mythra/new-run-0.png",
+        "assets/mythra/new-runBridge-1.png": "assets/outfit-new/mythra/new-run-1.png",
+        "assets/mythra/new-runBridge-2.png": "assets/outfit-new/mythra/new-run-2.png",
+        "assets/mythra/new-runBridge-3.png": "assets/outfit-new/mythra/new-run-3.png",
+        "assets/mythra/new-runBridge-4.png": "assets/outfit-new/mythra/new-run-4.png",
+        "assets/mythra/new-runBridge-5.png": "assets/outfit-new/mythra/new-run-5.png",
+        "assets/mythra/drag-00.png": "assets/outfit-new/mythra/drag-0.png",
+        "assets/mythra/drag-01.png": "assets/outfit-new/mythra/drag-1.png",
+        "assets/mythra/drag-02.png": "assets/outfit-new/mythra/drag-2.png",
+        "assets/mythra/drag-03.png": "assets/outfit-new/mythra/drag-3.png",
+        "assets/mythra/drag-04.png": "assets/outfit-new/mythra/drag-4.png",
+        "assets/mythra/drag-05.png": "assets/outfit-new/mythra/drag-5.png",
+        "assets/mythra/drag-06.png": "assets/outfit-new/mythra/drag-0.png",
+        "assets/mythra/drag-07.png": "assets/outfit-new/mythra/drag-1.png",
+        "assets/mythra/drag-08.png": "assets/outfit-new/mythra/drag-2.png",
+        "assets/mythra/drag-09.png": "assets/outfit-new/mythra/drag-3.png",
+        "assets/mythra/drag-10.png": "assets/outfit-new/mythra/drag-4.png",
+        "assets/mythra/drag-11.png": "assets/outfit-new/mythra/drag-5.png",
+        "assets/mythra/drag-12.png": "assets/outfit-new/mythra/drag-0.png",
+        "assets/mythra/drag-13.png": "assets/outfit-new/mythra/drag-1.png",
+        "assets/mythra/drag-14.png": "assets/outfit-new/mythra/drag-2.png",
+        "assets/mythra/drag-15.png": "assets/outfit-new/mythra/drag-3.png",
+        "assets/mythra/drag-16.png": "assets/outfit-new/mythra/drag-4.png",
+        "assets/mythra/drag-17.png": "assets/outfit-new/mythra/drag-5.png",
+        "assets/mythra/drag-18.png": "assets/outfit-new/mythra/drag-0.png",
+        "assets/mythra/drag-19.png": "assets/outfit-new/mythra/drag-1.png",
+        "assets/mythra/drag-20.png": "assets/outfit-new/mythra/drag-2.png",
+        "assets/mythra/drag-21.png": "assets/outfit-new/mythra/drag-3.png",
+        "assets/mythra/drag-22.png": "assets/outfit-new/mythra/drag-4.png",
+        "assets/mythra/drag-23.png": "assets/outfit-new/mythra/drag-5.png",
+        "assets/mythra/drag-24.png": "assets/outfit-new/mythra/drag-0.png",
+        "assets/mythra/drag-25.png": "assets/outfit-new/mythra/drag-1.png",
+        "assets/mythra/drag-26.png": "assets/outfit-new/mythra/drag-2.png",
+        "assets/mythra/drag-27.png": "assets/outfit-new/mythra/drag-3.png",
+        "assets/mythra/drag-28.png": "assets/outfit-new/mythra/drag-4.png",
+        "assets/mythra/drag-29.png": "assets/outfit-new/mythra/drag-5.png",
+        "assets/mythra/drag-30.png": "assets/outfit-new/mythra/drag-0.png",
+        "assets/mythra/drag-31.png": "assets/outfit-new/mythra/drag-1.png",
+        "assets/mythra/drag-32.png": "assets/outfit-new/mythra/drag-2.png",
+        "assets/mythra/drag-33.png": "assets/outfit-new/mythra/drag-3.png"
+      }
+    }
   }
 }

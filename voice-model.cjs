@@ -5,8 +5,11 @@ const path=require('node:path');
 const search=require('./search.cjs');
 
 const configPath=()=>path.join(app.getPath('userData'),'voice-settings.json');
-const ACTIONS=['idle','headpat','cheer','lookAround','stretch','drag','run','sofa','book','tea'];
-const CONTROLS=['open-preview','open-floating','quit','toggle-idle','toggle-roam','switch-persona'];
+const ACTIONS=['idle','headpat','cheer','lookAround','stretch','drag','run','sofa','book','tea',
+ 'idleSword','idleStretch','idleSpark','idleQuestion','idleTsundere','idleSmile','idleConfident','idleScold','idleShy','idleCoverEars',
+ 'idleComfort','idleShock','idleSeason','outfitChange','outfitRevert',
+ 'cook','eatCake','fallDizzy','music','sleep','walk','angryStomp','eatDessert','transformToPyra','transformToMythra'];
+const CONTROLS=['open-preview','open-floating','quit','toggle-idle','toggle-roam','switch-persona','switch-outfit'];
 
 const DEFAULT={
   enabled:false,
@@ -21,6 +24,7 @@ const DEFAULT={
   ttsPitch:1.0,
   wakeWord:'',
   persona:'mythra',
+  outfit:'default',
   customPersona:'',
   searchProvider:'none',
   tavilyKey:'',
@@ -35,7 +39,7 @@ function load(){
   return cache;
 }
 function save(patch){
-  const allowed=['enabled','baseURL','apiKey','model','voice','stt','ttsEnabled','ttsRate','ttsPitch','wakeWord','persona','customPersona','searchProvider','tavilyKey','serperKey'];
+  const allowed=['enabled','baseURL','apiKey','model','voice','stt','ttsEnabled','ttsRate','ttsPitch','wakeWord','persona','outfit','customPersona','searchProvider','tavilyKey','serperKey'];
   const next=load();
   for(const key of allowed)if(Object.prototype.hasOwnProperty.call(patch,key))next[key]=patch[key];
   const file=configPath();
@@ -49,11 +53,12 @@ function publicConfig(){
   return {...rest,hasKey:Boolean(apiKey),hasTavilyKey:Boolean(tavilyKey),hasSerperKey:Boolean(serperKey),configPath:configPath()};
 }
 function normalizeCommand(raw){
-  const out={action:null,control:null,persona:null,say:''};
+  const out={action:null,control:null,persona:null,outfit:null,say:''};
   if(!raw||typeof raw!=='object')return out;
   if(ACTIONS.includes(raw.action))out.action=raw.action;
   if(CONTROLS.includes(raw.control))out.control=raw.control;
   if(raw.persona==='mythra'||raw.persona==='pyra')out.persona=raw.persona;
+  if(raw.outfit==='default'||raw.outfit==='new')out.outfit=raw.outfit;
   out.say=typeof raw.say==='string'?raw.say.slice(0,200):'';
   return out;
 }
@@ -68,7 +73,12 @@ const PERSONAS={
 function systemPrompt(personaKey){
  const p=PERSONAS[personaKey]||PERSONAS.mythra;
  const custom=(personaKey==='custom'&&load().customPersona)?('\n用户额外指定的人格设定：'+load().customPersona.slice(0,600)):'';
- return `你是 Windows 桌面宠物“${p.name}”的语音助手兼动作控制器。
+ let stateDesc='';
+ try{
+  const st=require('./pet-state.cjs').publicState();
+  stateDesc=`\n【当前状态】饱食度 ${st.satiety}/100，心情 ${st.mood}/100，精力 ${st.energy}/100。状态低时可以委婉提起（饿了想喝茶、无聊想互动、累了想休息），但不要生硬报数。动作会改变这些状态。`;
+ }catch{}
+ return `你是 Windows 桌面宠物“${p.name}”的语音助手兼动作控制器。${stateDesc}
 用户在和你对话，并用自然语言指挥你做动作或切换桌面行为。
 
 【人格设定】
@@ -76,7 +86,7 @@ ${p.desc}${custom}
 说话时始终保持上述人格的语气和说话方式，但不要提及“异度神剑”“游戏”“角色扮演”等字眼，就当作你本来就是这样的人。
 
 你必须且只能输出一个 JSON 对象，不要输出 Markdown、解释或多余文字，格式为：
-{"action": "动作名或 null", "control": "控制名或 null", "search": "搜索词或 null", "persona": "mythra/pyra/null", "say": "你要对用户说的话"}
+{"action": "动作名或 null", "control": "控制名或 null", "search": "搜索词或 null", "persona": "mythra/pyra/null", "outfit": "default/new/null", "say": "你要对用户说的话"}
 
 【联网搜索判断】
 当用户询问实时信息、新闻、最新活动、天气、价格、赛事、近期事件、某事的当前状态，或明确要求“查一下/搜一下/最新的”等，把 search 设为简洁的中文/英文搜索词（如“塔科夫 最新 掉宝活动”），action/control 按需要填写，say 先写一句自然的过渡语（如“我查查哦～”）。
@@ -94,6 +104,31 @@ ${p.desc}${custom}
 - sofa 搬沙发躺着玩游戏
 - book 翻书/看书
 - tea 捧杯喝热饮
+- idleSword 持剑待机
+- idleStretch 舒展身体
+- idleSpark 灵光一闪
+- idleQuestion 心生疑惑
+- idleTsundere 傲娇别过脸
+- idleSmile 微笑
+- idleConfident 自信持剑
+- idleScold 轻声训斥
+- idleShy 害羞
+- idleCoverEars 捂耳朵
+- idleComfort 欣慰（焰）
+- idleShock 惊讶（焰）
+- idleSeason 季节问候（光）
+- outfitChange 换上新装（过场）
+- outfitRevert 换回原装（过场）
+- transformToPyra 变身为焰
+- transformToMythra 变身为光
+- cook 烹饪（焰）
+- eatCake 吃蛋糕（焰）
+- eatDessert 吃甜点（光）
+- angryStomp 生气跺脚（光）
+- fallDizzy 眼花摔倒
+- music 听音乐
+- sleep 小憩
+- walk 散步
 
 可选 control（控制名）：
 - open-preview 打开动作预览窗口
@@ -102,9 +137,10 @@ ${p.desc}${custom}
 - toggle-idle 开关随机待机
 - toggle-roam 开关全屏随机漫游
 - switch-persona 切换人格形态（用 persona 字段指定目标：mythra=光，pyra=焰）
+- switch-outfit 切换服装（用 outfit 字段指定：default=原初，new=新装）
 
 规则：
-0. 用户说“切换成焰/变成焰/换成焰”时 control=switch-persona、persona=pyra；说“切换成光/变回光”时 persona=mythra。其他情况 persona 为 null。
+0. 用户说“切换成焰/变成焰/换成焰”时 control=switch-persona、persona=pyra；说“切换成光/变回光”时 persona=mythra。说“换新装/换装”时 control=switch-outfit、outfit=new；说“换回原初/旧衣服”时 outfit=default。其他情况 persona/outfit 为 null。
 1. 识别到明确的动作请求时，把 action 设为对应动作名；否则为 null。
 2. 识别到开关、显示、退出等请求时，把 control 设为对应控制名；否则为 null。
 3. say 用简体中文、亲切简短（不超过 40 字），严格符合上面的人格语气。

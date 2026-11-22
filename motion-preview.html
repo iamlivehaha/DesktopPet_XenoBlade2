@@ -13,14 +13,15 @@
 </head>
 <body>
   <header><div><div class="eyebrow">MYTHRA · MOTION PREVIEW 0.2.6</div>
-    <h1>待机动作更连贯。</h1><p>补画中间姿势；六组动作逐一轮过，再重新洗牌。</p></div>
+    <h1>待机动作更连贯。</h1><p>补画中间姿势；动作列表随光／焰形态切换，各有专属待机。</p></div>
     <span class="badge" id="asset-badge">加载动作…</span></header>
   <main>
     <section class="card"><div class="card-head"><h2>动作来源参考</h2><span id="original-state">原版 Core／已有原图</span></div>
       <div class="stage" id="original-stage"><canvas id="original" aria-label="VPet原版动作参考"></canvas><div class="ground"></div></div>
       <p class="caption">开发副本可同步比对本机 <code>0000_core</code> 参考。新待机与小跑使用重新绘制的姿势。</p></section>
-    <section class="card"><div class="card-head"><h2>光 · 新动作</h2><span id="phase" class="phase">准备中</span></div>
-      <div class="stage interactive" id="pet-stage"><canvas id="pet" aria-label="光的新动作，可以悬停互动"></canvas><div class="ground"></div></div>
+    <section class="card"><div class="card-head"><h2 id="pet-card-title">光 · 新动作</h2><span id="phase" class="phase">准备中</span></div>
+      <div class="stage interactive" id="pet-stage"><canvas id="pet" aria-label="光的新动作，可以悬停互动"></canvas><div class="ground"></div><div class="pet-bubble" id="pet-bubble" hidden></div></div>
+      <div class="pet-stats" id="pet-stats"><span>饱食 <b id="stat-satiety">—</b></span><span>心情 <b id="stat-mood">—</b></span><span>精力 <b id="stat-energy">—</b></span></div>
       <p class="caption">悬停摸头；按住或拖动角色进入悬空动作，松手后放下起身。也可打开桌面测试窗。</p></section>
   </main>
   <section class="controls">

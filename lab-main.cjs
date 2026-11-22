@@ -1,10 +1,11 @@
 'use strict';
 const {app,BrowserWindow,ipcMain,screen,Menu,Tray,nativeImage,dialog}=require('electron');
-const fs=require('node:fs'),path=require('node:path');
+const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
 const {pathToFileURL}=require('node:url');
 const {startupMode,clampPosition}=require('./startup-policy.cjs');
 const {planRoam,positionAt}=require('./roam-route.cjs');
 const voice=require('./voice-model.cjs');
+const petState=require('./pet-state.cjs');
 const {performance}=require('node:perf_hooks');
 const testing=process.argv.includes('--self-test');
 const mode=startupMode({packaged:app.isPackaged,args:process.argv});
@@ -25,6 +26,19 @@ function savePosition(w){if(w&&!w.isDestroyed()&&w.isMotionFloating){const b=w.g
 let win,petWindow,tray,panel,voicePanel,route,routeId=0;const dragTimers=new Map(),errors=[];
 const voiceHistory=[];
 function broadcastVoice(event){for(const w of BrowserWindow.getAllWindows())if(!w.isDestroyed())w.webContents.send('voice:command',event);}
+// 智能体：每 30 秒按人格衰减属性，并判断是否发出索求。
+let agentTimer=null,lastRequestAt=0;
+function startPetAgent(){
+ if(agentTimer||testing||startupCheck)return;
+ const cfg=voice.load();const persona=cfg.persona||'mythra',outfit=cfg.outfit||'default';
+ const next=petState.decay(0.5,persona);
+ broadcastVoice({type:'pet:state-changed',stats:next});
+ const req=petState.evaluate(persona,outfit);
+ if(req&&Date.now()-lastRequestAt>90000&&BrowserWindow.getAllWindows().some(w=>!w.isDestroyed())){
+  lastRequestAt=Date.now();broadcastVoice({type:'agent-request',...req});
+ }
+ agentTimer=setTimeout(startPetAgent,30000);
+}
 const urls=Object.fromEntries(Object.entries(manifest.normalizedReferenceFiles||{}).map(([k,t])=>[k,t.map(f=>fs.existsSync(path.join(__dirname,f))?pathToFileURL(path.join(__dirname,f)).href:null)]));
 app.on('second-instance',(_event,_args,_cwd,data)=>{
  if(probe&&data?.probe){
@@ -86,14 +100,14 @@ async function openSettings(from){
  if(panel&&!panel.isDestroyed()){if(panel.isVisible())panel.focus();return;}
  stopRoam(petWindow);
  const {x,y}=screen.getCursorScreenPoint(),a=screen.getDisplayNearestPoint({x,y}).workArea;
- const width=326,height=470;
+ const width=326,height=620;
  const pos=clampPosition({x:x-20,y:y-a.y>=height+8?y-height-8:y+10,width,height},a);
  const current=new BrowserWindow({...pos,width,height,show:false,frame:false,backgroundColor:'#f5f6ef',
   title:'光桌宠 · 快捷设置',resizable:false,skipTaskbar:true,alwaysOnTop:true,
   webPreferences:{...prefs(),preload:path.join(__dirname,'settings-panel-preload.cjs')}});
  panel=current;guard(current);
  broadcast(BrowserWindow.getAllWindows(),{type:'panel-open',enabled:true});
- current.on('blur',()=>{if(!current.isDestroyed())current.close();});
+ current.on('blur',()=>{if(!testing&&!panelDragging&&!current.isDestroyed())current.close();});
  current.on('closed',()=>{
   if(panel===current){panel=null;broadcast(BrowserWindow.getAllWindows(),{type:'panel-open',enabled:false});}
  });
@@ -134,16 +148,36 @@ function ensureTray(){
  updateTrayMenu();
  tray.on('double-click',()=>openFloating());
 }
+function appearanceSnapshot(){
+ const persona=voice.load().persona==='pyra'?'pyra':'mythra';
+ const outfit=voice.load().outfit==='new'?'new':'default';
+ const keys=manifest.outfits?.[outfit]?.actions||Object.keys(manifest.actions);
+ const actions=keys.filter(k=>{const d=manifest.actions[k];return d&&(!d.personas||d.personas.includes(persona));}).length;
+ return {persona,outfit,actions,portrait:outfit==='new'?`assets/outfit-new/${persona}/headpat-0.png`:`assets/${persona}/headpat-C1.png`};
+}
 function updateTrayMenu(){
- tray?.setContextMenu(Menu.buildFromTemplate([{label:'显示光桌宠',click:()=>openFloating()},{label:'打开动作预览',click:()=>createPreview()},
+ const a=appearanceSnapshot(),name=a.persona==='pyra'?'焰':'光',outfit=a.outfit==='new'?'新装':'原初';
+ try{tray?.setImage(nativeImage.createFromPath(path.join(__dirname,a.portrait)).resize({width:24,height:24}));}catch{}
+ tray?.setToolTip(`${name}桌宠 · ${outfit} · ${a.actions} 类动作`);
+ tray?.setContextMenu(Menu.buildFromTemplate([{label:`显示${name}桌宠`,click:()=>openFloating()},{label:'打开动作预览',click:()=>createPreview()},
   {label:'语音对话',click:()=>createVoicePanel().catch(e=>errors.push(String(e)))},
-  prefItem('autoIdle','随机待机'),prefItem('roam','全屏随机漫游'),{type:'separator'},{label:'退出光桌宠',click:()=>app.quit()}]));
+  {label:`当前：${name} · ${outfit} · ${a.actions} 类动作`,enabled:false},
+  prefItem('autoIdle','随机待机'),prefItem('roam','全屏随机漫游'),{type:'separator'},{label:`退出${name}桌宠`,click:()=>app.quit()}]));
 }
 ipcMain.handle('motion:manifest',event=>({manifest,nativeUrlGroups:urls,testing,autoIdle:settings.autoIdle!==false,
- roam:settings.roam===true,persona:voice.load().persona,
+ roam:settings.roam===true,persona:voice.load().persona,outfit:(testing||startupCheck)?'default':(voice.load().outfit==='new'?'new':'default'),
  floating:Boolean(BrowserWindow.fromWebContents(event.sender)?.isMotionFloating)}));
-ipcMain.handle('motion:save-persona',(_event,value)=>{const p=value==='pyra'?'pyra':'mythra';voice.save({persona:p});broadcastVoice({type:'persona-change',persona:p});return true;});
+ipcMain.handle('motion:save-persona',(_event,value)=>{const p=value==='pyra'?'pyra':'mythra';voice.save({persona:p});broadcastVoice({type:'persona-change',persona:p});updateTrayMenu();return true;});
 ipcMain.handle('motion:get-persona',()=>voice.load().persona);
+ipcMain.handle('motion:save-outfit',(_event,value)=>{const o=value==='new'?'new':'default';voice.save({outfit:o});broadcastVoice({type:'outfit-change',outfit:o});updateTrayMenu();return true;});
+ipcMain.handle('motion:get-outfit',()=>voice.load().outfit==='new'?'new':'default');
+ipcMain.handle('appearance:read',()=>appearanceSnapshot());
+ipcMain.handle('pet:state',()=>petState.publicState());
+ipcMain.on('pet:action',(_e,action)=>{
+ const next=petState.applyAction(action,voice.load().persona);
+ broadcastVoice({type:'pet:state-changed',stats:next});
+});
+ipcMain.on('pet:agent-request',(_e,req)=>{broadcastVoice({type:'agent-request',...req});});
 ipcMain.on('motion:renderer-error',(_e,msg)=>errors.push(String(msg)));
 ipcMain.handle('motion:open-floating',()=>openFloating());
 ipcMain.on('motion:save-autonomy',(event,value)=>{
@@ -192,6 +226,22 @@ ipcMain.on('motion:menu',event=>{
 const fromPanel=event=>panel&&!panel.isDestroyed()&&event.sender===panel.webContents;
 ipcMain.handle('settings:read',event=>{if(!fromPanel(event))throw new Error('Settings window required');return settingsSnapshot();});
 ipcMain.handle('settings:set',(event,key,value)=>{if(!fromPanel(event))throw new Error('Settings window required');return setPreference(key,value);});
+// 设置面板拖动：渲染层 header 按下并移动时按屏幕光标增量移动窗口。
+let panelDrag=null,panelDragging=false;
+ipcMain.on('panel:drag-start',(event,clientX,clientY)=>{
+ panelDragging=true;
+ if(!fromPanel(event)||!panel)return;
+ const b=panel.getBounds();
+ panelDrag={originX:b.x,originY:b.y,clientX,clientY};
+});
+ipcMain.on('panel:drag-move',(event,clientX,clientY)=>{
+ if(!fromPanel(event)||!panel||!panelDrag||panel.isDestroyed())return;
+ const a=screen.getDisplayNearestPoint({x:panelDrag.originX,y:panelDrag.originY}).workArea;
+ const b=panel.getBounds();
+ const pos=clampPosition({x:panelDrag.originX+clientX-panelDrag.clientX,y:panelDrag.originY+clientY-panelDrag.clientY,width:b.width,height:b.height},a);
+ panel.setPosition(pos.x,pos.y);
+});
+ipcMain.on('panel:drag-end',()=>{panelDrag=null;panelDragging=false;});
 ipcMain.on('settings:act',(event,key)=>{
  if(!fromPanel(event))return;
  if(key==='close')panel.close();
@@ -228,7 +278,10 @@ ipcMain.handle('voice:chat',async(event,text,history)=>{
   case 'toggle-idle':setPreference('autoIdle',!settingsSnapshot().autoIdle);break;
   case 'toggle-roam':setPreference('roam',!settingsSnapshot().roam);break;
   case 'switch-persona':
-   if(result.command.persona){voice.save({persona:result.command.persona});broadcastVoice({type:'persona-change',persona:result.command.persona});}
+   if(result.command.persona){voice.save({persona:result.command.persona});broadcastVoice({type:'persona-change',persona:result.command.persona});updateTrayMenu();}
+   break;
+  case 'switch-outfit':
+   if(result.command.outfit){voice.save({outfit:result.command.outfit});broadcastVoice({type:'outfit-change',outfit:result.command.outfit});updateTrayMenu();}
    break;
  }
  return {...result,history:{user:userText,assistant:result.reply}};
@@ -239,16 +292,17 @@ ipcMain.handle('voice:transcribe',async(event,buffer,mime)=>{
 });
 ipcMain.handle('voice:open-panel',()=>createVoicePanel().then(w=>Boolean(w)));
 ipcMain.on('voice:panel-close',()=>{if(voicePanel&&!voicePanel.isDestroyed())voicePanel.close();});
-async function waitReady(w){const end=Date.now()+20000;while(!await w.webContents.executeJavaScript('Boolean(window.motionQA)')){
- if(Date.now()>end)throw new Error('Renderer assets did not decode');await new Promise(r=>setTimeout(r,70));}}
+async function waitReady(w){const end=Date.now()+30000;while(!await w.webContents.executeJavaScript('Boolean(window.motionQA)')){
+ if(Date.now()>end){let diag='';try{diag=await w.webContents.executeJavaScript('document.readyState+"|"+(window.motionQA?"qa":"noqa")');}catch(e){diag=String(e);}throw new Error('Renderer assets did not decode: '+diag);}await new Promise(r=>setTimeout(r,70));}}
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 app.whenReady().then(async()=>{
  if(!gotLock)return;
+ startPetAgent();
  if(startupCheck){
   await openFloating();const info=await petWindow.webContents.executeJavaScript('window.motionQA.startupInfo()');
   const r={packaged:app.isPackaged,appPath:app.getAppPath(),pid:process.pid,mode:'desktop-only',petWindows:1,previewWindows:0,gotSingleInstanceLock:probe?gotLock:null,...info};
   fs.mkdirSync(path.dirname(reportFile),{recursive:true});fs.writeFileSync(reportFile,JSON.stringify(r,null,2));
-  if(probe)setTimeout(()=>app.exit(0),Number(argument('--probe-ms'))||10000);else app.exit(info.decodedImages===manifest.assets.length?0:1);
+  if(probe)setTimeout(()=>app.exit(0),Number(argument('--probe-ms'))||10000);else app.exit(info.allRequiredDecoded?0:1);
   return;
  }
  ensureTray();
@@ -261,6 +315,7 @@ app.whenReady().then(async()=>{
  if(process.argv.includes('--open-floating'))await openFloating();
  if(process.argv.includes('--voice'))await createVoicePanel().catch(e=>errors.push(String(e)));
  if(!testing)return;
+ voice.save({persona:'mythra',outfit:'default'});
  try{
   win.show();await waitReady(win);const result=await win.webContents.executeJavaScript('window.motionQA.run()');
   for(const [name,action,index] of [['look','lookAround',2],['suspended','drag',0],['recovery','drag',24]]){
@@ -325,11 +380,17 @@ app.whenReady().then(async()=>{
    for(let i=0;i<100;i++){if(panel&&panel.isVisible()&&await panel.webContents.executeJavaScript('!document.getElementById("roam").disabled'))return panel;await sleep(40);}
    throw new Error('Settings did not open from contextmenu');
   };
-  const panelState=w=>w.webContents.executeJavaScript(`(()=>{
+  const panelState=w=>{
+   if(!w||w.isDestroyed()||!w.webContents||w.webContents.isDestroyed())return Promise.resolve(null);
+   return w.webContents.executeJavaScript(`(()=>{
    const buttons=Object.fromEntries([...document.querySelectorAll('[role=switch]')].map(b=>[b.id,{checked:b.getAttribute('aria-checked'),value:b.querySelector('.value').textContent}]));
    return {buttons,feedback:document.getElementById('feedback').textContent,
+    appearance:document.getElementById('appearance-status').textContent,
+    portrait:document.getElementById('portrait-img').getAttribute('src'),
+    persona:document.querySelector('.persona-btn.active')?.dataset.persona,
+    outfit:document.querySelector('.outfit-switch .persona-btn.active')?.dataset.outfit,
     fits:document.querySelector('footer').getBoundingClientRect().bottom<=innerHeight,hasFocus:document.hasFocus()};
-  })()`);
+  })()`);};
   const clickPanel=async(w,key)=>{
    const rect=await w.webContents.executeJavaScript(`document.getElementById(${JSON.stringify(key)}).getBoundingClientRect().toJSON()`);
    const x=Math.round(rect.x+rect.width*.5),y=Math.round(rect.y+rect.height*.5);
@@ -337,6 +398,16 @@ app.whenReady().then(async()=>{
    w.webContents.sendInputEvent({type:'mouseUp',x,y,button:'left',clickCount:1});await sleep(130);
   };
   const settingsWindow=await openFromRightClick(),initial=await panelState(settingsWindow);
+  // 面板可拖动：按住 header 移动，窗口位置应改变。
+  const beforeDrag=settingsWindow.getBounds();
+  const hRect=await settingsWindow.webContents.executeJavaScript('document.querySelector("header").getBoundingClientRect().toJSON()');
+  const hx=Math.round(hRect.x+hRect.width*.4),hy=Math.round(hRect.y+hRect.height*.5);
+  settingsWindow.webContents.sendInputEvent({type:'mouseMove',x:hx,y:hy});
+  settingsWindow.webContents.sendInputEvent({type:'mouseDown',x:hx,y:hy,button:'left',clickCount:1,modifiers:['leftButtonDown']});
+  settingsWindow.webContents.sendInputEvent({type:'mouseMove',x:hx-26,y:hy-18,button:'left',modifiers:['leftButtonDown']});await sleep(90);
+  settingsWindow.webContents.sendInputEvent({type:'mouseUp',x:hx-26,y:hy-18,button:'left',clickCount:1});await sleep(90);
+  const afterDrag=settingsWindow.getBounds();
+  const panelDraggable=Math.hypot(afterDrag.x-beforeDrag.x,afterDrag.y-beforeDrag.y)>8;
   const routeBlocked=await petWindow.webContents.executeJavaScript('window.motionHost.planRoam().then(p=>p===null)');
   await clickPanel(settingsWindow,'roam');
   const switched=await panelState(settingsWindow);
@@ -345,17 +416,67 @@ app.whenReady().then(async()=>{
   fs.writeFileSync(path.join(qa,'lab-runtime-settings.png'),(await settingsWindow.webContents.capturePage()).toPNG());
   await clickPanel(settingsWindow,'close');const closedByButton=settingsWindow.isDestroyed();
   const reopenedWindow=await openFromRightClick(),reopened=await panelState(reopenedWindow);
+  await clickPanel(reopenedWindow,'outfit-new');const switchedOutfit=await panelState(reopenedWindow);
+  await clickPanel(reopenedWindow,'outfit-default');const restoredOutfit=await panelState(reopenedWindow);
   reopenedWindow.webContents.sendInputEvent({type:'keyDown',keyCode:'Escape'});await sleep(150);
   const closedByEscape=reopenedWindow.isDestroyed();
-  result.settingsPanel={initial,switched,switchedIdle,reopened,closedByButton,closedByEscape,routeBlocked,
-   passed:initial.buttons.autoIdle.value==='开启'&&initial.buttons.roam.value==='关闭'&&initial.fits
+  result.settingsPanel={initial,switched,switchedIdle,reopened,switchedOutfit,restoredOutfit,closedByButton,closedByEscape,routeBlocked,panelDraggable,beforeDrag,afterDrag,
+   passed:initial.buttons.autoIdle.value==='开启'&&initial.buttons.roam.value==='关闭'&&initial.fits&&panelDraggable
+    &&initial.appearance.includes('类动作')&&/^assets\/(outfit-new\/)?(mythra|pyra)\//.test(initial.portrait)
+    &&Boolean(initial.persona)&&initial.outfit==='default'
     &&switched.buttons.roam.checked==='true'&&switched.feedback==='已开启全屏随机漫游'
     &&switchedIdle.buttons.autoIdle.value==='关闭'&&switchedIdle.feedback==='已关闭随机待机'
     &&reopened.buttons.roam.value==='开启'&&reopened.buttons.autoIdle.value==='关闭'
+    &&switchedOutfit.outfit==='new'&&switchedOutfit.appearance.includes('新装')&&switchedOutfit.portrait.includes('outfit-new')
+    &&restoredOutfit.outfit==='default'&&restoredOutfit.appearance.includes('原初')&&!restoredOutfit.portrait.includes('outfit-new')
     &&closedByButton&&closedByEscape&&routeBlocked};
-  result.rendererErrors=errors;result.success=result.success&&result.actualDOMDrag.passed&&errors.length===0&&result.referenceFailures.length===0&&floatingResult.success&&transparentCorners&&follows&&onScreen&&result.roam.passed&&result.settingsPanel.passed;
+  await win.webContents.executeJavaScript('window.motionQA.setOutfitForQA("default")');
+  const defaultList=await win.webContents.executeJavaScript('window.motionQA.listInfo()');
+  const switchedList=await win.webContents.executeJavaScript('window.motionQA.setOutfitForQA("new")');
+  await win.webContents.executeJavaScript('window.motionQA.show(0,"idle")');
+  const switchedIdleDraw=await win.webContents.executeJavaScript('window.motionQA.getState()');
+  await win.webContents.executeJavaScript('window.motionQA.show(0,"transformToPyra")');
+  const switchedTransformDraw=await win.webContents.executeJavaScript('window.motionQA.getState()');
+  const switchedPersona=await win.webContents.executeJavaScript('window.motionQA.setPersonaForQA("pyra")');
+  await sleep(80);
+  const switchingState=await win.webContents.executeJavaScript('window.motionQA.getState()');
+  const switchedBackPersona=await win.webContents.executeJavaScript('window.motionQA.setPersonaForQA("mythra")');
+  await sleep(80);
+  const switchingBackState=await win.webContents.executeJavaScript('window.motionQA.getState()');
+  const restoredList=await win.webContents.executeJavaScript('window.motionQA.setOutfitForQA("default")');
+  await win.webContents.executeJavaScript('window.motionQA.show(0,"idle")');
+  const restoredIdleDraw=await win.webContents.executeJavaScript('window.motionQA.getState()');
+  await win.webContents.executeJavaScript('window.motionQA.show(0,"transformToPyra")');
+  const restoredTransformDraw=await win.webContents.executeJavaScript('window.motionQA.getState()');
+  result.outfitSwitch={defaultList,switchedList,switchedIdleDraw,switchedTransformDraw,switchedPersona,switchingState,switchedBackPersona,switchingBackState,restoredList,restoredIdleDraw,restoredTransformDraw,
+   passed:switchedList.outfit==='new'&&switchedList.visible.length===defaultList.visible.length
+    &&switchedList.schedulerKeys?.length===defaultList.schedulerKeys?.length
+    &&switchedList.visualNeutral.includes('/outfit-new/')&&switchedList.badge.includes('新装')
+    &&switchedIdleDraw.drawnAsset?.includes('/outfit-new/')
+    &&switchedTransformDraw.drawnAsset?.includes('switch-v2-m2p')
+    &&switchedPersona.persona==='pyra'&&switchedPersona.outfit==='new'
+    &&switchingState.action==='transformToPyra'&&switchingState.drawnAsset?.includes('switch-v2-m2p')
+    &&switchedBackPersona.persona==='mythra'
+    &&switchingBackState.action==='transformToMythra'&&switchingBackState.drawnAsset?.includes('switch-v2-p2m')
+    &&restoredList.outfit==='default'&&restoredList.visualNeutral===defaultList.visualNeutral
+    &&!restoredIdleDraw.drawnAsset?.includes('/outfit-new/')
+    &&restoredTransformDraw.drawnAsset?.includes('/mythra/switch-m2p')};
+  // 四套换装素材必须按光/焰对应，且原装目录与新装目录的角色一致。
+  result.changeArt={};
+  const artHash=rel=>crypto.createHash('sha256').update(fs.readFileSync(path.join(__dirname,rel))).digest('hex');
+  for(const prefix of ['outfit-change','outfit-revert']){
+   const detail=[];
+   for(let i=0;i<5;i++){
+    const name=`${prefix}-${i}.png`;
+    const m=artHash(`assets/mythra/${name}`),p=artHash(`assets/pyra/${name}`);
+    const nm=artHash(`assets/outfit-new/mythra/${name}`),np=artHash(`assets/outfit-new/pyra/${name}`);
+    detail.push({name,baseMatchesNew:m===nm&&p===np,personaDistinct:m!==p});
+   }
+   result.changeArt[prefix]={detail,passed:detail.every(d=>d.baseMatchesNew&&d.personaDistinct)};
+  }
+  result.rendererErrors=errors;result.success=result.success&&result.actualDOMDrag.passed&&errors.length===0&&result.referenceFailures.length===0&&floatingResult.success&&transparentCorners&&follows&&onScreen&&result.roam.passed&&result.settingsPanel.passed&&result.outfitSwitch.passed&&Object.values(result.changeArt).every(v=>v.passed);
   fs.writeFileSync(path.join(qa,'lab-runtime-test.json'),JSON.stringify(result,null,2));console.log(JSON.stringify(result));app.exit(result.success?0:1);
  }catch(error){fs.writeFileSync(path.join(qa,'lab-runtime-test.json'),JSON.stringify({success:false,error:String(error),errors},null,2));console.error(error);app.exit(1);}
 }).catch(error=>{fs.writeFileSync(path.join(app.getPath('userData'),'startup-error.log'),String(error.stack||error));if(!testing&&!startupCheck)dialog.showErrorBox('光桌宠无法启动','启动失败，详情已写入用户数据目录的 startup-error.log。');app.exit(1);});
-app.on('before-quit',()=>{stopRoam(petWindow,false);savePosition(petWindow);for(const w of BrowserWindow.getAllWindows())stopDrag(w);tray?.destroy();});
+app.on('before-quit',()=>{if(agentTimer)clearTimeout(agentTimer);stopRoam(petWindow,false);savePosition(petWindow);for(const w of BrowserWindow.getAllWindows())stopDrag(w);tray?.destroy();});
 app.on('window-all-closed',()=>app.quit());

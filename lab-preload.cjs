@@ -14,5 +14,8 @@ contextBridge.exposeInMainWorld('motionHost',{
  onMenu:fn=>ipcRenderer.on('motion:menu-event',(_e,value)=>fn(value)),
  onVoice:fn=>ipcRenderer.on('voice:command',(_e,value)=>fn(value)),
  openVoice:()=>ipcRenderer.invoke('voice:open-panel'),
- savePersona:value=>ipcRenderer.invoke('motion:save-persona',value)
+ savePersona:value=>ipcRenderer.invoke('motion:save-persona',value),
+ saveOutfit:value=>ipcRenderer.invoke('motion:save-outfit',value),
+ getPetState:()=>ipcRenderer.invoke('pet:state'),
+ reportAction:action=>ipcRenderer.send('pet:action',action)
 });

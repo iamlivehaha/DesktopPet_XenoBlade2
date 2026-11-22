@@ -11,10 +11,16 @@
 <body>
  <header>
   <div class="portrait"><img id="portrait-img" src="assets/mythra/headpat-C1.png" alt=""></div>
-  <div><span class="kicker" id="persona-kicker">MYTHRA</span><h1 id="persona-title">光 · 快捷设置</h1></div>
+  <div><span class="kicker" id="persona-kicker">MYTHRA</span><h1 id="persona-title">光 · 快捷设置</h1><small id="appearance-status" class="appearance-status">当前：光 · 原初 · 0 类动作</small></div>
   <button class="close" id="close" aria-label="关闭设置">×</button>
  </header>
  <main>
+  <div class="section-label">状态</div>
+  <div class="state-bars" id="state-bars">
+   <div><span>饱食度</span><i><b id="bar-satiety"></b></i><em id="val-satiety">—</em></div>
+   <div><span>心情值</span><i><b id="bar-mood"></b></i><em id="val-mood">—</em></div>
+   <div><span>精力值</span><i><b id="bar-energy"></b></i><em id="val-energy">—</em></div>
+  </div>
   <div class="section-label">桌面行为</div>
   <button id="autoIdle" class="setting" role="switch" aria-checked="false" aria-labelledby="idle-title" disabled>
    <span><strong id="idle-title">随机待机</strong><small>依次随机表演待机动作</small></span>
@@ -28,6 +34,11 @@
   <div class="persona-switch">
    <button id="persona-mythra" class="persona-btn" data-persona="mythra"><b>光</b><small>金发 · 绿色系</small></button>
    <button id="persona-pyra" class="persona-btn" data-persona="pyra"><b>焰</b><small>红发 · 暖色系</small></button>
+  </div>
+  <div class="section-label">服装</div>
+  <div class="persona-switch outfit-switch">
+   <button id="outfit-default" class="persona-btn" data-outfit="default"><b>原初</b><small>经典服饰</small></button>
+   <button id="outfit-new" class="persona-btn" data-outfit="new"><b>新装</b><small>全新造型</small></button>
   </div>
   <p id="feedback" role="status" aria-live="polite">点击切换；开启状态会显示 ✓。</p>
  </main>
