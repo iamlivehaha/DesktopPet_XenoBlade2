@@ -1,0 +1,56 @@
+name: Release Windows x64
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build package
+        run: npm run dist
+
+      - name: Create release archive
+        shell: pwsh
+        run: |
+          $asset = "MythraDesktopPet-$env:GITHUB_REF_NAME-win32-x64.zip"
+          tar.exe -a -cf $asset -C dist MythraDesktopPet-win32-x64
+          "RELEASE_ASSET=$asset" >> $env:GITHUB_ENV
+
+      - name: Publish GitHub Release
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          @'
+          ## Mythra Desktop Pet v0.2.6
+
+          Windows x64 portable build with the full new-outfit animation set.
+
+          - Full idle/action animations for original and new outfits
+          - Outfit change and revert animations
+          - New-outfit v2 persona switching animations
+          - Persona, outfit and action-list state synchronization
+          - Satiety, mood and energy state agent with persona behavior
+          - Voice action and control integration
+
+          Download `MythraDesktopPet-v0.2.6-win32-x64.zip`, extract the whole folder and run `MythraDesktopPet.exe`.
+          '@ | Out-File -FilePath release-notes.md -Encoding utf8
+          gh release create $env:GITHUB_REF_NAME $env:RELEASE_ASSET --title "Mythra Desktop Pet v0.2.6" --notes-file release-notes.md --verify-tag
