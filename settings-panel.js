@@ -4,6 +4,12 @@ const copy={autoIdle:'随机待机',roam:'全屏随机漫游'};
 const $=id=>document.getElementById(id);
 let ready=false,pending=false;
 let appearance={persona:'mythra',outfit:'default',actions:0};
+const scaleInput=$('petScale');
+function paintScale(value){
+ const n=Math.max(0.5,Math.min(2,Number(value)||1));
+ if(scaleInput)scaleInput.value=String(n);
+ const out=$('petScale-value');if(out)out.textContent=Math.round(n*100)+'%';
+}
 function paint(state){
  for(const key of keys){
   const b=$(key),on=state[key]===true;
@@ -12,6 +18,7 @@ function paint(state){
   b.querySelector('.mark').textContent=on?'✓':'−';
   b.disabled=pending;
  }
+ if(state&&Number.isFinite(Number(state.petScale)))paintScale(state.petScale);
  ready=true;
 }
 for(const key of keys)$(key).addEventListener('click',async()=>{
@@ -24,6 +31,19 @@ for(const key of keys)$(key).addEventListener('click',async()=>{
  }catch{pending=false;keys.forEach(k=>$(k).disabled=false);$('feedback').textContent='设置未保存，请重试。';}
 });
 window.petSettings.onChange(paint);
+let scaleTimer=null;
+async function commitScale(){
+ const value=Number(scaleInput?.value)||1;
+ try{
+  const state=await window.petSettings.set('petScale',value);
+  paintScale(state.petScale);
+  $('feedback').textContent=`人物比例已调整为 ${Math.round(state.petScale*100)}%`;
+ }catch{$('feedback').textContent='比例设置未保存，请重试。';}
+}
+if(scaleInput){
+ scaleInput.addEventListener('input',()=>{paintScale(scaleInput.value);clearTimeout(scaleTimer);scaleTimer=setTimeout(commitScale,110);});
+ scaleInput.addEventListener('change',()=>{clearTimeout(scaleTimer);commitScale();});
+}
 function paintStats(st){
  if(!st)return;
  for(const k of ['satiety','mood','energy']){

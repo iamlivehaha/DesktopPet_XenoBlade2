@@ -1,6 +1,6 @@
 {
   "name": "mythra-desktop-pet-preview",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "private": true,
   "main": "lab-main.cjs",
   "description": "Standalone Mythra desktop pet - motion redesign preview",

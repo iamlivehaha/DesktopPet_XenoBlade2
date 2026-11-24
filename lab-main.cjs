@@ -6,6 +6,7 @@ const {startupMode,clampPosition}=require('./startup-policy.cjs');
 const {planRoam,positionAt}=require('./roam-route.cjs');
 const voice=require('./voice-model.cjs');
 const petState=require('./pet-state.cjs');
+const game=require('./game-state.cjs');
 const {performance}=require('node:perf_hooks');
 const testing=process.argv.includes('--self-test');
 const mode=startupMode({packaged:app.isPackaged,args:process.argv});
@@ -20,10 +21,14 @@ app.commandLine.appendSwitch('disable-renderer-backgrounding');
 const manifest=JSON.parse(fs.readFileSync(path.join(__dirname,'motion-manifest.json'),'utf8'));
 const qa=app.isPackaged?path.join(app.getPath('userData'),'qa'):path.join(__dirname,'qa');fs.mkdirSync(qa,{recursive:true});
 const settingsPath=path.join(app.getPath('userData'),'desktop-settings.json');
-let settings={autoIdle:true,roam:false};try{if(!testing&&!startupCheck)settings={...settings,...JSON.parse(fs.readFileSync(settingsPath,'utf8'))};}catch{}
+const BASE_PET_SIZE=220,MIN_PET_SCALE=0.5,MAX_PET_SCALE=2;
+const petSize=scale=>Math.round(BASE_PET_SIZE*Math.max(MIN_PET_SCALE,Math.min(MAX_PET_SCALE,Number(scale)||1)));
+const normalizeScale=value=>{const n=Number(value);if(!Number.isFinite(n)||n<MIN_PET_SCALE||n>MAX_PET_SCALE)throw new Error('Invalid scale');return Math.round(n*20)/20;};
+let settings={autoIdle:true,roam:false,petScale:1};try{if(!testing&&!startupCheck)settings={...settings,...JSON.parse(fs.readFileSync(settingsPath,'utf8'))};}catch{}
+settings.petScale=normalizeScale(settings.petScale);
 function saveSettings(){if(testing||startupCheck)return;fs.mkdirSync(path.dirname(settingsPath),{recursive:true});fs.writeFileSync(settingsPath,JSON.stringify(settings,null,2));}
 function savePosition(w){if(w&&!w.isDestroyed()&&w.isMotionFloating){const b=w.getBounds();settings.position={x:b.x,y:b.y};saveSettings();}}
-let win,petWindow,tray,panel,voicePanel,route,routeId=0;const dragTimers=new Map(),errors=[];
+let win,petWindow,tray,panel,voicePanel,gamePanel,route,routeId=0,runTimer=null;const dragTimers=new Map(),errors=[];
 const voiceHistory=[];
 function broadcastVoice(event){for(const w of BrowserWindow.getAllWindows())if(!w.isDestroyed())w.webContents.send('voice:command',event);}
 // 智能体：每 30 秒按人格衰减属性，并判断是否发出索求。
@@ -62,14 +67,28 @@ function stopRoam(w,notify=true){
   if(notify)w.webContents.send('motion:menu-event',{type:'roam-ended',id:active.id});
  }
 }
-const settingsSnapshot=()=>({autoIdle:settings.autoIdle!==false,roam:settings.roam===true});
+const settingsSnapshot=()=>({autoIdle:settings.autoIdle!==false,roam:settings.roam===true,petScale:settings.petScale});
 function broadcast(windows,event){for(const w of windows)if(w!==panel&&!w.isDestroyed())w.webContents.send('motion:menu-event',event);}
+function resizeFloating(){
+ if(!petWindow||petWindow.isDestroyed()||!petWindow.isMotionFloating)return;
+ const size=petSize(settings.petScale),b=petWindow.getBounds();
+ const area=screen.getDisplayNearestPoint({x:Math.round(b.x+b.width/2),y:Math.round(b.y+b.height/2)}).workArea;
+ const pos=clampPosition({x:b.x,y:b.y,width:size,height:size},area);
+ petWindow.setBounds({x:pos.x,y:pos.y,width:size,height:size});savePosition(petWindow);
+}
 function setPreference(key,value){
- if(!['autoIdle','roam'].includes(key)||typeof value!=='boolean')throw new Error('Invalid preference');
- const previous=settings[key];settings[key]=value;
- try{saveSettings();}catch(error){settings[key]=previous;throw error;}
- if(key==='roam'&&!value)stopRoam(petWindow);
- broadcast(BrowserWindow.getAllWindows(),{type:key==='roam'?'set-roam':'set-autonomy',enabled:value});
+ if(key==='petScale'){
+  const next=normalizeScale(value),previous=settings.petScale;settings.petScale=next;
+  try{saveSettings();}catch(error){settings.petScale=previous;throw error;}
+  resizeFloating();
+  broadcast(BrowserWindow.getAllWindows(),{type:'set-scale',value:next});
+ }else{
+  if(!['autoIdle','roam'].includes(key)||typeof value!=='boolean')throw new Error('Invalid preference');
+  const previous=settings[key];settings[key]=value;
+  try{saveSettings();}catch(error){settings[key]=previous;throw error;}
+  if(key==='roam'&&!value)stopRoam(petWindow);
+  broadcast(BrowserWindow.getAllWindows(),{type:key==='roam'?'set-roam':'set-autonomy',enabled:value});
+ }
  const state=settingsSnapshot();
  if(panel&&!panel.isDestroyed())panel.webContents.send('settings:changed',state);
  updateTrayMenu();
@@ -86,7 +105,7 @@ function guard(w){
 }
 async function openFloating(){
  if(petWindow&&!petWindow.isDestroyed()){petWindow.show();return true;}
- const size=220,saved=settings.position;let a=screen.getPrimaryDisplay().workArea;
+ const size=petSize(settings.petScale),saved=settings.position;let a=screen.getPrimaryDisplay().workArea;
  if(Number.isFinite(saved?.x)&&Number.isFinite(saved?.y))a=screen.getDisplayNearestPoint({x:Math.round(saved.x),y:Math.round(saved.y)}).workArea;
  const location=clampPosition({x:Number.isFinite(saved?.x)?saved.x:a.x+a.width-size-60,y:Number.isFinite(saved?.y)?saved.y:a.y+a.height-size-30,width:size,height:size},a);
  petWindow=new BrowserWindow({width:size,height:size,...location,
@@ -100,7 +119,7 @@ async function openSettings(from){
  if(panel&&!panel.isDestroyed()){if(panel.isVisible())panel.focus();return;}
  stopRoam(petWindow);
  const {x,y}=screen.getCursorScreenPoint(),a=screen.getDisplayNearestPoint({x,y}).workArea;
- const width=326,height=620;
+ const width=326,height=700;
  const pos=clampPosition({x:x-20,y:y-a.y>=height+8?y-height-8:y+10,width,height},a);
  const current=new BrowserWindow({...pos,width,height,show:false,frame:false,backgroundColor:'#f5f6ef',
   title:'光桌宠 · 快捷设置',resizable:false,skipTaskbar:true,alwaysOnTop:true,
@@ -126,13 +145,51 @@ async function createVoicePanel(){
   webPreferences:{...prefs(),preload:path.join(__dirname,'voice-preload.cjs')}});
  guard(voicePanel);
  voicePanel.on('closed',()=>{voicePanel=null;broadcastVoice({type:'voice-panel',open:false});});
- voicePanel.on('blur',()=>{if(voicePanel&&!voicePanel.isDestroyed())voicePanel.hide();});
+ voicePanel.on('blur',()=>{if(!panelDragging&&voicePanel&&!voicePanel.isDestroyed())voicePanel.hide();});
  try{
   await voicePanel.loadFile(path.join(__dirname,'voice-panel.html'));
   voicePanel.show();voicePanel.focus();
   broadcastVoice({type:'voice-panel',open:true});
   return voicePanel;
  }catch(error){voicePanel.close();throw error;}
+}
+/* ---------- 冒险 / 游戏面板 ---------- */
+function notifyGameChanged(){
+ if(gamePanel&&!gamePanel.isDestroyed())gamePanel.webContents.send('game:changed',game.publicGame());
+}
+function announceReward(result){
+ if(!result)return;
+ const rarity=result.item?game.RARITIES[result.item.rarity]?.name||'':'';
+ const say=`副本「${result.name}」完成：+${result.exp} EXP、+${result.gold} 金${result.item?`，获得${rarity}装备 ${result.item.name}`:''}`;
+ broadcastVoice({type:'game:reward',say,exp:result.exp,gold:result.gold,item:result.item,levels:result.levels,level:result.level});
+ if(result.levels>0)broadcastVoice({type:'game:level-up',say:`升级啦！现在是 Lv.${result.level}。`});
+ notifyGameChanged();updateTrayMenu();
+}
+function scheduleRun(){
+ if(runTimer){clearTimeout(runTimer);runTimer=null;}
+ const active=game.load().activeRun;if(!active)return;
+ const delay=Math.max(0,active.endsAt-Date.now());
+ runTimer=setTimeout(()=>{
+  runTimer=null;
+  try{announceReward(game.completeRun());}catch(error){errors.push(String(error));}
+ },delay);
+}
+async function createGamePanel(){
+ if(gamePanel&&!gamePanel.isDestroyed()){gamePanel.show();gamePanel.focus();return gamePanel;}
+ const {x,y}=screen.getCursorScreenPoint(),a=screen.getDisplayNearestPoint({x,y}).workArea;
+ const width=520,height=640;
+ const pos=clampPosition({x:x-40,y:Math.max(a.y,y-height+60),width,height},a);
+ gamePanel=new BrowserWindow({...pos,width,height,show:false,frame:false,backgroundColor:'#f5f6ef',
+  title:'光桌宠 · 冒险手册',resizable:false,alwaysOnTop:true,skipTaskbar:true,
+  webPreferences:{...prefs(),preload:path.join(__dirname,'game-preload.cjs')}});
+ guard(gamePanel);
+ gamePanel.on('closed',()=>{gamePanel=null;});
+ gamePanel.on('blur',()=>{if(!testing&&!panelDragging&&gamePanel&&!gamePanel.isDestroyed())gamePanel.close();});
+ try{
+  await gamePanel.loadFile(path.join(__dirname,'game-panel.html'));
+  if(!gamePanel.isDestroyed()){gamePanel.show();gamePanel.focus();}
+  return gamePanel;
+ }catch(error){gamePanel.close();throw error;}
 }
 async function createPreview(){
  if(win&&!win.isDestroyed()){win.show();win.focus();return win;}
@@ -156,16 +213,24 @@ function appearanceSnapshot(){
  return {persona,outfit,actions,portrait:outfit==='new'?`assets/outfit-new/${persona}/headpat-0.png`:`assets/${persona}/headpat-C1.png`};
 }
 function updateTrayMenu(){
- const a=appearanceSnapshot(),name=a.persona==='pyra'?'焰':'光',outfit=a.outfit==='new'?'新装':'原初';
+ const a=appearanceSnapshot(),g=game.publicGame(),name=a.persona==='pyra'?'焰':'光',outfit=a.outfit==='new'?'新装':'原初';
  try{tray?.setImage(nativeImage.createFromPath(path.join(__dirname,a.portrait)).resize({width:24,height:24}));}catch{}
- tray?.setToolTip(`${name}桌宠 · ${outfit} · ${a.actions} 类动作`);
+ tray?.setToolTip(`${name}桌宠 · Lv.${g.level} · ${g.gold} 金 · ${outfit} · ${a.actions} 类动作`);
  tray?.setContextMenu(Menu.buildFromTemplate([{label:`显示${name}桌宠`,click:()=>openFloating()},{label:'打开动作预览',click:()=>createPreview()},
   {label:'语音对话',click:()=>createVoicePanel().catch(e=>errors.push(String(e)))},
-  {label:`当前：${name} · ${outfit} · ${a.actions} 类动作`,enabled:false},
-  prefItem('autoIdle','随机待机'),prefItem('roam','全屏随机漫游'),{type:'separator'},{label:`退出${name}桌宠`,click:()=>app.quit()}]));
+  {label:'冒险手册',click:()=>createGamePanel().catch(e=>errors.push(String(e)))},
+  {label:`Lv.${g.level} · ${g.gold} 金 · ${name} · ${outfit} · ${a.actions} 类动作`,enabled:false},
+  prefItem('autoIdle','随机待机'),prefItem('roam','全屏随机漫游'),
+  {label:'人物比例',submenu:[0.7,1,1.3,1.6,2].map(v=>({
+   label:`${Math.round(v*100)}%`,type:'radio',checked:settingsSnapshot().petScale===v,
+   click:()=>{
+    try{setPreference('petScale',v);}catch(error){errors.push(String(error));}
+   }
+  }))},
+  {type:'separator'},{label:`退出${name}桌宠`,click:()=>app.quit()}]));
 }
 ipcMain.handle('motion:manifest',event=>({manifest,nativeUrlGroups:urls,testing,autoIdle:settings.autoIdle!==false,
- roam:settings.roam===true,persona:voice.load().persona,outfit:(testing||startupCheck)?'default':(voice.load().outfit==='new'?'new':'default'),
+ roam:settings.roam===true,petScale:settings.petScale,persona:voice.load().persona,outfit:(testing||startupCheck)?'default':(voice.load().outfit==='new'?'new':'default'),
  floating:Boolean(BrowserWindow.fromWebContents(event.sender)?.isMotionFloating)}));
 ipcMain.handle('motion:save-persona',(_event,value)=>{const p=value==='pyra'?'pyra':'mythra';voice.save({persona:p});broadcastVoice({type:'persona-change',persona:p});updateTrayMenu();return true;});
 ipcMain.handle('motion:get-persona',()=>voice.load().persona);
@@ -180,6 +245,7 @@ ipcMain.on('pet:action',(_e,action)=>{
 ipcMain.on('pet:agent-request',(_e,req)=>{broadcastVoice({type:'agent-request',...req});});
 ipcMain.on('motion:renderer-error',(_e,msg)=>errors.push(String(msg)));
 ipcMain.handle('motion:open-floating',()=>openFloating());
+ipcMain.handle('motion:open-game',()=>createGamePanel().then(w=>Boolean(w)));
 ipcMain.on('motion:save-autonomy',(event,value)=>{
  if(event.sender===win?.webContents||event.sender===petWindow?.webContents)
   try{setPreference('autoIdle',Boolean(value));}catch(error){errors.push(String(error));}
@@ -226,22 +292,28 @@ ipcMain.on('motion:menu',event=>{
 const fromPanel=event=>panel&&!panel.isDestroyed()&&event.sender===panel.webContents;
 ipcMain.handle('settings:read',event=>{if(!fromPanel(event))throw new Error('Settings window required');return settingsSnapshot();});
 ipcMain.handle('settings:set',(event,key,value)=>{if(!fromPanel(event))throw new Error('Settings window required');return setPreference(key,value);});
-// 设置面板拖动：渲染层 header 按下并移动时按屏幕光标增量移动窗口。
+// 所有浮窗面板拖动：渲染层 header 按下并移动时按屏幕光标增量移动窗口。
+const panelWindow=event=>BrowserWindow.fromWebContents(event.sender);
+const isDraggablePanel=w=>Boolean(w&&!w.isDestroyed()&&(w===panel||w===voicePanel||w===gamePanel));
 let panelDrag=null,panelDragging=false;
 ipcMain.on('panel:drag-start',(event,clientX,clientY)=>{
+ const w=panelWindow(event);if(!isDraggablePanel(w))return;
  panelDragging=true;
- if(!fromPanel(event)||!panel)return;
- const b=panel.getBounds();
- panelDrag={originX:b.x,originY:b.y,clientX,clientY};
+ const b=w.getBounds();
+ panelDrag={window:w,originX:b.x,originY:b.y,clientX,clientY};
 });
 ipcMain.on('panel:drag-move',(event,clientX,clientY)=>{
- if(!fromPanel(event)||!panel||!panelDrag||panel.isDestroyed())return;
+ const w=panelWindow(event);
+ if(!panelDrag||panelDrag.window!==w||w.isDestroyed())return;
  const a=screen.getDisplayNearestPoint({x:panelDrag.originX,y:panelDrag.originY}).workArea;
- const b=panel.getBounds();
+ const b=w.getBounds();
  const pos=clampPosition({x:panelDrag.originX+clientX-panelDrag.clientX,y:panelDrag.originY+clientY-panelDrag.clientY,width:b.width,height:b.height},a);
- panel.setPosition(pos.x,pos.y);
+ w.setPosition(pos.x,pos.y);
 });
-ipcMain.on('panel:drag-end',()=>{panelDrag=null;panelDragging=false;});
+ipcMain.on('panel:drag-end',event=>{
+ if(panelDrag&&panelWindow(event)&&panelDrag.window!==panelWindow(event))return;
+ panelDrag=null;panelDragging=false;
+});
 ipcMain.on('settings:act',(event,key)=>{
  if(!fromPanel(event))return;
  if(key==='close')panel.close();
@@ -292,11 +364,58 @@ ipcMain.handle('voice:transcribe',async(event,buffer,mime)=>{
 });
 ipcMain.handle('voice:open-panel',()=>createVoicePanel().then(w=>Boolean(w)));
 ipcMain.on('voice:panel-close',()=>{if(voicePanel&&!voicePanel.isDestroyed())voicePanel.close();});
+/* ---------- 冒险系统 IPC ---------- */
+const fromGame=event=>gamePanel&&!gamePanel.isDestroyed()&&event.sender===gamePanel.webContents;
+const qaOnly=event=>testing&&event.sender===gamePanel?.webContents;
+ipcMain.handle('game:read',()=>game.publicGame());
+ipcMain.handle('game:battle-frames',()=>({
+ persona:voice.load().persona,
+ run:manifest.actions.run.loop.frames.map(f=>({asset:f.asset,ms:f.ms})),
+ slash:[...manifest.actions.idleSword.start.frames,...manifest.actions.idleSword.loop.frames,...manifest.actions.idleSword.end.frames].map(f=>({asset:f.asset,ms:f.ms})),
+}));
+ipcMain.handle('game:boss-defeated',event=>{
+ if(!fromGame(event))throw new Error('Game panel required');
+ return game.markBossDefeated();
+});
+ipcMain.handle('game:start-run',(event,id)=>{
+ if(!fromGame(event))throw new Error('Game panel required');
+ const next=game.startRun(id);scheduleRun();notifyGameChanged();updateTrayMenu();return next;
+});
+ipcMain.handle('game:buy',(event,uid)=>{
+ if(!fromGame(event))throw new Error('Game panel required');
+ const result=game.buyItem(uid);notifyGameChanged();updateTrayMenu();return result;
+});
+ipcMain.handle('game:sell',(event,uid)=>{
+ if(!fromGame(event))throw new Error('Game panel required');
+ const result=game.sellItem(uid);notifyGameChanged();updateTrayMenu();return result;
+});
+ipcMain.handle('game:equip',(event,uid)=>{
+ if(!fromGame(event))throw new Error('Game panel required');
+ const next=game.equipItem(uid);notifyGameChanged();updateTrayMenu();return next;
+});
+ipcMain.handle('game:unequip',(event,slot)=>{
+ if(!fromGame(event))throw new Error('Game panel required');
+ const next=game.unequipItem(slot);notifyGameChanged();updateTrayMenu();return next;
+});
+ipcMain.handle('game:force-complete',event=>{
+ if(!testing||!fromGame(event))throw new Error('QA only');
+ const result=game.completeRun(true);if(result)announceReward(result);notifyGameChanged();updateTrayMenu();return result;
+});
+ipcMain.handle('game:qa-grant-exp',(event,n)=>{
+ if(!qaOnly(event))throw new Error('QA only');
+ const levels=game.grantExp(n);notifyGameChanged();updateTrayMenu();return {levels,game:game.publicGame()};
+});
+ipcMain.handle('game:qa-grant-gold',(event,n)=>{
+ if(!qaOnly(event))throw new Error('QA only');
+ const next=game.grantGold(n);notifyGameChanged();updateTrayMenu();return next;
+});
+ipcMain.on('game:close',event=>{if(fromGame(event))gamePanel.close();});
 async function waitReady(w){const end=Date.now()+30000;while(!await w.webContents.executeJavaScript('Boolean(window.motionQA)')){
  if(Date.now()>end){let diag='';try{diag=await w.webContents.executeJavaScript('document.readyState+"|"+(window.motionQA?"qa":"noqa")');}catch(e){diag=String(e);}throw new Error('Renderer assets did not decode: '+diag);}await new Promise(r=>setTimeout(r,70));}}
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 app.whenReady().then(async()=>{
  if(!gotLock)return;
+ if(!testing&&!startupCheck)scheduleRun();
  startPetAgent();
  if(startupCheck){
   await openFloating();const info=await petWindow.webContents.executeJavaScript('window.motionQA.startupInfo()');
@@ -316,6 +435,7 @@ app.whenReady().then(async()=>{
  if(process.argv.includes('--voice'))await createVoicePanel().catch(e=>errors.push(String(e)));
  if(!testing)return;
  voice.save({persona:'mythra',outfit:'default'});
+ game.resetForQA();
  try{
   win.show();await waitReady(win);const result=await win.webContents.executeJavaScript('window.motionQA.run()');
   for(const [name,action,index] of [['look','lookAround',2],['suspended','drag',0],['recovery','drag',24]]){
@@ -389,6 +509,7 @@ app.whenReady().then(async()=>{
     portrait:document.getElementById('portrait-img').getAttribute('src'),
     persona:document.querySelector('.persona-btn.active')?.dataset.persona,
     outfit:document.querySelector('.outfit-switch .persona-btn.active')?.dataset.outfit,
+    scale:document.getElementById('petScale')?.value,scaleText:document.getElementById('petScale-value')?.textContent,
     fits:document.querySelector('footer').getBoundingClientRect().bottom<=innerHeight,hasFocus:document.hasFocus()};
   })()`);};
   const clickPanel=async(w,key)=>{
@@ -420,6 +541,24 @@ app.whenReady().then(async()=>{
   await clickPanel(reopenedWindow,'outfit-default');const restoredOutfit=await panelState(reopenedWindow);
   reopenedWindow.webContents.sendInputEvent({type:'keyDown',keyCode:'Escape'});await sleep(150);
   const closedByEscape=reopenedWindow.isDestroyed();
+  // 人物比例：滑块修改浮动窗尺寸与渲染画布，且能恢复原值。
+  const scaleWindow=await openFromRightClick(),scaleInitial=await panelState(scaleWindow);
+  const setScaleViaPanel=async v=>{
+   await scaleWindow.webContents.executeJavaScript(`(()=>{const e=document.getElementById('petScale');e.value=${JSON.stringify(String(v))};e.dispatchEvent(new Event('input',{bubbles:true}));e.dispatchEvent(new Event('change',{bubbles:true}));return true;})()`);
+   await sleep(220);
+  };
+  const boundsAtStart=petWindow.getBounds();
+  await setScaleViaPanel(1.5);
+  const scaleState=await panelState(scaleWindow),boundsAt150=petWindow.getBounds();
+  const renderAt150=await petWindow.webContents.executeJavaScript('window.motionQA.getState()');
+  await setScaleViaPanel(1);
+  const boundsRestored=petWindow.getBounds();
+  await clickPanel(scaleWindow,'close');
+  result.petScale={scaleInitial,scaleState,boundsAtStart,boundsAt150,boundsRestored,renderAt150,
+   passed:scaleInitial?.scale==='1'&&scaleState?.scale==='1.5'&&scaleState?.scaleText==='150%'
+    &&boundsAt150.width===330&&boundsAt150.height===330
+    &&Math.abs(renderAt150.scale-1.5)<0.001&&renderAt150.canvas[0]>0
+    &&boundsRestored.width===boundsAtStart.width&&boundsRestored.height===boundsAtStart.height};
   result.settingsPanel={initial,switched,switchedIdle,reopened,switchedOutfit,restoredOutfit,closedByButton,closedByEscape,routeBlocked,panelDraggable,beforeDrag,afterDrag,
    passed:initial.buttons.autoIdle.value==='开启'&&initial.buttons.roam.value==='关闭'&&initial.fits&&panelDraggable
     &&initial.appearance.includes('类动作')&&/^assets\/(outfit-new\/)?(mythra|pyra)\//.test(initial.portrait)
@@ -474,7 +613,96 @@ app.whenReady().then(async()=>{
    }
    result.changeArt[prefix]={detail,passed:detail.every(d=>d.baseMatchesNew&&d.personaDistinct)};
   }
-  result.rendererErrors=errors;result.success=result.success&&result.actualDOMDrag.passed&&errors.length===0&&result.referenceFailures.length===0&&floatingResult.success&&transparentCorners&&follows&&onScreen&&result.roam.passed&&result.settingsPanel.passed&&result.outfitSwitch.passed&&Object.values(result.changeArt).every(v=>v.passed);
+  // 冒险系统：等级 / 金币 / 商店 / 装备背包 / 副本结算。
+  const gameWindow=await createGamePanel();
+  for(let i=0;i<100;i++){
+   if(await gameWindow.webContents.executeJavaScript('Boolean(document.querySelector(\'button[data-action="start"]\'))'))break;
+   await sleep(40);
+  }
+  const readGame=()=>gameWindow.webContents.executeJavaScript('window.gameHost.read()');
+  const gameDom=()=>gameWindow.webContents.executeJavaScript(`(()=>({level:document.getElementById('hero-name').textContent,
+   gold:document.getElementById('hero-gold').textContent,bag:document.getElementById('bag-count').textContent,
+   feedback:document.getElementById('game-feedback').textContent,
+   thumbs:document.querySelectorAll('.item-thumb img').length,
+   brokenThumbs:[...document.querySelectorAll('.item-thumb img')].filter(i=>!i.complete||i.naturalWidth===0).length,
+   status:['satiety','mood','energy'].map(k=>document.getElementById('status-'+k+'-val').textContent)}))()`);
+  const clickGameSelector=async selector=>{
+   const rect=await gameWindow.webContents.executeJavaScript(`(()=>{const e=document.querySelector(${JSON.stringify(selector)});if(!e)throw new Error('missing '+${JSON.stringify(selector)});return e.getBoundingClientRect().toJSON();})()`);
+   const x=Math.round(rect.x+rect.width*.5),y=Math.round(rect.y+rect.height*.5);
+   gameWindow.webContents.sendInputEvent({type:'mouseDown',x,y,button:'left',clickCount:1,modifiers:['leftButtonDown']});
+   gameWindow.webContents.sendInputEvent({type:'mouseUp',x,y,button:'left',clickCount:1});await sleep(180);
+  };
+  const initialGame=await readGame(),initialGameDom=await gameDom();
+  const gameBefore=gameWindow.getBounds();
+  const gh=await gameWindow.webContents.executeJavaScript('document.querySelector("header").getBoundingClientRect().toJSON()');
+  const gx=Math.round(gh.x+gh.width*.4),gy=Math.round(gh.y+gh.height*.5);
+  gameWindow.webContents.sendInputEvent({type:'mouseMove',x:gx,y:gy});
+  gameWindow.webContents.sendInputEvent({type:'mouseDown',x:gx,y:gy,button:'left',clickCount:1,modifiers:['leftButtonDown']});
+  gameWindow.webContents.sendInputEvent({type:'mouseMove',x:gx-24,y:gy-16,button:'left',modifiers:['leftButtonDown']});await sleep(90);
+  gameWindow.webContents.sendInputEvent({type:'mouseUp',x:gx-24,y:gy-16,button:'left',clickCount:1});await sleep(90);
+  const gameAfter=gameWindow.getBounds();
+  const gameDraggable=Math.hypot(gameAfter.x-gameBefore.x,gameAfter.y-gameBefore.y)>8;
+  await clickGameSelector('button[data-action="start"][data-id="forest"]');
+  const startedGame=await readGame();
+  await sleep(2200);
+  const battleView=await gameWindow.webContents.executeJavaScript(`(()=>({visible:!document.getElementById('battle-stage').hidden,
+   actor:document.getElementById('battle-actor-img').getAttribute('src'),
+   enemyVisible:!document.getElementById('battle-enemy').hidden,enemyName:document.getElementById('enemy-name').textContent,
+   hpWidth:document.getElementById('enemy-hp-bar').style.width,hud:document.getElementById('battle-hud-text').textContent,
+   progress:document.getElementById('battle-progress').style.width}))()`);
+  const battleData=startedGame.activeRun?.battle;
+  const battleValid=battleView.visible&&battleView.enemyVisible&&battleView.enemyName.length>0
+   &&/new-run-|idle-sword-/.test(battleView.actor||'')
+   &&battleData?.enemies?.length===3&&battleData.enemies[0].maxHp>startedGame.atk
+   &&parseFloat(battleView.hpWidth)<100&&battleView.hud.includes('/3');
+  await gameWindow.webContents.executeJavaScript('window.gameHost.reportBossDefeated()');
+  await gameWindow.webContents.executeJavaScript('window.gameHost.forceComplete()');await sleep(180);
+  const battleClosed=await gameWindow.webContents.executeJavaScript(`document.getElementById('battle-stage').hidden`);
+  const completedGame=await readGame(),completedDom=await gameDom();
+  await clickGameSelector('button[data-tab="shop"]');
+  await clickGameSelector('button[data-action="buy"][data-uid="shop-weapon-0"]');
+  const boughtGame=await readGame(),powerBefore=boughtGame.power;
+  await clickGameSelector('button[data-tab="inventory"]');
+  await clickGameSelector('button[data-action="equip"]');
+  const equippedGame=await readGame(),equippedDom=await gameDom();
+  await clickGameSelector('button[data-action="sell"]');
+  const soldGame=await readGame();
+  await gameWindow.webContents.executeJavaScript('window.gameHost.grantExp(600)');await sleep(150);
+  const leveledGame=await readGame();
+  await gameWindow.webContents.executeJavaScript('window.gameHost.close()');await sleep(150);
+  // 中键打开冒险手册，语音面板与冒险手册均可拖动。
+  await petWindow.webContents.executeJavaScript(`document.getElementById('pet-stage').dispatchEvent(new PointerEvent('pointerdown',{button:1,bubbles:true,cancelable:true}))`);
+  for(let i=0;i<60;i++){if(gamePanel&&gamePanel.isVisible())break;await sleep(40);}
+  const middleOpened=Boolean(gamePanel&&gamePanel.isVisible());
+  const middleShows=middleOpened?await gamePanel.webContents.executeJavaScript(`Boolean(document.querySelector('.pet-status')&&document.getElementById('hero-name')?.textContent.includes('Lv.'))`):false;
+  if(gamePanel&&!gamePanel.isDestroyed())await gamePanel.webContents.executeJavaScript('window.gameHost.close()');await sleep(150);
+  const voiceWindow=await createVoicePanel();
+  for(let i=0;i<60;i++){if(await voiceWindow.webContents.executeJavaScript('Boolean(document.querySelector("header"))'))break;await sleep(40);}
+  const voiceBefore=voiceWindow.getBounds();
+  const vh=await voiceWindow.webContents.executeJavaScript('document.querySelector("header").getBoundingClientRect().toJSON()');
+  const vx=Math.round(vh.x+vh.width*.4),vy=Math.round(vh.y+vh.height*.5);
+  voiceWindow.webContents.sendInputEvent({type:'mouseMove',x:vx,y:vy});
+  voiceWindow.webContents.sendInputEvent({type:'mouseDown',x:vx,y:vy,button:'left',clickCount:1,modifiers:['leftButtonDown']});
+  voiceWindow.webContents.sendInputEvent({type:'mouseMove',x:vx-22,y:vy-14,button:'left',modifiers:['leftButtonDown']});await sleep(90);
+  voiceWindow.webContents.sendInputEvent({type:'mouseUp',x:vx-22,y:vy-14,button:'left',clickCount:1});await sleep(90);
+  const voiceAfter=voiceWindow.getBounds();
+  const voiceDraggable=Math.hypot(voiceAfter.x-voiceBefore.x,voiceAfter.y-voiceBefore.y)>8;
+  await voiceWindow.webContents.executeJavaScript('window.voiceHost.close()');await sleep(120);
+  result.panels={middleOpened,middleShows,voiceDraggable,gameDraggable,passed:middleOpened&&middleShows&&voiceDraggable&&gameDraggable};
+  result.game={initialGame,initialGameDom,startedGame,completedGame,completedDom,boughtGame,equippedGame,equippedDom,soldGame,leveledGame,
+   passed:initialGame.level===1&&initialGame.gold===100&&initialGameDom.gold.includes('100')
+    &&Boolean(startedGame.activeRun)&&startedGame.gold===95
+    &&completedGame.totalRuns===1&&completedGame.exp>0&&completedGame.gold>95&&!completedGame.activeRun
+    &&completedDom.feedback.includes('副本')
+    &&boughtGame.inventory.length===1&&boughtGame.gold<completedGame.gold
+    &&equippedGame.equipment.weapon?.uid===boughtGame.inventory[0].uid&&equippedGame.power>powerBefore
+    &&equippedDom.bag.includes('1/24')&&soldGame.inventory.length===0&&soldGame.gold>boughtGame.gold
+    &&initialGameDom.thumbs===18&&equippedDom.thumbs===19
+    &&initialGameDom.brokenThumbs===0&&equippedDom.brokenThumbs===0
+    &&initialGameDom.status.every(v=>v!=='—')&&gameDraggable
+    &&battleValid&&battleClosed&&completedGame.lastReward.bossDefeated===true
+    &&leveledGame.level>1};
+  result.rendererErrors=errors;result.success=result.success&&result.actualDOMDrag.passed&&errors.length===0&&result.referenceFailures.length===0&&floatingResult.success&&transparentCorners&&follows&&onScreen&&result.roam.passed&&result.settingsPanel.passed&&result.petScale.passed&&result.outfitSwitch.passed&&result.game.passed&&result.panels.passed&&Object.values(result.changeArt).every(v=>v.passed);
   fs.writeFileSync(path.join(qa,'lab-runtime-test.json'),JSON.stringify(result,null,2));console.log(JSON.stringify(result));app.exit(result.success?0:1);
  }catch(error){fs.writeFileSync(path.join(qa,'lab-runtime-test.json'),JSON.stringify({success:false,error:String(error),errors},null,2));console.error(error);app.exit(1);}
 }).catch(error=>{fs.writeFileSync(path.join(app.getPath('userData'),'startup-error.log'),String(error.stack||error));if(!testing&&!startupCheck)dialog.showErrorBox('光桌宠无法启动','启动失败，详情已写入用户数据目录的 startup-error.log。');app.exit(1);});

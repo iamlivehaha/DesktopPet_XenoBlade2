@@ -9,5 +9,8 @@ contextBridge.exposeInMainWorld('voiceHost',{
  chat:(text,history)=>ipcRenderer.invoke('voice:chat',text,history),
  transcribe:(buffer,mime)=>ipcRenderer.invoke('voice:transcribe',buffer,mime),
  close:()=>ipcRenderer.send('voice:panel-close'),
+ dragStart:(x,y)=>ipcRenderer.send('panel:drag-start',x,y),
+ dragMove:(x,y)=>ipcRenderer.send('panel:drag-move',x,y),
+ dragEnd:()=>ipcRenderer.send('panel:drag-end'),
  onCommand:fn=>ipcRenderer.on('voice:command',(_e,value)=>fn(value)),
 });

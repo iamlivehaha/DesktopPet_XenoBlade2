@@ -179,3 +179,10 @@ window.voiceHost.onCommand(value=>{
 });
 window.voiceHost.readConfig().then(c=>{fillConfig(c);const w=log.querySelector('.welcome strong');if(w)w.textContent=c.persona==='pyra'?'焰':'光';}).catch(error=>{setStatus('读取配置失败：'+error.message,true);});
 renderSuggest();input.focus();
+const header=document.querySelector('header');let dragging=false;
+header.addEventListener('mousedown',e=>{
+ if(e.button!==0||e.target.closest('button'))return;
+ dragging=true;window.voiceHost.dragStart(e.clientX,e.clientY);e.preventDefault();
+});
+window.addEventListener('mousemove',e=>{if(dragging)window.voiceHost.dragMove(e.clientX,e.clientY);});
+window.addEventListener('mouseup',()=>{if(dragging){dragging=false;window.voiceHost.dragEnd();}});

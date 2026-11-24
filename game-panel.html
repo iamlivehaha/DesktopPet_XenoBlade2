@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+ <meta charset="utf-8">
+ <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'">
+ <meta name="viewport" content="width=device-width,initial-scale=1">
+ <title>光桌宠 · 冒险手册</title>
+ <link rel="stylesheet" href="game-panel.css">
+ <script defer src="game-panel.js"></script>
+</head>
+<body>
+ <header>
+  <div class="hero">
+   <div class="hero-line"><span class="hero-name" id="hero-name">Lv.1</span><span class="hero-gold" id="hero-gold">100 金</span></div>
+   <div class="exp-track"><b id="exp-bar"></b></div>
+   <div class="hero-meta"><span id="exp-text">0 / 120 EXP</span><span id="power-text">战力 16</span></div>
+  </div>
+  <button class="close" id="close" aria-label="关闭冒险手册">×</button>
+ </header>
+ <div class="pet-status" id="pet-status">
+  <div><span>饱食度</span><i><b id="status-satiety"></b></i><em id="status-satiety-val">—</em></div>
+  <div><span>心情值</span><i><b id="status-mood"></b></i><em id="status-mood-val">—</em></div>
+  <div><span>精力值</span><i><b id="status-energy"></b></i><em id="status-energy-val">—</em></div>
+ </div>
+ <nav class="tabs" id="tabs">
+  <button data-tab="dungeons" class="active">副本</button>
+  <button data-tab="inventory">背包 <em id="bag-count">0/24</em></button>
+  <button data-tab="shop">商店</button>
+ </nav>
+ <main id="game-main">
+  <section id="tab-dungeons" class="tab-panel active">
+   <div id="battle-stage" class="battle-stage" hidden>
+    <div class="battle-sky"></div><div class="battle-hills"></div><div class="battle-trees"></div><div class="battle-ground"></div>
+    <div class="battle-actor"><img id="battle-actor-img" alt=""></div>
+    <div class="battle-enemy" id="battle-enemy" hidden>
+     <div class="enemy-body" id="enemy-body"></div><div class="enemy-name" id="enemy-name"></div>
+     <div class="enemy-hp"><b id="enemy-hp-bar"></b></div>
+    </div>
+    <div class="battle-damage" id="battle-damage"></div>
+    <div class="battle-hud"><span id="battle-hud-text"></span><i><b id="battle-progress"></b></i></div>
+   </div>
+   <div id="dungeon-cards"></div>
+  </section>
+  <section id="tab-inventory" class="tab-panel"></section>
+  <section id="tab-shop" class="tab-panel"></section>
+ </main>
+ <footer><div id="game-feedback" role="status" aria-live="polite">选择副本开始练级，赚取金币与装备。</div></footer>
+</body>
+</html>

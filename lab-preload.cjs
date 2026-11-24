@@ -4,6 +4,7 @@ contextBridge.exposeInMainWorld('motionHost',{
  getManifest:()=>ipcRenderer.invoke('motion:manifest'),
  reportError:message=>ipcRenderer.send('motion:renderer-error',String(message)),
  openFloating:()=>ipcRenderer.invoke('motion:open-floating'),
+ openGamePanel:()=>ipcRenderer.invoke('motion:open-game'),
  beginDrag:()=>ipcRenderer.invoke('motion:drag-start'),
  endDrag:()=>ipcRenderer.send('motion:drag-end'),
  popupMenu:()=>ipcRenderer.send('motion:menu'),

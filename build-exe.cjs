@@ -33,7 +33,7 @@ function findCachedElectronZip(){
   await packager({
     dir:__dirname,
     name:'MythraDesktopPet',
-    appVersion:'0.2.6',
+    appVersion:'0.2.7',
     electronVersion:ELECTRON_VERSION,
     platform:'win32',
     arch:'x64',

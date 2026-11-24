@@ -1,6 +1,6 @@
 'use strict';
 (async()=>{
- const {manifest:baseManifest,nativeUrlGroups,testing,floating,autoIdle,roam,persona:initialPersona,outfit:initialOutfit}=await window.motionHost.getManifest();
+ const {manifest:baseManifest,nativeUrlGroups,testing,floating,autoIdle,roam,petScale:initialScale,persona:initialPersona,outfit:initialOutfit}=await window.motionHost.getManifest();
  const $=id=>document.getElementById(id);
  $('asset-badge').textContent=`${Object.keys(baseManifest.actions).length} 类动作 · ${baseManifest.assets.length} 张资源`;
  if(floating){document.body.classList.add('floating');document.documentElement.classList.add('floating-root');}
@@ -8,6 +8,7 @@
  const pyraImages=new Map(),transitionImages=new Map();
  let currentPersona=initialPersona==='pyra'?'pyra':'mythra';
  let currentOutfit=initialOutfit==='new'?'new':'default';
+ let currentScale=Math.max(0.5,Math.min(2,Number(initialScale)||1));
  let personaTransition=null;
  // 按当前服装投影 manifest：替换有 outfitFrames 的动作帧和 neutral
  const altOf=f=>f.replace(/^assets\/(outfit-new\/)?mythra\//,'assets/$1pyra/');
@@ -257,6 +258,7 @@ window.motionHost.getPetState?.().then(showPetStats).catch(()=>{});
   window.motionHost.beginDrag().catch(e=>window.motionHost.reportError(String(e)));
  }
  stage.addEventListener('pointerdown',e=>{
+  if(e.button===1){e.preventDefault();interruptRoam();window.motionHost.openGamePanel();return;}
   if(e.button!==0)return;e.preventDefault();interruptRoam();clearHover();interact();
   press={id:e.pointerId,x:e.screenX,y:e.screenY,lastX:e.screenX,lastY:e.screenY,timer:setTimeout(beginDrag,160)};
   stage.setPointerCapture(e.pointerId);
@@ -381,10 +383,13 @@ window.motionHost.onVoice(value=>{
  }
  if(value?.type==='persona-change'&&value.persona)switchPersona(value.persona,true);
  if(value?.type==='outfit-change'&&value.outfit)switchOutfit(value.outfit,true);
+ if(value?.type==='game:reward'&&value.say)showBubble(value.say,5000);
+ if(value?.type==='game:level-up'&&value.say)showBubble(value.say,5000);
 });
 window.motionHost.onMenu(value=>{
   if(value?.type==='set-autonomy'){$('auto-idle').checked=value.enabled;scheduler.setEnabled(value.enabled,performance.now(),controller);}
   else if(value?.type==='set-roam'){roamEnabled=floating&&value.enabled;interruptRoam();}
+  else if(value?.type==='set-scale'){currentScale=Math.max(0.5,Math.min(2,Number(value.value)||1));resize();}
   else if(value?.type==='roam-ended'&&roaming?.id===value.id){roaming=null;controller.release('roam');planNextRoam(performance.now());}
   else if(value?.type==='panel-open'){panelOpen=value.enabled;clearHover();controller.release('hover');interact();interruptRoam();}
  });
@@ -403,7 +408,7 @@ window.motionHost.onMenu(value=>{
    else{const d=manifest.actions[action],all=['start','loop','end'].flatMap(p=>d[p].frames.map(f=>({...f,phase:p})));const f=all[index];s={...s,action,phase:f.phase,index:0,asset:f.asset,nativeIndex:null,frameMs:f.ms,phaseTime:1000};}
    render(s,true);return true;
   },
-  getState(){const s=controller.snapshot(),asset=displayed?.asset,drawn=asset?visualAsset(asset):null;const set=currentPersona==='pyra'?pyraImages:images;const im=drawn?set.get(drawn)||set.get(asset):null;return{action:s.action,phase:s.phase,index:s.index,dragging,pressing:Boolean(press),intents:controller.intents.size,persona:currentPersona,asset,drawnAsset:drawn,imgW:im?.naturalWidth,pyraCount:pyraImages.size,mythraCount:images.size,referenceFailures:referenceFailures.slice(0,3)};},
+  getState(){const s=controller.snapshot(),asset=displayed?.asset,drawn=asset?visualAsset(asset):null;const set=currentPersona==='pyra'?pyraImages:images;const im=drawn?set.get(drawn)||set.get(asset):null;return{action:s.action,phase:s.phase,index:s.index,dragging,pressing:Boolean(press),intents:controller.intents.size,persona:currentPersona,asset,drawnAsset:drawn,imgW:im?.naturalWidth,scale:currentScale,canvas:[canvases[1].width,canvases[1].height],pyraCount:pyraImages.size,mythraCount:images.size,referenceFailures:referenceFailures.slice(0,3)};},
   async startRoamTest(){
    if(!testing||!floating)return false;
    window.motionQA.prepareInputTest();roamEnabled=true;nextRoam=0;
